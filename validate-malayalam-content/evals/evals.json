@@ -1,0 +1,23 @@
+{
+  "skill_name": "validate-malayalam-content",
+  "evals": [
+    {
+      "id": 1,
+      "name": "validate-actual-lesson-file",
+      "prompt": "Check my data/module1-lessons.json to make sure all the Malayalam content is pure Malayalam script with no accidental Tamil, Arabic, or other scripts mixed in.",
+      "expected_output": "Report showing validation results - either confirming no issues or listing any non-Malayalam characters found with location and context"
+    },
+    {
+      "id": 2,
+      "name": "validate-specific-lesson",
+      "prompt": "I just edited lesson 1.0 about vowels. Can you verify that only Malayalam script is used in the character descriptions?",
+      "expected_output": "Focused validation on lesson 1.0, confirming Malayalam purity or reporting issues"
+    },
+    {
+      "id": 3,
+      "name": "check-character-fields",
+      "prompt": "Validate that the 'malayalam' character fields in my lessons only contain Malayalam Unicode, nothing else.",
+      "expected_output": "Targeted check of Malayalam character fields, confirming no non-Malayalam script"
+    }
+  ]
+}

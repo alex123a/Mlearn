@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Audio Manager</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafbfc; color: #2c3e50; }
+
+        .admin-header {
+            background: white; border-bottom: 1px solid #e8eef5;
+            padding: 16px 24px; display: flex; align-items: center;
+            justify-content: space-between; position: sticky; top: 0; z-index: 10;
+        }
+        .admin-title { font-size: 18px; font-weight: 700; color: #6366f1; }
+        .back-link { font-size: 13px; color: #6366f1; text-decoration: none; padding: 8px 14px; border: 1.5px solid #6366f1; border-radius: 8px; }
+        .back-link:hover { background: #f5f3ff; }
+
+        .admin-body { max-width: 860px; margin: 0 auto; padding: 32px 20px; display: flex; flex-direction: column; gap: 32px; }
+
+        /* Info box */
+        .info-box { background: #f0fdf4; border: 1.5px solid #10b981; border-radius: 14px; padding: 20px 24px; }
+        .info-box h2 { font-size: 15px; font-weight: 700; color: #059669; margin-bottom: 12px; }
+        .info-box p, .info-box li { font-size: 14px; color: #065f46; line-height: 1.7; }
+        .info-box ul { padding-left: 20px; margin-top: 8px; }
+        .info-box strong { font-weight: 700; }
+
+        .how-box { background: #eff6ff; border: 1.5px solid #3b82f6; border-radius: 14px; padding: 20px 24px; }
+        .how-box h2 { font-size: 15px; font-weight: 700; color: #1d4ed8; margin-bottom: 12px; }
+        .how-box p, .how-box li { font-size: 14px; color: #1e40af; line-height: 1.7; }
+        .how-box ul { padding-left: 20px; margin-top: 8px; }
+
+        /* Section */
+        .section-card { background: white; border: 1.5px solid #e8eef5; border-radius: 16px; overflow: hidden; }
+        .section-head { background: #f8fafc; padding: 14px 20px; border-bottom: 1px solid #e8eef5; display: flex; align-items: center; gap: 12px; }
+        .section-head h2 { font-size: 15px; font-weight: 700; color: #2c3e50; }
+        .section-badge { font-size: 11px; font-weight: 600; color: #6366f1; background: #ede9fe; padding: 3px 8px; border-radius: 10px; }
+
+        /* Character table */
+        .char-table { width: 100%; border-collapse: collapse; }
+        .char-table th { font-size: 11px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; padding: 10px 16px; text-align: left; border-bottom: 1px solid #f1f5f9; background: #fafbfc; }
+        .char-table td { padding: 12px 16px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+        .char-table tr:last-child td { border-bottom: none; }
+        .char-table tr:hover td { background: #fafbff; }
+
+        .char-glyph { font-size: 32px; line-height: 1; }
+        .char-iso { font-size: 15px; font-weight: 700; color: #6366f1; }
+        .char-desc { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+
+        .file-path-cell { display: flex; align-items: center; gap: 8px; }
+        .file-input {
+            flex: 1; border: 1.5px solid #e0e7ff; border-radius: 8px;
+            padding: 8px 12px; font-size: 13px; font-family: 'Courier New', monospace;
+            color: #374151; background: white;
+        }
+        .file-input:focus { outline: none; border-color: #6366f1; }
+        .file-input.has-custom { border-color: #10b981; background: #f0fdf4; }
+
+        .btn-play {
+            width: 36px; height: 36px; border-radius: 8px; border: 1.5px solid #e0e7ff;
+            background: white; font-size: 16px; cursor: pointer; display: flex;
+            align-items: center; justify-content: center; flex-shrink: 0;
+            transition: all 0.15s;
+        }
+        .btn-play:hover { background: #f5f3ff; border-color: #6366f1; }
+        .btn-play.playing { background: #ede9fe; border-color: #6366f1; }
+
+        .btn-save-row {
+            width: 36px; height: 36px; border-radius: 8px; border: 1.5px solid #10b981;
+            background: white; font-size: 14px; cursor: pointer; display: flex;
+            align-items: center; justify-content: center; flex-shrink: 0;
+            color: #10b981; font-weight: 700; transition: all 0.15s;
+        }
+        .btn-save-row:hover { background: #f0fdf4; }
+
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .status-dot.ok       { background: #10b981; }
+        .status-dot.missing  { background: #e2e8f0; }
+        .status-dot.custom   { background: #6366f1; }
+        .status-dot.uploaded { background: #f59e0b; }
+
+        /* Upload button — dashed border to distinguish from save */
+        .btn-upload {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; border-radius: 8px;
+            border: 1.5px dashed #a5b4fc; background: white;
+            font-size: 15px; cursor: pointer; flex-shrink: 0;
+            transition: all 0.15s;
+        }
+        .btn-upload:hover { background: #f5f3ff; border-color: #6366f1; }
+
+        /* Clear upload — red tint */
+        .btn-clear-upload {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; border-radius: 8px;
+            border: 1.5px solid #fca5a5; background: white;
+            font-size: 13px; color: #ef4444; cursor: pointer; flex-shrink: 0;
+            transition: all 0.15s;
+        }
+        .btn-clear-upload:hover { background: #fef2f2; }
+
+        /* Uploaded state: input shows filename, read-only */
+        .file-input.is-uploaded {
+            color: #d97706; font-style: italic;
+            border-color: #fbbf24; background: #fffbeb;
+        }
+        .file-input:disabled { cursor: default; }
+
+        /* Storage usage bar */
+        .storage-info { padding: 0 20px 16px; font-size: 12px; color: #94a3b8; display: flex; align-items: center; gap: 10px; }
+        .storage-track { flex: 1; max-width: 180px; height: 4px; background: #e8eef5; border-radius: 2px; overflow: hidden; }
+        .storage-fill  { height: 100%; background: #6366f1; border-radius: 2px; transition: width 0.3s; }
+
+        /* Discrimination explainer */
+        .disc-explainer { padding: 20px; background: #fffbeb; border-radius: 12px; margin: 0 20px 20px; border: 1px solid #fde68a; }
+        .disc-explainer h3 { font-size: 13px; font-weight: 700; color: #92400e; margin-bottom: 10px; }
+        .disc-pair { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 13px; color: #78350f; }
+        .disc-pair .pair-glyphs { font-size: 20px; width: 80px; }
+        .disc-type { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
+        .disc-type.same { background: #dcfce7; color: #059669; }
+        .disc-type.diff { background: #fee2e2; color: #dc2626; }
+
+        /* File naming convention */
+        .convention-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; padding: 20px; }
+        .conv-item { background: #f8fafc; border: 1px solid #e8eef5; border-radius: 10px; padding: 12px; }
+        .conv-glyph { font-size: 28px; margin-bottom: 4px; }
+        .conv-iso { font-size: 13px; font-weight: 700; color: #6366f1; }
+        .conv-file { font-size: 11px; color: #64748b; font-family: monospace; margin-top: 2px; }
+
+        /* Save all + export */
+        .action-bar { display: flex; gap: 12px; padding: 20px; flex-wrap: wrap; }
+        .btn-primary { background: #6366f1; color: white; border: none; border-radius: 10px; padding: 12px 24px; font-size: 14px; font-weight: 600; cursor: pointer; }
+        .btn-primary:hover { background: #4f46e5; }
+        .btn-secondary { background: white; color: #6366f1; border: 1.5px solid #6366f1; border-radius: 10px; padding: 12px 24px; font-size: 14px; font-weight: 600; cursor: pointer; }
+        .btn-secondary:hover { background: #f5f3ff; }
+        .btn-danger { background: white; color: #ef4444; border: 1.5px solid #ef4444; border-radius: 10px; padding: 12px 24px; font-size: 14px; font-weight: 600; cursor: pointer; }
+        .btn-danger:hover { background: #fef2f2; }
+
+        .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #1e293b; color: white; padding: 12px 24px; border-radius: 12px; font-size: 14px; font-weight: 500; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 100; }
+        .toast.visible { opacity: 1; }
+    </style>
+</head>
+<body>
+
+<div class="admin-header">
+    <div class="admin-title">⚙ Audio Manager</div>
+    <a href="app.html" class="back-link">← Back to App</a>
+</div>
+
+<div class="admin-body">
+
+    <!-- HOW AUDIO WORKS -->
+    <div class="info-box">
+        <h2>How audio works in the app</h2>
+        <p>Each Malayalam character needs <strong>one audio recording</strong>. The app reuses the same files across all task types:</p>
+        <ul>
+            <li><strong>Discrimination:</strong> plays two character recordings in sequence — same char twice (SAME), or two different chars (DIFFERENT). <em>No extra files needed.</em></li>
+            <li><strong>Identification:</strong> plays the prompt character's recording.</li>
+            <li><strong>Matching:</strong> plays the recording when a sound card is tapped.</li>
+            <li><strong>Transliteration / Handwriting:</strong> plays the character's recording on demand.</li>
+        </ul>
+        <p style="margin-top:10px">→ Record <strong>one clear audio file per character</strong>. The app handles all the rest.</p>
+    </div>
+
+    <!-- WHAT TO RECORD -->
+    <div class="how-box">
+        <h2>What to record for each character</h2>
+        <ul>
+            <li><strong>Vowels (a, ā etc.):</strong> Pronounce the vowel sound clearly — short and isolated. For long vowels (ā, ī…), hold the sound visibly longer than the short version.</li>
+            <li><strong>Consonants (ka, ma etc.):</strong> Malayalam consonants carry an inherent 'a'. Record the full syllable — e.g. <em>ka</em>, not just <em>k</em>.</li>
+            <li><strong>Syllables (kā, mā etc.):</strong> Record the full syllable as spoken — <em>kā</em> with a long ā.</li>
+            <li><strong>Discrimination pairs:</strong> The app plays your existing files back-to-back. Make sure the contrast between short/long vowels (a vs ā) is clearly audible in your recordings.</li>
+        </ul>
+    </div>
+
+    <!-- MODULE 1 -->
+    <div class="section-card">
+        <div class="section-head">
+            <h2>Module 1 — Vowels, Consonants &amp; Syllables</h2>
+            <span class="section-badge">6 characters</span>
+        </div>
+
+        <table class="char-table" id="module1Table">
+            <thead>
+                <tr>
+                    <th>Character</th>
+                    <th>ISO</th>
+                    <th>Expected filename</th>
+                    <th>Custom path (optional)</th>
+                    <th style="width:100px">Test</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <!-- Discrimination pairs for Module 1 -->
+        <div class="disc-explainer">
+            <h3>Discrimination pairs used in Module 1 practice lessons</h3>
+            <p style="font-size:12px;color:#92400e;margin-bottom:12px">These are <em>generated automatically</em> from the character files above — no extra recordings needed.</p>
+            <div class="disc-pair">
+                <span class="pair-glyphs">അ + അ</span>
+                <span>a.mp3 played twice</span>
+                <span class="disc-type same">SAME</span>
+            </div>
+            <div class="disc-pair">
+                <span class="pair-glyphs">ആ + ആ</span>
+                <span>aa.mp3 played twice</span>
+                <span class="disc-type same">SAME</span>
+            </div>
+            <div class="disc-pair">
+                <span class="pair-glyphs">അ + ആ</span>
+                <span>a.mp3 then aa.mp3</span>
+                <span class="disc-type diff">DIFFERENT</span>
+            </div>
+            <div class="disc-pair">
+                <span class="pair-glyphs">ക + ക</span>
+                <span>ka.mp3 played twice</span>
+                <span class="disc-type same">SAME</span>
+            </div>
+            <div class="disc-pair">
+                <span class="pair-glyphs">മ + മ</span>
+                <span>ma.mp3 played twice</span>
+                <span class="disc-type same">SAME</span>
+            </div>
+            <div class="disc-pair">
+                <span class="pair-glyphs">ക + മ</span>
+                <span>ka.mp3 then ma.mp3</span>
+                <span class="disc-type diff">DIFFERENT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODULE 2 -->
+    <div class="section-card">
+        <div class="section-head">
+            <h2>Module 2 — Vowels e/ē &amp; Consonants ta/ṭa</h2>
+            <span class="section-badge">8 characters</span>
+        </div>
+        <table class="char-table" id="module2Table">
+            <thead>
+                <tr>
+                    <th>Character</th><th>ISO</th><th>Expected filename</th>
+                    <th>Audio source</th><th style="width:60px">Test</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div class="disc-explainer">
+            <h3>Discrimination pairs used in Module 2 practice lessons</h3>
+            <p style="font-size:12px;color:#92400e;margin-bottom:12px">Generated automatically — no extra recordings needed. The key contrast here is <strong>dental vs. retroflex</strong>.</p>
+            <div class="disc-pair"><span class="pair-glyphs">എ + എ</span><span>e.mp3 played twice</span><span class="disc-type same">SAME</span></div>
+            <div class="disc-pair"><span class="pair-glyphs">ഏ + ഏ</span><span>ee.mp3 played twice</span><span class="disc-type same">SAME</span></div>
+            <div class="disc-pair"><span class="pair-glyphs">എ + ഏ</span><span>e.mp3 then ee.mp3</span><span class="disc-type diff">DIFFERENT</span></div>
+            <div class="disc-pair"><span class="pair-glyphs">ത + ത</span><span>ta.mp3 played twice</span><span class="disc-type same">SAME</span></div>
+            <div class="disc-pair"><span class="pair-glyphs">ട + ട</span><span>ta_retro.mp3 played twice</span><span class="disc-type same">SAME</span></div>
+            <div class="disc-pair"><span class="pair-glyphs">ത + ട</span><span>ta.mp3 then ta_retro.mp3 — <strong>the critical dental/retroflex contrast</strong></span><span class="disc-type diff">DIFFERENT</span></div>
+        </div>
+    </div>
+
+    <!-- NAMING CONVENTION -->
+    <div class="section-card">
+        <div class="section-head">
+            <h2>File naming convention</h2>
+        </div>
+        <p style="font-size:13px;color:#64748b;padding:16px 20px 8px">
+            Place .mp3 files in an <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px">/audio/</code> folder next to app.html.
+            Diacritics (ā, ī…) are mapped to plain ASCII names:
+        </p>
+        <div class="convention-grid" id="conventionGrid"></div>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="section-card">
+        <div class="section-head"><h2>Actions</h2></div>
+        <div class="action-bar">
+            <button class="btn-primary" onclick="saveAll()">💾 Save all custom paths</button>
+            <button class="btn-secondary" onclick="exportJSON()">⬇ Export config as JSON</button>
+            <button class="btn-danger" onclick="clearAll()">✕ Clear all</button>
+        </div>
+        <div class="storage-info">
+            <span id="storageLabel">0 KB / ~5 MB used</span>
+            <div class="storage-track"><div class="storage-fill" id="storageFill" style="width:0%"></div></div>
+            <span style="color:#94a3b8;font-size:11px">browser storage</span>
+        </div>
+    </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+    const characters = [
+        // Module 1
+        { module: 1, malayalam: 'അ',  iso: 'a',  file: 'a',   desc: 'Short vowel a' },
+        { module: 1, malayalam: 'ആ',  iso: 'ā',  file: 'aa',  desc: 'Long vowel ā' },
+        { module: 1, malayalam: 'ക',  iso: 'ka', file: 'ka',  desc: 'Velar stop' },
+        { module: 1, malayalam: 'മ',  iso: 'ma', file: 'ma',  desc: 'Bilabial nasal' },
+        { module: 1, malayalam: 'കാ', iso: 'kā', file: 'kaa', desc: 'Syllable ka + ā' },
+        { module: 1, malayalam: 'മാ', iso: 'mā', file: 'maa', desc: 'Syllable ma + ā' },
+        // Module 2
+        { module: 2, malayalam: 'എ',  iso: 'e',   file: 'e',        desc: 'Short vowel e' },
+        { module: 2, malayalam: 'ഏ',  iso: 'ē',   file: 'ee',       desc: 'Long vowel ē' },
+        { module: 2, malayalam: 'ത',  iso: 'ta',  file: 'ta',       desc: 'Dental stop' },
+        { module: 2, malayalam: 'ട',  iso: 'ṭa',  file: 'ta_retro', desc: 'Retroflex stop' },
+        { module: 2, malayalam: 'തെ', iso: 'te',  file: 'te',       desc: 'Dental ta + short e' },
+        { module: 2, malayalam: 'തേ', iso: 'tē',  file: 'tee',      desc: 'Dental ta + long ē' },
+        { module: 2, malayalam: 'ടെ', iso: 'ṭe',  file: 'te_retro', desc: 'Retroflex ṭa + short e' },
+        { module: 2, malayalam: 'ടേ', iso: 'ṭē',  file: 'tee_retro',desc: 'Retroflex ṭa + long ē' },
+        // Module 3
+        { module: 3, malayalam: 'ന',  iso: 'na',  file: 'na',             desc: 'Dental nasal' },
+        { module: 3, malayalam: 'ണ',  iso: 'ṇa',  file: 'na_retro',       desc: 'Retroflex nasal' },
+        { module: 3, malayalam: 'നാ', iso: 'nā',  file: 'naa',            desc: 'Dental na + long ā' },
+        { module: 3, malayalam: 'ണാ', iso: 'ṇā',  file: 'naa_retro',      desc: 'Retroflex ṇa + long ā' },
+        { module: 3, malayalam: 'നെ', iso: 'ne',  file: 'ne',             desc: 'Dental na + short e' },
+        { module: 3, malayalam: 'ണെ', iso: 'ṇe',  file: 'ne_retro',       desc: 'Retroflex ṇa + short e' },
+        { module: 3, malayalam: 'നേ', iso: 'nē',  file: 'nee',            desc: 'Dental na + long ē' },
+        { module: 3, malayalam: 'ണേ', iso: 'ṇē',  file: 'nee_retro',      desc: 'Retroflex ṇa + long ē' },
+        { module: 3, malayalam: 'ൻ',  iso: 'n',   file: 'n_chillu',       desc: 'Chillu N (dental)' },
+        { module: 3, malayalam: 'ൺ',  iso: 'ṇ',   file: 'n_retro_chillu', desc: 'Chillu Ṇ (retroflex)' },
+        // Module 4
+        { module: 4, malayalam: 'ഒ',  iso: 'o',   file: 'o',   desc: 'Short vowel o' },
+        { module: 4, malayalam: 'ഓ',  iso: 'ō',   file: 'oo',  desc: 'Long vowel ō' },
+        { module: 4, malayalam: 'പ',  iso: 'pa',  file: 'pa',  desc: 'Bilabial stop' },
+        { module: 4, malayalam: 'വ',  iso: 'va',  file: 'va',  desc: 'Labiodental approximant' },
+        { module: 4, malayalam: 'പൊ', iso: 'po',  file: 'po',  desc: 'Bilabial p + short o' },
+        { module: 4, malayalam: 'പോ', iso: 'pō',  file: 'poo', desc: 'Bilabial p + long ō' },
+        { module: 4, malayalam: 'വൊ', iso: 'vo',  file: 'vo',  desc: 'Labiodental v + short o' },
+        { module: 4, malayalam: 'വോ', iso: 'vō',  file: 'voo', desc: 'Labiodental v + long ō' },
+        // Module 5
+        { module: 5, malayalam: 'ഉ',  iso: 'u',   file: 'u',            desc: 'Short vowel u' },
+        { module: 5, malayalam: 'ഊ',  iso: 'ū',   file: 'uu',           desc: 'Long vowel ū' },
+        { module: 5, malayalam: 'ല',  iso: 'la',  file: 'la',           desc: 'Alveolar lateral' },
+        { module: 5, malayalam: 'ള',  iso: 'ḷa',  file: 'la_retro',     desc: 'Retroflex lateral' },
+        { module: 5, malayalam: 'ലു', iso: 'lu',  file: 'lu',           desc: 'Alveolar l + short u' },
+        { module: 5, malayalam: 'ലൂ', iso: 'lū',  file: 'luu',          desc: 'Alveolar l + long ū' },
+        { module: 5, malayalam: 'ളു', iso: 'ḷu',  file: 'lu_retro',     desc: 'Retroflex ḷ + short u' },
+        { module: 5, malayalam: 'ളൂ', iso: 'ḷū',  file: 'luu_retro',    desc: 'Retroflex ḷ + long ū' },
+        { module: 5, malayalam: 'ൽ',  iso: 'l',   file: 'l_chillu',     desc: 'Chillu L (alveolar)' },
+        { module: 5, malayalam: 'ൾ',  iso: 'ḷ',   file: 'l_retro_chillu', desc: 'Chillu Ḷ (retroflex)' },
+    ];
+
+    const audioFileMap = {
+        'a':'a','ā':'aa','i':'i','ī':'ii','u':'u','ū':'uu',
+        'e':'e','ē':'ee','o':'o','ō':'oo','ai':'ai','au':'au',
+        'ka':'ka','kā':'kaa','ma':'ma','mā':'maa',
+        'ta':'ta','ṭa':'ta_retro','pa':'pa','va':'va',
+        'ṅa':'nga','ña':'nya','ra':'ra','ṟa':'rra'
+    };
+
+    function getPath(iso) {
+        const custom = localStorage.getItem('audio_' + iso);
+        if (custom) return custom;
+        const base = characters.find(c => c.iso === iso);
+        return '/audio/' + (base ? base.file : (audioFileMap[iso] || iso)) + '.mp3';
+    }
+
+    function renderTable(tableId, moduleNum) {
+        const tbody = document.querySelector('#' + tableId + ' tbody');
+        const chars = characters.filter(c => c.module === moduleNum);
+        tbody.innerHTML = chars.map(ch => {
+            const stored     = localStorage.getItem('audio_' + ch.iso) || '';
+            const isUploaded = stored.startsWith('data:');
+            const isPath     = stored && !isUploaded;
+            const dotCls     = isUploaded ? 'uploaded' : (isPath ? 'custom' : 'missing');
+            const dotTitle   = isUploaded ? 'Uploaded file' : (isPath ? 'Custom path set' : 'Using default path');
+            const inputVal   = isUploaded ? '✓ Uploaded: (stored in browser)' : stored;
+            const inputCls   = stored ? (isUploaded ? ' has-custom is-uploaded' : ' has-custom') : '';
+            const inputDis   = isUploaded ? ' disabled' : '';
+            const clearStyle = isUploaded ? '' : 'display:none';
+            return `<tr>
+                <td><div class="char-glyph">${ch.malayalam}</div></td>
+                <td>
+                    <div class="char-iso">${ch.iso}</div>
+                    <div class="char-desc">${ch.desc}</div>
+                </td>
+                <td><code style="font-size:12px;color:#64748b">/audio/${ch.file}.mp3</code></td>
+                <td>
+                    <div class="file-path-cell">
+                        <div class="status-dot ${dotCls}" id="dot_${ch.iso}" title="${dotTitle}"></div>
+                        <input class="file-input${inputCls}" id="input_${ch.iso}"
+                            placeholder="/audio/${ch.file}.mp3"
+                            value="${inputVal}"
+                            ${inputDis}
+                            oninput="onInputChange('${ch.iso}', this)" />
+                        <button class="btn-save-row" onclick="saveRow('${ch.iso}')" title="Save path">✓</button>
+                        <label class="btn-upload" title="Upload audio file from your computer">
+                            📁<input type="file" accept="audio/*" style="display:none" onchange="handleUpload('${ch.iso}', this)">
+                        </label>
+                        <button class="btn-clear-upload" id="clearUpload_${ch.iso}"
+                            style="${clearStyle}"
+                            onclick="clearUpload('${ch.iso}')" title="Remove uploaded file">✕</button>
+                    </div>
+                </td>
+                <td>
+                    <button class="btn-play" id="play_${ch.iso}" onclick="testPlay('${ch.iso}', this)" title="Test audio">🔊</button>
+                </td>
+            </tr>`;
+        }).join('');
+    }
+
+    function handleUpload(iso, fileInput) {
+        const file = fileInput.files[0];
+        if (!file) return;
+        if (file.size > 800 * 1024) {
+            showToast('File too large — keep recordings under 800 KB');
+            return;
+        }
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                localStorage.setItem('audio_' + iso, e.target.result);
+            } catch (err) {
+                showToast('Storage full — clear some uploads first');
+                return;
+            }
+            const input = document.getElementById('input_' + iso);
+            input.value    = '✓ Uploaded: ' + file.name;
+            input.disabled = true;
+            input.className = input.className.replace(/has-custom|is-uploaded/g, '').trim()
+                            + ' has-custom is-uploaded';
+            const dot = document.getElementById('dot_' + iso);
+            dot.className = 'status-dot uploaded';
+            dot.title     = 'Uploaded: ' + file.name;
+            document.getElementById('clearUpload_' + iso).style.display = '';
+            updateStorageBar();
+            showToast('Uploaded: ' + file.name);
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function clearUpload(iso) {
+        localStorage.removeItem('audio_' + iso);
+        const input = document.getElementById('input_' + iso);
+        input.value    = '';
+        input.disabled = false;
+        input.className = input.className.replace(/has-custom|is-uploaded/g, '').trim();
+        const dot = document.getElementById('dot_' + iso);
+        dot.className = 'status-dot missing';
+        dot.title     = 'Using default path';
+        document.getElementById('clearUpload_' + iso).style.display = 'none';
+        updateStorageBar();
+        showToast('Removed upload for: ' + iso);
+    }
+
+    function updateStorageBar() {
+        let used = 0;
+        for (let k in localStorage) {
+            if (k.startsWith('audio_')) used += (localStorage.getItem(k) || '').length;
+        }
+        const kb  = Math.round(used / 1024);
+        const pct = Math.min(100, Math.round(kb / 5120 * 100));
+        const el  = document.getElementById('storageLabel');
+        const bar = document.getElementById('storageFill');
+        if (el)  el.textContent  = kb + ' KB / ~5 MB used';
+        if (bar) bar.style.width = pct + '%';
+    }
+
+    function onInputChange(iso, input) {
+        input.classList.toggle('has-custom', input.value.trim() !== '');
+    }
+
+    function saveRow(iso) {
+        const input = document.getElementById('input_' + iso);
+        const val   = input.value.trim();
+        if (val) {
+            localStorage.setItem('audio_' + iso, val);
+            document.getElementById('dot_' + iso).className = 'status-dot custom';
+            document.getElementById('dot_' + iso).title = 'Custom path set';
+        } else {
+            localStorage.removeItem('audio_' + iso);
+            document.getElementById('dot_' + iso).className = 'status-dot missing';
+            document.getElementById('dot_' + iso).title = 'Using default path';
+        }
+        showToast('Saved: ' + iso);
+    }
+
+    function testPlay(iso, btn) {
+        btn.classList.add('playing');
+        // Always read from localStorage — avoids using the display text for uploaded files
+        const stored = localStorage.getItem('audio_' + iso);
+        const path   = stored || document.getElementById('input_' + iso).value.trim()
+                              || '/audio/' + (audioFileMap[iso] || iso) + '.mp3';
+        const audio  = new Audio(path);
+        audio.play()
+            .then(() => { audio.onended = () => btn.classList.remove('playing'); })
+            .catch(() => {
+                btn.classList.remove('playing');
+                showToast(stored ? 'Could not play uploaded file' : 'File not found: ' + path);
+            });
+    }
+
+    function saveAll() {
+        characters.forEach(ch => {
+            const input = document.getElementById('input_' + ch.iso);
+            if (input) saveRow(ch.iso);
+        });
+        showToast('All paths saved to app storage');
+    }
+
+    function exportJSON() {
+        const config = {};
+        characters.forEach(ch => {
+            const custom = localStorage.getItem('audio_' + ch.iso);
+            config[ch.iso] = custom || '/audio/' + ch.file + '.mp3';
+        });
+        const blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' });
+        const a    = document.createElement('a');
+        a.href     = URL.createObjectURL(blob);
+        a.download = 'audio-config.json';
+        a.click();
+    }
+
+    function clearAll() {
+        if (!confirm('Clear all custom paths and uploaded files? The app will fall back to default /audio/ filenames.')) return;
+        characters.forEach(ch => localStorage.removeItem('audio_' + ch.iso));
+        renderTable('module1Table', 1);
+        renderTable('module2Table', 2);
+        updateStorageBar();
+        showToast('All custom paths and uploads cleared');
+    }
+
+    function renderConvention() {
+        const grid = document.getElementById('conventionGrid');
+        grid.innerHTML = Object.entries(audioFileMap).map(([iso, file]) => `
+            <div class="conv-item">
+                <div class="conv-glyph">${isoToGlyph(iso)}</div>
+                <div class="conv-iso">${iso}</div>
+                <div class="conv-file">/audio/${file}.mp3</div>
+            </div>`).join('');
+    }
+
+    function isoToGlyph(iso) {
+        const map = {
+            'a':'അ','ā':'ആ','i':'ഇ','ī':'ഈ','u':'ഉ','ū':'ഊ',
+            'e':'എ','ē':'ഏ','o':'ഒ','ō':'ഓ','ai':'ഐ','au':'ഔ',
+            'ka':'ക','kā':'കാ','ma':'മ','mā':'മാ',
+            'ta':'ത','ṭa':'ട','pa':'പ','va':'വ',
+            'ṅa':'ങ','ña':'ഞ','ra':'ര','ṟa':'റ'
+        };
+        return map[iso] || '—';
+    }
+
+    function showToast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.add('visible');
+        setTimeout(() => t.classList.remove('visible'), 2200);
+    }
+
+    // Init
+    renderTable('module1Table', 1);
+    renderTable('module2Table', 2);
+    renderConvention();
+    updateStorageBar();
+</script>
+</body>
+</html>

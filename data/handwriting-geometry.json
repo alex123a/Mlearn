@@ -1,0 +1,219 @@
+{
+  "description": "Shape-based handwriting recognition geometry rules. Each character has properties to check against drawn input.",
+  "characters": {
+    "അ": {
+      "iso15919": "a",
+      "name": "Vowel a",
+      "approximateShape": "oval-circle",
+      "geometryRules": {
+        "boundingBox": {
+          "aspectRatioRange": [0.8, 1.2],
+          "description": "Nearly square or slightly wider than tall"
+        },
+        "curves": {
+          "loopCount": 1,
+          "description": "One main loop forming the character"
+        },
+        "strokes": {
+          "minStrokes": 1,
+          "maxStrokes": 3,
+          "description": "Can be drawn as 1 continuous stroke or multiple strokes forming the shape"
+        },
+        "keyPoints": [
+          "top-center",
+          "right-middle",
+          "bottom-center",
+          "left-middle"
+        ],
+        "description": "Roughly circular shape with opening at bottom-right"
+      },
+      "tolerance": {
+        "shapeDifference": 0.15,
+        "description": "Allow up to 15% deviation from ideal shape"
+      }
+    },
+    "ആ": {
+      "iso15919": "ā",
+      "name": "Vowel ā",
+      "approximateShape": "oval-with-tail",
+      "geometryRules": {
+        "boundingBox": {
+          "aspectRatioRange": [0.6, 1.0],
+          "description": "Taller than wide, or square"
+        },
+        "curves": {
+          "loopCount": 1,
+          "description": "One main loop with an additional vertical element"
+        },
+        "strokes": {
+          "minStrokes": 1,
+          "maxStrokes": 3,
+          "description": "Main loop plus vertical stem/mark"
+        },
+        "keyPoints": [
+          "top-left",
+          "top-right",
+          "middle-left",
+          "bottom-middle",
+          "vertical-line"
+        ],
+        "description": "Similar to അ but with a vertical mark or extension"
+      },
+      "tolerance": {
+        "shapeDifference": 0.15,
+        "description": "Allow up to 15% deviation"
+      }
+    },
+    "ക": {
+      "iso15919": "ka",
+      "name": "Consonant ka",
+      "approximateShape": "angular-complex",
+      "geometryRules": {
+        "boundingBox": {
+          "aspectRatioRange": [0.7, 1.1],
+          "description": "Roughly square or slightly wider"
+        },
+        "strokes": {
+          "minStrokes": 1,
+          "maxStrokes": 5,
+          "description": "Complex shape with multiple connected strokes"
+        },
+        "curves": {
+          "curveCount": 1,
+          "description": "Has curves and angles mixed"
+        },
+        "keyPoints": [
+          "top-left",
+          "top-right",
+          "middle-right",
+          "bottom-center"
+        ],
+        "description": "Angular character with a curved top-left and pointed right side"
+      },
+      "tolerance": {
+        "shapeDifference": 0.2,
+        "description": "Allow up to 20% deviation due to complexity"
+      }
+    },
+    "മ": {
+      "iso15919": "ma",
+      "name": "Consonant ma",
+      "approximateShape": "angular-bumpy",
+      "geometryRules": {
+        "boundingBox": {
+          "aspectRatioRange": [1.2, 1.8],
+          "description": "Wider than tall"
+        },
+        "strokes": {
+          "minStrokes": 1,
+          "maxStrokes": 4,
+          "description": "Multiple connected strokes forming bumps/waves"
+        },
+        "bumps": {
+          "bumpCount": 2,
+          "description": "Characteristic bumps or waves in the shape"
+        },
+        "keyPoints": [
+          "top-left",
+          "top-middle",
+          "top-right",
+          "bottom-line"
+        ],
+        "description": "Wide character with multiple peaks across the top and a baseline"
+      },
+      "tolerance": {
+        "shapeDifference": 0.2,
+        "description": "Allow up to 20% deviation"
+      }
+    },
+    "കാ": {
+      "iso15919": "kā",
+      "name": "Syllable kā",
+      "approximateShape": "angular-with-diacritic",
+      "geometryRules": {
+        "mainCharacter": "ക",
+        "diacriticMark": "ാ",
+        "boundingBox": {
+          "aspectRatioRange": [0.7, 1.3],
+          "description": "Roughly square or slightly wider"
+        },
+        "strokes": {
+          "minStrokes": 1,
+          "maxStrokes": 8,
+          "description": "Base character strokes plus diacritic mark strokes"
+        },
+        "keyPoints": [
+          "base-character-features",
+          "diacritic-position-below-or-beside"
+        ],
+        "description": "ക with a diacritic mark (ാ) added below or to the right"
+      },
+      "tolerance": {
+        "shapeDifference": 0.25,
+        "description": "Allow up to 25% deviation due to compound complexity"
+      }
+    },
+    "മാ": {
+      "iso15919": "mā",
+      "name": "Syllable mā",
+      "approximateShape": "bumpy-with-diacritic",
+      "geometryRules": {
+        "mainCharacter": "മ",
+        "diacriticMark": "ാ",
+        "boundingBox": {
+          "aspectRatioRange": [1.0, 1.6],
+          "description": "Wider than tall or roughly square"
+        },
+        "strokes": {
+          "minStrokes": 1,
+          "maxStrokes": 8,
+          "description": "Base character strokes plus diacritic mark"
+        },
+        "keyPoints": [
+          "base-character-bumps",
+          "diacritic-position"
+        ],
+        "description": "മ with diacritic mark (ാ) added"
+      },
+      "tolerance": {
+        "shapeDifference": 0.25,
+        "description": "Allow up to 25% deviation"
+      }
+    }
+  },
+  "recognitionAlgorithm": {
+    "steps": [
+      {
+        "step": 1,
+        "name": "Stroke Normalization",
+        "description": "Resample drawn stroke(s) to a fixed number of points. Remove noise. Calculate bounding box."
+      },
+      {
+        "step": 2,
+        "name": "Feature Extraction",
+        "description": "Measure aspect ratio, detect loops, count curves, identify key points (corners, endpoints)"
+      },
+      {
+        "step": 3,
+        "name": "Geometry Matching",
+        "description": "Check if extracted features match target character's geometry rules within tolerance"
+      },
+      {
+        "step": 4,
+        "name": "Classification",
+        "description": "Return: Correct (>90% match), Understandable (70-90% match), or Incorrect (<70% match)"
+      }
+    ]
+  },
+  "toleranceGuidelines": {
+    "excellent": ">90% shape match",
+    "understandable": "70-90% shape match",
+    "incorrect": "<70% shape match",
+    "factors": [
+      "Handwriting variation is natural — allow for individual style",
+      "Size variation is allowed — aspect ratio matters more than absolute size",
+      "Stroke order doesn't matter — only final shape is evaluated",
+      "Slight distortions and imprecisions are acceptable"
+    ]
+  }
+}

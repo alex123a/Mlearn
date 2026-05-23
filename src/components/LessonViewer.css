@@ -1,0 +1,99 @@
+.lesson-viewer {
+  animation: slideIn 0.3s ease;
+}
+
+.lesson-viewer.completed {
+  animation: pulse 0.5s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.lesson-header {
+  margin-bottom: 24px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 16px;
+}
+
+.lesson-header h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.lesson-meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.task-type {
+  display: inline-block;
+  background: #e8f4f8;
+  color: #0066cc;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.task-count {
+  color: #666;
+  font-size: 14px;
+}
+
+.lesson-content {
+  min-height: 200px;
+  margin-bottom: 24px;
+}
+
+.lesson-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.btn-secondary {
+  background: #f0f0f0;
+  color: #333;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #e0e0e0;
+}
+
+.completion-message {
+  color: #22c55e;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}

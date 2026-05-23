@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn Malayalam Script — Brand Guidelines</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Literata:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================
+   BRAND GUIDELINES — Learn Malayalam Script
+   This document defines the visual language of the app.
+   It does NOT define content, structure, or logic.
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #F5F0E8;
+  color: #2D2417;
+  line-height: 1.6;
+}
+
+/* ── Doc layout ── */
+.doc { max-width: 900px; margin: 0 auto; padding: 60px 32px 120px; }
+
+/* ── Section headers ── */
+.section { margin-bottom: 80px; }
+.section-number {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #C8922A; margin-bottom: 8px;
+}
+.section-title {
+  font-size: 32px; font-weight: 700; color: #2D2417;
+  margin-bottom: 8px; line-height: 1.2;
+}
+.section-desc {
+  font-size: 15px; color: #7A6A55; margin-bottom: 40px;
+  max-width: 560px; line-height: 1.7;
+}
+.divider {
+  border: none; border-top: 1px solid #E8D5A3; margin-bottom: 40px;
+}
+
+/* ── Sub-section ── */
+.sub { margin-bottom: 48px; }
+.sub-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: #C8B89A; margin-bottom: 20px;
+}
+
+/* ── Code block ── */
+.code {
+  background: #2D2417; color: #F5ECD8;
+  border-radius: 10px; padding: 20px 24px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px; line-height: 1.8;
+  overflow-x: auto; margin-bottom: 8px;
+}
+.code .c-orange { color: #E8720C; }
+.code .c-teal   { color: #5DB8A8; }
+.code .c-yellow  { color: #FFD44A; }
+.code .c-grey   { color: #8A7A6A; }
+
+/* ── Spec note ── */
+.spec-note {
+  font-size: 13px; color: #7A6A55; background: #FDF6E3;
+  border-left: 3px solid #E8D5A3; padding: 12px 16px;
+  border-radius: 0 8px 8px 0; margin-top: 8px;
+}
+.spec-note strong { color: #C4650A; }
+
+/* ── Doc cover ── */
+.cover {
+  padding: 80px 0 60px;
+  margin-bottom: 80px;
+  border-bottom: 1px solid #E8D5A3;
+}
+.cover-tag {
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #C8922A; margin-bottom: 20px;
+}
+.cover-title {
+  font-size: 52px; font-weight: 700; line-height: 1.1;
+  color: #2D2417; margin-bottom: 16px;
+}
+.cover-title span { color: #E8720C; }
+.cover-sub {
+  font-size: 18px; color: #7A6A55; max-width: 480px; line-height: 1.6;
+}
+.cover-meta {
+  margin-top: 32px; font-size: 13px; color: #C8B89A;
+  display: flex; gap: 24px;
+}
+
+/* ── Colour swatches ── */
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+.swatch {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.swatch-color { height: 80px; }
+.swatch-info { padding: 12px 14px; background: white; }
+.swatch-name { font-size: 12px; font-weight: 700; color: #2D2417; margin-bottom: 2px; }
+.swatch-hex  { font-size: 11px; color: #7A6A55; font-family: 'Courier New', monospace; margin-bottom: 4px; }
+.swatch-use  { font-size: 11px; color: #C8B89A; line-height: 1.4; }
+
+/* ── Type specimens ── */
+.type-specimen {
+  background: white; border-radius: 14px; padding: 28px 32px;
+  border: 1px solid #E8D5A3; margin-bottom: 16px;
+}
+.type-row {
+  display: flex; align-items: baseline; gap: 16px;
+  padding: 10px 0; border-bottom: 1px solid #F0E8D8;
+}
+.type-row:last-child { border-bottom: none; }
+.type-label { font-size: 11px; color: #C8B89A; min-width: 120px; }
+.type-sample { color: #2D2417; }
+
+/* ── Scale table ── */
+.scale-table { width: 100%; border-collapse: collapse; }
+.scale-table th {
+  text-align: left; font-size: 11px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase; color: #C8B89A;
+  padding: 10px 16px; border-bottom: 1px solid #E8D5A3;
+}
+.scale-table td {
+  padding: 12px 16px; font-size: 13px; color: #2D2417;
+  border-bottom: 1px solid #F0E8D8;
+  vertical-align: middle;
+}
+.scale-table tr:last-child td { border-bottom: none; }
+.scale-table code {
+  background: #F5ECD8; border-radius: 4px; padding: 2px 6px;
+  font-family: 'Courier New', monospace; font-size: 12px; color: #C4650A;
+}
+.scale-vis {
+  display: inline-block; height: 6px; background: #E8720C;
+  border-radius: 3px; vertical-align: middle;
+}
+.scale-table tbody tr { background: white; }
+.scale-table tbody tr:nth-child(even) { background: #FDF6E3; }
+
+/* ── Button specimens ── */
+.btn-grid { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 14px 28px; border-radius: 999px; border: none;
+  font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s ease; white-space: nowrap;
+}
+.btn-primary { background: #E8720C; color: white; }
+.btn-primary:hover { background: #C4650A; }
+.btn-primary:active { transform: scale(0.97); }
+
+.btn-secondary { background: #FDF6E3; color: #C4650A; border: 1.5px solid #E8D5A3; }
+.btn-secondary:hover { background: #F5ECD8; border-color: #C8922A; }
+
+.btn-teal { background: #1A7A6E; color: white; }
+.btn-teal:hover { background: #0F6E56; }
+
+.btn-ghost { background: transparent; color: #7A6A55; }
+.btn-ghost:hover { background: #F5ECD8; color: #2D2417; }
+
+.btn-disabled { background: #E8D5A3; color: #C8B89A; cursor: not-allowed; opacity: 0.6; }
+
+.btn-sm { padding: 10px 20px; font-size: 13px; }
+.btn-lg { padding: 18px 36px; font-size: 17px; }
+
+/* Answer choice buttons */
+.answer-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 16px 24px; border-radius: 14px;
+  background: white; border: 2px solid #E8D5A3;
+  font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
+  color: #2D2417; cursor: pointer;
+  transition: all 0.15s ease;
+}
+.answer-btn:hover { border-color: #C8922A; background: #FDF6E3; }
+.answer-btn.selected { border-color: #E8720C; background: #FFF0D9; color: #C4650A; }
+.answer-btn.correct  { border-color: #1A7A6E; background: #E1F5EE; color: #0F6E56; }
+.answer-btn.wrong    { border-color: #C0392B; background: #FFEBEE; color: #922020; }
+
+/* ── Card ── */
+.card {
+  background: white; border-radius: 16px;
+  border: 1px solid #E8D5A3; padding: 24px;
+}
+.card-demo-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+
+/* ── Writing canvas ── */
+.canvas-demo {
+  background: #FDF6E3; border-radius: 16px;
+  border: 2px solid #E8D5A3;
+  min-height: 220px; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.canvas-grid-lines {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.canvas-char-drawn {
+  font-family: 'Noto Sans Malayalam', sans-serif;
+  font-size: 140px; color: #1A7A6E; line-height: 1;
+  opacity: 0.85; position: relative; z-index: 2;
+  stroke: #1A7A6E;
+}
+
+/* ── Feedback bar ── */
+.fb-bar {
+  border-radius: 12px; padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.fb-correct  { background: #E1F5EE; border-left: 4px solid #1A7A6E; }
+.fb-wrong    { background: #FFEBEE; border-left: 4px solid #C0392B; }
+.fb-msg { font-size: 15px; font-weight: 700; }
+.fb-correct .fb-msg { color: #0F6E56; }
+.fb-wrong   .fb-msg { color: #922020; }
+.fb-sub { font-size: 13px; color: #7A6A55; margin-top: 3px; }
+.fb-btn {
+  padding: 10px 20px; border-radius: 999px; border: none;
+  font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+  cursor: pointer; white-space: nowrap;
+}
+.fb-correct .fb-btn { background: #1A7A6E; color: white; }
+.fb-wrong   .fb-btn { background: #C0392B; color: white; }
+
+/* ── Progress bar ── */
+.progress-track {
+  height: 8px; background: #E8D5A3; border-radius: 4px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; border-radius: 4px;
+  transition: width 0.4s ease;
+}
+.progress-orange { background: #E8720C; }
+.progress-teal   { background: #1A7A6E; }
+
+/* ── Badges ── */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px; border-radius: 999px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
+}
+.badge-new       { background: #E8720C; color: white; }
+.badge-progress  { background: #FFF0D9; color: #C4650A; border: 1px solid #E8D5A3; }
+.badge-mastered  { background: #E1F5EE; color: #0F6E56; border: 1px solid #A8DDD0; }
+.badge-locked    { background: #F0E8D8; color: #C8B89A; }
+
+/* ── Matrix colours ── */
+.matrix-demo {
+  display: inline-grid; grid-template-columns: repeat(5, 56px);
+  gap: 4px;
+}
+.matrix-cell {
+  height: 56px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Noto Sans Malayalam', sans-serif;
+  font-size: 24px; cursor: pointer; transition: transform 0.15s;
+  border: 1px solid transparent;
+}
+.matrix-cell:hover { transform: scale(1.08); }
+.m-unknown  { background: #E8E0D4; color: #B0A898; }
+.m-progress { background: #FFF0D9; color: #C4650A; border-color: #E8D5A3; }
+.m-mastered { background: #E1F5EE; color: #0F6E56; border-color: #A8DDD0; }
+
+/* ── Letter frame states ── */
+.letter-frames { display: flex; gap: 20px; flex-wrap: wrap; }
+.letter-card {
+  width: 150px; border-radius: 14px; padding: 20px 16px;
+  text-align: center; position: relative;
+}
+.lc-new {
+  background: #FDF6E3; border: 1px solid #E8D5A3;
+  border-top: 4px solid #E8720C;
+}
+.lc-new::before, .lc-new::after {
+  content: '◆'; font-size: 8px; color: #C8922A;
+  position: absolute; top: 8px;
+}
+.lc-new::before { left: 10px; }
+.lc-new::after  { right: 10px; }
+
+.lc-progress { background: #FDF6E3; border: 1px solid #E8D5A3; }
+.lc-progress-corners::before {
+  content: ''; position: absolute;
+  top: 10px; left: 10px; right: 10px;
+  height: 1px; background: transparent;
+}
+/* Corner L-brackets via box-shadow trick */
+.lc-corner-tl, .lc-corner-tr, .lc-corner-bl, .lc-corner-br {
+  position: absolute; width: 12px; height: 12px;
+}
+.lc-corner-tl { top: 8px; left: 8px; border-top: 1.5px solid #C8922A; border-left: 1.5px solid #C8922A; }
+.lc-corner-tr { top: 8px; right: 8px; border-top: 1.5px solid #C8922A; border-right: 1.5px solid #C8922A; }
+.lc-corner-bl { bottom: 8px; left: 8px; border-bottom: 1.5px solid #C8922A; border-left: 1.5px solid #C8922A; }
+.lc-corner-br { bottom: 8px; right: 8px; border-bottom: 1.5px solid #C8922A; border-right: 1.5px solid #C8922A; }
+
+.lc-mastered { background: #F0FAF6; border: 1.5px solid #1A7A6E; border-top: 4px solid #1A7A6E; }
+
+.lc-char {
+  font-family: 'Noto Sans Malayalam', sans-serif;
+  font-size: 64px; line-height: 1; display: block;
+  margin-bottom: 8px; color: #2D2417;
+}
+.lc-iso { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+.lc-desc { font-size: 11px; color: #7A6A55; }
+.lc-new .lc-iso { color: #C8922A; }
+.lc-progress .lc-iso { color: #C8922A; }
+.lc-mastered .lc-iso { color: #1A7A6E; }
+.lc-badge {
+  display: inline-block; margin-top: 8px;
+  padding: 3px 10px; border-radius: 999px;
+  font-size: 10px; font-weight: 700;
+}
+.lc-new .lc-badge { background: #E8720C; color: white; }
+.lc-mastered .lc-badge { background: #E1F5EE; color: #0F6E56; }
+
+/* ── Animations ── */
+
+/* Module unlock */
+@keyframes nodeUnlock {
+  0%   { transform: scale(1); background: #FDF6E3; border-color: #E8D5A3; box-shadow: none; }
+  20%  { transform: scale(1.06); background: #FFF0D9; border-color: #E8720C; box-shadow: 0 0 0 6px rgba(232,114,12,0.15); }
+  50%  { transform: scale(1.10); box-shadow: 0 0 0 14px rgba(232,114,12,0.07); }
+  75%  { transform: scale(1.03); background: #E8F8F0; border-color: #1A7A6E; box-shadow: 0 0 0 8px rgba(26,122,110,0.10); }
+  100% { transform: scale(1); background: #E1F5EE; border-color: #1A7A6E; box-shadow: none; }
+}
+
+@keyframes particleBurst {
+  0%   { transform: translate(-50%,-50%) scale(1); opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(0); opacity: 0; }
+}
+
+/* Correct feedback */
+@keyframes correctFlash {
+  0%   { border-color: #E8D5A3; background: #FDF6E3; transform: scale(1); }
+  30%  { border-color: #1A7A6E; background: #E1F5EE; transform: scale(1.04); }
+  70%  { border-color: #1A7A6E; background: #E1F5EE; transform: scale(1.04); }
+  100% { border-color: #E8D5A3; background: #FDF6E3; transform: scale(1); }
+}
+
+/* Incorrect feedback */
+@keyframes wrongShake {
+  0%   { transform: translateX(0); border-color: #E8D5A3; background: #FDF6E3; }
+  15%  { transform: translateX(-8px); border-color: #C0392B; background: #FFEBEE; }
+  30%  { transform: translateX(8px); border-color: #C0392B; background: #FFEBEE; }
+  45%  { transform: translateX(-5px); }
+  60%  { transform: translateX(5px); }
+  75%  { transform: translateX(-2px); }
+  100% { transform: translateX(0); border-color: #E8D5A3; background: #FDF6E3; }
+}
+
+/* illustration hover */
+.module-card-demo {
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid #E8D5A3; max-width: 280px;
+  cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.module-card-demo:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+}
+.module-card-body {
+  background: #FDF6E3; padding: 20px;
+}
+.module-card-title {
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: #C8922A; margin-bottom: 6px;
+}
+.module-card-name { font-size: 17px; font-weight: 700; color: #2D2417; margin-bottom: 4px; }
+.module-card-sub  { font-size: 13px; color: #7A6A55; }
+
+/* ── Illustration containers ── */
+.illus-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 1px;
+  text-transform: uppercase; color: #C8B89A; margin-bottom: 8px;
+}
+
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <!-- ══════════════════════════════════════════
+       COVER
+  ══════════════════════════════════════════ -->
+  <div class="cover">
+    <div class="cover-tag">Brand Guidelines · v1.0</div>
+    <h1 class="cover-title">Learn<br><span>Malayalam</span><br>Script</h1>
+    <p class="cover-sub">This document defines the visual identity of the app — colours, typography, spacing, components, illustrations, and animations. It does not define content or application logic.</p>
+    <div class="cover-meta">
+      <span>For developer use</span>
+      <span>·</span>
+      <span>Apply to iOS &amp; Android</span>
+      <span>·</span>
+      <span>No dark mode (v1)</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       1. COLOUR
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">01</div>
+    <h2 class="section-title">Colour</h2>
+    <p class="section-desc">The palette draws from Kerala's natural world — saffron spice markets, peacock teal backwaters, parchment palm-leaf manuscripts. Three semantic colours define learning states throughout the app.</p>
+    <hr class="divider">
+
+    <div class="sub">
+      <div class="sub-label">Primary Palette</div>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#E8720C"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Saffron Orange</div>
+            <div class="swatch-hex">#E8720C</div>
+            <div class="swatch-use">Primary action, active states, CTA buttons, highlights</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#C4650A"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Saffron Dark</div>
+            <div class="swatch-hex">#C4650A</div>
+            <div class="swatch-use">Hover states, pressed buttons, active text</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FFF0D9"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Saffron Light</div>
+            <div class="swatch-hex">#FFF0D9</div>
+            <div class="swatch-use">Secondary button bg, pill backgrounds, tinted surfaces</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#1A7A6E"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Peacock Teal</div>
+            <div class="swatch-hex">#1A7A6E</div>
+            <div class="swatch-use">Mastered state, correct answer, progress</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#0F6E56"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Teal Dark</div>
+            <div class="swatch-hex">#0F6E56</div>
+            <div class="swatch-use">Teal hover, mastered text</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#E1F5EE"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Teal Light</div>
+            <div class="swatch-hex">#E1F5EE</div>
+            <div class="swatch-use">Mastered card bg, correct feedback bg</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FFD44A"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Golden Yellow</div>
+            <div class="swatch-hex">#FFD44A</div>
+            <div class="swatch-use">Streak flame, badges, celebration moments</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#C0392B"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Error Red</div>
+            <div class="swatch-hex">#C0392B</div>
+            <div class="swatch-use">Incorrect answer, error state</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FFEBEE"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Error Light</div>
+            <div class="swatch-hex">#FFEBEE</div>
+            <div class="swatch-use">Incorrect feedback background</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">Neutral &amp; Background Palette</div>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FDF6E3"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Parchment</div>
+            <div class="swatch-hex">#FDF6E3</div>
+            <div class="swatch-use">Writing canvas bg, warm screen bg, card surfaces</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#F5F0E8"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Cream</div>
+            <div class="swatch-hex">#F5F0E8</div>
+            <div class="swatch-use">App page background</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#E8D5A3"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Sand</div>
+            <div class="swatch-hex">#E8D5A3</div>
+            <div class="swatch-use">Card borders, dividers, inactive borders</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#C8922A"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Warm Gold</div>
+            <div class="swatch-hex">#C8922A</div>
+            <div class="swatch-use">Mural accent, decorative borders, ISO text</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#7A6A55"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Warm Brown</div>
+            <div class="swatch-hex">#7A6A55</div>
+            <div class="swatch-use">Secondary body text, descriptions</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#2D2417"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Dark Brown</div>
+            <div class="swatch-hex">#2D2417</div>
+            <div class="swatch-use">Primary text, Malayalam characters on canvas</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#C8B89A"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Warm Grey</div>
+            <div class="swatch-hex">#C8B89A</div>
+            <div class="swatch-use">Placeholder text, inactive icons, locked states</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#FFFFFF; border:1px solid #E8D5A3"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">White</div>
+            <div class="swatch-hex">#FFFFFF</div>
+            <div class="swatch-use">Card backgrounds, input fields, overlays</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">Learning Status — Three Semantic States</div>
+      <p style="font-size:14px;color:#7A6A55;margin-bottom:20px;">These three colours appear consistently across the Phoneme Contrast Matrix, module cards, lesson items, and letter frames to communicate learning progress.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:20px;">
+        <div style="display:flex;align-items:center;gap:10px;background:white;border:1px solid #E8D5A3;border-radius:10px;padding:12px 20px;">
+          <div style="width:16px;height:16px;border-radius:50%;background:#C8B89A;"></div>
+          <span style="font-size:13px;font-weight:600;color:#2D2417;">Not yet learned</span>
+          <code style="font-size:11px;color:#7A6A55;background:#F5F0E8;padding:2px 6px;border-radius:4px;">#C8B89A · grey</code>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:white;border:1px solid #E8D5A3;border-radius:10px;padding:12px 20px;">
+          <div style="width:16px;height:16px;border-radius:50%;background:#E8720C;"></div>
+          <span style="font-size:13px;font-weight:600;color:#2D2417;">In progress</span>
+          <code style="font-size:11px;color:#7A6A55;background:#F5F0E8;padding:2px 6px;border-radius:4px;">#E8720C · orange</code>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:white;border:1px solid #E8D5A3;border-radius:10px;padding:12px 20px;">
+          <div style="width:16px;height:16px;border-radius:50%;background:#1A7A6E;"></div>
+          <span style="font-size:13px;font-weight:600;color:#2D2417;">Mastered</span>
+          <code style="font-size:11px;color:#7A6A55;background:#F5F0E8;padding:2px 6px;border-radius:4px;">#1A7A6E · teal</code>
+        </div>
+      </div>
+      <div class="spec-note">Threshold: a character is considered <strong>mastered</strong> when the learner achieves ≥85% accuracy across all task types for that character. Below 85% = in progress. Not attempted = not learned.</div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">CSS Variables — Copy into project root</div>
+      <div class="code">
+<span class="c-grey">/* ── Learn Malayalam Script — Colour Tokens ── */</span>
+:root {
+  <span class="c-grey">/* Primary */</span>
+  --color-orange:        <span class="c-orange">#E8720C</span>;
+  --color-orange-dark:   <span class="c-orange">#C4650A</span>;
+  --color-orange-light:  <span class="c-orange">#FFF0D9</span>;
+
+  <span class="c-grey">/* Secondary */</span>
+  --color-teal:          <span class="c-teal">#1A7A6E</span>;
+  --color-teal-dark:     <span class="c-teal">#0F6E56</span>;
+  --color-teal-light:    <span class="c-teal">#E1F5EE</span>;
+
+  <span class="c-grey">/* Accent */</span>
+  --color-gold:          <span class="c-yellow">#FFD44A</span>;
+  --color-gold-warm:     <span class="c-yellow">#C8922A</span>;
+
+  <span class="c-grey">/* Error */</span>
+  --color-error:         #C0392B;
+  --color-error-light:   #FFEBEE;
+
+  <span class="c-grey">/* Neutrals */</span>
+  --color-bg:            <span class="c-yellow">#F5F0E8</span>;
+  --color-surface:       #FDF6E3;
+  --color-card:          #FFFFFF;
+  --color-border:        #E8D5A3;
+  --color-text-primary:  #2D2417;
+  --color-text-secondary:#7A6A55;
+  --color-text-muted:    #C8B89A;
+
+  <span class="c-grey">/* Learning states */</span>
+  --state-unknown:       #C8B89A;
+  --state-progress:      #E8720C;
+  --state-mastered:      #1A7A6E;
+}
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       2. TYPOGRAPHY
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">02</div>
+    <h2 class="section-title">Typography</h2>
+    <p class="section-desc">Two fonts are used throughout the app. DM Sans handles all English UI text. Noto Sans Malayalam is used exclusively for every Malayalam character — no exceptions.</p>
+    <hr class="divider">
+
+    <div class="sub">
+      <div class="sub-label">Font Import</div>
+      <div class="code">
+<span class="c-orange">@import</span> url(<span class="c-teal">'https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Literata:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap'</span>);
+
+<span class="c-grey">/* DM Sans — all English UI text */</span>
+font-family: <span class="c-yellow">'DM Sans'</span>, sans-serif;
+
+<span class="c-grey">/* Noto Sans Malayalam — ALL Malayalam characters, every context */</span>
+font-family: <span class="c-yellow">'Noto Sans Malayalam'</span>, sans-serif;
+
+<span class="c-grey">/* Literata — ISO 15919 transliteration only, always in #C8922A */</span>
+font-family: <span class="c-yellow">'Literata'</span>, Georgia, serif;
+      </div>
+      <div class="spec-note"><strong>Rule:</strong> Noto Sans Malayalam applies to every Malayalam Unicode character — in cards, lesson screens, the writing canvas reference, the Phoneme Contrast Matrix, and ISO label pairings. Never use a system font for Malayalam characters.</div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">DM Sans — English Type Scale</div>
+      <div class="type-specimen">
+        <div class="type-row">
+          <span class="type-label">Display / Hero</span>
+          <span class="type-sample" style="font-size:36px;font-weight:700;line-height:1.1">Learn the Script</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Heading 1</span>
+          <span class="type-sample" style="font-size:28px;font-weight:700">Module 1 — Vowels</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Heading 2</span>
+          <span class="type-sample" style="font-size:22px;font-weight:600">Vowel Introduction</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Heading 3</span>
+          <span class="type-sample" style="font-size:18px;font-weight:600">Short neutral vowel</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Body</span>
+          <span class="type-sample" style="font-size:15px;font-weight:400">When you add the long-ā diacritic to a consonant, the short a becomes long ā.</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Body Small</span>
+          <span class="type-sample" style="font-size:13px;font-weight:400;color:#7A6A55">Tap any cell in the matrix to hear its pronunciation.</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Label / Cap</span>
+          <span class="type-sample" style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#C8922A">Module 3 · Consonants</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">ISO 15919</span>
+          <span class="type-sample" style="font-size:20px;font-weight:500;color:#C8922A;font-family:'Literata',Georgia,serif">kā · ma · ṭa · ṇa</span>
+        </div>
+      </div>
+      <div class="spec-note">ISO 15919 transliteration is always displayed in <strong>Literata serif</strong> at 500 weight, in <strong>#C8922A (Warm Gold)</strong>. This distinguishes transliteration clearly from all other text — elegant and warm rather than technical.</div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">Noto Sans Malayalam — Character Sizes</div>
+      <div class="type-specimen">
+        <div class="type-row">
+          <span class="type-label">Writing canvas ref</span>
+          <span class="type-sample" style="font-size:120px;font-family:'Noto Sans Malayalam',sans-serif;line-height:1">ക</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Letter card (large)</span>
+          <span class="type-sample" style="font-size:80px;font-family:'Noto Sans Malayalam',sans-serif;line-height:1">ക</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Module / lesson header</span>
+          <span class="type-sample" style="font-size:56px;font-family:'Noto Sans Malayalam',sans-serif;line-height:1">ക മ ത ട</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Answer choice button</span>
+          <span class="type-sample" style="font-size:32px;font-family:'Noto Sans Malayalam',sans-serif;line-height:1">ക</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Phoneme Matrix cell</span>
+          <span class="type-sample" style="font-size:24px;font-family:'Noto Sans Malayalam',sans-serif;line-height:1">ക മ ത ട ന ണ</span>
+        </div>
+        <div class="type-row">
+          <span class="type-label">Inline / body</span>
+          <span class="type-sample" style="font-size:16px;font-family:'Noto Sans Malayalam',sans-serif;line-height:1">ക + ാ = കാ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       3. SPACING & LAYOUT
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">03</div>
+    <h2 class="section-title">Spacing &amp; Layout</h2>
+    <p class="section-desc">All spacing is based on an 8px grid. Every padding, gap, and margin in the app should be a multiple of 4 or 8. This creates visual rhythm and consistency across all screens.</p>
+    <hr class="divider">
+
+    <div class="sub">
+      <div class="sub-label">Spacing Scale</div>
+      <table class="scale-table">
+        <thead>
+          <tr>
+            <th>Token</th><th>Value</th><th>Visual</th><th>Used for</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>space-1</code></td><td>4px</td><td><div class="scale-vis" style="width:4px"></div></td><td>Icon-to-label gap, badge padding</td></tr>
+          <tr><td><code>space-2</code></td><td>8px</td><td><div class="scale-vis" style="width:8px"></div></td><td>Internal component gaps, tight lists</td></tr>
+          <tr><td><code>space-3</code></td><td>12px</td><td><div class="scale-vis" style="width:12px"></div></td><td>Button vertical padding, list item padding</td></tr>
+          <tr><td><code>space-4</code></td><td>16px</td><td><div class="scale-vis" style="width:16px"></div></td><td>Standard padding, card inner spacing</td></tr>
+          <tr><td><code>space-5</code></td><td>20px</td><td><div class="scale-vis" style="width:20px"></div></td><td>Page horizontal margins, section gaps</td></tr>
+          <tr><td><code>space-6</code></td><td>24px</td><td><div class="scale-vis" style="width:24px"></div></td><td>Card padding, module card inner</td></tr>
+          <tr><td><code>space-8</code></td><td>32px</td><td><div class="scale-vis" style="width:32px"></div></td><td>Gap between cards, section separation</td></tr>
+          <tr><td><code>space-10</code></td><td>40px</td><td><div class="scale-vis" style="width:40px"></div></td><td>Page top padding, large section gaps</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">Border Radius Scale</div>
+      <table class="scale-table">
+        <thead>
+          <tr><th>Token</th><th>Value</th><th>Used for</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>radius-sm</code></td><td>8px</td><td>Lesson items, small UI chips, answer buttons</td></tr>
+          <tr><td><code>radius-md</code></td><td>12px</td><td>Badges, small cards, feedback bars</td></tr>
+          <tr><td><code>radius-lg</code></td><td>16px</td><td>Module cards, writing canvas, main cards</td></tr>
+          <tr><td><code>radius-xl</code></td><td>24px</td><td>Bottom sheets, modal overlays</td></tr>
+          <tr><td><code>radius-pill</code></td><td>999px</td><td>All pill-shaped buttons, tags</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">CSS Variables</div>
+      <div class="code">
+:root {
+  <span class="c-grey">/* Spacing */</span>
+  --space-1: <span class="c-yellow">4px</span>;
+  --space-2: <span class="c-yellow">8px</span>;
+  --space-3: <span class="c-yellow">12px</span>;
+  --space-4: <span class="c-yellow">16px</span>;
+  --space-5: <span class="c-yellow">20px</span>;
+  --space-6: <span class="c-yellow">24px</span>;
+  --space-8: <span class="c-yellow">32px</span>;
+  --space-10: <span class="c-yellow">40px</span>;
+
+  <span class="c-grey">/* Border radius */</span>
+  --radius-sm:   <span class="c-orange">8px</span>;
+  --radius-md:   <span class="c-orange">12px</span>;
+  --radius-lg:   <span class="c-orange">16px</span>;
+  --radius-xl:   <span class="c-orange">24px</span>;
+  --radius-pill: <span class="c-orange">999px</span>;
+}
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       4. BUTTONS
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">04</div>
+    <h2 class="section-title">Buttons</h2>
+    <p class="section-desc">All buttons use pill shape (border-radius: 999px). No square buttons anywhere in the app. Five button variants cover all use cases.</p>
+    <hr class="divider">
+
+    <div class="sub">
+      <div class="sub-label">Button Variants</div>
+      <div class="btn-grid" style="margin-bottom:20px;">
+        <button class="btn btn-primary">Check</button>
+        <button class="btn btn-secondary">Clear</button>
+        <button class="btn btn-teal">Continue</button>
+        <button class="btn btn-ghost">Skip</button>
+        <button class="btn btn-primary btn-disabled" disabled>Disabled</button>
+      </div>
+      <div class="btn-grid" style="margin-bottom:20px;">
+        <button class="btn btn-primary btn-sm">Check</button>
+        <button class="btn btn-primary">Check</button>
+        <button class="btn btn-primary btn-lg">Check</button>
+      </div>
+      <div class="spec-note">
+        <strong>Primary (orange):</strong> Main lesson actions — Check, Next, Start<br>
+        <strong>Secondary (cream):</strong> Destructive-lite actions — Clear, Skip, Back<br>
+        <strong>Teal:</strong> Positive completion — Continue, Done, Next Module<br>
+        <strong>Ghost:</strong> Low-priority actions — Skip, Cancel<br>
+        <strong>Disabled:</strong> When no input has been given (e.g. canvas is empty)
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">Answer Choice Buttons</div>
+      <p style="font-size:13px;color:#7A6A55;margin-bottom:16px;">Used in discrimination, identification, and transliteration tasks. Not pill-shaped — these use <code style="background:#F5ECD8;padding:2px 6px;border-radius:4px;font-size:12px;color:#C4650A">border-radius: 14px</code> to feel distinct from action buttons.</p>
+      <div class="btn-grid" style="flex-wrap:wrap;">
+        <button class="answer-btn"><span style="font-family:'Noto Sans Malayalam',sans-serif;font-size:28px;">ക</span></button>
+        <button class="answer-btn selected"><span style="font-family:'Noto Sans Malayalam',sans-serif;font-size:28px;">ത</span></button>
+        <button class="answer-btn correct"><span style="font-family:'Noto Sans Malayalam',sans-serif;font-size:28px;">മ</span></button>
+        <button class="answer-btn wrong"><span style="font-family:'Noto Sans Malayalam',sans-serif;font-size:28px;">ണ</span></button>
+        <button class="answer-btn">ka</button>
+        <button class="answer-btn selected">kā</button>
+      </div>
+      <div class="spec-note" style="margin-top:16px;">
+        <strong>Default:</strong> White bg, sand border<br>
+        <strong>Selected:</strong> Cream bg, orange border — before answer is confirmed<br>
+        <strong>Correct:</strong> Teal light bg, teal border — after correct selection<br>
+        <strong>Wrong:</strong> Error light bg, error border — after incorrect selection
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       5. WRITING CANVAS
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">05</div>
+    <h2 class="section-title">Writing Canvas</h2>
+    <p class="section-desc">The core interaction surface of the app. Warm, paper-like, distraction-free. The learner draws Malayalam characters here with their finger or stylus.</p>
+    <hr class="divider">
+
+    <div class="sub">
+      <div class="sub-label">Canvas Appearance</div>
+      <div class="canvas-demo" style="margin-bottom:16px;">
+        <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;" xmlns="http://www.w3.org/2000/svg">
+          <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#E8D5A3" stroke-width="1" stroke-dasharray="6 8"/>
+          <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#E8D5A3" stroke-width="1" stroke-dasharray="6 8"/>
+        </svg>
+        <span class="canvas-char-drawn">ക</span>
+      </div>
+      <div class="spec-note">
+        <strong>Background:</strong> #FDF6E3 (Parchment) — flat, warm, no texture<br>
+        <strong>Border:</strong> 2px solid #E8D5A3, border-radius: 16px<br>
+        <strong>Grid lines:</strong> #E8D5A3, 1px, dashed (6px dash / 8px gap) — one horizontal + one vertical centre line. Toggleable by user.<br>
+        <strong>Ink colour:</strong> #1A7A6E (Peacock Teal) — the user draws in teal<br>
+        <strong>Stroke width:</strong> 4px, round linecap, round linejoin<br>
+        <strong>Min size mobile:</strong> Full screen width minus 32px margin on each side
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">Guidance Levels — Ghost Letter</div>
+      <p style="font-size:13px;color:#7A6A55;margin-bottom:16px;">The ghost guide letter sits beneath the canvas drawing layer. It is never user-controlled — it fades according to the lesson structure.</p>
+      <table class="scale-table">
+        <thead>
+          <tr><th>Level</th><th>Guide shown</th><th>Ghost opacity</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1 — Full guide</td><td>Complete ghost letter</td><td>10%</td><td>Implemented ✓</td></tr>
+          <tr><td>2 — Half guide</td><td>Left half only (clip-path)</td><td>10%</td><td>Implemented ✓</td></tr>
+          <tr><td style="color:#C8B89A">3 — Dot guides</td><td style="color:#C8B89A">Key corner dots only (6px circles, #E8720C at 40%)</td><td style="color:#C8B89A">—</td><td style="color:#C8B89A">Future implementation</td></tr>
+          <tr><td style="color:#C8B89A">4 — Hint only</td><td style="color:#C8B89A">None shown — Level 2 appears after 2 failed attempts</td><td style="color:#C8B89A">—</td><td style="color:#C8B89A">Future implementation</td></tr>
+          <tr><td>5 — Free</td><td>None</td><td>—</td><td>Implemented ✓</td></tr>
+        </tbody>
+      </table>
+      <div class="spec-note" style="margin-top:12px;">
+        <strong>Ghost letter font:</strong> Noto Sans Malayalam · <strong>Colour:</strong> rgba(232, 114, 12, 0.10) — orange at 10% opacity (matches brand, replaces current purple)<br>
+        <strong>Current app:</strong> uses rgba(99,102,241,0.12) — update to rgba(232,114,12,0.10) when applying brand colours<br>
+        <strong>Half guide:</strong> implemented via <code style="background:#F5ECD8;padding:2px 6px;border-radius:4px;font-size:12px;color:#C4650A">clip-path: inset(0 50% 0 0)</code> on the ghost element
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       6. FEEDBACK COMPONENTS
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">06</div>
+    <h2 class="section-title">Feedback Components</h2>
+    <p class="section-desc">Feedback is immediate and non-blocking. A bar slides up from the bottom of the canvas. The learner is never locked out — they can always retry or continue.</p>
+    <hr class="divider">
+
+    <div class="sub">
+      <div class="sub-label">Feedback Bar States</div>
+      <div class="fb-bar fb-correct">
+        <div>
+          <div class="fb-msg">✓ Correct!</div>
+          <div class="fb-sub">Your shape matches well.</div>
+        </div>
+        <button class="fb-btn">Continue</button>
+      </div>
+      <div class="fb-bar fb-wrong">
+        <div>
+          <div class="fb-msg">✗ Not quite — compare the shape</div>
+          <div class="fb-sub">The curve needs to be more closed at the top.</div>
+        </div>
+        <button class="fb-btn">Try again</button>
+      </div>
+      <div class="spec-note" style="margin-top:12px;">
+        <strong>Position:</strong> Slides up from bottom of canvas — translateY(100%) → translateY(0)<br>
+        <strong>Slide duration:</strong> 250ms ease<br>
+        <strong>Stays visible</strong> until learner taps the action button<br>
+        <strong>Incorrect:</strong> Correct character overlaid on canvas at 25% opacity in teal (#1A7A6E) so learner can compare shape
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">Progress Bar</div>
+      <div style="display:flex;flex-direction:column;gap:12px;background:white;border-radius:12px;padding:20px;border:1px solid #E8D5A3;">
+        <div>
+          <div style="font-size:12px;color:#7A6A55;margin-bottom:6px;">In progress — 45%</div>
+          <div class="progress-track"><div class="progress-fill progress-orange" style="width:45%"></div></div>
+        </div>
+        <div>
+          <div style="font-size:12px;color:#7A6A55;margin-bottom:6px;">Mastered — 100%</div>
+          <div class="progress-track"><div class="progress-fill progress-teal" style="width:100%"></div></div>
+        </div>
+      </div>
+      <div class="spec-note" style="margin-top:12px;">Height: 8px · Border radius: 4px · Track: #E8D5A3 · In-progress fill: #E8720C · Mastered fill: #1A7A6E · Transition: width 0.4s ease</div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">Badges &amp; Status Pills</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+        <span class="badge badge-new">NEW</span>
+        <span class="badge badge-progress">In Progress</span>
+        <span class="badge badge-mastered">✓ Mastered</span>
+        <span class="badge badge-locked">Locked</span>
+        <span class="badge" style="background:#FDF6E3;color:#C8922A;border:1px solid #E8D5A3;">Module 3</span>
+        <span class="badge" style="background:#E8720C;color:white;">Streak 7 🔥</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       7. LETTER FRAME SYSTEM
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">07</div>
+    <h2 class="section-title">Letter Frame System</h2>
+    <p class="section-desc">When a character is introduced, it appears inside a decorative frame. The frame intensity mirrors the learner's familiarity — ornate when new, quieter as it becomes familiar, teal when mastered. The frame itself is a learning signal.</p>
+    <hr class="divider">
+
+    <div class="letter-frames">
+      <!-- New -->
+      <div class="letter-card lc-new">
+        <div style="position:absolute;top:8px;left:10px;font-size:8px;color:#C8922A;">◆</div>
+        <div style="position:absolute;top:8px;right:10px;font-size:8px;color:#C8922A;">◆</div>
+        <span class="lc-char">അ</span>
+        <div class="lc-iso">a</div>
+        <div class="lc-desc">Short · neutral vowel</div>
+        <div class="lc-badge" style="background:#E8720C;color:white;">NEW</div>
+      </div>
+
+      <!-- In progress -->
+      <div class="letter-card lc-progress" style="position:relative;">
+        <div class="lc-corner-tl"></div>
+        <div class="lc-corner-tr"></div>
+        <div class="lc-corner-bl"></div>
+        <div class="lc-corner-br"></div>
+        <span class="lc-char">ക</span>
+        <div class="lc-iso">ka</div>
+        <div class="lc-desc">Velar stop · back of mouth</div>
+        <div class="lc-badge" style="background:#FFF0D9;color:#C4650A;border:1px solid #E8D5A3;">Practising</div>
+      </div>
+
+      <!-- Mastered -->
+      <div class="letter-card lc-mastered">
+        <div style="position:absolute;top:12px;right:12px;width:22px;height:22px;border-radius:50%;background:#E1F5EE;border:1px solid #1A7A6E;display:flex;align-items:center;justify-content:center;font-size:12px;color:#1A7A6E;">✓</div>
+        <span class="lc-char">മ</span>
+        <div class="lc-iso">ma</div>
+        <div class="lc-desc">Bilabial nasal · lips together</div>
+        <div class="lc-badge" style="background:#E1F5EE;color:#0F6E56;">✓ Mastered</div>
+      </div>
+    </div>
+
+    <div class="spec-note" style="margin-top:20px;">
+      <strong>New letter:</strong> 4px orange top bar + two small ◆ corner diamonds in #C8922A. Border: 1px solid #E8D5A3<br>
+      <strong>In progress:</strong> L-bracket corner accents (12×12px, 1.5px stroke, #C8922A). No top bar. Border: 1px solid #E8D5A3<br>
+      <strong>Mastered:</strong> 4px teal top bar + small check circle (22px) top-right. Border: 1.5px solid #1A7A6E. Background: #F0FAF6
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       8. PHONEME CONTRAST MATRIX
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">08</div>
+    <h2 class="section-title">Phoneme Contrast Matrix</h2>
+    <p class="section-desc">Two persistent reference grids — one for vowels, one for consonants. Visible from Lesson 1. Cells are tappable to play audio. Colour reflects learning status.</p>
+    <hr class="divider">
+
+    <div class="sub">
+      <div class="sub-label">Matrix Cell States</div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:20px;">
+        <div style="text-align:center;">
+          <div class="matrix-cell m-unknown" style="width:72px;height:72px;border-radius:12px;font-size:32px;">ഘ</div>
+          <div style="font-size:11px;color:#C8B89A;margin-top:6px;">Not learned</div>
+          <div style="font-size:10px;font-family:'Courier New',monospace;color:#C8B89A;">#E8E0D4</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="matrix-cell m-progress" style="width:72px;height:72px;border-radius:12px;font-size:32px;font-family:'Noto Sans Malayalam',sans-serif;">ക</div>
+          <div style="font-size:11px;color:#C4650A;margin-top:6px;">In progress</div>
+          <div style="font-size:10px;font-family:'Courier New',monospace;color:#C8B89A;">#FFF0D9</div>
+        </div>
+        <div style="text-align:center;">
+          <div class="matrix-cell m-mastered" style="width:72px;height:72px;border-radius:12px;font-size:32px;font-family:'Noto Sans Malayalam',sans-serif;">മ</div>
+          <div style="font-size:11px;color:#0F6E56;margin-top:6px;">Mastered</div>
+          <div style="font-size:10px;font-family:'Courier New',monospace;color:#C8B89A;">#E1F5EE</div>
+        </div>
+      </div>
+      <div class="spec-note">
+        <strong>Cell size:</strong> 56px × 56px (matrix view) · 72px × 72px (detail / reference view)<br>
+        <strong>Border radius:</strong> 10px<br>
+        <strong>On tap:</strong> Scale to 1.08 in 150ms, play audio<br>
+        <strong>NEW indicator:</strong> Small orange dot (8px) top-right corner until lesson complete<br>
+        <strong>Layout:</strong> Two separate grids — Vowels (short/long rows) and Consonants (place × manner)<br>
+        <strong>Font:</strong> Noto Sans Malayalam at 24px (matrix) / 32px (detail)
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       9. ANIMATIONS
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">09</div>
+    <h2 class="section-title">Animations</h2>
+    <p class="section-desc">Animations are purposeful and brief. They communicate meaning — not decoration. Each animation has a specific job: celebrate progress, signal feedback, or make an abstract concept concrete.</p>
+    <hr class="divider">
+
+    <div class="sub">
+      <div class="sub-label">A — Module Unlock</div>
+      <p style="font-size:13px;color:#7A6A55;margin-bottom:16px;">Plays when a learner completes all lessons in a module and the next unlocks.</p>
+      <table class="scale-table">
+        <thead><tr><th>Phase</th><th>Timing</th><th>What happens</th></tr></thead>
+        <tbody>
+          <tr><td>1 — Attention</td><td>0 → 240ms</td><td>Node scales to 1.06×, background shifts to #FFF0D9, border to #E8720C. Glow ring appears: box-shadow 0 0 0 6px rgba(232,114,12,0.15)</td></tr>
+          <tr><td>2 — Peak</td><td>240 → 600ms</td><td>Scale to 1.10×. Particle burst: 9 dots (8px circles) scatter outward in orange, teal, and gold. Animation: translate + scale(0) + opacity 0 over 700ms ease-out</td></tr>
+          <tr><td>3 — Settle</td><td>600 → 900ms</td><td>Background transitions to #E8F8F0, border to #1A7A6E (mastered teal). Glow fades.</td></tr>
+          <tr><td>4 — Complete</td><td>900 → 1200ms</td><td>Scale returns to 1.0. Background: #E1F5EE. Module icon changes from number to ✓</td></tr>
+        </tbody>
+      </table>
+      <div class="code" style="margin-top:12px;">
+<span class="c-orange">@keyframes</span> <span class="c-yellow">nodeUnlock</span> {
+  <span class="c-teal">0%</span>   { transform: scale(1);    background: <span class="c-orange">#FDF6E3</span>; border-color: <span class="c-grey">#E8D5A3</span>; }
+  <span class="c-teal">20%</span>  { transform: scale(1.06); background: <span class="c-orange">#FFF0D9</span>; border-color: <span class="c-orange">#E8720C</span>;
+           box-shadow: 0 0 0 6px rgba(232,114,12,0.15); }
+  <span class="c-teal">50%</span>  { transform: scale(1.10); box-shadow: 0 0 0 14px rgba(232,114,12,0.07); }
+  <span class="c-teal">75%</span>  { transform: scale(1.03); background: <span class="c-teal">#E8F8F0</span>;  border-color: <span class="c-teal">#1A7A6E</span>; }
+  <span class="c-teal">100%</span> { transform: scale(1);    background: <span class="c-teal">#E1F5EE</span>;  border-color: <span class="c-teal">#1A7A6E</span>;
+           box-shadow: none; }
+}
+<span class="c-grey">/* Duration: 1200ms · Easing: ease · Haptic recommended on mobile */</span>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">B — Correct Answer Feedback</div>
+      <p style="font-size:13px;color:#7A6A55;margin-bottom:12px;">Plays when the learner's handwriting or answer choice is evaluated as correct.</p>
+      <table class="scale-table">
+        <thead><tr><th>Element</th><th>What happens</th><th>Timing</th></tr></thead>
+        <tbody>
+          <tr><td>Canvas border</td><td>#E8D5A3 → #1A7A6E (teal)</td><td>0 → 180ms</td></tr>
+          <tr><td>Canvas background</td><td>#FDF6E3 → #E1F5EE (teal light)</td><td>0 → 180ms</td></tr>
+          <tr><td>Canvas scale</td><td>1.0 → 1.04 → 1.0</td><td>0 → 300ms → 600ms</td></tr>
+          <tr><td>Feedback bar</td><td>Slides up: translateY(100%) → translateY(0)</td><td>Starts at 100ms, 250ms ease</td></tr>
+        </tbody>
+      </table>
+      <div class="code" style="margin-top:12px;">
+<span class="c-orange">@keyframes</span> <span class="c-yellow">correctFlash</span> {
+  <span class="c-teal">0%</span>   { border-color: <span class="c-grey">#E8D5A3</span>; background: <span class="c-grey">#FDF6E3</span>; transform: scale(1); }
+  <span class="c-teal">30%</span>  { border-color: <span class="c-teal">#1A7A6E</span>; background: <span class="c-teal">#E1F5EE</span>; transform: scale(1.04); }
+  <span class="c-teal">70%</span>  { border-color: <span class="c-teal">#1A7A6E</span>; background: <span class="c-teal">#E1F5EE</span>; transform: scale(1.04); }
+  <span class="c-teal">100%</span> { border-color: <span class="c-grey">#E8D5A3</span>; background: <span class="c-grey">#FDF6E3</span>; transform: scale(1); }
+}
+<span class="c-grey">/* Duration: 600ms · Easing: ease */</span>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">C — Incorrect Answer Feedback</div>
+      <p style="font-size:13px;color:#7A6A55;margin-bottom:12px;">Plays when the learner's handwriting or answer choice is evaluated as incorrect.</p>
+      <table class="scale-table">
+        <thead><tr><th>Element</th><th>What happens</th><th>Timing</th></tr></thead>
+        <tbody>
+          <tr><td>Canvas</td><td>Red flash + horizontal shake (3 oscillations, ±8px → ±5px → ±2px)</td><td>0 → 500ms</td></tr>
+          <tr><td>Canvas border</td><td>#E8D5A3 → #C0392B → #E8D5A3</td><td>0 → 500ms</td></tr>
+          <tr><td>Canvas background</td><td>#FDF6E3 → #FFEBEE → #FDF6E3</td><td>0 → 500ms</td></tr>
+          <tr><td>Feedback bar</td><td>Slides up at 200ms. 250ms ease</td><td>200ms</td></tr>
+          <tr><td>Correct glyph overlay</td><td>Fades in at 25% opacity in #1A7A6E on top of canvas</td><td>Starts at 520ms, 400ms ease</td></tr>
+        </tbody>
+      </table>
+      <div class="code" style="margin-top:12px;">
+<span class="c-orange">@keyframes</span> <span class="c-yellow">wrongShake</span> {
+  <span class="c-teal">0%</span>   { transform: translateX(0);   border-color: <span class="c-grey">#E8D5A3</span>; background: <span class="c-grey">#FDF6E3</span>; }
+  <span class="c-teal">15%</span>  { transform: translateX(-8px); border-color: <span class="c-orange">#C0392B</span>; background: <span class="c-orange">#FFEBEE</span>; }
+  <span class="c-teal">30%</span>  { transform: translateX(8px);  }
+  <span class="c-teal">45%</span>  { transform: translateX(-5px); }
+  <span class="c-teal">60%</span>  { transform: translateX(5px);  }
+  <span class="c-teal">75%</span>  { transform: translateX(-2px); }
+  <span class="c-teal">100%</span> { transform: translateX(0);   border-color: <span class="c-grey">#E8D5A3</span>; background: <span class="c-grey">#FDF6E3</span>; }
+}
+<span class="c-grey">/* Duration: 500ms · Easing: ease */</span>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">General Animation Principles</div>
+      <div class="spec-note">
+        <strong>Keep it short:</strong> No animation exceeds 1.2s. Most are under 600ms.<br>
+        <strong>Easing:</strong> Use <code>ease</code> for all animations. Never linear.<br>
+        <strong>No animation stacking:</strong> Only one animation plays at a time. Don't chain celebration animations.<br>
+        <strong>Haptics:</strong> Pair module unlock with success haptic. Pair incorrect with error haptic. Correct answer: light haptic.<br>
+        <strong>Reduce motion:</strong> Respect <code>prefers-reduced-motion</code> — disable scale and translate animations, keep colour transitions.
+      </div>
+      <div class="code" style="margin-top:12px;">
+<span class="c-orange">@media</span> (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: <span class="c-yellow">0.01ms</span> !important;
+    transition-duration: <span class="c-yellow">0.01ms</span> !important;
+  }
+}
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       10. MODULE HEADER ILLUSTRATIONS
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">10</div>
+    <h2 class="section-title">Module Header Illustrations</h2>
+    <p class="section-desc">Each module card has a 200px-tall Kerala scene illustration as its header. Secular, culturally rooted, painted in the brand palette. Four illustrations are provided as ready-to-use SVG code below.</p>
+    <hr class="divider">
+
+    <div class="sub">
+      <div class="sub-label">Illustration Style Rules</div>
+      <div class="spec-note">
+        <strong>Dimensions:</strong> Full card width × 200px height<br>
+        <strong>Format:</strong> Inline SVG — scalable, no network requests, no external assets<br>
+        <strong>Palette:</strong> Brand colours only. No colours outside the defined palette.<br>
+        <strong>Style:</strong> Flat illustration, no gradients inside shapes, no photorealism<br>
+        <strong>Content:</strong> Secular scenes from Kerala nature and daily life — no religious imagery<br>
+        <strong>Scenes assigned to modules:</strong> developer assigns based on module number cycling through available illustrations
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">Illustration 1 — Kerala Backwaters at Dusk</div>
+      <p style="font-size:13px;color:#7A6A55;margin-bottom:12px;">Coconut palms, still water, a small wooden boat, warm evening sky. Use for Module 1 or any vowel introduction module.</p>
+      <div style="border-radius:16px;overflow:hidden;border:1px solid #E8D5A3;">
+        <svg width="100%" viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="680" height="200" fill="#F5C87A"/>
+          <rect x="0" y="100" width="680" height="30" fill="#E8A04A"/>
+          <circle cx="520" cy="62" r="28" fill="#FFD44A" opacity="0.9"/>
+          <circle cx="520" cy="62" r="38" fill="none" stroke="#FFD44A" stroke-width="1" opacity="0.4"/>
+          <ellipse cx="180" cy="112" rx="220" ry="28" fill="#5C8A3A"/>
+          <ellipse cx="550" cy="116" rx="180" ry="22" fill="#4E7A30"/>
+          <rect x="0" y="122" width="680" height="78" fill="#5B8FAA"/>
+          <line x1="60" y1="140" x2="160" y2="140" stroke="#4A7A92" stroke-width="1" opacity="0.6"/>
+          <line x1="200" y1="148" x2="340" y2="148" stroke="#4A7A92" stroke-width="0.8" opacity="0.5"/>
+          <line x1="400" y1="144" x2="520" y2="144" stroke="#4A7A92" stroke-width="0.8" opacity="0.5"/>
+          <ellipse cx="520" cy="155" rx="40" ry="8" fill="#FFD44A" opacity="0.3"/>
+          <rect x="0" y="118" width="680" height="14" fill="#6BA040"/>
+          <rect x="78" y="38" width="7" height="84" rx="3" fill="#5C4A2A"/>
+          <ellipse cx="82" cy="38" rx="32" ry="10" fill="#3D7A3A" transform="rotate(-25 82 38)"/>
+          <ellipse cx="82" cy="38" rx="28" ry="9" fill="#4E9A48" transform="rotate(5 82 38)"/>
+          <ellipse cx="82" cy="38" rx="26" ry="8" fill="#5DB356" transform="rotate(35 82 38)"/>
+          <circle cx="84" cy="46" r="5" fill="#8B6914"/>
+          <circle cx="78" cy="50" r="4" fill="#8B6914"/>
+          <rect x="118" y="52" width="6" height="70" rx="3" fill="#5C4A2A"/>
+          <ellipse cx="121" cy="52" rx="26" ry="8" fill="#4E9A48" transform="rotate(-15 121 52)"/>
+          <ellipse cx="121" cy="52" rx="22" ry="7" fill="#5DB356" transform="rotate(20 121 52)"/>
+          <rect x="598" y="44" width="7" height="78" rx="3" fill="#5C4A2A"/>
+          <ellipse cx="602" cy="44" rx="30" ry="10" fill="#3D7A3A" transform="rotate(20 602 44)"/>
+          <ellipse cx="602" cy="44" rx="26" ry="8" fill="#4E9A48" transform="rotate(-10 602 44)"/>
+          <ellipse cx="602" cy="44" rx="24" ry="7" fill="#5DB356" transform="rotate(-40 602 44)"/>
+          <circle cx="600" cy="52" r="5" fill="#8B6914"/>
+          <path d="M270 138 Q310 128 360 136 L356 148 Q310 144 274 148 Z" fill="#7A5C2A"/>
+          <rect x="313" y="116" width="3" height="22" rx="1" fill="#5C4A2A"/>
+          <path d="M316 116 L330 120 L316 124 Z" fill="#E8720C"/>
+          <path d="M400 48 Q404 44 408 48" fill="none" stroke="#5C4A2A" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M414 40 Q418 36 422 40" fill="none" stroke="#5C4A2A" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">Illustration 2 — Kerala Spice Market</div>
+      <p style="font-size:13px;color:#7A6A55;margin-bottom:12px;">Piles of turmeric, chilli, pepper, cardamom and cinnamon on a market counter under a warm awning. Use for consonant modules.</p>
+      <div style="border-radius:16px;overflow:hidden;border:1px solid #E8D5A3;">
+        <svg width="100%" viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="680" height="200" fill="#F0E0C0"/>
+          <rect x="0" y="0" width="680" height="38" fill="#C4650A"/>
+          <rect x="0" y="0" width="680" height="8" fill="#A04000"/>
+          <path d="M0 38 L20 52 L40 38 L60 52 L80 38 L100 52 L120 38 L140 52 L160 38 L180 52 L200 38 L220 52 L240 38 L260 52 L280 38 L300 52 L320 38 L340 52 L360 38 L380 52 L400 38 L420 52 L440 38 L460 52 L480 38 L500 52 L520 38 L540 52 L560 38 L580 52 L600 38 L620 52 L640 38 L660 52 L680 38" fill="none" stroke="#E8720C" stroke-width="2"/>
+          <rect x="0" y="38" width="680" height="90" fill="#EDD5A8"/>
+          <rect x="0" y="128" width="680" height="16" fill="#8B6914"/>
+          <rect x="0" y="144" width="680" height="56" fill="#7A5C10"/>
+          <rect x="0" y="128" width="680" height="3" fill="#C8922A"/>
+          <ellipse cx="100" cy="130" rx="80" ry="12" fill="#4E9A48" opacity="0.7" transform="rotate(-5 100 130)"/>
+          <ellipse cx="340" cy="130" rx="90" ry="11" fill="#5DB356" opacity="0.6" transform="rotate(3 340 130)"/>
+          <ellipse cx="580" cy="130" rx="75" ry="11" fill="#4E9A48" opacity="0.7" transform="rotate(-3 580 130)"/>
+          <ellipse cx="90" cy="124" rx="40" ry="14" fill="#E8C020"/>
+          <ellipse cx="90" cy="118" rx="32" ry="10" fill="#F0D040"/>
+          <ellipse cx="90" cy="114" rx="22" ry="7" fill="#FFE060"/>
+          <ellipse cx="210" cy="125" rx="36" ry="13" fill="#C0200A"/>
+          <ellipse cx="210" cy="119" rx="28" ry="9" fill="#E03010"/>
+          <ellipse cx="210" cy="115" rx="18" ry="6" fill="#FF4020"/>
+          <ellipse cx="340" cy="124" rx="38" ry="13" fill="#3A3028"/>
+          <ellipse cx="340" cy="118" rx="30" ry="9" fill="#4A3E36"/>
+          <ellipse cx="340" cy="114" rx="20" ry="7" fill="#5A4E46"/>
+          <ellipse cx="464" cy="124" rx="36" ry="13" fill="#3D7A3A"/>
+          <ellipse cx="464" cy="118" rx="28" ry="9" fill="#4E9A48"/>
+          <ellipse cx="464" cy="114" rx="18" ry="6" fill="#5DB356"/>
+          <ellipse cx="584" cy="124" rx="38" ry="13" fill="#8B4513"/>
+          <ellipse cx="584" cy="118" rx="30" ry="9" fill="#A0522D"/>
+          <rect x="576" y="104" width="8" height="18" rx="4" fill="#C8722A" transform="rotate(-10 580 113)"/>
+          <rect x="588" y="102" width="8" height="20" rx="4" fill="#B8621A"/>
+          <rect x="600" y="104" width="8" height="18" rx="4" fill="#C8722A" transform="rotate(10 604 113)"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">Illustration 3 — Western Ghats Rainforest with Coconut Palms</div>
+      <p style="font-size:13px;color:#7A6A55;margin-bottom:12px;">Layered jungle canopy, coconut palms rising above the treeline, mist, ferns, hornbill silhouette. Use for chillu or cluster modules.</p>
+      <div style="border-radius:16px;overflow:hidden;border:1px solid #E8D5A3;">
+        <svg width="100%" viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="680" height="200" fill="#C8DDD0"/>
+          <ellipse cx="340" cy="55" rx="380" ry="48" fill="#D8E8DC" opacity="0.8"/>
+          <ellipse cx="140" cy="98" rx="220" ry="62" fill="#7AAC8A"/>
+          <ellipse cx="430" cy="92" rx="270" ry="68" fill="#6E9E80"/>
+          <ellipse cx="70" cy="116" rx="175" ry="55" fill="#5D9068"/>
+          <ellipse cx="340" cy="110" rx="275" ry="62" fill="#4E8A5C"/>
+          <ellipse cx="605" cy="118" rx="195" ry="56" fill="#558E62"/>
+          <polygon points="270,0 298,0 248,128 220,128" fill="#E8F5E0" opacity="0.10"/>
+          <polygon points="375,0 393,0 355,128 337,128" fill="#E8F5E0" opacity="0.09"/>
+          <rect x="0" y="148" width="680" height="52" fill="#2A5C30"/>
+          <ellipse cx="340" cy="152" rx="340" ry="18" fill="#3A7040"/>
+          <rect x="56" y="82" width="16" height="118" rx="8" fill="#3A2A1A"/>
+          <ellipse cx="64" cy="82" rx="52" ry="30" fill="#2A6A30"/>
+          <ellipse cx="48" cy="72" rx="40" ry="25" fill="#3A8040"/>
+          <ellipse cx="80" cy="70" rx="44" ry="27" fill="#348A3A"/>
+          <ellipse cx="64" cy="60" rx="36" ry="21" fill="#40A048"/>
+          <rect x="614" y="78" width="16" height="122" rx="8" fill="#3A2A1A"/>
+          <ellipse cx="622" cy="78" rx="50" ry="29" fill="#2A6A30"/>
+          <ellipse cx="604" cy="65" rx="40" ry="25" fill="#3A8040"/>
+          <ellipse cx="636" cy="62" rx="42" ry="26" fill="#348A3A"/>
+          <path d="M185 200 Q192 155 202 105 Q206 75 215 45" fill="none" stroke="#5C4A2A" stroke-width="8" stroke-linecap="round"/>
+          <ellipse cx="220" cy="40" rx="38" ry="10" fill="#2E7A36" transform="rotate(-35 220 40)"/>
+          <ellipse cx="220" cy="40" rx="35" ry="9" fill="#3A9042" transform="rotate(-10 220 40)"/>
+          <ellipse cx="220" cy="40" rx="32" ry="9" fill="#2E7A36" transform="rotate(18 220 40)"/>
+          <ellipse cx="220" cy="40" rx="30" ry="8" fill="#4EAA50" transform="rotate(44 220 40)"/>
+          <circle cx="218" cy="52" r="7" fill="#7A5C14"/>
+          <circle cx="226" cy="50" r="6" fill="#8B6914"/>
+          <path d="M490 200 Q484 158 476 112 Q470 82 462 50" fill="none" stroke="#5C4A2A" stroke-width="8" stroke-linecap="round"/>
+          <ellipse cx="456" cy="44" rx="36" ry="9" fill="#2E7A36" transform="rotate(30 456 44)"/>
+          <ellipse cx="456" cy="44" rx="33" ry="9" fill="#3A9042" transform="rotate(5 456 44)"/>
+          <ellipse cx="456" cy="44" rx="31" ry="8" fill="#2E7A36" transform="rotate(-22 456 44)"/>
+          <ellipse cx="456" cy="44" rx="28" ry="8" fill="#4EAA50" transform="rotate(-48 456 44)"/>
+          <circle cx="458" cy="55" r="7" fill="#8B6914"/>
+          <path d="M0 200 Q32 142 84 132 Q62 167 22 200Z" fill="#2E7A38"/>
+          <path d="M0 200 Q52 150 114 140 Q82 172 12 200Z" fill="#3A9048"/>
+          <path d="M680 200 Q648 142 596 132 Q618 167 658 200Z" fill="#2E7A38"/>
+          <path d="M680 200 Q628 150 566 140 Q598 172 668 200Z" fill="#3A9048"/>
+          <path d="M295 30 Q302 24 310 30" fill="none" stroke="#1E5220" stroke-width="2" stroke-linecap="round"/>
+          <path d="M310 30 L320 27 L318 33 Z" fill="#1E5220"/>
+          <ellipse cx="306" cy="33" rx="9" ry="5" fill="#1E5220"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">Illustration 4 — Lotus Lake with Peacock</div>
+      <p style="font-size:13px;color:#7A6A55;margin-bottom:12px;">Still water, lotus pads, pink flowers, a peacock on the bank with fanned tail. Use for review or milestone modules.</p>
+      <div style="border-radius:16px;overflow:hidden;border:1px solid #E8D5A3;">
+        <svg width="100%" viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="680" height="200" fill="#E8D8C0"/>
+          <rect x="0" y="0" width="680" height="60" fill="#F0E4CC"/>
+          <ellipse cx="120" cy="92" rx="160" ry="38" fill="#5D9068"/>
+          <ellipse cx="380" cy="88" rx="220" ry="36" fill="#4E8A5C"/>
+          <ellipse cx="620" cy="94" rx="170" ry="35" fill="#558E62"/>
+          <rect x="0" y="108" width="680" height="18" fill="#6BA040"/>
+          <rect x="0" y="118" width="680" height="82" fill="#5B8FAA"/>
+          <line x1="0" y1="136" x2="680" y2="136" stroke="#4A7A92" stroke-width="0.6" opacity="0.4"/>
+          <line x1="0" y1="150" x2="680" y2="150" stroke="#4A7A92" stroke-width="0.5" opacity="0.3"/>
+          <ellipse cx="90" cy="140" rx="28" ry="12" fill="#3A7830" transform="rotate(-8 90 140)"/>
+          <ellipse cx="155" cy="148" rx="24" ry="10" fill="#4E9A48" transform="rotate(5 155 148)"/>
+          <ellipse cx="230" cy="135" rx="30" ry="12" fill="#3A7830" transform="rotate(-12 230 135)"/>
+          <ellipse cx="400" cy="138" rx="28" ry="11" fill="#3A7830" transform="rotate(-5 400 138)"/>
+          <ellipse cx="558" cy="140" rx="30" ry="12" fill="#3A7830" transform="rotate(-8 558 140)"/>
+          <ellipse cx="90" cy="128" rx="7" ry="12" fill="#FF9EB5" transform="rotate(-15 90 128)"/>
+          <ellipse cx="90" cy="128" rx="7" ry="12" fill="#FFB8C8" transform="rotate(15 90 128)"/>
+          <ellipse cx="90" cy="128" rx="6" ry="10" fill="#FFCCD8" transform="rotate(-35 90 128)"/>
+          <circle cx="90" cy="126" r="5" fill="#FFE066"/>
+          <ellipse cx="310" cy="133" rx="8" ry="13" fill="#FF9EB5" transform="rotate(-18 310 133)"/>
+          <ellipse cx="310" cy="133" rx="8" ry="13" fill="#FFB8C8" transform="rotate(18 310 133)"/>
+          <ellipse cx="310" cy="133" rx="7" ry="11" fill="#FF8CAE" transform="rotate(-40 310 133)"/>
+          <circle cx="310" cy="130" r="6" fill="#FFE066"/>
+          <ellipse cx="558" cy="128" rx="7" ry="12" fill="#FF9EB5" transform="rotate(-12 558 128)"/>
+          <circle cx="558" cy="126" r="5" fill="#FFE066"/>
+          <path d="M40 170 Q44 140 50 108 Q53 88 58 62" fill="none" stroke="#5C4A2A" stroke-width="7" stroke-linecap="round"/>
+          <ellipse cx="62" cy="56" rx="30" ry="8" fill="#2E7A36" transform="rotate(-30 62 56)"/>
+          <ellipse cx="62" cy="56" rx="28" ry="8" fill="#3A9042" transform="rotate(0 62 56)"/>
+          <ellipse cx="62" cy="56" rx="26" ry="7" fill="#4EAA50" transform="rotate(28 62 56)"/>
+          <circle cx="60" cy="67" r="6" fill="#7A5C14"/>
+          <line x1="495" y1="130" x2="490" y2="148" stroke="#5C8A3A" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="505" y1="130" x2="508" y2="148" stroke="#5C8A3A" stroke-width="2.5" stroke-linecap="round"/>
+          <ellipse cx="500" cy="118" rx="16" ry="14" fill="#1A7A6E"/>
+          <ellipse cx="500" cy="122" rx="11" ry="10" fill="#1D9E75"/>
+          <rect x="496" y="96" width="8" height="24" rx="4" fill="#1A7A6E"/>
+          <circle cx="500" cy="90" r="10" fill="#1A7A6E"/>
+          <ellipse cx="480" cy="100" rx="5" ry="22" fill="#1A7A6E" transform="rotate(-40 480 100)"/>
+          <ellipse cx="470" cy="106" rx="5" ry="22" fill="#0F6E56" transform="rotate(-55 470 106)"/>
+          <ellipse cx="520" cy="100" rx="5" ry="22" fill="#1A7A6E" transform="rotate(40 520 100)"/>
+          <ellipse cx="530" cy="106" rx="5" ry="22" fill="#0F6E56" transform="rotate(55 530 106)"/>
+          <ellipse cx="500" cy="95" rx="5" ry="24" fill="#1D9E75" transform="rotate(0 500 95)"/>
+          <circle cx="458" cy="87" r="5" fill="#FFD44A"/>
+          <circle cx="458" cy="87" r="2.5" fill="#1A7A6E"/>
+          <circle cx="542" cy="87" r="5" fill="#FFD44A"/>
+          <circle cx="542" cy="87" r="2.5" fill="#1A7A6E"/>
+          <circle cx="500" cy="73" r="5" fill="#FFD44A"/>
+          <circle cx="500" cy="73" r="2.5" fill="#1A7A6E"/>
+          <circle cx="503" cy="88" r="3" fill="white"/>
+          <circle cx="503" cy="88" r="1.5" fill="#1A1A1A"/>
+          <path d="M509 91 L518 94 L509 95 Z" fill="#C8922A"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       11. SPOT ILLUSTRATIONS
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">11</div>
+    <h2 class="section-title">Spot Illustrations</h2>
+    <p class="section-desc">Five small SVG icons used at fixed points across the app. All are inline SVG — no image files needed. Use at the sizes specified.</p>
+    <hr class="divider">
+
+    <div class="sub">
+      <div class="sub-label">Usage Map</div>
+      <table class="scale-table">
+        <thead><tr><th>Icon</th><th>Used for</th><th>Sizes</th><th>Colour</th></tr></thead>
+        <tbody>
+          <tr><td>🔥 Flame</td><td>Streak counter in stats bar</td><td>24px, 32px</td><td>#E8720C / #FFD44A</td></tr>
+          <tr><td>🪷 Lotus</td><td>Badge milestones (vowels, consonants, chillus)</td><td>24px, 48px, 80px</td><td>#FFB8C8 / #FFE066</td></tr>
+          <tr><td>🥥 Coconut</td><td>Rest day count, rest day badge</td><td>24px, 48px, 80px</td><td>#8B6020 / #3A1A08</td></tr>
+          <tr><td>⭐ Star</td><td>Perfect lesson (100% accuracy), top score</td><td>24px, 48px, 80px</td><td>#FFD44A / #F5C518</td></tr>
+          <tr><td>🔒 Lock</td><td>Locked modules</td><td>24px, 32px, 48px</td><td>#C8B89A / #D8C8A8</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">SVG Code — Flame (streak) at 32px</div>
+      <div class="code">
+&lt;<span class="c-orange">svg</span> width=<span class="c-yellow">"32"</span> height=<span class="c-yellow">"32"</span> viewBox=<span class="c-yellow">"0 0 32 32"</span> fill=<span class="c-yellow">"none"</span>&gt;
+  &lt;<span class="c-teal">path</span> d=<span class="c-yellow">"M16 32C4 24 3 15 8 8C10 6 11 10 11 12C15 6 18 2 16 0C21 3 26 9 25 17C27 14 28 10 26 6C30 12 32 19 29 25C27 29 22 32 16 32Z"</span>
+        fill=<span class="c-yellow">"#E8720C"</span>/&gt;
+  &lt;<span class="c-teal">path</span> d=<span class="c-yellow">"M16 29C9 23 9 18 12 13C14 18 15 14 15 11C18 15 20 21 18 26C20 22 21 19 20 16C22 20 23 25 21 28C19 30 17 31 16 29Z"</span>
+        fill=<span class="c-yellow">"#FFD44A"</span>/&gt;
+  &lt;<span class="c-teal">ellipse</span> cx=<span class="c-yellow">"16"</span> cy=<span class="c-yellow">"25"</span> rx=<span class="c-yellow">"4"</span> ry=<span class="c-yellow">"5"</span> fill=<span class="c-yellow">"#FFF0D9"</span> opacity=<span class="c-yellow">"0.7"</span>/&gt;
+&lt;/<span class="c-orange">svg</span>&gt;
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">SVG Code — Star at 32px</div>
+      <div class="code">
+&lt;<span class="c-orange">svg</span> width=<span class="c-yellow">"32"</span> height=<span class="c-yellow">"32"</span> viewBox=<span class="c-yellow">"0 0 32 32"</span> fill=<span class="c-yellow">"none"</span>&gt;
+  &lt;<span class="c-teal">polygon</span> points=<span class="c-yellow">"16,2 20,12 30,12 22,19 25,29 16,23 7,29 10,19 2,12 12,12"</span>
+           fill=<span class="c-yellow">"#FFD44A"</span>/&gt;
+  &lt;<span class="c-teal">polygon</span> points=<span class="c-yellow">"16,5 19,12 27,12 21,18 23,26 16,21 9,26 11,18 5,12 13,12"</span>
+           fill=<span class="c-yellow">"#F5C518"</span>/&gt;
+  &lt;<span class="c-teal">circle</span> cx=<span class="c-yellow">"11"</span> cy=<span class="c-yellow">"10"</span> r=<span class="c-yellow">"2"</span> fill=<span class="c-yellow">"#FFF0D9"</span> opacity=<span class="c-yellow">"0.6"</span>/&gt;
+&lt;/<span class="c-orange">svg</span>&gt;
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">SVG Code — Lock at 32px</div>
+      <div class="code">
+&lt;<span class="c-orange">svg</span> width=<span class="c-yellow">"32"</span> height=<span class="c-yellow">"32"</span> viewBox=<span class="c-yellow">"0 0 32 32"</span> fill=<span class="c-yellow">"none"</span>&gt;
+  &lt;<span class="c-teal">path</span> d=<span class="c-yellow">"M8 16 L8 11 Q8 2 16 2 Q24 2 24 11 L24 16"</span>
+        stroke=<span class="c-yellow">"#C8B89A"</span> stroke-width=<span class="c-yellow">"4"</span> stroke-linecap=<span class="c-yellow">"round"</span>/&gt;
+  &lt;<span class="c-teal">rect</span> x=<span class="c-yellow">"4"</span> y=<span class="c-yellow">"15"</span> width=<span class="c-yellow">"24"</span> height=<span class="c-yellow">"16"</span> rx=<span class="c-yellow">"5"</span> fill=<span class="c-yellow">"#C8B89A"</span>/&gt;
+  &lt;<span class="c-teal">rect</span> x=<span class="c-yellow">"6"</span> y=<span class="c-yellow">"17"</span> width=<span class="c-yellow">"20"</span> height=<span class="c-yellow">"12"</span> rx=<span class="c-yellow">"4"</span> fill=<span class="c-yellow">"#D8C8A8"</span>/&gt;
+  &lt;<span class="c-teal">circle</span> cx=<span class="c-yellow">"16"</span> cy=<span class="c-yellow">"23"</span> r=<span class="c-yellow">"3"</span> fill=<span class="c-yellow">"#A09070"</span>/&gt;
+  &lt;<span class="c-teal">rect</span> x=<span class="c-yellow">"15"</span> y=<span class="c-yellow">"23"</span> width=<span class="c-yellow">"2"</span> height=<span class="c-yellow">"5"</span> rx=<span class="c-yellow">"1"</span> fill=<span class="c-yellow">"#A09070"</span>/&gt;
+&lt;/<span class="c-orange">svg</span>&gt;
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       12. QUICK REFERENCE
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">12</div>
+    <h2 class="section-title">Quick Reference</h2>
+    <p class="section-desc">Everything in one place for fast lookups during development.</p>
+    <hr class="divider">
+
+    <div class="sub">
+      <div class="sub-label">Do / Don't</div>
+      <table class="scale-table">
+        <thead><tr><th>Do ✓</th><th>Don't ✗</th></tr></thead>
+        <tbody>
+          <tr><td>Use DM Sans for all English text</td><td>Use system fonts (San Francisco, Roboto) for UI</td></tr>
+          <tr><td>Use Noto Sans Malayalam for every Malayalam character</td><td>Use any other font for Malayalam — ever</td></tr>
+          <tr><td>Use pill buttons (border-radius: 999px) for actions</td><td>Use square or lightly-rounded buttons for action buttons</td></tr>
+          <tr><td>Use #FDF6E3 (parchment) for the writing canvas</td><td>Use white or grey for the writing canvas</td></tr>
+          <tr><td>Use #1A7A6E (teal) as the ink colour</td><td>Use black or dark grey ink on the canvas</td></tr>
+          <tr><td>Space on 8px grid multiples</td><td>Use arbitrary values like 7px, 13px, 22px</td></tr>
+          <tr><td>Keep animations under 1.2s</td><td>Use long, decorative animations that delay the learner</td></tr>
+          <tr><td>Use ISO 15919 in Literata, #C8922A</td><td>Display transliteration in the same font/colour as regular text</td></tr>
+          <tr><td>Use only the defined colour palette</td><td>Introduce new colours not in the system</td></tr>
+          <tr><td>Respect prefers-reduced-motion</td><td>Force animations regardless of system setting</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub">
+      <div class="sub-label">Key Numbers at a Glance</div>
+      <div class="code">
+<span class="c-grey">/* Primary brand colours */</span>
+Orange:          <span class="c-orange">#E8720C</span>
+Teal:            <span class="c-teal">#1A7A6E</span>
+Parchment:       <span class="c-yellow">#FDF6E3</span>
+Dark text:       #2D2417
+
+<span class="c-grey">/* Fonts */</span>
+English UI:      <span class="c-yellow">'DM Sans'</span>, sans-serif
+Malayalam chars: <span class="c-yellow">'Noto Sans Malayalam'</span>, sans-serif
+ISO 15919:       <span class="c-yellow">'Literata'</span>, Georgia, serif  <span class="c-grey">/* always #C8922A, weight 500 */</span>
+
+<span class="c-grey">/* Buttons */</span>
+All action buttons:   border-radius <span class="c-orange">999px</span>
+Answer choice buttons: border-radius <span class="c-orange">14px</span>
+
+<span class="c-grey">/* Canvas */</span>
+Background:      <span class="c-orange">#FDF6E3</span>
+Border:          2px solid <span class="c-grey">#E8D5A3</span>
+Border-radius:   <span class="c-orange">16px</span>
+Ink colour:      <span class="c-teal">#1A7A6E</span>
+Stroke width:    <span class="c-yellow">4px</span>  round linecap + linejoin
+
+<span class="c-grey">/* Animation durations */</span>
+Module unlock:   <span class="c-yellow">1200ms</span>
+Correct flash:    <span class="c-yellow">600ms</span>
+Wrong shake:      <span class="c-yellow">500ms</span>
+Feedback bar slide: <span class="c-yellow">250ms</span>
+Easing:          <span class="c-yellow">ease</span>  (all animations)
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:40px 0 0;font-size:12px;color:#C8B89A;">
+    Learn Malayalam Script · Brand Guidelines v1.0 · For developer use only
+  </div>
+
+</div>
+</body>
+</html>

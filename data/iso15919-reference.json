@@ -1,0 +1,450 @@
+{
+  "vowels": [
+    {
+      "id": "a",
+      "malayalam": "അ",
+      "iso15919": "a",
+      "category": "short",
+      "pair": "aa",
+      "description": "Short 'a' sound, like 'u' in 'but'"
+    },
+    {
+      "id": "aa",
+      "malayalam": "ആ",
+      "iso15919": "ā",
+      "category": "long",
+      "pair": "a",
+      "description": "Long 'a' sound, like 'a' in 'father', held longer"
+    },
+    {
+      "id": "e",
+      "malayalam": "എ",
+      "iso15919": "e",
+      "category": "short",
+      "pair": "ee",
+      "description": "Short 'e' sound, like 'e' in 'pet'"
+    },
+    {
+      "id": "ee",
+      "malayalam": "ഏ",
+      "iso15919": "ē",
+      "category": "long",
+      "pair": "e",
+      "description": "Long 'e' sound, like 'ay' in 'say'"
+    },
+    {
+      "id": "o",
+      "malayalam": "ഒ",
+      "iso15919": "o",
+      "category": "short",
+      "pair": "oo",
+      "description": "Short 'o' sound, like 'o' in 'pot'"
+    },
+    {
+      "id": "oo",
+      "malayalam": "ഓ",
+      "iso15919": "ō",
+      "category": "long",
+      "pair": "o",
+      "description": "Long 'o' sound, like 'o' in 'go'"
+    },
+    {
+      "id": "u",
+      "malayalam": "ഉ",
+      "iso15919": "u",
+      "category": "short",
+      "pair": "uu",
+      "description": "Short 'u' sound, like 'oo' in 'book'"
+    },
+    {
+      "id": "uu",
+      "malayalam": "ഊ",
+      "iso15919": "ū",
+      "category": "long",
+      "pair": "u",
+      "description": "Long 'u' sound, like 'oo' in 'food'"
+    },
+    {
+      "id": "i",
+      "malayalam": "ഇ",
+      "iso15919": "i",
+      "category": "short",
+      "pair": "ii",
+      "description": "Short 'i' sound, like 'i' in 'bit'"
+    },
+    {
+      "id": "ii",
+      "malayalam": "ഈ",
+      "iso15919": "ī",
+      "category": "long",
+      "pair": "i",
+      "description": "Long 'i' sound, like 'ee' in 'see'"
+    },
+    {
+      "id": "ri",
+      "malayalam": "ഋ",
+      "iso15919": "ṛ",
+      "category": "special",
+      "pair": null,
+      "description": "Vocalic 'r' sound, like 'ri' in 'rim' but uvular"
+    },
+    {
+      "id": "ai",
+      "malayalam": "ഐ",
+      "iso15919": "ai",
+      "category": "diphthong",
+      "pair": null,
+      "description": "Diphthong, like 'ai' in 'aisle'"
+    },
+    {
+      "id": "au",
+      "malayalam": "ഔ",
+      "iso15919": "au",
+      "category": "diphthong",
+      "pair": null,
+      "description": "Diphthong, like 'au' in 'now'"
+    }
+  ],
+  "consonants": [
+    {
+      "id": "ka",
+      "malayalam": "ക",
+      "iso15919": "ka",
+      "place": "velar",
+      "manner": "stop",
+      "voicing": "unvoiced",
+      "description": "Velar stop, like 'k' in 'kit'. Back of tongue touches soft palate."
+    },
+    {
+      "id": "kha",
+      "malayalam": "ഖ",
+      "iso15919": "kha",
+      "place": "velar",
+      "manner": "fricative",
+      "voicing": "unvoiced",
+      "description": "Velar fricative, like 'kh' in 'Khan'. Breathy k sound."
+    },
+    {
+      "id": "ga",
+      "malayalam": "ഗ",
+      "iso15919": "ga",
+      "place": "velar",
+      "manner": "stop",
+      "voicing": "voiced",
+      "description": "Voiced velar stop, like 'g' in 'go'."
+    },
+    {
+      "id": "gha",
+      "malayalam": "ഘ",
+      "iso15919": "gha",
+      "place": "velar",
+      "manner": "fricative",
+      "voicing": "voiced",
+      "description": "Voiced velar fricative, like 'gh' in 'ghost'."
+    },
+    {
+      "id": "nga",
+      "malayalam": "ങ",
+      "iso15919": "ṅa",
+      "place": "velar",
+      "manner": "nasal",
+      "voicing": "voiced",
+      "description": "Velar nasal, like 'ng' in 'sing'."
+    },
+    {
+      "id": "cha",
+      "malayalam": "ച",
+      "iso15919": "ca",
+      "place": "palatal",
+      "manner": "affricate",
+      "voicing": "unvoiced",
+      "description": "Palatal affricate, like 'ch' in 'chat'. Tongue touches hard palate."
+    },
+    {
+      "id": "chha",
+      "malayalam": "ഛ",
+      "iso15919": "cha",
+      "place": "palatal",
+      "manner": "affricate",
+      "voicing": "unvoiced",
+      "description": "Palatal affricate, aspirated version, like 'chh' in 'chhurro'."
+    },
+    {
+      "id": "ja",
+      "malayalam": "ജ",
+      "iso15919": "ja",
+      "place": "palatal",
+      "manner": "affricate",
+      "voicing": "voiced",
+      "description": "Voiced palatal affricate, like 'j' in 'judge'."
+    },
+    {
+      "id": "jha",
+      "malayalam": "ഝ",
+      "iso15919": "jha",
+      "place": "palatal",
+      "manner": "affricate",
+      "voicing": "voiced",
+      "description": "Voiced palatal affricate, aspirated, like 'jh' in 'jhaan'."
+    },
+    {
+      "id": "nya",
+      "malayalam": "ഞ",
+      "iso15919": "ña",
+      "place": "palatal",
+      "manner": "nasal",
+      "voicing": "voiced",
+      "description": "Palatal nasal, like 'ny' in 'canyon'."
+    },
+    {
+      "id": "ta",
+      "malayalam": "ത",
+      "iso15919": "ta",
+      "place": "dental",
+      "manner": "stop",
+      "voicing": "unvoiced",
+      "description": "Dental stop. Tongue touches upper teeth. Crisp 't' sound."
+    },
+    {
+      "id": "tha",
+      "malayalam": "ഥ",
+      "iso15919": "tha",
+      "place": "dental",
+      "manner": "fricative",
+      "voicing": "unvoiced",
+      "description": "Dental fricative, aspirated, like 'th' in 'think'."
+    },
+    {
+      "id": "da",
+      "malayalam": "ദ",
+      "iso15919": "da",
+      "place": "dental",
+      "manner": "stop",
+      "voicing": "voiced",
+      "description": "Voiced dental stop, like 'd' in 'do' (with tongue on teeth)."
+    },
+    {
+      "id": "dha",
+      "malayalam": "ധ",
+      "iso15919": "dha",
+      "place": "dental",
+      "manner": "fricative",
+      "voicing": "voiced",
+      "description": "Voiced dental fricative, like 'dh' in 'dharma'."
+    },
+    {
+      "id": "na",
+      "malayalam": "ന",
+      "iso15919": "na",
+      "place": "alveolar",
+      "manner": "nasal",
+      "voicing": "voiced",
+      "description": "Alveolar nasal, like 'n' in 'no'. Tongue touches alveolar ridge behind upper teeth."
+    },
+    {
+      "id": "ta_retroflex",
+      "malayalam": "ട",
+      "iso15919": "ṭa",
+      "place": "retroflex",
+      "manner": "stop",
+      "voicing": "unvoiced",
+      "description": "Retroflex stop. Tongue curls back. Harder than dental 't'."
+    },
+    {
+      "id": "tha_retroflex",
+      "malayalam": "ഠ",
+      "iso15919": "ṭha",
+      "place": "retroflex",
+      "manner": "fricative",
+      "voicing": "unvoiced",
+      "description": "Retroflex fricative, aspirated, like 'th' in 'thaw' but retroflex."
+    },
+    {
+      "id": "da_retroflex",
+      "malayalam": "ഡ",
+      "iso15919": "ḍa",
+      "place": "retroflex",
+      "manner": "stop",
+      "voicing": "voiced",
+      "description": "Voiced retroflex stop. Tongue curls back."
+    },
+    {
+      "id": "dha_retroflex",
+      "malayalam": "ഢ",
+      "iso15919": "ḍha",
+      "place": "retroflex",
+      "manner": "fricative",
+      "voicing": "voiced",
+      "description": "Voiced retroflex fricative, like 'dh' in 'dhow' but retroflex."
+    },
+    {
+      "id": "na_retroflex",
+      "malayalam": "ണ",
+      "iso15919": "ṇa",
+      "place": "retroflex",
+      "manner": "nasal",
+      "voicing": "voiced",
+      "description": "Retroflex nasal. Tongue curls back. Different from dental 'n' in 'no'."
+    },
+    {
+      "id": "pa",
+      "malayalam": "പ",
+      "iso15919": "pa",
+      "place": "labial",
+      "manner": "stop",
+      "voicing": "unvoiced",
+      "description": "Labial stop, like 'p' in 'put'. Lips come together."
+    },
+    {
+      "id": "pha",
+      "malayalam": "ഫ",
+      "iso15919": "pha",
+      "place": "labial",
+      "manner": "fricative",
+      "voicing": "unvoiced",
+      "description": "Labial fricative, like 'f' in 'fun'."
+    },
+    {
+      "id": "ba",
+      "malayalam": "ബ",
+      "iso15919": "ba",
+      "place": "labial",
+      "manner": "stop",
+      "voicing": "voiced",
+      "description": "Voiced labial stop, like 'b' in 'bat'."
+    },
+    {
+      "id": "bha",
+      "malayalam": "ഭ",
+      "iso15919": "bha",
+      "place": "labial",
+      "manner": "fricative",
+      "voicing": "voiced",
+      "description": "Voiced labial fricative, like 'v' in 'van' or 'bh' in 'bhat'."
+    },
+    {
+      "id": "ma",
+      "malayalam": "മ",
+      "iso15919": "ma",
+      "place": "labial",
+      "manner": "nasal",
+      "voicing": "voiced",
+      "description": "Labial nasal, like 'm' in 'man'."
+    },
+    {
+      "id": "ya",
+      "malayalam": "യ",
+      "iso15919": "ya",
+      "place": "palatal",
+      "manner": "approximant",
+      "voicing": "voiced",
+      "description": "Palatal approximant, like 'y' in 'yes'."
+    },
+    {
+      "id": "ra",
+      "malayalam": "ര",
+      "iso15919": "ra",
+      "place": "alveolar",
+      "manner": "approximant",
+      "voicing": "voiced",
+      "description": "Alveolar approximant, soft 'r' sound, like 'r' in 'run' but softer."
+    },
+    {
+      "id": "ra_trill",
+      "malayalam": "റ",
+      "iso15919": "ṟa",
+      "place": "alveolar",
+      "manner": "trill",
+      "voicing": "voiced",
+      "description": "Alveolar trill. Tongue vibrates. Stronger 'r' sound."
+    },
+    {
+      "id": "la",
+      "malayalam": "ല",
+      "iso15919": "la",
+      "place": "alveolar",
+      "manner": "lateral",
+      "voicing": "voiced",
+      "description": "Alveolar lateral, like 'l' in 'light'. Tongue to alveolar ridge, air flows on sides."
+    },
+    {
+      "id": "la_retroflex",
+      "malayalam": "ള",
+      "iso15919": "ḷa",
+      "place": "retroflex",
+      "manner": "lateral",
+      "voicing": "voiced",
+      "description": "Retroflex lateral. Tongue curls back. Different from alveolar 'l'."
+    },
+    {
+      "id": "zha",
+      "malayalam": "ഴ",
+      "iso15919": "ḻa",
+      "place": "retroflex",
+      "manner": "approximant",
+      "voicing": "voiced",
+      "description": "Retroflex approximant. Unique to Malayalam. Like soft 'zh' in 'measure' but retroflex."
+    },
+    {
+      "id": "va",
+      "malayalam": "വ",
+      "iso15919": "va",
+      "place": "labial",
+      "manner": "fricative",
+      "voicing": "voiced",
+      "description": "Labial fricative, like 'v' in 'van'."
+    },
+    {
+      "id": "sha",
+      "malayalam": "ശ",
+      "iso15919": "śa",
+      "place": "palatal",
+      "manner": "fricative",
+      "voicing": "unvoiced",
+      "description": "Palatal fricative, like 'sh' in 'shop' but softer, palatal."
+    },
+    {
+      "id": "sha_retroflex",
+      "malayalam": "ഷ",
+      "iso15919": "ṣa",
+      "place": "retroflex",
+      "manner": "fricative",
+      "voicing": "unvoiced",
+      "description": "Retroflex fricative, like 'sh' but with tongue curled back."
+    },
+    {
+      "id": "sa",
+      "malayalam": "സ",
+      "iso15919": "sa",
+      "place": "alveolar",
+      "manner": "fricative",
+      "voicing": "unvoiced",
+      "description": "Alveolar fricative, like 's' in 'sit'."
+    },
+    {
+      "id": "ha",
+      "malayalam": "ഹ",
+      "iso15919": "ha",
+      "place": "glottal",
+      "manner": "fricative",
+      "voicing": "unvoiced",
+      "description": "Glottal fricative, like 'h' in 'hat'."
+    }
+  ],
+  "diacritics": [
+    {
+      "id": "virama",
+      "malayalam": "്",
+      "iso15919": "",
+      "name": "Virama",
+      "description": "Removes the inherent 'a' vowel. Used in consonant clusters."
+    },
+    {
+      "id": "anusvara",
+      "malayalam": "ം",
+      "iso15919": "m",
+      "name": "Anusvara",
+      "description": "Nasal ending mark. Nasalizes the preceding vowel. Written as 'm' at word end in ISO 15919."
+    }
+  ]
+}

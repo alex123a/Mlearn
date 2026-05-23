@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Malayalam Script</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #fafbfc;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: white;
+            border-bottom: 1px solid #e8eef5;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .app-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #6366f1;
+            letter-spacing: -0.5px;
+        }
+
+        .stats-container {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .stat-icon {
+            font-size: 20px;
+        }
+
+        .stat-value {
+            color: #6366f1;
+            font-weight: 600;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            background: white;
+            border-bottom: 2px solid #e8eef5;
+            padding: 0 20px;
+            display: flex;
+            gap: 32px;
+        }
+
+        .tab {
+            padding: 16px 0;
+            border: none;
+            background: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: #94a3b8;
+            cursor: pointer;
+            transition: color 0.2s;
+            border-bottom: 3px solid transparent;
+            position: relative;
+            top: 2px;
+        }
+
+        .tab:hover {
+            color: #6366f1;
+        }
+
+        .tab.active {
+            color: #6366f1;
+            border-bottom-color: #6366f1;
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Path Layout */
+        .modules-path {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .path-line {
+            position: absolute;
+            top: 80px;
+            left: 50px;
+            right: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, #e8eef5 0%, #e8eef5 100%);
+            z-index: 1;
+        }
+
+        .modules-grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        /* Module Card */
+        .module-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            border: 2px solid #e8eef5;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .module-card:hover:not(.locked) {
+            border-color: #6366f1;
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .module-card.locked {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .module-card.completed {
+            background: linear-gradient(135deg, #f0f4ff 0%, #f8faff 100%);
+            border-color: #10b981;
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 16px;
+        }
+
+        .module-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #6366f1;
+        }
+
+        .module-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+
+        .module-badge.in-progress {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .module-badge.completed {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .lock-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f3f4f6;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+
+        .module-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .module-locked-title {
+            color: #94a3b8;
+        }
+
+        .module-description {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 16px;
+        }
+
+        .lesson-progress {
+            margin-bottom: 16px;
+        }
+
+        .progress-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: #64748b;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e8eef5;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        /* Lessons Grid */
+        .lessons-list {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lesson-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+            background: #f8fafc;
+            border-radius: 8px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #e8eef5;
+        }
+
+        .lesson-item:hover {
+            background: #f1f5ff;
+            border-color: #6366f1;
+        }
+
+        .lesson-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #e8eef5;
+            color: #64748b;
+            font-weight: 600;
+            font-size: 11px;
+            flex-shrink: 0;
+        }
+
+        .lesson-number.completed {
+            background: #10b981;
+            color: white;
+        }
+
+        .lesson-number.in-progress {
+            background: #6366f1;
+            color: white;
+        }
+
+        .lesson-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .lesson-title {
+            font-weight: 500;
+            color: #2c3e50;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .lesson-type {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+
+        .lesson-status-icon {
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        /* Revise Section */
+        .revise-section {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            border: 2px solid #e8eef5;
+        }
+
+        .revise-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #2c3e50;
+        }
+
+        .revise-empty {
+            text-align: center;
+            padding: 32px;
+            color: #94a3b8;
+        }
+
+        .revise-empty-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        /* Progress Section */
+        .progress-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .progress-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            border: 2px solid #e8eef5;
+            text-align: center;
+        }
+
+        .progress-card-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .progress-card-label {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+
+        .progress-card-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #6366f1;
+        }
+
+        /* Buttons */
+        button {
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+
+        .btn-primary {
+            background: #6366f1;
+            color: white;
+            width: 100%;
+            margin-top: 12px;
+            padding: 12px;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: #4f46e5;
+        }
+
+        .btn-primary:disabled {
+            background: #cbd5e1;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: #f1f5ff;
+            color: #6366f1;
+            border: 1px solid #dbeafe;
+            width: 100%;
+            margin-top: 12px;
+            padding: 12px;
+        }
+
+        .btn-secondary:hover {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+        }
+    </style>
+</head>
+<body>
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="app-logo">മ Learn</div>
+        <div class="stats-container">
+            <div class="stat">
+                <span class="stat-icon">🔥</span>
+                <span>Streak: <span class="stat-value" id="streakCount">3</span></span>
+            </div>
+            <div class="stat">
+                <span class="stat-icon">📍</span>
+                <span>Module: <span class="stat-value" id="currentModule">1</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab active" onclick="switchTab('learn')">Learn</button>
+        <button class="tab" onclick="switchTab('revise')">Revise</button>
+        <button class="tab" onclick="switchTab('progress')">Progress</button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Learn Section -->
+        <div id="learn" class="section active">
+            <div class="modules-path">
+                <div class="path-line"></div>
+                <div class="modules-grid" id="modulesGrid"></div>
+            </div>
+        </div>
+
+        <!-- Revise Section -->
+        <div id="revise" class="section">
+            <div class="revise-section">
+                <h2 class="revise-title">📚 Revision Queue</h2>
+                <div class="revise-empty">
+                    <div class="revise-empty-icon">✨</div>
+                    <p>No items due for revision yet.</p>
+                    <p style="font-size: 12px; margin-top: 8px;">Items will appear here after you complete lessons.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Section -->
+        <div id="progress" class="section">
+            <div class="progress-section">
+                <div class="progress-card">
+                    <div class="progress-card-icon">📚</div>
+                    <div class="progress-card-label">Lessons Completed</div>
+                    <div class="progress-card-value" id="lessonsCompleted">8</div>
+                </div>
+                <div class="progress-card">
+                    <div class="progress-card-icon">⭐</div>
+                    <div class="progress-card-label">Overall Accuracy</div>
+                    <div class="progress-card-value" id="overallAccuracy">87%</div>
+                </div>
+                <div class="progress-card">
+                    <div class="progress-card-icon">🎯</div>
+                    <div class="progress-card-label">Modules Completed</div>
+                    <div class="progress-card-value" id="modulesCompleted">1</div>
+                </div>
+                <div class="progress-card">
+                    <div class="progress-card-icon">🏆</div>
+                    <div class="progress-card-label">Badges Earned</div>
+                    <div class="progress-card-value" id="badgesEarned">4</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Extended module data (5 modules)
+        const modulesData = [
+            {
+                id: 1,
+                number: 1,
+                title: "Vowels a/ā & Consonants ka/ma",
+                description: "Learn the first two vowels and consonants",
+                totalLessons: 13,
+                completedLessons: 8,
+                currentLesson: 9,
+                status: "in-progress",
+                lessons: [
+                    { id: 1, title: "Vowel Introduction", type: "introduction", completed: true },
+                    { id: 2, title: "Discrimination", type: "practice", completed: true },
+                    { id: 3, title: "Identification", type: "practice", completed: true },
+                    { id: 4, title: "Handwriting", type: "practice", completed: true },
+                    { id: 5, title: "Consonant Introduction", type: "introduction", completed: true },
+                    { id: 6, title: "Consonant Discrimination", type: "practice", completed: true },
+                    { id: 7, title: "Consonant Identification", type: "practice", completed: true },
+                    { id: 8, title: "Consonant Handwriting", type: "practice", completed: true },
+                    { id: 9, title: "Syllable Introduction", type: "introduction", completed: false },
+                    { id: 10, title: "Syllable Practice", type: "practice", completed: false },
+                    { id: 11, title: "Transliteration", type: "practice", completed: false },
+                    { id: 12, title: "Mixed Review", type: "review", completed: false },
+                    { id: 13, title: "Module 1 Review", type: "review", completed: false }
+                ]
+            },
+            {
+                id: 2,
+                number: 2,
+                title: "Vowels e/ē & Consonants ta/ṭa",
+                description: "Learn the second vowel pair and dental vs retroflex t",
+                totalLessons: 13,
+                completedLessons: 0,
+                currentLesson: null,
+                status: "not-started",
+                lessons: Array.from({ length: 13 }, (_, i) => ({
+                    id: i + 1,
+                    title: `Lesson ${i + 1}`,
+                    type: i === 0 ? "introduction" : (i === 12 ? "review" : "practice"),
+                    completed: false
+                }))
+            },
+            {
+                id: 3,
+                number: 3,
+                title: "Vowels o/ō & Consonants pa/va",
+                description: "Third vowel pair and labial consonants",
+                totalLessons: 13,
+                completedLessons: 0,
+                currentLesson: null,
+                status: "locked",
+                lessons: Array.from({ length: 13 }, (_, i) => ({
+                    id: i + 1,
+                    title: `Lesson ${i + 1}`,
+                    type: i === 0 ? "introduction" : (i === 12 ? "review" : "practice"),
+                    completed: false
+                }))
+            },
+            {
+                id: 4,
+                number: 4,
+                title: "Vowels u/ū & Consonants ṅa/ña",
+                description: "Fourth vowel pair and nasal consonants",
+                totalLessons: 13,
+                completedLessons: 0,
+                currentLesson: null,
+                status: "locked",
+                lessons: Array.from({ length: 13 }, (_, i) => ({
+                    id: i + 1,
+                    title: `Lesson ${i + 1}`,
+                    type: i === 0 ? "introduction" : (i === 12 ? "review" : "practice"),
+                    completed: false
+                }))
+            },
+            {
+                id: 5,
+                number: 5,
+                title: "Vowels i/ī & Consonants ra/ṟa",
+                description: "Fifth vowel pair and r consonants",
+                totalLessons: 13,
+                completedLessons: 0,
+                currentLesson: null,
+                status: "locked",
+                lessons: Array.from({ length: 13 }, (_, i) => ({
+                    id: i + 1,
+                    title: `Lesson ${i + 1}`,
+                    type: i === 0 ? "introduction" : (i === 12 ? "review" : "practice"),
+                    completed: false
+                }))
+            }
+        ];
+
+        function renderModules() {
+            const grid = document.getElementById('modulesGrid');
+            grid.innerHTML = '';
+
+            modulesData.forEach((module) => {
+                const percentage = Math.round((module.completedLessons / module.totalLessons) * 100);
+                const isLocked = module.status === 'locked';
+                const isCompleted = module.status === 'completed';
+
+                const card = document.createElement('div');
+                card.className = `module-card ${isLocked ? 'locked' : ''} ${isCompleted ? 'completed' : ''}`;
+                card.onclick = () => !isLocked && enterModule(module.id);
+
+                let lessonsHtml = '';
+                module.lessons.forEach((lesson, index) => {
+                    const isCurrentLesson = lesson.id === module.currentLesson;
+                    let numberClass = '';
+                    let statusIcon = '';
+
+                    if (lesson.completed) {
+                        numberClass = 'completed';
+                        statusIcon = '✓';
+                    } else if (isCurrentLesson) {
+                        numberClass = 'in-progress';
+                        statusIcon = '▶';
+                    }
+
+                    lessonsHtml += `
+                        <div class="lesson-item" onclick="event.stopPropagation(); ${!isLocked ? `enterLesson(${module.id}, ${lesson.id})` : ''}">
+                            <div class="lesson-number ${numberClass}">${statusIcon || index + 1}</div>
+                            <div class="lesson-info">
+                                <div class="lesson-title">${lesson.title}</div>
+                                <div class="lesson-type">${lesson.type}</div>
+                            </div>
+                            <div class="lesson-status-icon">${lesson.completed ? '✓' : ''}</div>
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="module-header">
+                        <div class="module-number">${module.number}</div>
+                        <div>
+                            ${isLocked ? `<div class="lock-icon">🔒</div>` : `<div class="module-badge ${module.status === 'in-progress' ? 'in-progress' : isCompleted ? 'completed' : ''}">${module.status === 'completed' ? '✓ Completed' : module.status === 'in-progress' ? 'In Progress' : 'Not Started'}</div>`}
+                        </div>
+                    </div>
+                    <h3 class="module-title ${isLocked ? 'module-locked-title' : ''}">${module.title}</h3>
+                    <p class="module-description">${module.description}</p>
+
+                    ${!isLocked ? `
+                        <div class="lesson-progress">
+                            <div class="progress-label">
+                                <span>Progress</span>
+                                <span>${module.completedLessons}/${module.totalLessons}</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${percentage}%"></div>
+                            </div>
+                        </div>
+                        <div class="lessons-list">
+                            ${lessonsHtml}
+                        </div>
+                        <button class="btn-primary">
+                            ${module.completedLessons === module.totalLessons ? 'Review Module' : module.currentLesson ? 'Resume' : 'Start Module'}
+                        </button>
+                    ` : `
+                        <button class="btn-primary" disabled>Locked</button>
+                    `}
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        function enterModule(moduleId) {
+            const module = modulesData.find(m => m.id === moduleId);
+            if (module && module.status !== 'locked') {
+                alert(`Entering Module ${moduleId}: ${module.title}`);
+                // TODO: Navigate to module view
+            }
+        }
+
+        function enterLesson(moduleId, lessonId) {
+            const module = modulesData.find(m => m.id === moduleId);
+            const lesson = module.lessons.find(l => l.id === lessonId);
+            alert(`Entering Module ${moduleId}, Lesson ${lessonId}: ${lesson.title}`);
+            // TODO: Navigate to lesson view
+        }
+
+        function switchTab(tabName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+
+            // Show selected section
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Initial render
+        renderModules();
+    </script>
+</body>
+</html>
