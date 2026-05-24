@@ -3055,10 +3055,18 @@
             return html;
         }
 
+        function speakMalayalam(text, rate) {
+            if (!('speechSynthesis' in window)) return;
+            speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = 'ml-IN';
+            u.rate = rate || 0.8;
+            speechSynthesis.speak(u);
+        }
+
         function playText(text, btn) {
             if (btn) { const o = btn.style.background; btn.style.background = '#FFF0D9'; setTimeout(() => btn.style.background = o, 400); }
-            const url = 'https://translate.google.com/translate_tts?ie=UTF-8&tl=ml&client=tw-ob&ttsspeed=0.75&q=' + encodeURIComponent(text);
-            new Audio(url).play().catch(() => {});
+            speakMalayalam(text, 0.75);
         }
 
         function renderReadingLesson(lesson) {
@@ -4532,15 +4540,13 @@
             // 1. Admin-set custom path
             const custom = localStorage.getItem('audio_' + iso);
             if (custom) { new Audio(custom).play().catch(() => {}); return; }
-            // 2. Local audio file
+            // 2. Local audio file (if present)
             const localFile = '/audio/' + (audioFileMap[iso] || iso) + '.mp3';
             const local = new Audio(localFile);
             local.play().catch(() => {
-                // 3. Google Translate TTS (unofficial; no API key; good Malayalam quality)
-                const text   = isoToMalayalam[iso] || iso;
-                const ttsUrl = 'https://translate.google.com/translate_tts?ie=UTF-8&tl=ml&client=tw-ob&ttsspeed=0.85&q='
-                             + encodeURIComponent(text);
-                new Audio(ttsUrl).play().catch(err => console.warn('TTS unavailable:', iso, err));
+                // 3. Web Speech API — built-in, no API key, works offline
+                const text = isoToMalayalam[iso] || iso;
+                speakMalayalam(text, 0.85);
             });
         }
 
