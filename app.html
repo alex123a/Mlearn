@@ -1841,6 +1841,172 @@
         @media (prefers-reduced-motion: reduce) {
             * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
         }
+
+        /* ── Settings sub-tabs ── */
+        .settings-subnav {
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid #E8D5A3;
+            margin-bottom: 20px;
+        }
+        .settings-subnav-btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #C8B89A;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            position: relative;
+            top: 2px;
+            cursor: pointer;
+            transition: color 0.15s;
+            border-radius: 0;
+        }
+        .settings-subnav-btn.active {
+            color: #E8720C;
+            border-bottom-color: #E8720C;
+        }
+        .settings-panel { display: none; }
+        .settings-panel.active { display: block; }
+
+        /* ── Audio Manager ── */
+        .audio-section-card {
+            background: white;
+            border: 1.5px solid #E8D5A3;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+        .audio-section-head {
+            background: #FDF6E3;
+            padding: 12px 16px;
+            border-bottom: 1px solid #E8D5A3;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .audio-section-title { font-size: 14px; font-weight: 700; color: #2D2417; }
+        .audio-section-badge { font-size: 11px; font-weight: 600; color: #E8720C; background: #FFF0D9; padding: 2px 8px; border-radius: 10px; }
+        .audio-char-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .audio-char-table th { font-size: 10px; font-weight: 700; color: #C8B89A; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 12px; text-align: left; border-bottom: 1px solid #F5F0E8; background: #FAFAFA; }
+        .audio-char-table td { padding: 10px 12px; border-bottom: 1px solid #F5F0E8; vertical-align: middle; }
+        .audio-char-table tr:last-child td { border-bottom: none; }
+        .audio-glyph { font-size: 28px; line-height: 1; font-family: 'Noto Sans Malayalam', sans-serif; }
+        .audio-iso { font-size: 13px; font-weight: 700; color: #E8720C; }
+        .audio-desc { font-size: 11px; color: #C8B89A; margin-top: 1px; }
+        .audio-file-cell { display: flex; align-items: center; gap: 6px; }
+        .audio-file-input {
+            flex: 1;
+            border: 1.5px solid #E8D5A3;
+            border-radius: 8px;
+            padding: 7px 10px;
+            font-size: 12px;
+            font-family: 'Courier New', monospace;
+            color: #2D2417;
+            background: white;
+            min-width: 0;
+        }
+        .audio-file-input:focus { outline: none; border-color: #E8720C; }
+        .audio-file-input.has-custom { border-color: #1A7A6E; background: #E1F5EE; }
+        .audio-file-input.is-uploaded { color: #C8922A; font-style: italic; border-color: #FFD44A; background: #FFF0D9; }
+        .audio-status-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+        .audio-status-dot.ok       { background: #1A7A6E; }
+        .audio-status-dot.missing  { background: #E8D5A3; }
+        .audio-status-dot.custom   { background: #E8720C; }
+        .audio-status-dot.uploaded { background: #C8922A; }
+        .audio-btn-sm {
+            width: 32px; height: 32px; border-radius: 8px; border: 1.5px solid #E8D5A3;
+            background: white; font-size: 14px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; transition: all 0.15s; padding: 0;
+        }
+        .audio-btn-sm:hover { background: #FFF0D9; border-color: #E8720C; }
+        .audio-btn-sm.playing { background: #FFF0D9; border-color: #E8720C; }
+        .audio-action-bar { display: flex; gap: 10px; padding: 14px 16px; flex-wrap: wrap; border-top: 1px solid #E8D5A3; }
+        .audio-storage-row { padding: 0 16px 12px; display: flex; align-items: center; gap: 8px; font-size: 11px; color: #C8B89A; }
+        .audio-storage-track { flex: 1; max-width: 140px; height: 4px; background: #E8D5A3; border-radius: 2px; overflow: hidden; }
+        .audio-storage-fill { height: 100%; background: #E8720C; border-radius: 2px; transition: width 0.3s; }
+
+        /* ── Content Manager ── */
+        .content-module-card {
+            background: white;
+            border: 1.5px solid #E8D5A3;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        .content-module-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .content-module-head:hover { background: #FDF6E3; }
+        .content-module-num { font-size: 18px; font-weight: 700; color: #E8720C; min-width: 28px; }
+        .content-module-info { flex: 1; min-width: 0; }
+        .content-module-title-text { font-size: 14px; font-weight: 600; color: #2D2417; }
+        .content-module-meta { font-size: 12px; color: #C8B89A; margin-top: 2px; }
+        .content-chevron { font-size: 12px; color: #C8B89A; transition: transform 0.2s; }
+        .content-module-card.open .content-chevron { transform: rotate(90deg); }
+        .content-lessons-list { border-top: 1px solid #F5F0E8; display: none; }
+        .content-module-card.open .content-lessons-list { display: block; }
+        .content-lesson-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border-bottom: 1px solid #F5F0E8;
+            font-size: 13px;
+        }
+        .content-lesson-row:last-child { border-bottom: none; }
+        .content-lesson-num { font-size: 11px; font-weight: 700; color: #C8B89A; min-width: 24px; }
+        .content-lesson-title-input {
+            flex: 1;
+            border: 1.5px solid transparent;
+            border-radius: 6px;
+            padding: 5px 8px;
+            font-size: 13px;
+            font-family: inherit;
+            color: #2D2417;
+            background: transparent;
+            min-width: 0;
+            transition: all 0.15s;
+        }
+        .content-lesson-title-input:hover { border-color: #E8D5A3; }
+        .content-lesson-title-input:focus { outline: none; border-color: #E8720C; background: white; }
+        .content-lesson-type-badge {
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: #F5F0E8;
+            color: #7A6A55;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .content-lesson-del {
+            width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid #FFCDD2;
+            background: white; color: #C0392B; font-size: 13px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; opacity: 0; transition: opacity 0.15s; padding: 0;
+        }
+        .content-lesson-row:hover .content-lesson-del { opacity: 1; }
+        .content-save-bar {
+            display: none;
+            position: sticky;
+            bottom: 0;
+            background: white;
+            border-top: 1.5px solid #E8D5A3;
+            padding: 12px 16px;
+            gap: 10px;
+            align-items: center;
+            z-index: 10;
+            margin-top: 8px;
+        }
+        .content-save-bar.visible { display: flex; }
     </style>
 </head>
 <body>
@@ -1957,26 +2123,13 @@
 
             <!-- Settings Section -->
             <div id="settings" class="section">
-                <div class="placeholder-tab-section">
-                    <div class="placeholder-tab-icon">⚙️</div>
-                    <h2 class="placeholder-tab-title">Settings</h2>
-                    <p class="placeholder-tab-desc">Notification preferences, audio on/off, playback speed, and account management will live here.</p>
-                    <div class="placeholder-tab-badge">Coming soon</div>
-                    <div style="margin-top:28px;width:100%;max-width:340px;display:flex;flex-direction:column;gap:12px">
-                        <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:#FDF6E3;border:1px solid #E8D5A3;border-radius:12px;opacity:0.5;cursor:not-allowed">
-                            <span style="font-size:14px;font-weight:600;color:#2D2417">🔊 Audio</span>
-                            <span style="font-size:12px;color:#7A6A55">On</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:#FDF6E3;border:1px solid #E8D5A3;border-radius:12px;opacity:0.5;cursor:not-allowed">
-                            <span style="font-size:14px;font-weight:600;color:#2D2417">🔔 Notifications</span>
-                            <span style="font-size:12px;color:#7A6A55">Off</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:#FDF6E3;border:1px solid #E8D5A3;border-radius:12px;opacity:0.5;cursor:not-allowed">
-                            <span style="font-size:14px;font-weight:600;color:#2D2417">🎚 Playback Speed</span>
-                            <span style="font-size:12px;color:#7A6A55">Normal</span>
-                        </div>
-                    </div>
-                </div>
+              <div class="settings-subnav">
+                <button class="settings-subnav-btn active" data-stab="audio" onclick="switchSettingsTab('audio')">Audio</button>
+                <button class="settings-subnav-btn" data-stab="content" onclick="switchSettingsTab('content')">Content</button>
+              </div>
+
+              <div id="stab-audio" class="settings-panel active"></div>
+              <div id="stab-content" class="settings-panel"></div>
             </div>
         </div>
 
@@ -1991,9 +2144,8 @@
                 Loading lesson...
             </div>
             <div class="lesson-controls">
-                <button class="btn-secondary" id="prevBtn" onclick="previousLesson()" style="display:none;">← Previous Lesson</button>
+                <button class="btn-secondary" id="prevBtn" onclick="previousLesson()" style="display:none;">← Previous</button>
                 <div class="spacer"></div>
-                <span class="completion-message" id="completionMsg" style="display:none;">✓ Lesson Complete!</span>
                 <button class="btn-primary" id="continueBtn" onclick="nextLesson()">Continue →</button>
             </div>
         </div>
@@ -2684,7 +2836,26 @@
 
             document.getElementById('lessonContent').innerHTML = html;
             document.getElementById('prevBtn').style.display = currentLessonId > 1 ? 'block' : 'none';
-            document.getElementById('completionMsg').style.display = 'none';
+            updateContinueBtn();
+        }
+
+        function updateContinueBtn() {
+            const module = modulesData.find(m => m.id === currentModuleId);
+            const lesson = module && module.lessons.find(l => l.id === currentLessonId);
+            const btn = document.getElementById('continueBtn');
+            if (!btn || !lesson) return;
+
+            const hasMoreSteps = lesson.content && lesson.content.steps &&
+                                 currentStepIndex < lesson.content.steps.length - 1;
+            const isLastLesson = currentLessonId >= module.totalLessons;
+
+            if (hasMoreSteps) {
+                btn.textContent = 'Next Step →';
+            } else if (isLastLesson) {
+                btn.textContent = 'Finish Module →';
+            } else {
+                btn.textContent = 'Continue →';
+            }
         }
 
         function renderCharCards(characters) {
@@ -3323,6 +3494,7 @@
             document.querySelectorAll('[data-tab="' + tabName + '"]').forEach(t => t.classList.add('active'));
             window.scrollTo(0, 0);
             if (tabName === 'revise')    renderReviseCheckboxes();
+            if (tabName === 'settings')  { switchSettingsTab('audio'); }
             if (tabName === 'reference') renderReferenceTab();
             if (tabName === 'progress')  updateProgressCards();
         }
@@ -4572,6 +4744,306 @@
             modulesData = results;
         }
         loadModules().then(() => init());
+
+        // ── SETTINGS ─────────────────────────────────────────────────
+
+        function switchSettingsTab(tab) {
+            document.querySelectorAll('.settings-subnav-btn').forEach(b => b.classList.toggle('active', b.dataset.stab === tab));
+            document.querySelectorAll('.settings-panel').forEach(p => p.classList.remove('active'));
+            document.getElementById('stab-' + tab).classList.add('active');
+            if (tab === 'audio')   renderAudioManager();
+            if (tab === 'content') renderContentManager();
+        }
+
+        // ── Audio manager character data ──────────────────────────────
+
+        const AUDIO_CHARS = [
+            { module:1, malayalam:'അ',  iso:'a',   file:'a',            desc:'Short vowel a' },
+            { module:1, malayalam:'ആ',  iso:'ā',   file:'aa',           desc:'Long vowel ā' },
+            { module:1, malayalam:'ക',  iso:'ka',  file:'ka',           desc:'Velar stop' },
+            { module:1, malayalam:'മ',  iso:'ma',  file:'ma',           desc:'Bilabial nasal' },
+            { module:1, malayalam:'കാ', iso:'kā',  file:'kaa',          desc:'Syllable kā' },
+            { module:1, malayalam:'മാ', iso:'mā',  file:'maa',          desc:'Syllable mā' },
+            { module:2, malayalam:'എ',  iso:'e',   file:'e',            desc:'Short vowel e' },
+            { module:2, malayalam:'ഏ',  iso:'ē',   file:'ee',           desc:'Long vowel ē' },
+            { module:2, malayalam:'ത',  iso:'ta',  file:'ta',           desc:'Dental stop' },
+            { module:2, malayalam:'ട',  iso:'ṭa',  file:'ta_retro',     desc:'Retroflex stop' },
+            { module:2, malayalam:'തെ', iso:'te',  file:'te',           desc:'te' },
+            { module:2, malayalam:'തേ', iso:'tē',  file:'tee',          desc:'tē' },
+            { module:2, malayalam:'ടെ', iso:'ṭe',  file:'te_retro',     desc:'ṭe' },
+            { module:2, malayalam:'ടേ', iso:'ṭē',  file:'tee_retro',    desc:'ṭē' },
+            { module:3, malayalam:'ന',  iso:'na',  file:'na',           desc:'Dental nasal' },
+            { module:3, malayalam:'ണ',  iso:'ṇa',  file:'na_retro',     desc:'Retroflex nasal' },
+            { module:3, malayalam:'നാ', iso:'nā',  file:'naa',          desc:'nā' },
+            { module:3, malayalam:'ണാ', iso:'ṇā',  file:'naa_retro',    desc:'ṇā' },
+            { module:3, malayalam:'ൻ',  iso:'n',   file:'n_chillu',     desc:'Chillu N' },
+            { module:3, malayalam:'ൺ',  iso:'ṇ',   file:'n_retro_chillu',desc:'Chillu Ṇ' },
+            { module:4, malayalam:'ഒ',  iso:'o',   file:'o',            desc:'Short vowel o' },
+            { module:4, malayalam:'ഓ',  iso:'ō',   file:'oo',           desc:'Long vowel ō' },
+            { module:4, malayalam:'പ',  iso:'pa',  file:'pa',           desc:'Bilabial stop' },
+            { module:4, malayalam:'വ',  iso:'va',  file:'va',           desc:'Labiodental' },
+            { module:5, malayalam:'ഉ',  iso:'u',   file:'u',            desc:'Short vowel u' },
+            { module:5, malayalam:'ഊ',  iso:'ū',   file:'uu',           desc:'Long vowel ū' },
+            { module:5, malayalam:'ല',  iso:'la',  file:'la',           desc:'Alveolar lateral' },
+            { module:5, malayalam:'ള',  iso:'ḷa',  file:'la_retro',     desc:'Retroflex lateral' },
+            { module:5, malayalam:'ൽ',  iso:'l',   file:'l_chillu',     desc:'Chillu L' },
+            { module:5, malayalam:'ൾ',  iso:'ḷ',   file:'l_retro_chillu',desc:'Chillu Ḷ' },
+        ];
+
+        // ── Audio Manager render ───────────────────────────────────────
+
+        function renderAudioManager() {
+            const el = document.getElementById('stab-audio');
+            if (el.dataset.rendered) return; // already built
+            el.dataset.rendered = '1';
+
+            // Group by module
+            const byModule = {};
+            AUDIO_CHARS.forEach(c => { (byModule[c.module] = byModule[c.module] || []).push(c); });
+
+            let html = `<p style="font-size:13px;color:#7A6A55;margin-bottom:16px;line-height:1.5">
+                Upload one audio file per character. The app plays these across all task types — discrimination, identification, matching, and transliteration.</p>`;
+
+            Object.entries(byModule).forEach(([mod, chars]) => {
+                html += `<div class="audio-section-card">
+                    <div class="audio-section-head">
+                        <span class="audio-section-title">Module ${mod}</span>
+                        <span class="audio-section-badge">${chars.length} characters</span>
+                    </div>
+                    <table class="audio-char-table">
+                        <thead><tr>
+                            <th>Char</th><th>ISO</th><th>File</th><th>Source / Upload</th><th></th>
+                        </tr></thead>
+                        <tbody>`;
+                chars.forEach(ch => {
+                    const stored = localStorage.getItem('audio_' + ch.iso) || '';
+                    const isUploaded = stored.startsWith('data:');
+                    const isPath = stored && !isUploaded;
+                    const dotCls = isUploaded ? 'uploaded' : (isPath ? 'custom' : 'missing');
+                    const inputVal = isUploaded ? '✓ Uploaded' : stored;
+                    const inputCls = stored ? (isUploaded ? 'has-custom is-uploaded' : 'has-custom') : '';
+                    html += `<tr>
+                        <td><div class="audio-glyph">${ch.malayalam}</div></td>
+                        <td><div class="audio-iso">${ch.iso}</div><div class="audio-desc">${ch.desc}</div></td>
+                        <td><code style="font-size:11px;color:#7A6A55">${ch.file}.mp3</code></td>
+                        <td>
+                            <div class="audio-file-cell">
+                                <div class="audio-status-dot ${dotCls}" id="adot_${ch.iso}"></div>
+                                <input class="audio-file-input ${inputCls}" id="ainput_${ch.iso}"
+                                    placeholder="/audio/${ch.file}.mp3"
+                                    value="${inputVal}"
+                                    ${isUploaded ? 'disabled' : ''}
+                                    oninput="audioInputChange('${ch.iso}',this)" />
+                                <button class="audio-btn-sm" onclick="audioSaveRow('${ch.iso}')" title="Save path">✓</button>
+                                <label class="audio-btn-sm" title="Upload audio file">
+                                    <i class="ph ph-upload-simple"></i>
+                                    <input type="file" accept="audio/*" style="display:none" onchange="audioHandleUpload('${ch.iso}',this)">
+                                </label>
+                                ${isUploaded ? `<button class="audio-btn-sm" onclick="audioClearUpload('${ch.iso}')" title="Remove upload" style="border-color:#FFCDD2;color:#C0392B">✕</button>` : ''}
+                            </div>
+                        </td>
+                        <td>
+                            <button class="audio-btn-sm" id="aplay_${ch.iso}" onclick="audioTestPlay('${ch.iso}',this)" title="Test">
+                                <i class="ph ph-speaker-high"></i>
+                            </button>
+                        </td>
+                    </tr>`;
+                });
+                html += `</tbody></table></div>`;
+            });
+
+            html += `<div class="audio-section-card">
+                <div class="audio-action-bar">
+                    <button class="btn-primary" onclick="audioSaveAll()" style="font-size:13px;padding:10px 18px">Save all paths</button>
+                    <button class="btn-secondary" onclick="audioExport()" style="font-size:13px;padding:10px 18px">Export JSON</button>
+                    <button class="btn-secondary" onclick="audioClearAll()" style="font-size:13px;padding:10px 18px;color:#C0392B;border-color:#C0392B">Clear all</button>
+                </div>
+                <div class="audio-storage-row">
+                    <span id="audioStorageLabel">0 KB used</span>
+                    <div class="audio-storage-track"><div class="audio-storage-fill" id="audioStorageFill" style="width:0%"></div></div>
+                </div>
+            </div>`;
+
+            el.innerHTML = html;
+            audioUpdateStorageBar();
+        }
+
+        function audioInputChange(iso, input) {
+            input.classList.toggle('has-custom', input.value.trim() !== '');
+        }
+
+        function audioSaveRow(iso) {
+            const input = document.getElementById('ainput_' + iso);
+            const val = input ? input.value.trim() : '';
+            const dot = document.getElementById('adot_' + iso);
+            if (val && !val.startsWith('✓')) {
+                localStorage.setItem('audio_' + iso, val);
+                if (dot) { dot.className = 'audio-status-dot custom'; }
+            } else if (!val) {
+                localStorage.removeItem('audio_' + iso);
+                if (dot) { dot.className = 'audio-status-dot missing'; }
+            }
+            showToast('Saved: ' + iso);
+        }
+
+        function audioHandleUpload(iso, fileInput) {
+            const file = fileInput.files[0];
+            if (!file) return;
+            if (file.size > 800 * 1024) { showToast('File too large — keep under 800 KB'); return; }
+            const reader = new FileReader();
+            reader.onload = e => {
+                try { localStorage.setItem('audio_' + iso, e.target.result); }
+                catch(err) { showToast('Storage full — clear some uploads first'); return; }
+                const input = document.getElementById('ainput_' + iso);
+                if (input) { input.value = '✓ Uploaded: ' + file.name; input.disabled = true; input.className = 'audio-file-input has-custom is-uploaded'; }
+                const dot = document.getElementById('adot_' + iso);
+                if (dot) dot.className = 'audio-status-dot uploaded';
+                audioUpdateStorageBar();
+                showToast('Uploaded: ' + file.name);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function audioClearUpload(iso) {
+            localStorage.removeItem('audio_' + iso);
+            // Re-render audio manager to reflect cleared state
+            const el = document.getElementById('stab-audio');
+            delete el.dataset.rendered;
+            renderAudioManager();
+            showToast('Cleared: ' + iso);
+        }
+
+        function audioTestPlay(iso, btn) {
+            const stored = localStorage.getItem('audio_' + iso);
+            if (stored) {
+                btn.classList.add('playing');
+                const a = new Audio(stored);
+                a.play().then(() => { a.onended = () => btn.classList.remove('playing'); })
+                        .catch(() => { btn.classList.remove('playing'); showToast('Could not play file'); });
+            } else {
+                // Use speech synthesis
+                const text = isoToMalayalam[iso] || iso;
+                speakMalayalam(text, 0.85);
+                btn.classList.add('playing');
+                setTimeout(() => btn.classList.remove('playing'), 800);
+            }
+        }
+
+        function audioSaveAll() {
+            AUDIO_CHARS.forEach(ch => audioSaveRow(ch.iso));
+            showToast('All paths saved');
+        }
+
+        function audioExport() {
+            const config = {};
+            AUDIO_CHARS.forEach(ch => {
+                const custom = localStorage.getItem('audio_' + ch.iso);
+                config[ch.iso] = custom || '/audio/' + ch.file + '.mp3';
+            });
+            const blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' });
+            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'audio-config.json'; a.click();
+        }
+
+        function audioClearAll() {
+            if (!confirm('Clear all custom paths and uploaded files?')) return;
+            AUDIO_CHARS.forEach(ch => localStorage.removeItem('audio_' + ch.iso));
+            const el = document.getElementById('stab-audio');
+            delete el.dataset.rendered;
+            renderAudioManager();
+            showToast('All audio config cleared');
+        }
+
+        function audioUpdateStorageBar() {
+            let used = 0;
+            for (let k in localStorage) { if (k.startsWith('audio_')) used += (localStorage.getItem(k)||'').length; }
+            const kb = Math.round(used / 1024);
+            const pct = Math.min(100, Math.round(kb / 5120 * 100));
+            const lbl = document.getElementById('audioStorageLabel');
+            const bar = document.getElementById('audioStorageFill');
+            if (lbl) lbl.textContent = kb + ' KB / ~5 MB used';
+            if (bar) bar.style.width = pct + '%';
+        }
+
+        // ── Content Manager render ────────────────────────────────────
+
+        function renderContentManager() {
+            const el = document.getElementById('stab-content');
+            el.innerHTML = ''; // always re-render (data may have changed)
+
+            if (!modulesData || !modulesData.length) {
+                el.innerHTML = '<p style="color:#C8B89A;padding:24px;text-align:center">Modules not loaded yet.</p>';
+                return;
+            }
+
+            let html = `<p style="font-size:13px;color:#7A6A55;margin-bottom:16px;line-height:1.5">
+                Click a module to expand. Edit lesson titles inline — changes are saved automatically to this session.</p>`;
+
+            modulesData.forEach(mod => {
+                html += `<div class="content-module-card" id="cmod_${mod.id}">
+                    <div class="content-module-head" onclick="toggleContentModule(${mod.id})">
+                        <div class="content-module-num">${mod.number}</div>
+                        <div class="content-module-info">
+                            <div class="content-module-title-text">${mod.title}</div>
+                            <div class="content-module-meta">${mod.lessons ? mod.lessons.length : 0} lessons · ${mod.description || ''}</div>
+                        </div>
+                        <span class="content-chevron">▶</span>
+                    </div>
+                    <div class="content-lessons-list" id="clessons_${mod.id}">`;
+
+                if (mod.lessons && mod.lessons.length) {
+                    mod.lessons.forEach((les, idx) => {
+                        const typeCols = { introduction:'#E8720C', practice:'#0891b2', review:'#0F6E56' };
+                        const typeCol = typeCols[les.type] || '#7A6A55';
+                        html += `<div class="content-lesson-row" id="crow_${mod.id}_${les.id}">
+                            <span class="content-lesson-num">${les.id}</span>
+                            <input class="content-lesson-title-input"
+                                value="${(les.title||'').replace(/"/g,'&quot;')}"
+                                onchange="contentEditLesson(${mod.id},${les.id},'title',this.value)"
+                                title="Click to edit title" />
+                            <span class="content-lesson-type-badge" style="color:${typeCol};background:${typeCol}18">${les.type||''}</span>
+                            <button class="content-lesson-del" onclick="contentDeleteLesson(${mod.id},${les.id})" title="Delete lesson">
+                                <i class="ph ph-trash"></i>
+                            </button>
+                        </div>`;
+                    });
+                } else {
+                    html += `<div style="padding:12px 16px;font-size:12px;color:#C8B89A">No lessons</div>`;
+                }
+
+                html += `</div></div>`;
+            });
+
+            el.innerHTML = html;
+        }
+
+        function toggleContentModule(modId) {
+            const card = document.getElementById('cmod_' + modId);
+            card.classList.toggle('open');
+        }
+
+        function contentEditLesson(modId, lesId, field, value) {
+            const mod = modulesData.find(m => m.id === modId);
+            if (!mod) return;
+            const les = mod.lessons.find(l => l.id === lesId);
+            if (!les) return;
+            les[field] = value;
+            showToast('Saved');
+        }
+
+        function contentDeleteLesson(modId, lesId) {
+            if (!confirm('Delete this lesson? This cannot be undone until you reload the page.')) return;
+            const mod = modulesData.find(m => m.id === modId);
+            if (!mod) return;
+            mod.lessons = mod.lessons.filter(l => l.id !== lesId);
+            mod.totalLessons = mod.lessons.length;
+            // Remove row from DOM
+            const row = document.getElementById('crow_' + modId + '_' + lesId);
+            if (row) row.remove();
+            // Update meta
+            const meta = document.querySelector('#cmod_' + modId + ' .content-module-meta');
+            if (meta) meta.textContent = mod.lessons.length + ' lessons · ' + (mod.description || '');
+            showToast('Lesson deleted');
+        }
     </script>
 
     <!-- Bottom Navigation (mobile only) -->
