@@ -3979,6 +3979,10 @@
         }
 
         function generateTasks(lesson) {
+            // Admin-created lessons always use their own tasks (even if empty)
+            if (lesson._adminSource) {
+                return (lesson.content && Array.isArray(lesson.content.tasks)) ? lesson.content.tasks : [];
+            }
             // Fixed tasks take priority over algorithmic generation
             if (lesson.content && Array.isArray(lesson.content.tasks) && lesson.content.tasks.length > 0) {
                 return lesson.content.tasks;
@@ -4940,7 +4944,10 @@
         }
         loadModules().then(async () => {
             loadFixedTasksFromStorage();       // localStorage — offline fallback
-            await loadFixedTasksFromSupabase(); // Supabase — takes priority
+            await Promise.all([
+                loadFixedTasksFromSupabase(),  // task overrides for JSON lessons
+                loadAdminContent()             // admin-created modules and lessons
+            ]);
             init();
         });
 
@@ -5191,25 +5198,50 @@
                 return;
             }
 
-            let html = `<p style="font-size:13px;color:#7A6A55;margin-bottom:16px;line-height:1.5">
-                Click a module to expand. Edit lesson titles inline — changes are saved automatically to this session.</p>`;
+            const ADMIN_BADGE = `<span style="font-size:10px;font-weight:600;background:#E8720C;color:white;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:middle">admin</span>`;
+
+            let html = `
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px">
+                    <p style="font-size:13px;color:#7A6A55;margin:0;line-height:1.5">
+                        Create modules and lessons, or edit existing content.</p>
+                    <button class="btn-primary" onclick="toggleCreateModuleForm()"
+                        style="font-size:12px;padding:7px 14px;white-space:nowrap;flex-shrink:0">+ New Module</button>
+                </div>
+                <div id="createModuleFormWrap" style="display:none;background:#FFF8EE;border:1.5px solid #E8D5A3;border-radius:12px;padding:16px;margin-bottom:12px">
+                    <div style="font-size:13px;font-weight:600;color:#2D2417;margin-bottom:10px">New Module</div>
+                    <input id="newModTitle" placeholder="Module title *" style="width:100%;box-sizing:border-box;padding:8px 10px;border:1.5px solid #E8D5A3;border-radius:8px;font-size:13px;margin-bottom:8px;background:white;display:block">
+                    <input id="newModDesc" placeholder="Description (optional)" style="width:100%;box-sizing:border-box;padding:8px 10px;border:1.5px solid #E8D5A3;border-radius:8px;font-size:13px;margin-bottom:12px;background:white;display:block">
+                    <div style="display:flex;gap:8px">
+                        <button class="btn-primary" onclick="createAdminModule()" style="font-size:12px;padding:7px 16px">Create</button>
+                        <button class="btn-secondary" onclick="toggleCreateModuleForm()" style="font-size:12px;padding:7px 16px">Cancel</button>
+                    </div>
+                </div>`;
 
             modulesData.forEach(mod => {
+                const isAdmin = !!mod._adminSource;
+                const modBadge = isAdmin ? ADMIN_BADGE : '';
+                const modControls = isAdmin ? `
+                    <button onclick="event.stopPropagation();deleteAdminModule(${mod._sbId},${mod.id})"
+                        style="font-size:11px;padding:4px 10px;border:1px solid #C0392B40;background:#C0392B10;color:#C0392B;border-radius:6px;cursor:pointer;margin-right:4px"
+                        title="Delete module">Delete</button>` : '';
+
                 html += `<div class="content-module-card" id="cmod_${mod.id}">
                     <div class="content-module-head" onclick="toggleContentModule(${mod.id})">
-                        <div class="content-module-num">${mod.number}</div>
+                        <div class="content-module-num">${mod.number || ''}</div>
                         <div class="content-module-info">
-                            <div class="content-module-title-text">${mod.title}</div>
-                            <div class="content-module-meta">${mod.lessons ? mod.lessons.length : 0} lessons · ${mod.description || ''}</div>
+                            <div class="content-module-title-text">${he(mod.title)}${modBadge}</div>
+                            <div class="content-module-meta" id="cmeta_${mod.id}">${(mod.lessons||[]).length} lessons · ${mod.description || ''}</div>
                         </div>
+                        ${modControls}
                         <span class="content-chevron">▶</span>
                     </div>
                     <div class="content-lessons-list" id="clessons_${mod.id}">`;
 
                 if (mod.lessons && mod.lessons.length) {
-                    mod.lessons.forEach((les, idx) => {
+                    mod.lessons.forEach(les => {
                         const typeCols = { introduction:'#E8720C', practice:'#0891b2', reading:'#7A4E8A', review:'#0F6E56' };
                         const typeCol = typeCols[les.type] || '#7A6A55';
+                        const lesBadge = les._adminSource ? `<span style="font-size:10px;font-weight:600;background:#E8720C;color:white;padding:1px 5px;border-radius:3px;flex-shrink:0">admin</span>` : '';
                         html += `<div class="content-lesson-block" id="cblock_${mod.id}_${les.id}">
                             <div class="content-lesson-row" id="crow_${mod.id}_${les.id}">
                                 <span class="content-lesson-num">${les.id}</span>
@@ -5217,8 +5249,9 @@
                                     value="${(les.title||'').replace(/"/g,'&quot;')}"
                                     onchange="contentEditLesson(${mod.id},${les.id},'title',this.value)"
                                     title="Click to edit title" />
+                                ${lesBadge}
                                 <span class="content-lesson-type-badge" style="color:${typeCol};background:${typeCol}18">${les.type||''}</span>
-                                <button class="content-expand-btn" onclick="toggleContentLesson(${mod.id},${les.id})" title="Expand content">
+                                <button class="content-expand-btn" onclick="toggleContentLesson(${mod.id},${les.id})" title="Expand">
                                     <i class="ph ph-caret-down"></i>
                                 </button>
                                 <button class="content-lesson-del" onclick="contentDeleteLesson(${mod.id},${les.id})" title="Delete lesson">
@@ -5231,10 +5264,31 @@
                         </div>`;
                     });
                 } else {
-                    html += `<div style="padding:12px 16px;font-size:12px;color:#C8B89A">No lessons</div>`;
+                    html += `<div style="padding:12px 16px;font-size:12px;color:#C8B89A">No lessons yet</div>`;
                 }
 
-                html += `</div></div>`;
+                // Add Lesson form at the bottom of every module
+                html += `
+                    <div style="padding:10px 16px;border-top:1px solid #F5EDD8">
+                        <button class="btn-secondary" onclick="event.stopPropagation();toggleCreateLessonForm(${mod.id})"
+                            style="font-size:12px;padding:5px 12px">+ Add Lesson</button>
+                        <div id="createLessonForm_${mod.id}" style="display:none;margin-top:10px">
+                            <input id="newLesTitle_${mod.id}" placeholder="Lesson title *"
+                                style="width:100%;box-sizing:border-box;padding:7px 10px;border:1.5px solid #E8D5A3;border-radius:8px;font-size:13px;margin-bottom:8px;background:white;display:block">
+                            <select id="newLesType_${mod.id}"
+                                style="width:100%;box-sizing:border-box;padding:7px 10px;border:1.5px solid #E8D5A3;border-radius:8px;font-size:13px;margin-bottom:10px;background:white;display:block">
+                                <option value="practice">Practice</option>
+                                <option value="introduction">Introduction</option>
+                                <option value="review">Review</option>
+                                <option value="reading">Reading</option>
+                            </select>
+                            <div style="display:flex;gap:8px">
+                                <button class="btn-primary" onclick="createAdminLesson(${mod.id})" style="font-size:12px;padding:6px 14px">Create</button>
+                                <button class="btn-secondary" onclick="toggleCreateLessonForm(${mod.id})" style="font-size:12px;padding:6px 14px">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div></div>`;
             });
 
             el.innerHTML = html;
@@ -5251,19 +5305,31 @@
             const les = mod.lessons.find(l => l.id === lesId);
             if (!les) return;
             les[field] = value;
+            // Persist title changes for admin lessons
+            if (les._adminSource && les._sbId && _SB) {
+                _SB.from('admin_lessons').update({ [field]: value }).eq('id', les._sbId);
+            }
             showToast('Saved');
         }
 
         function contentDeleteLesson(modId, lesId) {
-            if (!confirm('Delete this lesson? This cannot be undone until you reload the page.')) return;
+            const les = getLesson(modId, lesId);
+            if (!les) return;
+            const msg = les._adminSource
+                ? 'Delete this lesson permanently from the cloud? This cannot be undone.'
+                : 'Delete this lesson from this session?';
+            if (!confirm(msg)) return;
             const mod = modulesData.find(m => m.id === modId);
             if (!mod) return;
             mod.lessons = mod.lessons.filter(l => l.id !== lesId);
             mod.totalLessons = mod.lessons.length;
-            // Remove block from DOM
+            // For admin lessons also delete from Supabase
+            if (les._adminSource && les._sbId && _SB) {
+                _SB.from('admin_lessons').delete().eq('id', les._sbId)
+                   .then(({ error }) => { if (error) showToast('Cloud delete failed'); });
+            }
             const block = document.getElementById('cblock_' + modId + '_' + lesId);
             if (block) block.remove();
-            // Update meta
             const meta = document.querySelector('#cmod_' + modId + ' .content-module-meta');
             if (meta) meta.textContent = mod.lessons.length + ' lessons · ' + (mod.description || '');
             showToast('Lesson deleted');
@@ -6096,9 +6162,14 @@
             }).join('');
         }
 
-        // ── Admin save — Supabase only (admin must be signed in) ─────────────
+        // ── Admin save — routes to correct Supabase table based on lesson source ──
         function saveFixedTasksToStorage(modId, lesId, tasks) {
-            sbSaveOverride(modId, lesId, tasks);
+            const les = getLesson(modId, lesId);
+            if (les && les._adminSource && les._sbId) {
+                saveAdminLessonTasks(les._sbId, tasks);
+            } else {
+                sbSaveOverride(modId, lesId, tasks);
+            }
         }
 
         function loadFixedTasksFromStorage() {
@@ -6234,6 +6305,162 @@
             renderAdminPanel();
             renderContentManager();
             showToast('Signed out');
+        }
+
+        // ═══════════════════════════════════════════════════════════════════
+        // ADMIN CONTENT — load / create / delete modules and lessons
+        // ═══════════════════════════════════════════════════════════════════
+
+        async function loadAdminContent() {
+            if (!_SB) return;
+            try {
+                const [modRes, lesRes] = await Promise.all([
+                    _SB.from('admin_modules').select('*').order('order_index'),
+                    _SB.from('admin_lessons').select('*').order('order_index')
+                ]);
+                if (modRes.error || lesRes.error) return;
+
+                // Clear any previously merged admin data before re-merging
+                modulesData = modulesData.filter(m => !m._adminSource);
+                modulesData.forEach(m => {
+                    if (m.lessons) m.lessons = m.lessons.filter(l => !l._adminSource);
+                });
+
+                // Append admin modules
+                (modRes.data || []).forEach(m => {
+                    modulesData.push({
+                        id:               10000 + m.id,
+                        _sbId:            m.id,
+                        _adminSource:     true,
+                        number:           modulesData.length + 1,
+                        title:            m.title,
+                        description:      m.description || '',
+                        lessons:          [],
+                        completedLessons: 0,
+                        currentLesson:    1,
+                        status:           'not-started'
+                    });
+                });
+
+                // Attach admin lessons to their parent module
+                (lesRes.data || []).forEach(l => {
+                    const targetMod = l.admin_module_id
+                        ? modulesData.find(m => m._adminSource  && m._sbId === l.admin_module_id)
+                        : modulesData.find(m => !m._adminSource && m.id    === l.module_json_id);
+                    if (!targetMod) return;
+                    targetMod.lessons.push({
+                        id:           20000 + l.id,
+                        _sbId:        l.id,
+                        _adminSource: true,
+                        title:        l.title,
+                        type:         l.type || 'practice',
+                        description:  l.description || '',
+                        content:      { tasks: Array.isArray(l.tasks) ? l.tasks : [] },
+                        completed:    false
+                    });
+                });
+            } catch(e) { console.error('loadAdminContent:', e); }
+        }
+
+        // ── Form toggles ──────────────────────────────────────────────────────
+
+        function toggleCreateModuleForm() {
+            const w = document.getElementById('createModuleFormWrap');
+            if (w) w.style.display = w.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function toggleCreateLessonForm(modId) {
+            const f = document.getElementById('createLessonForm_' + modId);
+            if (f) f.style.display = f.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // ── Module CRUD ───────────────────────────────────────────────────────
+
+        async function createAdminModule() {
+            const titleEl = document.getElementById('newModTitle');
+            const descEl  = document.getElementById('newModDesc');
+            const title   = (titleEl?.value || '').trim();
+            if (!title) { if (titleEl) titleEl.style.borderColor = '#E8720C'; return; }
+            const desc = (descEl?.value || '').trim();
+            const { data: { user } } = await _SB.auth.getUser();
+            const { data, error } = await _SB.from('admin_modules').insert({
+                title,
+                description:  desc || null,
+                order_index:  modulesData.filter(m => m._adminSource).length,
+                created_by:   user.id
+            }).select().single();
+            if (error || !data) { showToast('Error: ' + (error?.message || 'unknown')); return; }
+            modulesData.push({
+                id:               10000 + data.id,
+                _sbId:            data.id,
+                _adminSource:     true,
+                number:           modulesData.length + 1,
+                title:            data.title,
+                description:      data.description || '',
+                lessons:          [],
+                completedLessons: 0,
+                currentLesson:    1,
+                status:           'not-started'
+            });
+            renderContentManager();
+            showToast('Module created ✓');
+        }
+
+        async function deleteAdminModule(sbId, modId) {
+            if (!confirm('Delete this module and all its lessons permanently? This cannot be undone.')) return;
+            const { error } = await _SB.from('admin_modules').delete().eq('id', sbId);
+            if (error) { showToast('Error deleting module'); return; }
+            modulesData = modulesData.filter(m => !(m._adminSource && m._sbId === sbId));
+            renderContentManager();
+            showToast('Module deleted');
+        }
+
+        // ── Lesson CRUD ───────────────────────────────────────────────────────
+
+        async function createAdminLesson(modId) {
+            const titleEl = document.getElementById('newLesTitle_' + modId);
+            const typeEl  = document.getElementById('newLesType_'  + modId);
+            const title   = (titleEl?.value || '').trim();
+            if (!title) { if (titleEl) titleEl.style.borderColor = '#E8720C'; return; }
+            const type = typeEl?.value || 'practice';
+            const mod  = modulesData.find(m => m.id === modId);
+            if (!mod) return;
+            const { data: { user } } = await _SB.auth.getUser();
+            const insertData = {
+                title,
+                type,
+                tasks:       [],
+                created_by:  user.id,
+                order_index: (mod.lessons || []).filter(l => l._adminSource).length
+            };
+            if (mod._adminSource) insertData.admin_module_id = mod._sbId;
+            else                  insertData.module_json_id  = mod.id;
+            const { data, error } = await _SB.from('admin_lessons').insert(insertData).select().single();
+            if (error || !data) { showToast('Error: ' + (error?.message || 'unknown')); return; }
+            (mod.lessons = mod.lessons || []).push({
+                id:           20000 + data.id,
+                _sbId:        data.id,
+                _adminSource: true,
+                title:        data.title,
+                type:         data.type,
+                description:  '',
+                content:      { tasks: [] },
+                completed:    false
+            });
+            renderContentManager();
+            showToast('Lesson created ✓');
+        }
+
+        // ── Admin lesson task save ────────────────────────────────────────────
+
+        async function saveAdminLessonTasks(sbId, tasks) {
+            if (!_SB) return;
+            const { data: { user } } = await _SB.auth.getUser();
+            if (!user) { showToast('Sign in to save'); return; }
+            const { error } = await _SB.from('admin_lessons')
+                .update({ tasks: tasks || [] })
+                .eq('id', sbId);
+            if (error) showToast('Error saving tasks');
         }
     </script>
 
