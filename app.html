@@ -2007,6 +2007,63 @@
             margin-top: 8px;
         }
         .content-save-bar.visible { display: flex; }
+
+        /* ── Content lesson expand panels ── */
+        .content-lesson-block { border-bottom: 1px solid #F5F0E8; }
+        .content-lesson-block:last-child { border-bottom: none; }
+        .content-lesson-row { border-bottom: none !important; }
+        .content-expand-btn {
+            width: 28px; height: 28px; border-radius: 6px; border: 1.5px solid #E8D5A3;
+            background: white; color: #7A6A55; font-size: 12px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; transition: all 0.15s; padding: 0;
+        }
+        .content-expand-btn:hover { background: #FFF0D9; border-color: #E8720C; color: #E8720C; }
+        .content-expand-btn .ph { transition: transform 0.2s; }
+        .content-lesson-block.open .content-expand-btn .ph { transform: rotate(180deg); }
+        .content-lesson-expand {
+            display: none; padding: 14px 16px; background: #FAFAF8;
+            border-top: 1px solid #F0EBE0;
+        }
+        .content-lesson-block.open .content-lesson-expand { display: block; }
+        .content-field-label {
+            font-size: 10px; font-weight: 700; color: #C8B89A;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            margin-bottom: 4px; margin-top: 12px;
+        }
+        .content-field-label:first-child { margin-top: 0; }
+        .content-field-input {
+            width: 100%; border: 1.5px solid #E8D5A3; border-radius: 8px;
+            padding: 8px 10px; font-size: 13px; font-family: inherit;
+            color: #2D2417; background: white; box-sizing: border-box;
+            transition: border-color 0.15s;
+        }
+        .content-field-input:focus { outline: none; border-color: #E8720C; }
+        textarea.content-field-input { resize: vertical; min-height: 58px; }
+        .content-chars-table {
+            width: 100%; border-collapse: collapse; font-size: 12px;
+            margin-top: 6px; border: 1.5px solid #E8D5A3; border-radius: 8px; overflow: hidden;
+        }
+        .content-chars-table th {
+            background: #F5F0E8; font-size: 10px; font-weight: 700; color: #C8B89A;
+            text-transform: uppercase; letter-spacing: 0.5px; padding: 6px 10px; text-align: left;
+        }
+        .content-chars-table td { padding: 8px 10px; border-top: 1px solid #F0EBE0; vertical-align: middle; }
+        .content-chars-table td .content-field-input { margin: 0; }
+        .content-char-glyph { font-size: 24px; font-family: 'Noto Sans Malayalam', sans-serif; line-height: 1; }
+        .content-task-block {
+            background: white; border: 1.5px solid #C8E4F0; border-radius: 8px;
+            padding: 12px 14px; margin-top: 8px;
+        }
+        .content-step-block {
+            background: white; border: 1.5px solid #E8D5A3; border-radius: 8px;
+            padding: 12px 14px; margin-top: 8px;
+        }
+        .content-section-label {
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px; margin-bottom: 8px;
+        }
+        .content-taskmix-area { font-family: 'Courier New', monospace; font-size: 12px; }
     </style>
 </head>
 <body>
@@ -4992,18 +5049,26 @@
 
                 if (mod.lessons && mod.lessons.length) {
                     mod.lessons.forEach((les, idx) => {
-                        const typeCols = { introduction:'#E8720C', practice:'#0891b2', review:'#0F6E56' };
+                        const typeCols = { introduction:'#E8720C', practice:'#0891b2', reading:'#7A4E8A', review:'#0F6E56' };
                         const typeCol = typeCols[les.type] || '#7A6A55';
-                        html += `<div class="content-lesson-row" id="crow_${mod.id}_${les.id}">
-                            <span class="content-lesson-num">${les.id}</span>
-                            <input class="content-lesson-title-input"
-                                value="${(les.title||'').replace(/"/g,'&quot;')}"
-                                onchange="contentEditLesson(${mod.id},${les.id},'title',this.value)"
-                                title="Click to edit title" />
-                            <span class="content-lesson-type-badge" style="color:${typeCol};background:${typeCol}18">${les.type||''}</span>
-                            <button class="content-lesson-del" onclick="contentDeleteLesson(${mod.id},${les.id})" title="Delete lesson">
-                                <i class="ph ph-trash"></i>
-                            </button>
+                        html += `<div class="content-lesson-block" id="cblock_${mod.id}_${les.id}">
+                            <div class="content-lesson-row" id="crow_${mod.id}_${les.id}">
+                                <span class="content-lesson-num">${les.id}</span>
+                                <input class="content-lesson-title-input"
+                                    value="${(les.title||'').replace(/"/g,'&quot;')}"
+                                    onchange="contentEditLesson(${mod.id},${les.id},'title',this.value)"
+                                    title="Click to edit title" />
+                                <span class="content-lesson-type-badge" style="color:${typeCol};background:${typeCol}18">${les.type||''}</span>
+                                <button class="content-expand-btn" onclick="toggleContentLesson(${mod.id},${les.id})" title="Expand content">
+                                    <i class="ph ph-caret-down"></i>
+                                </button>
+                                <button class="content-lesson-del" onclick="contentDeleteLesson(${mod.id},${les.id})" title="Delete lesson">
+                                    <i class="ph ph-trash"></i>
+                                </button>
+                            </div>
+                            <div class="content-lesson-expand" id="cexpand_${mod.id}_${les.id}">
+                                ${renderLessonContentHTML(les, mod.id)}
+                            </div>
                         </div>`;
                     });
                 } else {
@@ -5036,13 +5101,214 @@
             if (!mod) return;
             mod.lessons = mod.lessons.filter(l => l.id !== lesId);
             mod.totalLessons = mod.lessons.length;
-            // Remove row from DOM
-            const row = document.getElementById('crow_' + modId + '_' + lesId);
-            if (row) row.remove();
+            // Remove block from DOM
+            const block = document.getElementById('cblock_' + modId + '_' + lesId);
+            if (block) block.remove();
             // Update meta
             const meta = document.querySelector('#cmod_' + modId + ' .content-module-meta');
             if (meta) meta.textContent = mod.lessons.length + ' lessons · ' + (mod.description || '');
             showToast('Lesson deleted');
+        }
+
+        // ── Content lesson expand ─────────────────────────────────────────
+        function toggleContentLesson(modId, lesId) {
+            const block = document.getElementById('cblock_' + modId + '_' + lesId);
+            if (block) block.classList.toggle('open');
+        }
+
+        // HTML-escape helper for generating safe inline HTML
+        function he(s) {
+            return (s == null ? '' : String(s))
+                .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        // Split textarea value into array (used by options/taskMix handlers)
+        function taLines(ta) { return ta.value.split('\n').filter(s => s.trim()); }
+
+        // Build the editable detail panel HTML for one lesson
+        function renderLessonContentHTML(les, modId) {
+            const c = les.content || {};
+            let html = '';
+
+            // Introduction: direct characters array
+            if (c.characters && c.characters.length) {
+                html += contentCharsTableHTML(c.characters, modId, les.id, 'contentEditCharField');
+            }
+
+            // Introduction: multi-step (steps[])
+            if (c.steps && c.steps.length) {
+                c.steps.forEach((step, si) => {
+                    html += `<div class="content-step-block">
+                        <div class="content-section-label" style="color:#E8720C">Step ${si + 1}</div>
+                        <div class="content-field-label">Heading</div>
+                        <input class="content-field-input" value="${he(step.heading)}"
+                            onchange="contentEditStepField(${modId},${les.id},${si},'heading',this.value)" />`;
+                    if (step.characters && step.characters.length) {
+                        html += contentCharsTableHTML(step.characters, modId, les.id, 'contentEditStepCharField', si);
+                    }
+                    if (step.embeddedTask) {
+                        html += embeddedTaskBlockHTML(step.embeddedTask, modId, les.id, 'contentEditStepTask', si);
+                    }
+                    html += '</div>';
+                });
+            }
+
+            // Insight (shared by introduction types)
+            if (c.insight !== undefined) {
+                html += `<div class="content-field-label">Insight</div>
+                    <textarea class="content-field-input"
+                        onchange="contentEditContentField(${modId},${les.id},'insight',this.value)">${he(c.insight)}</textarea>`;
+            }
+
+            // Top-level embedded task
+            if (c.embeddedTask) {
+                html += embeddedTaskBlockHTML(c.embeddedTask, modId, les.id, 'contentEditRootTask', -1);
+            }
+
+            // Practice: scaffold dropdown
+            if (c.scaffold !== undefined) {
+                const opts = ['Guided','Reduced guidance','Unguided','Review'];
+                html += `<div class="content-field-label">Scaffold level</div>
+                    <select class="content-field-input" style="width:auto"
+                        onchange="contentEditContentField(${modId},${les.id},'scaffold',this.value)">
+                        ${opts.map(s => `<option${s === c.scaffold ? ' selected' : ''}>${he(s)}</option>`).join('')}
+                    </select>`;
+            }
+
+            // Practice: task mix
+            if (c.taskMix) {
+                html += `<div class="content-field-label">Task mix <span style="font-weight:400;text-transform:none;letter-spacing:0">(one per line)</span></div>
+                    <textarea class="content-field-input content-taskmix-area"
+                        onchange="contentEditTaskMix(${modId},${les.id},this.value)">${he((c.taskMix||[]).join('\n'))}</textarea>`;
+            }
+
+            // Practice: chars list
+            if (c.chars && c.chars.length) {
+                html += '<div class="content-field-label">Characters in this practice</div>';
+                html += '<table class="content-chars-table"><thead><tr><th>Script</th><th>ISO</th></tr></thead><tbody>';
+                c.chars.forEach((ch, ci) => {
+                    html += `<tr>
+                        <td><div class="content-char-glyph">${he(ch.malayalam)}</div></td>
+                        <td><input class="content-field-input" style="width:90px" value="${he(ch.iso15919)}"
+                            onchange="contentEditPracticeCharField(${modId},${les.id},${ci},'iso15919',this.value)" /></td>
+                    </tr>`;
+                });
+                html += '</tbody></table>';
+            }
+
+            // Reading: words table
+            if (c.words && c.words.length) {
+                html += '<div class="content-field-label">Words</div>';
+                html += '<table class="content-chars-table"><thead><tr><th>Script</th><th>ISO</th><th>Meaning</th><th>Note</th></tr></thead><tbody>';
+                c.words.forEach((w, wi) => {
+                    html += `<tr>
+                        <td><div class="content-char-glyph" style="font-size:20px">${he(w.malayalam)}</div></td>
+                        <td><input class="content-field-input" style="width:72px" value="${he(w.iso)}"
+                            onchange="contentEditWordField(${modId},${les.id},${wi},'iso',this.value)" /></td>
+                        <td><input class="content-field-input" value="${he(w.meaning)}"
+                            onchange="contentEditWordField(${modId},${les.id},${wi},'meaning',this.value)" /></td>
+                        <td><input class="content-field-input" style="font-size:11px" value="${he(w.unknown)}"
+                            onchange="contentEditWordField(${modId},${les.id},${wi},'unknown',this.value)" /></td>
+                    </tr>`;
+                });
+                html += '</tbody></table>';
+            }
+
+            if (!html) html = '<p style="color:#C8B89A;font-size:12px;margin:0">No editable content fields for this lesson.</p>';
+            return html;
+        }
+
+        // Characters table block
+        function contentCharsTableHTML(chars, modId, lesId, editFn, stepIdx) {
+            let html = '<div class="content-field-label">Characters</div>';
+            html += '<table class="content-chars-table"><thead><tr><th>Script</th><th>ISO</th><th>Description</th></tr></thead><tbody>';
+            chars.forEach((ch, ci) => {
+                const a = stepIdx !== undefined ? `${modId},${lesId},${stepIdx},${ci}` : `${modId},${lesId},${ci}`;
+                html += `<tr>
+                    <td><div class="content-char-glyph">${he(ch.malayalam)}</div></td>
+                    <td><input class="content-field-input" style="width:72px" value="${he(ch.iso15919)}"
+                        onchange="${editFn}(${a},'iso15919',this.value)" /></td>
+                    <td><input class="content-field-input" value="${he(ch.description)}"
+                        onchange="${editFn}(${a},'description',this.value)" /></td>
+                </tr>`;
+            });
+            html += '</tbody></table>';
+            return html;
+        }
+
+        // Embedded task (Quick Check) block
+        function embeddedTaskBlockHTML(task, modId, lesId, editFn, stepIdx) {
+            const a = stepIdx >= 0 ? `${modId},${lesId},${stepIdx}` : `${modId},${lesId}`;
+            return `<div class="content-task-block">
+                <div class="content-section-label" style="color:#0891b2">Quick Check</div>
+                <div class="content-field-label">Prompt</div>
+                <input class="content-field-input" value="${he(task.prompt)}"
+                    onchange="${editFn}(${a},'prompt',this.value)" />
+                <div class="content-field-label">Options <span style="font-weight:400;text-transform:none;letter-spacing:0">(one per line)</span></div>
+                <textarea class="content-field-input content-taskmix-area"
+                    onchange="${editFn}(${a},'options',taLines(this))">${he((task.options||[]).join('\n'))}</textarea>
+                <div class="content-field-label">Correct answer (0-based index)</div>
+                <input class="content-field-input" type="number" min="0" style="width:80px" value="${task.correct||0}"
+                    onchange="${editFn}(${a},'correct',+this.value)" />
+            </div>`;
+        }
+
+        // ── Deep edit handlers ────────────────────────────────────────────
+        function contentEditContentField(modId, lesId, field, value) {
+            const mod = modulesData.find(m => m.id === modId);
+            const les = mod && mod.lessons.find(l => l.id === lesId);
+            if (!les) return;
+            (les.content = les.content || {})[field] = value;
+            showToast('Saved');
+        }
+        function contentEditTaskMix(modId, lesId, value) {
+            const mod = modulesData.find(m => m.id === modId);
+            const les = mod && mod.lessons.find(l => l.id === lesId);
+            if (les && les.content) { les.content.taskMix = value.split('\n').filter(s => s.trim()); showToast('Saved'); }
+        }
+        function contentEditCharField(modId, lesId, ci, field, value) {
+            const mod = modulesData.find(m => m.id === modId);
+            const les = mod && mod.lessons.find(l => l.id === lesId);
+            const ch = les && les.content && les.content.characters && les.content.characters[ci];
+            if (ch) { ch[field] = value; showToast('Saved'); }
+        }
+        function contentEditStepField(modId, lesId, si, field, value) {
+            const mod = modulesData.find(m => m.id === modId);
+            const les = mod && mod.lessons.find(l => l.id === lesId);
+            const step = les && les.content && les.content.steps && les.content.steps[si];
+            if (step) { step[field] = value; showToast('Saved'); }
+        }
+        function contentEditStepCharField(modId, lesId, si, ci, field, value) {
+            const mod = modulesData.find(m => m.id === modId);
+            const les = mod && mod.lessons.find(l => l.id === lesId);
+            const step = les && les.content && les.content.steps && les.content.steps[si];
+            const ch = step && step.characters && step.characters[ci];
+            if (ch) { ch[field] = value; showToast('Saved'); }
+        }
+        function contentEditPracticeCharField(modId, lesId, ci, field, value) {
+            const mod = modulesData.find(m => m.id === modId);
+            const les = mod && mod.lessons.find(l => l.id === lesId);
+            const ch = les && les.content && les.content.chars && les.content.chars[ci];
+            if (ch) { ch[field] = value; showToast('Saved'); }
+        }
+        function contentEditWordField(modId, lesId, wi, field, value) {
+            const mod = modulesData.find(m => m.id === modId);
+            const les = mod && mod.lessons.find(l => l.id === lesId);
+            const w = les && les.content && les.content.words && les.content.words[wi];
+            if (w) { w[field] = value; showToast('Saved'); }
+        }
+        function contentEditRootTask(modId, lesId, field, value) {
+            const mod = modulesData.find(m => m.id === modId);
+            const les = mod && mod.lessons.find(l => l.id === lesId);
+            const task = les && les.content && les.content.embeddedTask;
+            if (task) { task[field] = value; showToast('Saved'); }
+        }
+        function contentEditStepTask(modId, lesId, si, field, value) {
+            const mod = modulesData.find(m => m.id === modId);
+            const les = mod && mod.lessons.find(l => l.id === lesId);
+            const step = les && les.content && les.content.steps && les.content.steps[si];
+            const task = step && step.embeddedTask;
+            if (task) { task[field] = value; showToast('Saved'); }
         }
     </script>
 
