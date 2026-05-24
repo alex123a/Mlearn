@@ -2125,6 +2125,67 @@
             display: flex; align-items: center; gap: 3px;
             background: #F5F0E8; border-radius: 7px; padding: 3px 7px;
         }
+
+        /* ── Drag and drop ── */
+        .task-drag-handle { cursor: grab; color: #C8B89A; padding: 0 4px; font-size: 14px; }
+        .task-drag-handle:active { cursor: grabbing; }
+        .task-editor-card.dragging { opacity: 0.4; border-style: dashed; }
+        .task-editor-card.drag-over { border-color: #E8720C; background: #FFF8F0; }
+
+        /* ── Variant description box ── */
+        .task-variant-desc {
+            width: 100%; background: #F0F8FF; border: 1px solid #C8E4F0;
+            border-radius: 7px; padding: 8px 11px; margin-bottom: 4px;
+            font-size: 11px; color: #2D5A8A; line-height: 1.6;
+        }
+        .task-variant-desc strong { font-size: 11px; }
+
+        /* ── Editable options ── */
+        .task-option-chip-editable {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: #F5F0E8; border-radius: 7px; padding: 3px 4px 3px 8px;
+            font-family: 'Noto Sans Malayalam', sans-serif; font-size: 16px;
+        }
+        .task-option-chip-del {
+            width: 18px; height: 18px; border-radius: 4px; border: 1px solid #E8D5A3;
+            background: white; color: #C0392B; font-size: 11px; cursor: pointer;
+            display: inline-flex; align-items: center; justify-content: center; padding: 0;
+        }
+        .task-add-option-row { display: flex; gap: 6px; align-items: center; margin-top: 8px; flex-wrap: wrap; }
+
+        /* ── Preview panel ── */
+        .task-preview-overlay {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+            z-index: 500; align-items: flex-start; justify-content: flex-end;
+        }
+        .task-preview-overlay.open { display: flex; }
+        .task-preview-panel {
+            width: min(420px, 100vw); height: 100vh; background: #F5F0E8;
+            overflow-y: auto; box-shadow: -4px 0 20px rgba(0,0,0,0.2);
+            display: flex; flex-direction: column;
+        }
+        .task-preview-header {
+            display: flex; align-items: center; gap: 10px;
+            padding: 14px 16px; background: #2D2417; color: white;
+            position: sticky; top: 0; z-index: 10; flex-shrink: 0;
+        }
+        .task-preview-header h3 { flex: 1; font-size: 14px; margin: 0; }
+        .task-preview-body { padding: 16px; flex: 1; }
+        .task-mock-card {
+            background: white; border-radius: 12px; padding: 14px 16px;
+            margin-bottom: 12px; border: 1.5px solid #E8D5A3;
+        }
+        .task-mock-num { font-size: 10px; font-weight: 700; color: #C8B89A; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+        .task-mock-prompt { font-size: 13px; font-weight: 600; color: #2D2417; margin-bottom: 10px; }
+        .task-mock-stimulus { text-align: center; margin-bottom: 12px; }
+        .task-mock-iso { font-size: 28px; font-weight: 700; color: #E8720C; }
+        .task-mock-sound { background: #FFF0D9; border: 1.5px solid #E8720C; border-radius: 10px; padding: 8px 16px; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #E8720C; font-weight: 600; }
+        .task-mock-options { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 8px; }
+        .task-mock-opt { background: #F5F0E8; border: 1.5px solid #E8D5A3; border-radius: 8px; padding: 8px 14px; font-family: 'Noto Sans Malayalam', sans-serif; font-size: 20px; }
+        .task-mock-opt.correct { background: #E8F5E9; border-color: #0F6E56; color: #0F6E56; }
+        .task-mock-match-cols { display: flex; gap: 12px; justify-content: center; }
+        .task-mock-match-col { display: flex; flex-direction: column; gap: 6px; }
+        .task-mock-match-card { background: #F5F0E8; border: 1.5px solid #E8D5A3; border-radius: 8px; padding: 8px 12px; text-align: center; min-width: 60px; font-size: 15px; }
     </style>
 </head>
 <body>
@@ -4864,6 +4925,7 @@
                 mod.lessons.forEach(l => { l.completed = false; });
             });
             modulesData = results;
+            loadFixedTasksFromStorage();
         }
         loadModules().then(() => init());
 
@@ -5498,8 +5560,10 @@
                 les.content.tasks = generateTasks(les);
                 // If generation failed, restore snapshot
                 if (!les.content.tasks.length && snapshot) les.content.tasks = snapshot;
+                saveFixedTasksToStorage(modId, lesId, les.content.tasks);
             } else {
                 delete les.content.tasks;
+                saveFixedTasksToStorage(modId, lesId, []);
             }
             refreshLessonPanel(modId, lesId);
         }
@@ -5511,16 +5575,27 @@
                 matching:'#0F6E56', transliteration:'#7A4E8A',
                 handwriting:'#C8922A', overview:'#7A6A55'
             };
-            let html = '<div class="task-fixed-list">';
+            let html = `<div style="display:flex;justify-content:flex-end;margin-bottom:8px">
+                <button class="btn-secondary" style="font-size:11px;padding:6px 12px"
+                    onclick="openTaskPreview(${modId},${lesId})">
+                    <i class="ph ph-eye"></i> Preview lesson
+                </button>
+            </div>`;
+            html += '<div class="task-fixed-list">';
 
             tasks.forEach((t, i) => {
                 const col = TYPE_COL[t.type] || '#7A6A55';
-                html += `<div class="task-editor-card">
+                html += `<div class="task-editor-card" id="tcard_${modId}_${lesId}_${i}"
+                    draggable="true"
+                    ondragstart="taskDragStart(event,${modId},${lesId},${i})"
+                    ondragend="taskDragEnd(event)"
+                    ondragover="taskDragOver(event,${modId},${lesId},${i})"
+                    ondragleave="taskDragLeave(event)"
+                    ondrop="taskDrop(event,${modId},${lesId},${i})">
                     <div class="task-editor-head">
+                        <span class="task-drag-handle" title="Drag to reorder">⠿</span>
                         <span class="task-editor-num">${i + 1}</span>
                         <span style="flex:1;font-size:12px;font-weight:700;color:${col}">${t.type}</span>
-                        <button class="task-editor-btn" onclick="taskMoveUp(${modId},${lesId},${i})" title="Move up"><i class="ph ph-arrow-up"></i></button>
-                        <button class="task-editor-btn" onclick="taskMoveDown(${modId},${lesId},${i})" title="Move down"><i class="ph ph-arrow-down"></i></button>
                         <button class="task-editor-btn del" onclick="taskDelete(${modId},${lesId},${i})" title="Delete"><i class="ph ph-trash"></i></button>
                     </div>
                     <div class="task-editor-body">${renderTaskFields(t, modId, lesId, i)}</div>
@@ -5541,49 +5616,72 @@
         }
 
         // ── Per-task field rendering ─────────────────────────────────────────
+        const IDENT_INFO = {
+            guided:   { label: 'Roman + Sound → Malayalam', stimulus: 'Learner sees: ISO romanization + 🔊 sound button', picks: 'Picks from: Malayalam script letters' },
+            reducedA: { label: 'Sound → Romanization',      stimulus: 'Learner sees: 🔊 sound button only',               picks: 'Picks from: ISO romanizations' },
+            reducedB: { label: 'Roman (no sound) → Malayalam', stimulus: 'Learner sees: ISO romanization, no audio',       picks: 'Picks from: Malayalam script letters' },
+            unguided: { label: 'Sound → Malayalam',          stimulus: 'Learner sees: 🔊 sound button only',               picks: 'Picks from: Malayalam script letters' },
+        };
+        const MATCH_INFO = {
+            guided:   { label: 'Roman + Sound ↔ Letter',    left: 'Left: ISO romanization + 🔊',  right: 'Right: Malayalam letter' },
+            reducedA: { label: 'Sound ↔ Romanization',       left: 'Left: 🔊 sound only',           right: 'Right: ISO romanization' },
+            reducedB: { label: 'Roman ↔ Letter',             left: 'Left: ISO romanization (no sound)', right: 'Right: Malayalam letter' },
+            unguided: { label: 'Sound ↔ Letter',             left: 'Left: 🔊 sound only',           right: 'Right: Malayalam letter' },
+        };
+
         function renderTaskFields(t, modId, lesId, i) {
             switch (t.type) {
                 case 'discrimination':
-                    return teCharPair('Char 1', t.c1, modId, lesId, i, 'c1') +
-                           teField('Answer', `<select class="task-editor-input task-editor-select"
-                               onchange="taskEditField(${modId},${lesId},${i},'answer',this.value)">
+                    return teField('Answer', `<select class="task-editor-input task-editor-select"
+                               onchange="taskEditField(${modId},${lesId},${i},'answer',this.value,false)">
                                <option${t.answer==='same'?' selected':''}>same</option>
                                <option${t.answer==='different'?' selected':''}>different</option>
                            </select>`) +
+                           teCharPair('Char 1', t.c1, modId, lesId, i, 'c1') +
                            teCharPair('Char 2', t.c2, modId, lesId, i, 'c2');
 
-                case 'identification':
-                    return teField('Variant', `<select class="task-editor-input task-editor-select"
-                               onchange="taskEditField(${modId},${lesId},${i},'variant',this.value)">
+                case 'identification': {
+                    const info = IDENT_INFO[t.variant] || IDENT_INFO.guided;
+                    return `<div class="task-variant-desc" style="width:100%">
+                                <strong>${info.label}</strong><br>${info.stimulus}<br>${info.picks}
+                            </div>` +
+                           teField('Variant', `<select class="task-editor-input task-editor-select"
+                               onchange="taskEditField(${modId},${lesId},${i},'variant',this.value,false);refreshLessonPanel(${modId},${lesId})">
                                ${['guided','reducedA','reducedB','unguided'].map(v =>
                                    `<option${v===t.variant?' selected':''}>${v}</option>`).join('')}
                            </select>`) +
-                           teCharPair('Target', t.char, modId, lesId, i, 'char') +
-                           teField('Correct', `<input class="task-editor-input task-editor-iso"
+                           teCharPair('Target character', t.char, modId, lesId, i, 'char') +
+                           teField('Correct answer', `<input class="task-editor-input task-editor-iso"
                                value="${he(t.correct)}"
-                               onchange="taskEditField(${modId},${lesId},${i},'correct',this.value)" />`) +
-                           teOptionsPreview(t.options, modId, lesId, i);
+                               oninput="taskEditField(${modId},${lesId},${i},'correct',this.value,true)" />`) +
+                           teOptionsEditor(t.options, modId, lesId, i);
+                }
 
-                case 'matching':
-                    return teField('Variant', `<select class="task-editor-input task-editor-select"
-                               onchange="taskEditField(${modId},${lesId},${i},'variant',this.value)">
+                case 'matching': {
+                    const info = MATCH_INFO[t.variant] || MATCH_INFO.guided;
+                    return `<div class="task-variant-desc" style="width:100%">
+                                <strong>${info.label}</strong><br>${info.left}<br>${info.right}
+                            </div>` +
+                           teField('Variant', `<select class="task-editor-input task-editor-select"
+                               onchange="taskEditField(${modId},${lesId},${i},'variant',this.value,false);refreshLessonPanel(${modId},${lesId})">
                                ${['guided','reducedA','reducedB','unguided'].map(v =>
                                    `<option${v===t.variant?' selected':''}>${v}</option>`).join('')}
                            </select>`) +
                            teMatchingChars(t.chars, modId, lesId, i);
+                }
 
                 case 'transliteration':
                     return teCharPair('Character', t.char, modId, lesId, i, 'char');
 
                 case 'handwriting':
                     return teField('Variant', `<select class="task-editor-input task-editor-select"
-                               onchange="taskEditField(${modId},${lesId},${i},'variant',this.value)">
+                               onchange="taskEditField(${modId},${lesId},${i},'variant',this.value,false)">
                                ${['full','half','none'].map(v =>
                                    `<option${v===t.variant?' selected':''}>${v}</option>`).join('')}
                            </select>`) +
                            teCharPair('Character', t.char, modId, lesId, i, 'char') +
                            (t.variant === 'half' ? teField('Side', `<select class="task-editor-input task-editor-select"
-                               onchange="taskEditField(${modId},${lesId},${i},'side',this.value)">
+                               onchange="taskEditField(${modId},${lesId},${i},'side',this.value,false)">
                                <option${t.side==='left'?' selected':''}>left</option>
                                <option${t.side==='right'?' selected':''}>right</option>
                            </select>`) : '');
@@ -5592,7 +5690,7 @@
                     return `<span style="font-size:12px;color:#7A6A55">${(t.chars||[]).length} characters overview</span>`;
 
                 default:
-                    return `<span style="font-size:11px;color:#C8B89A">Unknown task type: ${he(t.type)}</span>`;
+                    return `<span style="font-size:11px;color:#C8B89A">Unknown type: ${he(t.type)}</span>`;
             }
         }
 
@@ -5610,23 +5708,32 @@
                 <span class="task-editor-fl">${label}</span>
                 <div style="display:flex;gap:4px;align-items:center">
                     <input class="task-editor-input task-editor-ml" value="${he(ch.malayalam)}" title="Malayalam script"
-                        onchange="taskEditNested(${modId},${lesId},${i},'${path}','malayalam',this.value)" />
+                        oninput="taskEditNested(${modId},${lesId},${i},'${path}','malayalam',this.value,true)" />
                     <input class="task-editor-input task-editor-iso" value="${he(ch.iso15919)}" title="ISO romanization"
-                        onchange="taskEditNested(${modId},${lesId},${i},'${path}','iso15919',this.value)" />
+                        oninput="taskEditNested(${modId},${lesId},${i},'${path}','iso15919',this.value,true)" />
                 </div>
             </div>`;
         }
 
-        function teOptionsPreview(options, modId, lesId, i) {
-            const chips = (options||[]).map(o =>
-                `<span class="task-option-chip">${he(o.malayalam||o.text||String(o))}</span>`
+        function teOptionsEditor(options, modId, lesId, i) {
+            const chips = (options||[]).map((o, oi) =>
+                `<span class="task-option-chip-editable">
+                    ${he(o.malayalam||'')}
+                    <span style="font-size:10px;color:#C8B89A;font-family:inherit">${he(o.iso15919||'')}</span>
+                    <button class="task-option-chip-del" onclick="taskRemoveOption(${modId},${lesId},${i},${oi})" title="Remove">✕</button>
+                </span>`
             ).join('');
             return `<div class="task-editor-field" style="width:100%">
                 <span class="task-editor-fl">Options (${(options||[]).length})
                     <button class="task-editor-btn" style="height:22px;width:auto;padding:0 8px;font-size:11px;margin-left:6px"
                         onclick="taskRegenOptions(${modId},${lesId},${i})">↺ regenerate</button>
                 </span>
-                <div class="task-option-chips">${chips || '<span style="color:#C8B89A;font-size:11px">none yet</span>'}</div>
+                <div class="task-option-chips" style="margin-bottom:6px">${chips || '<span style="color:#C8B89A;font-size:11px">none yet</span>'}</div>
+                <div class="task-add-option-row">
+                    <input id="tao_ml_${modId}_${lesId}_${i}" class="task-editor-input task-editor-ml" placeholder="ക" title="Malayalam" style="width:52px" />
+                    <input id="tao_iso_${modId}_${lesId}_${i}" class="task-editor-input task-editor-iso" placeholder="ka" title="ISO" style="width:68px" />
+                    <button class="task-editor-btn" style="width:auto;padding:0 10px" onclick="taskAddOption(${modId},${lesId},${i})">+ Add option</button>
+                </div>
             </div>`;
         }
 
@@ -5636,10 +5743,10 @@
                 `<div class="task-match-char-pill">
                     <input class="task-editor-input task-editor-ml" style="width:44px;border:none;background:transparent;padding:2px 0"
                         value="${he(ch.malayalam)}"
-                        onchange="taskEditMatchChar(${modId},${lesId},${i},${ci},'malayalam',this.value)" />
+                        oninput="taskEditMatchChar(${modId},${lesId},${i},${ci},'malayalam',this.value)" />
                     <input class="task-editor-input task-editor-iso" style="width:52px;border:none;background:transparent;padding:2px 0;font-size:11px"
                         value="${he(ch.iso15919)}"
-                        onchange="taskEditMatchChar(${modId},${lesId},${i},${ci},'iso15919',this.value)" />
+                        oninput="taskEditMatchChar(${modId},${lesId},${i},${ci},'iso15919',this.value)" />
                     <button class="task-editor-btn del" style="width:20px;height:20px;font-size:10px"
                         onclick="taskDeleteMatchChar(${modId},${lesId},${i},${ci})">✕</button>
                 </div>`
@@ -5654,25 +5761,32 @@
         }
 
         // ── Task data edit handlers ──────────────────────────────────────────
-        function taskEditField(modId, lesId, idx, field, value) {
+        function taskEditField(modId, lesId, idx, field, value, silent) {
             const les = getLesson(modId, lesId);
             const t = les && les.content && les.content.tasks && les.content.tasks[idx];
-            if (t) { t[field] = value; showToast('Saved'); }
+            if (!t) return;
+            t[field] = value;
+            saveFixedTasksToStorage(modId, lesId, les.content.tasks);
+            if (!silent) showToast('Saved');
         }
 
-        function taskEditNested(modId, lesId, idx, path, field, value) {
+        function taskEditNested(modId, lesId, idx, path, field, value, silent) {
             const les = getLesson(modId, lesId);
             const t = les && les.content && les.content.tasks && les.content.tasks[idx];
             if (!t) return;
             if (!t[path]) t[path] = {};
             t[path][field] = value;
-            showToast('Saved');
+            saveFixedTasksToStorage(modId, lesId, les.content.tasks);
+            if (!silent) showToast('Saved');
         }
 
         function taskEditMatchChar(modId, lesId, taskIdx, charIdx, field, value) {
             const les = getLesson(modId, lesId);
             const t = les && les.content && les.content.tasks && les.content.tasks[taskIdx];
-            if (t && t.chars && t.chars[charIdx]) { t.chars[charIdx][field] = value; showToast('Saved'); }
+            if (t && t.chars && t.chars[charIdx]) {
+                t.chars[charIdx][field] = value;
+                saveFixedTasksToStorage(modId, lesId, les.content.tasks);
+            }
         }
 
         // ── Structural task operations (all trigger re-render) ───────────────
@@ -5707,6 +5821,7 @@
                     task = { type };
             }
             les.content.tasks.push(task);
+            saveFixedTasksToStorage(modId, lesId, les.content.tasks);
             refreshLessonPanel(modId, lesId);
         }
 
@@ -5714,22 +5829,7 @@
             const les = getLesson(modId, lesId);
             if (!les || !les.content || !les.content.tasks) return;
             les.content.tasks.splice(idx, 1);
-            refreshLessonPanel(modId, lesId);
-        }
-
-        function taskMoveUp(modId, lesId, idx) {
-            const les = getLesson(modId, lesId);
-            const tasks = les && les.content && les.content.tasks;
-            if (!tasks || idx === 0) return;
-            [tasks[idx - 1], tasks[idx]] = [tasks[idx], tasks[idx - 1]];
-            refreshLessonPanel(modId, lesId);
-        }
-
-        function taskMoveDown(modId, lesId, idx) {
-            const les = getLesson(modId, lesId);
-            const tasks = les && les.content && les.content.tasks;
-            if (!tasks || idx >= tasks.length - 1) return;
-            [tasks[idx], tasks[idx + 1]] = [tasks[idx + 1], tasks[idx]];
+            saveFixedTasksToStorage(modId, lesId, les.content.tasks);
             refreshLessonPanel(modId, lesId);
         }
 
@@ -5739,6 +5839,7 @@
             if (!t) return;
             t.chars = t.chars || [];
             t.chars.push({ malayalam: '', iso15919: '' });
+            saveFixedTasksToStorage(modId, lesId, les.content.tasks);
             refreshLessonPanel(modId, lesId);
         }
 
@@ -5747,6 +5848,7 @@
             const t = les && les.content && les.content.tasks && les.content.tasks[taskIdx];
             if (!t || !t.chars) return;
             t.chars.splice(charIdx, 1);
+            saveFixedTasksToStorage(modId, lesId, les.content.tasks);
             refreshLessonPanel(modId, lesId);
         }
 
@@ -5757,7 +5859,243 @@
             const chars = charsForLesson(les);
             t.options = getConfusableOptions(t.char, chars);
             t.correct = t.char.malayalam;
+            saveFixedTasksToStorage(modId, lesId, les.content.tasks);
             refreshLessonPanel(modId, lesId);
+        }
+
+        // ── Drag and drop ────────────────────────────────────────────────────
+        let _dragIdx = null, _dragMod = null, _dragLes = null;
+
+        function taskDragStart(e, modId, lesId, idx) {
+            _dragIdx = idx; _dragMod = modId; _dragLes = lesId;
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', String(idx));
+            setTimeout(() => {
+                const el = document.getElementById('tcard_' + modId + '_' + lesId + '_' + idx);
+                if (el) el.classList.add('dragging');
+            }, 0);
+        }
+
+        function taskDragEnd(e) {
+            document.querySelectorAll('.task-editor-card').forEach(el =>
+                el.classList.remove('dragging', 'drag-over'));
+            _dragIdx = null;
+        }
+
+        function taskDragOver(e, modId, lesId, idx) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            document.querySelectorAll('.task-editor-card').forEach(el => el.classList.remove('drag-over'));
+            const el = document.getElementById('tcard_' + modId + '_' + lesId + '_' + idx);
+            if (el) el.classList.add('drag-over');
+        }
+
+        function taskDragLeave(e) {
+            if (!e.currentTarget.contains(e.relatedTarget)) {
+                e.currentTarget.classList.remove('drag-over');
+            }
+        }
+
+        function taskDrop(e, modId, lesId, dropIdx) {
+            e.preventDefault();
+            document.querySelectorAll('.task-editor-card').forEach(el =>
+                el.classList.remove('dragging', 'drag-over'));
+            if (_dragIdx === null || _dragIdx === dropIdx || _dragMod !== modId || _dragLes !== lesId) {
+                _dragIdx = null; return;
+            }
+            const les = getLesson(modId, lesId);
+            const tasks = les && les.content && les.content.tasks;
+            if (!tasks) { _dragIdx = null; return; }
+            const moved = tasks.splice(_dragIdx, 1)[0];
+            const insertAt = dropIdx > _dragIdx ? dropIdx - 1 : dropIdx;
+            tasks.splice(insertAt, 0, moved);
+            _dragIdx = null;
+            saveFixedTasksToStorage(modId, lesId, tasks);
+            refreshLessonPanel(modId, lesId);
+        }
+
+        // ── Add / remove individual options ──────────────────────────────────
+        function taskAddOption(modId, lesId, taskIdx) {
+            const les = getLesson(modId, lesId);
+            const t = les && les.content && les.content.tasks && les.content.tasks[taskIdx];
+            if (!t) return;
+            const mlIn  = document.getElementById('tao_ml_'  + modId + '_' + lesId + '_' + taskIdx);
+            const isoIn = document.getElementById('tao_iso_' + modId + '_' + lesId + '_' + taskIdx);
+            const ml  = mlIn  ? mlIn.value.trim()  : '';
+            const iso = isoIn ? isoIn.value.trim() : '';
+            if (!ml) { if (mlIn) { mlIn.style.borderColor='#E8720C'; setTimeout(()=>mlIn.style.borderColor='',1000); } return; }
+            t.options = t.options || [];
+            t.options.push({ malayalam: ml, iso15919: iso });
+            saveFixedTasksToStorage(modId, lesId, les.content.tasks);
+            refreshLessonPanel(modId, lesId);
+        }
+
+        function taskRemoveOption(modId, lesId, taskIdx, optIdx) {
+            const les = getLesson(modId, lesId);
+            const t = les && les.content && les.content.tasks && les.content.tasks[taskIdx];
+            if (!t || !t.options) return;
+            t.options.splice(optIdx, 1);
+            saveFixedTasksToStorage(modId, lesId, les.content.tasks);
+            refreshLessonPanel(modId, lesId);
+        }
+
+        // ── Preview panel ─────────────────────────────────────────────────────
+        function openTaskPreview(modId, lesId) {
+            const les = getLesson(modId, lesId);
+            if (!les) return;
+            let overlay = document.getElementById('taskPreviewOverlay');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.id = 'taskPreviewOverlay';
+                overlay.className = 'task-preview-overlay';
+                overlay.innerHTML = `<div class="task-preview-panel">
+                    <div class="task-preview-header">
+                        <h3 id="taskPreviewTitle">Lesson Preview</h3>
+                        <button onclick="closeTaskPreview()" style="background:none;border:none;color:white;font-size:20px;cursor:pointer;padding:0">✕</button>
+                    </div>
+                    <div class="task-preview-body" id="taskPreviewBody"></div>
+                </div>`;
+                overlay.addEventListener('click', e => { if (e.target === overlay) closeTaskPreview(); });
+                document.body.appendChild(overlay);
+            }
+            document.getElementById('taskPreviewTitle').textContent = les.title + ' — Preview';
+            document.getElementById('taskPreviewBody').innerHTML = buildTaskPreviewHTML(les);
+            overlay.classList.add('open');
+        }
+
+        function closeTaskPreview() {
+            const overlay = document.getElementById('taskPreviewOverlay');
+            if (overlay) overlay.classList.remove('open');
+        }
+
+        function buildTaskPreviewHTML(les) {
+            const tasks = generateTasks(les);
+            if (!tasks || !tasks.length) return '<p style="color:#C8B89A;padding:16px">No tasks.</p>';
+            const ML = "font-family:'Noto Sans Malayalam',sans-serif";
+            return tasks.map((t, i) => {
+                let body = '';
+                switch (t.type) {
+                    case 'discrimination': {
+                        const sameLabel = t.answer === 'same' ? '✓ Same sound' : '✓ Different sounds';
+                        body = `<div class="task-mock-prompt">Are these the same or different sound?</div>
+                            <div style="display:flex;justify-content:center;align-items:center;gap:20px;font-size:36px;${ML}">
+                                <span>${he(t.c1.malayalam)}</span>
+                                <span style="font-size:14px;color:#C8B89A">vs</span>
+                                <span>${he(t.c2.malayalam)}</span>
+                            </div>
+                            <div style="text-align:center;margin-top:8px;font-size:12px;color:#0F6E56;font-weight:600">${sameLabel}</div>`;
+                        break;
+                    }
+                    case 'identification': {
+                        const info = IDENT_INFO[t.variant] || IDENT_INFO.guided;
+                        let stimulus = '';
+                        if (t.variant === 'guided') {
+                            stimulus = `<div class="task-mock-iso">${he(t.char.iso15919)}</div>
+                                <div style="margin-top:6px"><span class="task-mock-sound">🔊 ${he(t.char.iso15919)}</span></div>`;
+                        } else if (t.variant === 'reducedB') {
+                            stimulus = `<div class="task-mock-iso">${he(t.char.iso15919)}</div>`;
+                        } else {
+                            stimulus = `<span class="task-mock-sound">🔊 plays: ${he(t.char.iso15919)}</span>`;
+                        }
+                        const optHtml = (t.options||[]).map(o => {
+                            const val = t.variant === 'reducedA' ? o.iso15919 : o.malayalam;
+                            const isCorrect = val === t.correct;
+                            return `<span class="task-mock-opt${isCorrect?' correct':''}" style="${t.variant==='reducedA'?'font-family:inherit;font-size:14px':''}">
+                                ${he(val)}</span>`;
+                        }).join('');
+                        body = `<div style="font-size:10px;color:#0891b2;font-weight:700;margin-bottom:6px">${info.label}</div>
+                            <div class="task-mock-prompt">${t.variant==='reducedA'?'What is the romanization of this sound?':t.variant==='unguided'?'How do you spell this sound in Malayalam?':'How do you spell this in Malayalam?'}</div>
+                            <div class="task-mock-stimulus">${stimulus}</div>
+                            <div class="task-mock-options">${optHtml}</div>`;
+                        break;
+                    }
+                    case 'matching': {
+                        const info = MATCH_INFO[t.variant] || MATCH_INFO.guided;
+                        const chars = t.chars || [];
+                        let leftCards = '', rightCards = '';
+                        chars.forEach(c => {
+                            if (t.variant === 'guided') {
+                                leftCards += `<div class="task-mock-match-card">${he(c.iso15919)} 🔊</div>`;
+                            } else if (t.variant === 'reducedA' || t.variant === 'unguided') {
+                                leftCards += `<div class="task-mock-match-card">🔊</div>`;
+                            } else {
+                                leftCards += `<div class="task-mock-match-card">${he(c.iso15919)}</div>`;
+                            }
+                            if (t.variant === 'reducedA') {
+                                rightCards += `<div class="task-mock-match-card" style="font-family:inherit">${he(c.iso15919)}</div>`;
+                            } else {
+                                rightCards += `<div class="task-mock-match-card" style="${ML}">${he(c.malayalam)}</div>`;
+                            }
+                        });
+                        body = `<div style="font-size:10px;color:#0F6E56;font-weight:700;margin-bottom:6px">${info.label}</div>
+                            <div class="task-mock-prompt">${
+                                t.variant==='guided'?'Match each sound and romanization to its letter':
+                                t.variant==='reducedA'?'Match the sound to its romanization':
+                                t.variant==='reducedB'?'Match the romanization to its letter':'Match the sound to its letter'
+                            }</div>
+                            <div style="font-size:11px;color:#7A6A55;margin-bottom:8px">${info.left} → ${info.right}</div>
+                            <div class="task-mock-match-cols">
+                                <div class="task-mock-match-col">${leftCards}</div>
+                                <div style="display:flex;align-items:center;color:#C8B89A;font-size:18px">→</div>
+                                <div class="task-mock-match-col">${rightCards}</div>
+                            </div>`;
+                        break;
+                    }
+                    case 'transliteration':
+                        body = `<div class="task-mock-prompt">Type the romanization for this character</div>
+                            <div style="text-align:center;font-size:48px;${ML};margin:8px 0">${he(t.char.malayalam)}</div>
+                            <div style="text-align:center;font-size:12px;color:#7A6A55">Answer: <strong>${he(t.char.iso15919)}</strong></div>
+                            <div style="text-align:center;font-size:11px;color:#C8B89A;margin-top:4px">Keyboard: ${(t.keyboard||[]).join(' · ')}</div>`;
+                        break;
+                    case 'handwriting':
+                        body = `<div class="task-mock-prompt">Practise writing this character</div>
+                            <div style="text-align:center;font-size:48px;${ML};margin:8px 0">${he(t.char.malayalam)}</div>
+                            <div style="text-align:center;font-size:12px;color:#7A6A55">
+                                Guide: <strong>${t.variant}</strong>${t.side ? ' · side: ' + t.side : ''}
+                            </div>`;
+                        break;
+                    default:
+                        body = `<div style="font-size:12px;color:#C8B89A">${he(t.type)}</div>`;
+                }
+                return `<div class="task-mock-card">
+                    <div class="task-mock-num">Task ${i+1} · ${he(t.type)}</div>
+                    ${body}
+                </div>`;
+            }).join('');
+        }
+
+        // ── localStorage persistence ──────────────────────────────────────────
+        function saveFixedTasksToStorage(modId, lesId, tasks) {
+            try {
+                if (tasks && tasks.length > 0) {
+                    localStorage.setItem('ftasks_' + modId + '_' + lesId, JSON.stringify(tasks));
+                } else {
+                    localStorage.removeItem('ftasks_' + modId + '_' + lesId);
+                }
+            } catch(e) {}
+        }
+
+        function loadFixedTasksFromStorage() {
+            if (!modulesData || !modulesData.length) return;
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (!key || !key.startsWith('ftasks_')) continue;
+                const parts = key.split('_');
+                if (parts.length < 3) continue;
+                const modId = parseInt(parts[1]);
+                const lesId = parseInt(parts[2]);
+                if (isNaN(modId) || isNaN(lesId)) continue;
+                try {
+                    const tasks = JSON.parse(localStorage.getItem(key));
+                    if (!Array.isArray(tasks)) continue;
+                    const mod = modulesData.find(m => m.id === modId);
+                    const les = mod && mod.lessons.find(l => l.id === lesId);
+                    if (les) {
+                        les.content = les.content || {};
+                        les.content.tasks = tasks;
+                    }
+                } catch(e) {}
+            }
         }
     </script>
 
