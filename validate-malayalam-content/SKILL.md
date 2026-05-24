@@ -12,45 +12,48 @@ Ensure **all** Malayalam lesson files across **all modules** contain only Malaya
 
 ## Where the Data Lives
 
-This app has **two sources** of Malayalam content — both must be scanned:
+All 13 modules live in `data/` as separate JSON files:
 
-### 1. `app.html` — Primary source (all 13 modules)
-All 13 modules are embedded directly in `app.html` as a JavaScript `modulesData` array (lines ~1863–4670). This is the live app data. Each module has lessons with `malayalam:` fields, `description`, `insight`, `prompt`, `options`, etc.
-
-### 2. `data/*.json` — Reference data
-- `data/module1-lessons.json` — older React format, module 1 only
-- `data/iso15919-reference.json` — full character reference
-- `data/handwriting-geometry.json` — handwriting geometry rules
+- `data/module1-lessons.json` through `data/module13-lessons.json` — all lesson content
+- `data/iso15919-reference.json` — character reference (Latin transliteration only, skip)
+- `data/handwriting-geometry.json` — geometry rules (no Malayalam script content)
 
 ## How It Works
 
-When triggered, always scan **both sources**:
+When triggered, always:
 
-1. **`app.html`** — Read the file and grep for all `malayalam:` values across all 13 modules. Check surrounding fields (`description`, `insight`, `prompt`, `options`, `title`, `heading`, `chars`) for non-Malayalam script.
-2. **`data/*.json`** — Read each JSON file and scan content fields.
-3. **Report per module** — group findings by module number (1–13).
-4. **Summarise** at the end with total issues found.
+1. **Glob `data/module*-lessons.json`** — find all 13 module files
+2. **Read each file** one by one
+3. **Scan every content field** for non-Malayalam Unicode characters
+4. **Report per module** — group findings by module number (1–13)
+5. **Summarise** at the end with total issues found
 
 ## What Gets Checked
 
-✅ **Scan these for non-Malayalam script:**
-- `malayalam:` — the character itself (most important)
+✅ **Scan these fields for non-Malayalam script:**
+- `malayalam` — the character itself (most important)
 - `description` — character descriptions
 - `insight` — teaching insight text
 - `prompt` — quiz/task prompts
 - `options` — answer options shown to learner
 - `heading` — step headings
-- `title` (module/lesson titles that contain Malayalam inline)
-- `chars` array entries
+- `title` — module/lesson titles that contain Malayalam inline
+- `chars` — array entries
 - `categoryName` — contains inline Malayalam characters
+- `character` — character in handwriting tasks
+- `intro` — introduction paragraphs
+- `text` — option text in identification tasks
+- `hint` — hint text
+- `step1`, `step2`, `step3` — syllable examples
+- `guidanceDescription` — handwriting guidance text
 
 ❌ **Skip these (English is expected):**
 - `iso15919`, `iso` — always Latin transliteration
 - `correctAnswer`, `correct`, `scaffold` — structural values
 - `taskId`, `lessonId`, `id`, `category` — identifiers
 - `audioPath`, `sound`, `sound1`, `sound2` — file paths
-- `taskMix`, `type`, `status` — structural fields
-- CSS, HTML tags, JavaScript code — not content
+- `taskMix`, `type`, `status`, `inputMethod`, `taskType` — structural fields
+- `animation`, `visualPattern` — animation descriptions
 
 ## When to Use
 
@@ -62,10 +65,10 @@ When triggered, always scan **both sources**:
 ## Example Usage
 
 ### Check all modules
-"Validate all 13 modules in app.html and the data files."
+"Validate all my lesson files across every module."
 
 ### Check specific module
-"Check module 9 in app.html for any non-Malayalam characters."
+"Check module 9 for any non-Malayalam characters."
 
 ## What's Detected
 
@@ -89,13 +92,13 @@ The validator identifies these non-Malayalam scripts if found:
 ```
 ❌ Found 1 non-Malayalam character:
 
-Lesson 1.0: "Vowels: Short 'a' and Long 'ā'"
+Module 3, Lesson 1.0: "Vowels: Short 'a' and Long 'ā'"
+File: data/module3-lessons.json
 Field: description
-Position: Line 12, character 45
 Script: Tamil (U+0BA4) - "த"
 Context: "...Malayalam has two தமிழ் versions..."
 
-Action: Remove or replace the Tamil character with Malayalam equivalent.
+Action: Remove or replace the Tamil character with the Malayalam equivalent.
 ```
 
 ## Tips
