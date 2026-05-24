@@ -1694,20 +1694,58 @@
             .tab-nav { display: none !important; }
             .bottom-nav { display: block; }
 
-            /* Content padding for bottom nav */
+            /* ── Scroll containment ─────────────────────────────────
+               Body becomes a fixed-height flex column. Only the
+               content area (.main-container) scrolls — header and
+               bottom nav never move.
+            ─────────────────────────────────────────────────────── */
+            body {
+                display: flex;
+                flex-direction: column;
+                height: 100vh;
+                height: 100dvh; /* dynamic viewport — respects browser chrome */
+                overflow: hidden;
+            }
+
+            /* Stats bar: natural flex child, always visible at top */
+            .stats-bar {
+                position: relative; /* override sticky */
+                flex-shrink: 0;
+            }
+
+            /* Content area: fills remaining space, scrolls internally */
             .main-container {
+                flex: 1;
+                min-height: 0; /* prevents flex child from overflowing */
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior-y: contain;
                 padding: 16px 16px calc(58px + env(safe-area-inset-bottom, 0px) + 16px);
                 max-width: 100%;
             }
 
-            /* Feedback bar above bottom nav */
-            .feedback-bar {
-                bottom: calc(58px + env(safe-area-inset-bottom, 0px));
+            /* Practice screen: full-viewport fixed overlay, scrolls internally */
+            #practiceScreen.active {
+                position: fixed;
+                inset: 0;
+                z-index: 250;
+                background: #F5F0E8;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                overscroll-behavior-y: contain;
+                display: flex;
+                flex-direction: column;
             }
 
-            /* Practice task bottom padding */
+            /* Feedback bar must sit above the practice screen overlay */
+            .feedback-bar {
+                bottom: env(safe-area-inset-bottom, 0px);
+                z-index: 300;
+            }
+
+            /* Practice task area: no nav below, so trim bottom padding */
             .practice-task-area {
-                padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px) + 120px);
+                padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 120px);
             }
 
             /* Single-column module grid */
