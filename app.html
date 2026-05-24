@@ -31,6 +31,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -38,6 +39,7 @@
             background: #F5F0E8;
             color: #2D2417;
             line-height: 1.6;
+            overscroll-behavior-y: none;
         }
 
         /* Stats Bar */
@@ -251,10 +253,16 @@
             display: block;
         }
 
-        .module-card:hover:not(.locked) {
+        @media (hover: hover) {
+            .module-card:hover:not(.locked) {
+                border-color: #E8720C;
+                box-shadow: 0 8px 24px rgba(232, 114, 12, 0.12);
+                transform: translateY(-4px);
+            }
+        }
+        .module-card:active:not(.locked) {
+            transform: scale(0.98);
             border-color: #E8720C;
-            box-shadow: 0 8px 24px rgba(232, 114, 12, 0.12);
-            transform: translateY(-4px);
         }
 
         .module-card.locked {
@@ -381,10 +389,13 @@
             border: 1px solid #E8D5A3;
         }
 
-        .lesson-item:hover {
-            background: #FDF6E3;
-            border-color: #E8720C;
+        @media (hover: hover) {
+            .lesson-item:hover {
+                background: #FDF6E3;
+                border-color: #E8720C;
+            }
         }
+        .lesson-item:active { border-color: #E8720C; background: #FFF0D9; }
 
         .lesson-number {
             display: flex;
@@ -524,10 +535,13 @@
             transition: all 0.2s ease;
         }
 
-        .character-card:hover {
-            border-color: #E8720C;
-            box-shadow: 0 4px 12px rgba(232, 114, 12, 0.10);
+        @media (hover: hover) {
+            .character-card:hover {
+                border-color: #E8720C;
+                box-shadow: 0 4px 12px rgba(232, 114, 12, 0.10);
+            }
         }
+        .character-card:active { transform: scale(0.97); }
 
         .char-card-audio { cursor: pointer; }
         .char-card-audio:active { transform: scale(0.97); background: #FDF6E3; }
@@ -633,6 +647,7 @@
             padding: 12px 20px;
             font-weight: 500;
             transition: background-color 0.2s ease;
+            touch-action: manipulation; /* prevent double-tap zoom */
         }
 
         .btn-primary {
@@ -1604,6 +1619,7 @@
             .stats-bar { padding: 10px 16px; }
             .stat { display: none; }
             .stat:first-child { display: flex; }
+            .stats-container { gap: 12px; }
             .stats-bar a[href="admin.html"] { display: none; }
 
             /* Top tabs → bottom nav */
@@ -1612,7 +1628,7 @@
 
             /* Content padding for bottom nav */
             .main-container {
-                padding: 16px 12px calc(58px + env(safe-area-inset-bottom, 0px) + 16px);
+                padding: 16px 16px calc(58px + env(safe-area-inset-bottom, 0px) + 16px);
                 max-width: 100%;
             }
 
@@ -1629,22 +1645,44 @@
             /* Single-column module grid */
             .modules-grid { grid-template-columns: 1fr; gap: 16px; }
 
+            /* Module card: tighter padding, illustration height */
+            .module-card { padding: 16px; }
+            .module-illustration {
+                margin: -16px -16px 16px -16px;
+                height: 160px;
+            }
+
             /* 2-col progress cards */
             .progress-section { grid-template-columns: 1fr 1fr; }
 
-            /* Stack lesson controls */
+            /* Stack lesson controls, no overflow on small phones */
             .lesson-controls { flex-wrap: wrap; gap: 10px; }
             .lesson-controls .btn-primary,
-            .lesson-controls .btn-secondary { flex: 1; min-width: 140px; text-align: center; }
+            .lesson-controls .btn-secondary { flex: 1; min-width: 0; text-align: center; }
 
-            /* Character cards: 2 per row */
-            .characters-showcase { grid-template-columns: 1fr 1fr; gap: 10px; }
+            /* Character cards: 2 per row, tighter */
+            .characters-showcase { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .character-card { padding: 14px 10px; }
+            .character-large { font-size: 44px; }
+
+            /* Lesson items: larger touch target */
+            .lesson-item { padding: 14px 12px; }
+            .lesson-number { width: 28px; height: 28px; font-size: 12px; }
+
+            /* Allow lesson titles to wrap on small screens */
+            .lesson-title { white-space: normal; line-height: 1.3; }
 
             /* Canvas fits mobile */
             .canvas-wrapper { width: 100%; max-width: 320px; }
 
             /* App logo smaller */
             .app-logo { font-size: 20px; }
+
+            /* Lesson header font */
+            .lesson-header h2 { font-size: 20px; }
+
+            /* Module number smaller */
+            .module-number { font-size: 22px; }
         }
 
         /* ── Brand Animations ── */
