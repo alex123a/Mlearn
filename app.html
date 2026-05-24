@@ -1761,10 +1761,22 @@
             /* 2-col progress cards */
             .progress-section { grid-template-columns: 1fr 1fr; }
 
-            /* Stack lesson controls, no overflow on small phones */
-            .lesson-controls { flex-wrap: wrap; gap: 10px; }
+            /* Lesson controls: sticky action bar always visible at bottom */
+            .lesson-controls {
+                position: sticky;
+                bottom: 0;
+                flex-wrap: wrap;
+                gap: 10px;
+                background: #FDF6E3;
+                border-top: 1.5px solid #E8D5A3;
+                box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.07);
+                padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+                margin: 0 -16px; /* bleed to container edges */
+            }
             .lesson-controls .btn-primary,
             .lesson-controls .btn-secondary { flex: 1; min-width: 0; text-align: center; }
+            /* Remove lesson-content bottom margin — sticky bar provides the visual gap */
+            .lesson-content { margin-bottom: 0; }
 
             /* Character cards: 2 per row, tighter */
             .characters-showcase { grid-template-columns: 1fr 1fr; gap: 8px; }
