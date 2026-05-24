@@ -1,0 +1,400 @@
+{
+  "id": 6,
+  "number": 6,
+  "title": "Vowels ഇ (i) and ഈ (ī) & Consonants ര (ra) and റ (ṟa)",
+  "description": "Fifth vowel pair, r-consonants, first module with all ten vowels, and chillu ര",
+  "totalLessons": 19,
+  "lessons": [
+    {
+      "id": 1,
+      "category": "INTRODUCTION",
+      "categoryName": "Vowels ഇ (i) / ഈ (ī)",
+      "title": "Vowels ഇ (i) / ഈ (ī)",
+      "type": "introduction",
+      "completed": false,
+      "section": 1,
+      "content": {
+        "characters": [
+          { "malayalam": "ഇ", "iso15919": "i", "description": "Short 'i'. Like 'i' in 'sit'. Similar to ഉ (u) but with additional marks above.", "isNew": true },
+          { "malayalam": "ഈ", "iso15919": "ī", "description": "Long 'ī'. Same vowel, held twice as long.", "isNew": true }
+        ],
+        "insight": "ഇ and ഈ complete the vowel set. You now know all ten vowels: a/ā, e/ē, o/ō, u/ū, i/ī. Notice how ഇ resembles ഉ with additional marks — the script has visual logic.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which one sounds longer?",
+          "options": ["ഇ  (i)", "ഈ  (ī)"],
+          "correct": 1
+        }
+      }
+    },
+    {
+      "id": 2,
+      "category": "PRACTICE",
+      "categoryName": "Vowels ഇ (i) / ഈ (ī)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "ഇ", "iso15919": "i" }, { "malayalam": "ഈ", "iso15919": "ī" }] }
+    },
+    {
+      "id": 3,
+      "category": "PRACTICE",
+      "categoryName": "Vowels ഇ (i) / ഈ (ī)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "ഇ", "iso15919": "i" }, { "malayalam": "ഈ", "iso15919": "ī" }] }
+    },
+    {
+      "id": 4,
+      "category": "PRACTICE",
+      "categoryName": "Vowels ഇ (i) / ഈ (ī)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "ഇ", "iso15919": "i" }, { "malayalam": "ഈ", "iso15919": "ī" }] }
+    },
+    {
+      "id": 5,
+      "category": "INTRODUCTION",
+      "categoryName": "Consonants ര (ra) / റ (ṟa)",
+      "title": "Consonants ര (ra) / റ (ṟa)",
+      "type": "introduction",
+      "completed": false,
+      "section": 3,
+      "content": {
+        "characters": [
+          { "malayalam": "ര", "iso15919": "ra", "description": "Alveolar r. Soft r sound, like 'r' in 'run'. Tongue just behind the upper teeth.", "isNew": true },
+          { "malayalam": "റ", "iso15919": "ṟa", "description": "Strong alveolar trill. A stronger, rolled r sound — tongue vibrates.", "isNew": true }
+        ],
+        "insight": "ര and റ are both r-sounds with different intensities. ര is softer and gentler; റ is stronger and trilled. Both are important in Malayalam.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which is the softer r sound?",
+          "options": ["ര  (ra)", "റ  (ṟa)"],
+          "correct": 0
+        }
+      }
+    },
+    {
+      "id": 6,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ര (ra) / റ (ṟa)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "ര", "iso15919": "ra" }, { "malayalam": "റ", "iso15919": "ṟa" }] }
+    },
+    {
+      "id": 7,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ര (ra) / റ (ṟa)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "ര", "iso15919": "ra" }, { "malayalam": "റ", "iso15919": "ṟa" }] }
+    },
+    {
+      "id": 8,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ര (ra) / റ (ṟa)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "ര", "iso15919": "ra" }, { "malayalam": "റ", "iso15919": "ṟa" }] }
+    },
+    {
+      "id": 9,
+      "category": "INTRODUCTION",
+      "categoryName": "Syllables with ര (ra) / റ (ṟa)",
+      "title": "Syllables: all vowels with ര and റ",
+      "type": "introduction",
+      "completed": false,
+      "section": 5,
+      "content": {
+        "steps": [
+          {
+            "heading": "ര with all ten vowels",
+            "characters": [
+              { "malayalam": "ര", "iso15919": "ra", "description": "ര + inherent a" },
+              { "malayalam": "രാ", "iso15919": "rā", "description": "ര + long ā" },
+              { "malayalam": "രി", "iso15919": "ri", "description": "ര + short i" },
+              { "malayalam": "രീ", "iso15919": "rī", "description": "ര + long ī" },
+              { "malayalam": "രെ", "iso15919": "re", "description": "ര + short e" },
+              { "malayalam": "രേ", "iso15919": "rē", "description": "ര + long ē" },
+              { "malayalam": "രു", "iso15919": "ru", "description": "ര + short u" },
+              { "malayalam": "രൂ", "iso15919": "rū", "description": "ര + long ū" },
+              { "malayalam": "രൊ", "iso15919": "ro", "description": "ര + short o" },
+              { "malayalam": "രോ", "iso15919": "rō", "description": "ര + long ō" }
+            ]
+          },
+          {
+            "heading": "Now with റ (stronger trill)",
+            "characters": [
+              { "malayalam": "റ", "iso15919": "ṟa", "description": "റ + inherent a" },
+              { "malayalam": "റാ", "iso15919": "ṟā", "description": "റ + long ā" },
+              { "malayalam": "റി", "iso15919": "ṟi", "description": "റ + short i" },
+              { "malayalam": "റീ", "iso15919": "ṟī", "description": "റ + long ī" }
+            ],
+            "embeddedTask": {
+              "label": "Quick check",
+              "prompt": "Which syllable is 'ṟī' (strong r + long ī)?",
+              "options": ["രീ", "റീ"],
+              "correct": 1
+            }
+          }
+        ],
+        "insight": "Module 6 is special — it's the first module where all ten vowels are mixed into practice tasks. From here on, every exercise uses the complete vowel set."
+      }
+    },
+    {
+      "id": 10,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ര (ra) / റ (ṟa)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": { "scaffold": "Guided", "chars": [
+        { "malayalam": "രു", "iso15919": "ru" }, { "malayalam": "രൂ", "iso15919": "rū" },
+        { "malayalam": "രി", "iso15919": "ri" }, { "malayalam": "രീ", "iso15919": "rī" }, { "malayalam": "രി", "iso15919": "ri" }, { "malayalam": "രീ", "iso15919": "rī" },
+        { "malayalam": "റു", "iso15919": "ṟu" }, { "malayalam": "റൂ", "iso15919": "ṟū" },
+        { "malayalam": "റി", "iso15919": "ṟi" }, { "malayalam": "റീ", "iso15919": "ṟī" }, { "malayalam": "റി", "iso15919": "ṟi" }, { "malayalam": "റീ", "iso15919": "ṟī" }
+      ]}
+    },
+    {
+      "id": 11,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ര (ra) / റ (ṟa)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": { "scaffold": "Reduced guidance", "chars": [
+        { "malayalam": "രു", "iso15919": "ru" }, { "malayalam": "രൂ", "iso15919": "rū" },
+        { "malayalam": "രി", "iso15919": "ri" }, { "malayalam": "രീ", "iso15919": "rī" }, { "malayalam": "രി", "iso15919": "ri" }, { "malayalam": "രീ", "iso15919": "rī" },
+        { "malayalam": "റു", "iso15919": "ṟu" }, { "malayalam": "റൂ", "iso15919": "ṟū" },
+        { "malayalam": "റി", "iso15919": "ṟi" }, { "malayalam": "റീ", "iso15919": "ṟī" }, { "malayalam": "റി", "iso15919": "ṟi" }, { "malayalam": "റീ", "iso15919": "ṟī" }
+      ]}
+    },
+    {
+      "id": 12,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ര (ra) / റ (ṟa)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": { "scaffold": "Unguided", "chars": [
+        { "malayalam": "രു", "iso15919": "ru" }, { "malayalam": "രൂ", "iso15919": "rū" },
+        { "malayalam": "രി", "iso15919": "ri" }, { "malayalam": "രീ", "iso15919": "rī" }, { "malayalam": "രി", "iso15919": "ri" }, { "malayalam": "രീ", "iso15919": "rī" },
+        { "malayalam": "റു", "iso15919": "ṟu" }, { "malayalam": "റൂ", "iso15919": "ṟū" },
+        { "malayalam": "റി", "iso15919": "ṟi" }, { "malayalam": "റീ", "iso15919": "ṟī" }, { "malayalam": "റി", "iso15919": "ṟi" }, { "malayalam": "റീ", "iso15919": "ṟī" }
+      ]}
+    },
+    {
+      "id": 13,
+      "category": "INTRODUCTION",
+      "categoryName": "Chillu ർ (r)",
+      "title": "Chillu: ർ",
+      "type": "introduction",
+      "completed": false,
+      "section": 7,
+      "content": {
+        "steps": [
+          {
+            "heading": "What is the r-chillu?",
+            "characters": [
+              { "malayalam": "ർ", "iso15919": "r", "description": "Chillu R: r-sound with no vowel. Used only at the end of words.", "isNew": true }
+            ],
+            "embeddedTask": {
+              "label": "Quick check",
+              "prompt": "Which form of ര is used at the end of words?",
+              "options": ["ര  (ra)", "ർ  (r)"],
+              "correct": 1
+            }
+          },
+          {
+            "heading": "All five chillus now complete",
+            "matchingExercise": [
+              { "left": "ന",  "right": "ൻ",  "desc": "Alveolar nasal chillu" },
+              { "left": "ണ",  "right": "ൺ",  "desc": "Retroflex nasal chillu" },
+              { "left": "ര",  "right": "ർ",  "desc": "Alveolar r chillu" },
+              { "left": "ല",  "right": "ൽ",  "desc": "Alveolar l chillu" },
+              { "left": "ള",  "right": "ൾ",  "desc": "Retroflex l chillu" }
+            ]
+          }
+        ],
+        "insight": "You now know all five chillus: ൻ, ൺ, ർ, ൽ, ൾ. Each one is the final form of consonants you've learned. They appear only at the end of words."
+      }
+    },
+    {
+      "id": 14,
+      "category": "PRACTICE",
+      "categoryName": "Chillu ർ (r)",
+      "title": "Practice 1 - Reduced",
+      "type": "practice",
+      "completed": false,
+      "section": 7,
+      "content": {
+        "scaffold": "Reduced guidance",
+        "skipDiscrimination": true,
+        "chars": [
+          { "malayalam": "ര", "iso15919": "ra" }, { "malayalam": "ർ", "iso15919": "r" }
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "category": "PRACTICE",
+      "categoryName": "Chillu ർ (r)",
+      "title": "Practice 2 - Unguided",
+      "type": "practice",
+      "completed": false,
+      "section": 7,
+      "content": {
+        "scaffold": "Unguided",
+        "skipDiscrimination": true,
+        "chars": [
+          { "malayalam": "ര", "iso15919": "ra" }, { "malayalam": "ർ", "iso15919": "r" }
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "category": "REVIEW",
+      "categoryName": "Chillu Review - All Five",
+      "title": "Complete Chillu Review: All 5 Forms",
+      "type": "practice",
+      "completed": false,
+      "section": 8,
+      "content": {
+        "scaffold": "Review",
+        "introCards": [
+          { "malayalam": "ൻ", "iso15919": "n",  "description": "Chillu from ന — final position nasal" },
+          { "malayalam": "ൺ", "iso15919": "ṇ",  "description": "Chillu from ണ — retroflex nasal" },
+          { "malayalam": "ർ", "iso15919": "r",  "description": "Chillu from ര — alveolar r" },
+          { "malayalam": "ൽ", "iso15919": "l",  "description": "Chillu from ല — alveolar l" },
+          { "malayalam": "ൾ", "iso15919": "ḷ",  "description": "Chillu from ള — retroflex l" }
+        ],
+        "chars": [
+          { "malayalam": "ൻ", "iso15919": "n"  },
+          { "malayalam": "ൺ", "iso15919": "ṇ"  },
+          { "malayalam": "ർ", "iso15919": "r"  },
+          { "malayalam": "ൽ", "iso15919": "l"  },
+          { "malayalam": "ൾ", "iso15919": "ḷ"  }
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "category": "PRACTICE",
+      "categoryName": "Reading Practice",
+      "title": "Reading Practice",
+      "type": "reading",
+      "completed": false,
+      "section": 9,
+      "content": {
+        "words": [
+          { "malayalam": "മരം",   "iso": "maram",  "meaning": "tree",  "unknown": "ം: anusvara (Module 9)" },
+          { "malayalam": "രണ്ട്", "iso": "raṇṭ",  "meaning": "two",   "unknown": null },
+          { "malayalam": "നീ",    "iso": "nī",     "meaning": "you",   "unknown": null }
+        ]
+      }
+    },
+    {
+      "id": 18,
+      "category": "REVIEW",
+      "categoryName": "Module Review",
+      "title": "Module 6 Review",
+      "type": "practice",
+      "completed": false,
+      "section": 10,
+      "content": {
+        "scaffold": "Review",
+        "chars": [
+          { "malayalam": "ഇ",  "iso15919": "i"   }, { "malayalam": "ഈ",  "iso15919": "ī"   },
+          { "malayalam": "ര",  "iso15919": "ra"  }, { "malayalam": "റ",  "iso15919": "ṟa"  },
+          { "malayalam": "രി", "iso15919": "ri"  }, { "malayalam": "രീ", "iso15919": "rī"  },
+          { "malayalam": "റി", "iso15919": "ṟi"  }, { "malayalam": "റീ", "iso15919": "ṟī"  },
+          { "malayalam": "ർ",  "iso15919": "r"   },
+          { "malayalam": "ൻ",  "iso15919": "n"   },
+          { "malayalam": "ൺ",  "iso15919": "ṇ"   },
+          { "malayalam": "ൽ",  "iso15919": "l"   },
+          { "malayalam": "ൾ",  "iso15919": "ḷ"   }
+        ]
+      }
+    },
+    {
+      "id": 19,
+      "category": "REVIEW",
+      "categoryName": "Cumulative Review",
+      "title": "Cumulative Review: Modules 1–6",
+      "type": "practice",
+      "completed": false,
+      "section": 10,
+      "content": {
+        "scaffold": "Cumulative",
+        "chars": [
+          { "malayalam": "അ",  "iso15919": "a"   }, { "malayalam": "ആ",  "iso15919": "ā"   },
+          { "malayalam": "ക",  "iso15919": "ka"  }, { "malayalam": "മ",  "iso15919": "ma"  },
+          { "malayalam": "കാ", "iso15919": "kā"  }, { "malayalam": "മാ", "iso15919": "mā"  },
+          { "malayalam": "എ",  "iso15919": "e"   }, { "malayalam": "ഏ",  "iso15919": "ē"   },
+          { "malayalam": "ത",  "iso15919": "ta"  }, { "malayalam": "ട",  "iso15919": "ṭa"  },
+          { "malayalam": "തെ", "iso15919": "te"  }, { "malayalam": "തേ", "iso15919": "tē"  },
+          { "malayalam": "ടെ", "iso15919": "ṭe"  }, { "malayalam": "ടേ", "iso15919": "ṭē"  },
+          { "malayalam": "കെ", "iso15919": "ke"  }, { "malayalam": "കേ", "iso15919": "kē"  },
+          { "malayalam": "മെ", "iso15919": "me"  }, { "malayalam": "മേ", "iso15919": "mē"  },
+          { "malayalam": "താ", "iso15919": "tā"  }, { "malayalam": "ടാ", "iso15919": "ṭā"  },
+          { "malayalam": "ന",  "iso15919": "na"  }, { "malayalam": "ണ",  "iso15919": "ṇa"  },
+          { "malayalam": "നാ", "iso15919": "nā"  }, { "malayalam": "ണാ", "iso15919": "ṇā"  },
+          { "malayalam": "നെ", "iso15919": "ne"  }, { "malayalam": "ണെ", "iso15919": "ṇe"  },
+          { "malayalam": "നേ", "iso15919": "nē"  }, { "malayalam": "ണേ", "iso15919": "ṇē"  },
+          { "malayalam": "ൻ",  "iso15919": "n"   }, { "malayalam": "ൺ",  "iso15919": "ṇ"   },
+          { "malayalam": "ഒ",  "iso15919": "o"   }, { "malayalam": "ഓ",  "iso15919": "ō"   },
+          { "malayalam": "പ",  "iso15919": "pa"  }, { "malayalam": "വ",  "iso15919": "va"  },
+          { "malayalam": "പൊ", "iso15919": "po"  }, { "malayalam": "പോ", "iso15919": "pō"  },
+          { "malayalam": "വൊ", "iso15919": "vo"  }, { "malayalam": "വോ", "iso15919": "vō"  },
+          { "malayalam": "കൊ", "iso15919": "ko"  }, { "malayalam": "കോ", "iso15919": "kō"  },
+          { "malayalam": "മൊ", "iso15919": "mo"  }, { "malayalam": "മോ", "iso15919": "mō"  },
+          { "malayalam": "തൊ", "iso15919": "to"  }, { "malayalam": "തോ", "iso15919": "tō"  },
+          { "malayalam": "ടൊ", "iso15919": "ṭo"  }, { "malayalam": "ടോ", "iso15919": "ṭō"  },
+          { "malayalam": "നൊ", "iso15919": "no"  }, { "malayalam": "നോ", "iso15919": "nō"  },
+          { "malayalam": "ണൊ", "iso15919": "ṇo"  }, { "malayalam": "ണോ", "iso15919": "ṇō"  },
+          { "malayalam": "ഉ",  "iso15919": "u"   }, { "malayalam": "ഊ",  "iso15919": "ū"   },
+          { "malayalam": "ല",  "iso15919": "la"  }, { "malayalam": "ള",  "iso15919": "ḷa"  },
+          { "malayalam": "ലു", "iso15919": "lu"  }, { "malayalam": "ലൂ", "iso15919": "lū"  },
+          { "malayalam": "ളു", "iso15919": "ḷu"  }, { "malayalam": "ളൂ", "iso15919": "ḷū"  },
+          { "malayalam": "ൽ",  "iso15919": "l"   }, { "malayalam": "ൾ",  "iso15919": "ḷ"   },
+          { "malayalam": "കു", "iso15919": "ku"  }, { "malayalam": "കൂ", "iso15919": "kū"  },
+          { "malayalam": "മു", "iso15919": "mu"  }, { "malayalam": "മൂ", "iso15919": "mū"  },
+          { "malayalam": "തു", "iso15919": "tu"  }, { "malayalam": "തൂ", "iso15919": "tū"  },
+          { "malayalam": "ടു", "iso15919": "ṭu"  }, { "malayalam": "ടൂ", "iso15919": "ṭū"  },
+          { "malayalam": "നു", "iso15919": "nu"  }, { "malayalam": "നൂ", "iso15919": "nū"  },
+          { "malayalam": "ണു", "iso15919": "ṇu"  }, { "malayalam": "ണൂ", "iso15919": "ṇū"  },
+          { "malayalam": "ഇ",  "iso15919": "i"   }, { "malayalam": "ഈ",  "iso15919": "ī"   },
+          { "malayalam": "ര",  "iso15919": "ra"  }, { "malayalam": "റ",  "iso15919": "ṟa"  },
+          { "malayalam": "രി", "iso15919": "ri"  }, { "malayalam": "രീ", "iso15919": "rī"  },
+          { "malayalam": "റി", "iso15919": "ṟi"  }, { "malayalam": "റീ", "iso15919": "ṟī"  },
+          { "malayalam": "ർ",  "iso15919": "r"   },
+          { "malayalam": "കി", "iso15919": "ki"  }, { "malayalam": "കീ", "iso15919": "kī"  },
+          { "malayalam": "മി", "iso15919": "mi"  }, { "malayalam": "മീ", "iso15919": "mī"  },
+          { "malayalam": "തി", "iso15919": "ti"  }, { "malayalam": "തീ", "iso15919": "tī"  },
+          { "malayalam": "ടി", "iso15919": "ṭi"  }, { "malayalam": "ടീ", "iso15919": "ṭī"  },
+          { "malayalam": "നി", "iso15919": "ni"  }, { "malayalam": "നീ", "iso15919": "nī"  },
+          { "malayalam": "ണി", "iso15919": "ṇi"  }, { "malayalam": "ണീ", "iso15919": "ṇī"  },
+          { "malayalam": "പി", "iso15919": "pi"  }, { "malayalam": "പീ", "iso15919": "pī"  },
+          { "malayalam": "വി", "iso15919": "vi"  }, { "malayalam": "വീ", "iso15919": "vī"  },
+          { "malayalam": "ലി", "iso15919": "li"  }, { "malayalam": "ലീ", "iso15919": "lī"  },
+          { "malayalam": "ളി", "iso15919": "ḷi"  }, { "malayalam": "ളീ", "iso15919": "ḷī"  }
+        ]
+      }
+    }
+  ]
+}

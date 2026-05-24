@@ -1,0 +1,355 @@
+{
+  "id": 2,
+  "number": 2,
+  "title": "Vowels എ (e) and ഏ (ē) & Consonants ത (ta) and ട (ṭa)",
+  "description": "Dental vs retroflex — your first contrast pair",
+  "totalLessons": 17,
+  "lessons": [
+    {
+      "id": 1,
+      "category": "INTRODUCTION",
+      "categoryName": "Vowels എ (e) / ഏ (ē)",
+      "title": "Vowels എ (e) / ഏ (ē)",
+      "type": "introduction",
+      "completed": false,
+      "section": 1,
+      "content": {
+        "characters": [
+          { "malayalam": "എ", "iso15919": "e", "description": "Short 'e'. Like 'e' in 'bed'.", "isNew": true },
+          { "malayalam": "ഏ", "iso15919": "ē", "description": "Long 'ē'. Same vowel, held twice as long.", "isNew": true }
+        ],
+        "insight": "Another length pair: same sound, short vs long. e and ē work exactly like a and ā from Module 1.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which one sounds longer?",
+          "options": ["എ  (e)", "ഏ  (ē)"],
+          "correct": 1
+        }
+      }
+    },
+    {
+      "id": 2,
+      "category": "PRACTICE",
+      "categoryName": "Vowels എ (e) / ഏ (ē)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": {
+        "scaffold": "Guided",
+        "chars": [{ "malayalam": "എ", "iso15919": "e" }, { "malayalam": "ഏ", "iso15919": "ē" }]
+      }
+    },
+    {
+      "id": 3,
+      "category": "PRACTICE",
+      "categoryName": "Vowels എ (e) / ഏ (ē)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": {
+        "scaffold": "Reduced guidance",
+        "chars": [{ "malayalam": "എ", "iso15919": "e" }, { "malayalam": "ഏ", "iso15919": "ē" }]
+      }
+    },
+    {
+      "id": 4,
+      "category": "PRACTICE",
+      "categoryName": "Vowels എ (e) / ഏ (ē)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": {
+        "scaffold": "Unguided",
+        "chars": [{ "malayalam": "എ", "iso15919": "e" }, { "malayalam": "ഏ", "iso15919": "ē" }]
+      }
+    },
+    {
+      "id": 5,
+      "category": "INTRODUCTION",
+      "categoryName": "Consonants ത (ta) / ട (ṭa)",
+      "title": "Consonants ത (ta) / ട (ṭa)",
+      "type": "introduction",
+      "completed": false,
+      "section": 3,
+      "content": {
+        "characters": [
+          { "malayalam": "ത", "iso15919": "ta", "description": "Dental 't'. Tongue tip touches back of upper teeth.", "isNew": true },
+          { "malayalam": "ട", "iso15919": "ṭa", "description": "Retroflex 'ṭ'. Tongue curls back and flicks forward.", "isNew": true }
+        ],
+        "insight": "English has one 't'. Malayalam has several distinct t-sounds. The contrast changes word meaning, and mastering it is essential.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which is the retroflex consonant (tongue curls back)?",
+          "options": ["ത  (ta)", "ട  (ṭa)"],
+          "correct": 1
+        }
+      }
+    },
+    {
+      "id": 6,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ത (ta) / ട (ṭa)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": {
+        "scaffold": "Guided",
+        "chars": [{ "malayalam": "ത", "iso15919": "ta" }, { "malayalam": "ട", "iso15919": "ṭa" }]
+      }
+    },
+    {
+      "id": 7,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ത (ta) / ട (ṭa)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": {
+        "scaffold": "Reduced guidance",
+        "chars": [{ "malayalam": "ത", "iso15919": "ta" }, { "malayalam": "ട", "iso15919": "ṭa" }]
+      }
+    },
+    {
+      "id": 8,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ത (ta) / ട (ṭa)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": {
+        "scaffold": "Unguided",
+        "chars": [{ "malayalam": "ത", "iso15919": "ta" }, { "malayalam": "ട", "iso15919": "ṭa" }]
+      }
+    },
+    {
+      "id": 9,
+      "category": "INTRODUCTION",
+      "categoryName": "Syllables തെ (te) / തേ (tē) / ടെ (ṭe) / ടേ (ṭē)",
+      "title": "Syllables: e and ē with ത and ട",
+      "type": "introduction",
+      "completed": false,
+      "section": 5,
+      "content": {
+        "steps": [
+          {
+            "heading": "Two forms of e and ē (as with ā)",
+            "characters": [
+              { "malayalam": "എ", "iso15919": "e",  "description": "Independent vowel letter, used only at the start of a word, like എണ്ണ (oil)." },
+              { "malayalam": "തെ", "iso15919": "te", "description": "Vowel sign (െ) written to the LEFT of the consonant. Used inside words." }
+            ]
+          },
+          {
+            "heading": "ത + both e-vowels",
+            "characters": [
+              { "malayalam": "തെ", "iso15919": "te", "description": "e vowel sign sits to the LEFT of the consonant." },
+              { "malayalam": "തേ", "iso15919": "tē", "description": "ē vowel sign also to the left, longer sound." }
+            ]
+          },
+          {
+            "heading": "Now with ട",
+            "characters": [
+              { "malayalam": "ടെ", "iso15919": "ṭe", "description": "Retroflex ṭ + short e." },
+              { "malayalam": "ടേ", "iso15919": "ṭē", "description": "Retroflex ṭ + long ē." }
+            ],
+            "embeddedTask": {
+              "label": "Quick check",
+              "prompt": "Which is 'ṭē'?",
+              "options": ["തേ", "ടേ"],
+              "correct": 1
+            }
+          },
+          {
+            "heading": "Match independent vowels to their signs",
+            "matchingExercise": [
+              { "left": "എ",  "right": "തെ", "desc": "Short 'e' sound" },
+              { "left": "ഏ",  "right": "തേ", "desc": "Long 'ē' sound" }
+            ]
+          }
+        ],
+        "insight": "Like ā, the vowels e and ē each have two forms: an independent letter (word-initial) and a vowel sign (written on a consonant). Unlike the ā sign which goes to the right, the e and ē signs attach to the LEFT. In തെ the sign appears before the consonant visually, but the sound is still 'te'."
+      }
+    },
+    {
+      "id": 10,
+      "category": "PRACTICE",
+      "categoryName": "Syllables തെ (te) / തേ (tē) / ടെ (ṭe) / ടേ (ṭē)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Guided",
+        "chars": [
+          { "malayalam": "തെ", "iso15919": "te" }, { "malayalam": "തേ", "iso15919": "tē" },
+          { "malayalam": "ടെ", "iso15919": "ṭe" }, { "malayalam": "ടേ", "iso15919": "ṭē" }
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "category": "PRACTICE",
+      "categoryName": "Syllables തെ (te) / തേ (tē) / ടെ (ṭe) / ടേ (ṭē)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Reduced guidance",
+        "chars": [
+          { "malayalam": "തെ", "iso15919": "te" }, { "malayalam": "തേ", "iso15919": "tē" },
+          { "malayalam": "ടെ", "iso15919": "ṭe" }, { "malayalam": "ടേ", "iso15919": "ṭē" }
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "category": "PRACTICE",
+      "categoryName": "Syllables തെ (te) / തേ (tē) / ടെ (ṭe) / ടേ (ṭē)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Unguided",
+        "chars": [
+          { "malayalam": "തെ", "iso15919": "te" }, { "malayalam": "തേ", "iso15919": "tē" },
+          { "malayalam": "ടെ", "iso15919": "ṭe" }, { "malayalam": "ടേ", "iso15919": "ṭē" }
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "category": "LESSON",
+      "categoryName": "Chandrakkala (്)",
+      "title": "Chandrakkala: removing the inherent vowel",
+      "type": "introduction",
+      "completed": false,
+      "section": 7,
+      "content": {
+        "steps": [
+          {
+            "heading": "What chandrakkala does",
+            "characters": [
+              { "malayalam": "ക",  "iso15919": "ka", "description": "Every consonant carries an inherent 'a' sound. ക alone is read 'ka'." },
+              { "malayalam": "ക്", "iso15919": "k",  "description": "Chandrakkala (്) removes the inherent vowel. ക് is a pure 'k' with no following vowel." }
+            ]
+          },
+          {
+            "heading": "All four consonants with chandrakkala",
+            "characters": [
+              { "malayalam": "ക്", "iso15919": "k",  "description": "ka → k. The small curved mark below removes the 'a'." },
+              { "malayalam": "മ്", "iso15919": "m",  "description": "ma → m. Same mark, same effect on മ." },
+              { "malayalam": "ത്", "iso15919": "t",  "description": "ta → t. Dental t with no vowel." },
+              { "malayalam": "ട്", "iso15919": "ṭ",  "description": "ṭa → ṭ. Retroflex ṭ with no vowel." }
+            ],
+            "embeddedTask": {
+              "label": "Quick check",
+              "prompt": "What does chandrakkala (്) do to a consonant?",
+              "options": [
+                "Adds a long ā vowel",
+                "Removes the inherent 'a' vowel",
+                "Changes the consonant to a different sound"
+              ],
+              "correct": 1
+            }
+          }
+        ],
+        "insight": "Chandrakkala (്) has two roles. Inside a word it joins two consonants into a cluster: ക + ത് = കത് (the k clings to the t). At the end of a word it leaves a very short half-vowel: ക (ka) becomes ക് (kŭ), where ŭ is a faint echo-vowel. You will practise both uses in later lessons."
+      }
+    },
+    {
+      "id": 14,
+      "category": "PRACTICE",
+      "categoryName": "Chandrakkala (്)",
+      "title": "Practice: Chandrakkala",
+      "type": "practice",
+      "completed": false,
+      "section": 7,
+      "content": {
+        "scaffold": "Unguided",
+        "skipDiscrimination": true,
+        "chars": [
+          { "malayalam": "ക", "iso15919": "ka" }, { "malayalam": "ക്", "iso15919": "k" },
+          { "malayalam": "ത", "iso15919": "ta" }, { "malayalam": "ത്", "iso15919": "t" },
+          { "malayalam": "ട", "iso15919": "ṭa" }, { "malayalam": "ട്", "iso15919": "ṭ" },
+          { "malayalam": "മ", "iso15919": "ma" }, { "malayalam": "മ്", "iso15919": "m" }
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "category": "PRACTICE",
+      "categoryName": "Reading Practice",
+      "title": "Reading Practice",
+      "type": "reading",
+      "completed": false,
+      "section": 8,
+      "content": {
+        "words": [
+          { "malayalam": "കട",  "iso": "kaṭa",   "meaning": "shop · debt",       "unknown": null },
+          { "malayalam": "കടക", "iso": "kaṭaka",  "meaning": "bracelet",           "unknown": null },
+          { "malayalam": "കടമ", "iso": "kaṭama",  "meaning": "duty · obligation",  "unknown": null },
+          { "malayalam": "കേക", "iso": "kēka",    "meaning": "cake",               "unknown": null },
+          { "malayalam": "കടം", "iso": "kaṭam",   "meaning": "debt",               "unknown": "ം: nasal suffix (coming soon)" },
+          { "malayalam": "തകര", "iso": "takara",  "meaning": "tin · to crumble",   "unknown": "ര (ra): Module 6" }
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "category": "REVIEW",
+      "categoryName": "Module Review",
+      "title": "Module 2 Review",
+      "type": "practice",
+      "completed": false,
+      "section": 9,
+      "content": {
+        "scaffold": "Review",
+        "chars": [
+          { "malayalam": "എ",  "iso15919": "e"   },
+          { "malayalam": "ഏ",  "iso15919": "ē"   },
+          { "malayalam": "ത",  "iso15919": "ta"  },
+          { "malayalam": "ട",  "iso15919": "ṭa"  },
+          { "malayalam": "തെ", "iso15919": "te"  },
+          { "malayalam": "തേ", "iso15919": "tē"  },
+          { "malayalam": "ടെ", "iso15919": "ṭe"  },
+          { "malayalam": "ടേ", "iso15919": "ṭē"  },
+          { "malayalam": "ക്", "iso15919": "k"   },
+          { "malayalam": "മ്", "iso15919": "m"   },
+          { "malayalam": "ത്", "iso15919": "t"   },
+          { "malayalam": "ട്", "iso15919": "ṭ"   }
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "category": "REVIEW",
+      "categoryName": "Cumulative Review",
+      "title": "Cumulative Review: Modules 1 & 2",
+      "type": "practice",
+      "completed": false,
+      "section": 9,
+      "content": {
+        "scaffold": "Cumulative",
+        "chars": [
+          { "malayalam": "അ",  "iso15919": "a"   }, { "malayalam": "ആ",  "iso15919": "ā"   },
+          { "malayalam": "ക",  "iso15919": "ka"  }, { "malayalam": "മ",  "iso15919": "ma"  },
+          { "malayalam": "കാ", "iso15919": "kā"  }, { "malayalam": "മാ", "iso15919": "mā"  },
+          { "malayalam": "എ",  "iso15919": "e"   }, { "malayalam": "ഏ",  "iso15919": "ē"   },
+          { "malayalam": "ത",  "iso15919": "ta"  }, { "malayalam": "ട",  "iso15919": "ṭa"  },
+          { "malayalam": "തെ", "iso15919": "te"  }, { "malayalam": "തേ", "iso15919": "tē"  },
+          { "malayalam": "ടെ", "iso15919": "ṭe"  }, { "malayalam": "ടേ", "iso15919": "ṭē"  },
+          { "malayalam": "കെ", "iso15919": "ke"  }, { "malayalam": "കേ", "iso15919": "kē"  },
+          { "malayalam": "മെ", "iso15919": "me"  }, { "malayalam": "മേ", "iso15919": "mē"  },
+          { "malayalam": "താ", "iso15919": "tā"  }, { "malayalam": "ടാ", "iso15919": "ṭā"  }
+        ]
+      }
+    }
+  ]
+}

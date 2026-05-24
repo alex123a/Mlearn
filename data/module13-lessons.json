@@ -1,0 +1,174 @@
+{
+  "id": 13,
+  "number": 13,
+  "title": "Consonants ബ (ba) and ഹ (ha)",
+  "description": "Voiced labial stop and breathy glottal fricative — completing the core consonant set",
+  "totalLessons": 10,
+  "lessons": [
+    {
+      "id": 1,
+      "category": "INTRODUCTION",
+      "categoryName": "Consonants ബ (ba) and ഹ (ha)",
+      "title": "Consonants ബ (ba) and ഹ (ha) — Labial Stop and Glottal Fricative",
+      "type": "introduction",
+      "completed": false,
+      "section": 1,
+      "content": {
+        "characters": [
+          { "malayalam": "ബ", "iso15919": "ba", "description": "Voiced labial stop. Like 'b' in 'ball' — lips close and release with voice. The voiced counterpart of പ (pa).", "isNew": true },
+          { "malayalam": "ഹ", "iso15919": "ha", "description": "Voiceless glottal fricative. A breathy 'h' — air flows through the open glottis with slight friction. Like 'h' in 'house'.", "isNew": true }
+        ],
+        "insight": "ബ (ba) is the voiced partner of പ — same bilabial position, voice added. ഹ (ha) has no voiced partner: it is the only glottal consonant in Malayalam. Both are common in Sanskrit-origin words and in everyday speech.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "ബ (ba) is the voiced counterpart of which consonant?",
+          "options": ["വ (va)", "പ (pa)"],
+          "correct": 1
+        }
+      }
+    },
+    {
+      "id": 2,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ബ (ba) and ഹ (ha)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "ബ", "iso15919": "ba" }, { "malayalam": "ഹ", "iso15919": "ha" }] }
+    },
+    {
+      "id": 3,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ബ (ba) and ഹ (ha)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "ബ", "iso15919": "ba" }, { "malayalam": "ഹ", "iso15919": "ha" }] }
+    },
+    {
+      "id": 4,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ബ (ba) and ഹ (ha)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "ബ", "iso15919": "ba" }, { "malayalam": "ഹ", "iso15919": "ha" }] }
+    },
+    {
+      "id": 5,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ബ (ba) / ഹ (ha)",
+      "title": "Syllables Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Guided", "chars": [
+        { "malayalam": "ബ",  "iso15919": "ba"  }, { "malayalam": "ബാ", "iso15919": "bā"  }, { "malayalam": "ബി", "iso15919": "bi"  }, { "malayalam": "ബീ", "iso15919": "bī"  }, { "malayalam": "ബെ", "iso15919": "be"  },
+        { "malayalam": "ബേ", "iso15919": "bē"  }, { "malayalam": "ബു", "iso15919": "bu"  }, { "malayalam": "ബൂ", "iso15919": "bū"  }, { "malayalam": "ബൊ", "iso15919": "bo"  }, { "malayalam": "ബോ", "iso15919": "bō"  },
+        { "malayalam": "ഹ",  "iso15919": "ha"  }, { "malayalam": "ഹാ", "iso15919": "hā"  }, { "malayalam": "ഹി", "iso15919": "hi"  }, { "malayalam": "ഹീ", "iso15919": "hī"  }, { "malayalam": "ഹെ", "iso15919": "he"  },
+        { "malayalam": "ഹേ", "iso15919": "hē"  }, { "malayalam": "ഹു", "iso15919": "hu"  }, { "malayalam": "ഹൂ", "iso15919": "hū"  }, { "malayalam": "ഹൊ", "iso15919": "ho"  }, { "malayalam": "ഹോ", "iso15919": "hō"  }
+      ]}
+    },
+    {
+      "id": 6,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ബ (ba) / ഹ (ha)",
+      "title": "Syllables Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Reduced guidance", "chars": [
+        { "malayalam": "ബ",  "iso15919": "ba"  }, { "malayalam": "ബാ", "iso15919": "bā"  }, { "malayalam": "ബി", "iso15919": "bi"  }, { "malayalam": "ബീ", "iso15919": "bī"  }, { "malayalam": "ബെ", "iso15919": "be"  },
+        { "malayalam": "ബേ", "iso15919": "bē"  }, { "malayalam": "ബു", "iso15919": "bu"  }, { "malayalam": "ബൂ", "iso15919": "bū"  }, { "malayalam": "ബൊ", "iso15919": "bo"  }, { "malayalam": "ബോ", "iso15919": "bō"  },
+        { "malayalam": "ഹ",  "iso15919": "ha"  }, { "malayalam": "ഹാ", "iso15919": "hā"  }, { "malayalam": "ഹി", "iso15919": "hi"  }, { "malayalam": "ഹീ", "iso15919": "hī"  }, { "malayalam": "ഹെ", "iso15919": "he"  },
+        { "malayalam": "ഹേ", "iso15919": "hē"  }, { "malayalam": "ഹു", "iso15919": "hu"  }, { "malayalam": "ഹൂ", "iso15919": "hū"  }, { "malayalam": "ഹൊ", "iso15919": "ho"  }, { "malayalam": "ഹോ", "iso15919": "hō"  }
+      ]}
+    },
+    {
+      "id": 7,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ബ (ba) / ഹ (ha)",
+      "title": "Syllables Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Unguided", "chars": [
+        { "malayalam": "ബ",  "iso15919": "ba"  }, { "malayalam": "ബാ", "iso15919": "bā"  }, { "malayalam": "ബി", "iso15919": "bi"  }, { "malayalam": "ബീ", "iso15919": "bī"  }, { "malayalam": "ബെ", "iso15919": "be"  },
+        { "malayalam": "ബേ", "iso15919": "bē"  }, { "malayalam": "ബു", "iso15919": "bu"  }, { "malayalam": "ബൂ", "iso15919": "bū"  }, { "malayalam": "ബൊ", "iso15919": "bo"  }, { "malayalam": "ബോ", "iso15919": "bō"  },
+        { "malayalam": "ഹ",  "iso15919": "ha"  }, { "malayalam": "ഹാ", "iso15919": "hā"  }, { "malayalam": "ഹി", "iso15919": "hi"  }, { "malayalam": "ഹീ", "iso15919": "hī"  }, { "malayalam": "ഹെ", "iso15919": "he"  },
+        { "malayalam": "ഹേ", "iso15919": "hē"  }, { "malayalam": "ഹു", "iso15919": "hu"  }, { "malayalam": "ഹൂ", "iso15919": "hū"  }, { "malayalam": "ഹൊ", "iso15919": "ho"  }, { "malayalam": "ഹോ", "iso15919": "hō"  }
+      ]}
+    },
+    {
+      "id": 8,
+      "category": "PRACTICE",
+      "categoryName": "Reading Practice",
+      "title": "Reading Practice",
+      "type": "reading",
+      "completed": false,
+      "section": 4,
+      "content": {
+        "words": [
+          { "word": "ഹരി",  "iso": "hari",  "meaning": "green; Vishnu" },
+          { "word": "ബലം",  "iso": "balam", "meaning": "strength"      },
+          { "word": "ഹാരം", "iso": "hāram", "meaning": "garland"       },
+          { "word": "ബഹു",  "iso": "bahu",  "meaning": "many, much"    }
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "category": "REVIEW",
+      "categoryName": "Module Review",
+      "title": "Module 13 Review",
+      "type": "practice",
+      "completed": false,
+      "section": 5,
+      "content": {
+        "scaffold": "Review",
+        "chars": [
+          { "malayalam": "ബ",  "iso15919": "ba"  }, { "malayalam": "ബാ", "iso15919": "bā"  },
+          { "malayalam": "ഹ",  "iso15919": "ha"  }, { "malayalam": "ഹാ", "iso15919": "hā"  },
+          { "malayalam": "ബി", "iso15919": "bi"  }, { "malayalam": "ഹി", "iso15919": "hi"  },
+          { "malayalam": "ബോ", "iso15919": "bō"  }, { "malayalam": "ഹോ", "iso15919": "hō"  }
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "category": "REVIEW",
+      "categoryName": "Cumulative Review",
+      "title": "Cumulative Review: Modules 1–13",
+      "type": "practice",
+      "completed": false,
+      "section": 5,
+      "content": {
+        "scaffold": "Cumulative",
+        "chars": [
+          { "malayalam": "അ",   "iso15919": "a"    }, { "malayalam": "ആ",   "iso15919": "ā"   },
+          { "malayalam": "ക",   "iso15919": "ka"   }, { "malayalam": "മ",   "iso15919": "ma"  },
+          { "malayalam": "എ",   "iso15919": "e"    }, { "malayalam": "ഏ",   "iso15919": "ē"   },
+          { "malayalam": "ത",   "iso15919": "ta"   }, { "malayalam": "ട",   "iso15919": "ṭa"  },
+          { "malayalam": "ന",   "iso15919": "na"   }, { "malayalam": "ണ",   "iso15919": "ṇa"  },
+          { "malayalam": "ഒ",   "iso15919": "o"    }, { "malayalam": "ഓ",   "iso15919": "ō"   },
+          { "malayalam": "പ",   "iso15919": "pa"   }, { "malayalam": "വ",   "iso15919": "va"  },
+          { "malayalam": "ഉ",   "iso15919": "u"    }, { "malayalam": "ഊ",   "iso15919": "ū"   },
+          { "malayalam": "ല",   "iso15919": "la"   }, { "malayalam": "ള",   "iso15919": "ḷa"  },
+          { "malayalam": "ഇ",   "iso15919": "i"    }, { "malayalam": "ഈ",   "iso15919": "ī"   },
+          { "malayalam": "ര",   "iso15919": "ra"   }, { "malayalam": "റ",   "iso15919": "ṟa"  },
+          { "malayalam": "യ",   "iso15919": "ya"   }, { "malayalam": "ഴ",   "iso15919": "ḻa"  },
+          { "malayalam": "ങ",   "iso15919": "ṅa"   }, { "malayalam": "ഞ",   "iso15919": "ña"  },
+          { "malayalam": "ശ",   "iso15919": "śa"   }, { "malayalam": "ഷ",   "iso15919": "ṣa"  },
+          { "malayalam": "ദ",   "iso15919": "da"   }, { "malayalam": "ഗ",   "iso15919": "ga"  },
+          { "malayalam": "ച",   "iso15919": "ca"   }, { "malayalam": "ജ",   "iso15919": "ja"  },
+          { "malayalam": "സ",   "iso15919": "sa"   }, { "malayalam": "ഡ",   "iso15919": "ḍa"  },
+          { "malayalam": "ബ",   "iso15919": "ba"   }, { "malayalam": "ഹ",   "iso15919": "ha"  },
+          { "malayalam": "റ്റ", "iso15919": "ṟṟa"  }, { "malayalam": "ന്റ", "iso15919": "nṟa" }
+        ]
+      }
+    }
+  ]
+}

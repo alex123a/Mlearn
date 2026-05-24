@@ -1,0 +1,310 @@
+{
+  "id": 4,
+  "number": 4,
+  "title": "Vowels ഒ (o) and ഓ (ō) & Consonants പ (pa) and വ (va)",
+  "description": "Third vowel pair, labial consonants, and vowel system overview",
+  "totalLessons": 17,
+  "lessons": [
+    {
+      "id": 1,
+      "category": "INTRODUCTION",
+      "categoryName": "Vowels ഒ (o) / ഓ (ō)",
+      "title": "Vowels ഒ (o) / ഓ (ō)",
+      "type": "introduction",
+      "completed": false,
+      "section": 1,
+      "content": {
+        "characters": [
+          { "malayalam": "ഒ", "iso15919": "o", "description": "Short 'o'. Like 'o' in 'off'.", "isNew": true },
+          { "malayalam": "ഓ", "iso15919": "ō", "description": "Long 'ō'. Same vowel, held twice as long.", "isNew": true }
+        ],
+        "insight": "Another length pair: short o and long ō. Malayalam now has three short/long pairs you know: a/ā, e/ē, o/ō.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which one sounds longer?",
+          "options": ["ഒ  (o)", "ഓ  (ō)"],
+          "correct": 1
+        }
+      }
+    },
+    {
+      "id": 2,
+      "category": "PRACTICE",
+      "categoryName": "Vowels ഒ (o) / ഓ (ō)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "ഒ", "iso15919": "o" }, { "malayalam": "ഓ", "iso15919": "ō" }] }
+    },
+    {
+      "id": 3,
+      "category": "PRACTICE",
+      "categoryName": "Vowels ഒ (o) / ഓ (ō)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "ഒ", "iso15919": "o" }, { "malayalam": "ഓ", "iso15919": "ō" }] }
+    },
+    {
+      "id": 4,
+      "category": "PRACTICE",
+      "categoryName": "Vowels ഒ (o) / ഓ (ō)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "ഒ", "iso15919": "o" }, { "malayalam": "ഓ", "iso15919": "ō" }] }
+    },
+    {
+      "id": 5,
+      "category": "INTRODUCTION",
+      "categoryName": "Consonants പ (pa) / വ (va)",
+      "title": "Consonants പ (pa) / വ (va)",
+      "type": "introduction",
+      "completed": false,
+      "section": 3,
+      "content": {
+        "characters": [
+          { "malayalam": "പ", "iso15919": "pa", "description": "Bilabial stop. Both lips close, then release — like 'p' in 'spin'.", "isNew": true },
+          { "malayalam": "വ", "iso15919": "va", "description": "Labiodental approximant. Upper teeth lightly touch lower lip, like 'v' in 'vine'.", "isNew": true }
+        ],
+        "insight": "Both are labial consonants, made at or near the lips. പ is a stop (complete closure); വ is a glide (partial contact).",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which letter makes the 'v' sound?",
+          "options": ["പ  (pa)", "വ  (va)"],
+          "correct": 1
+        }
+      }
+    },
+    {
+      "id": 6,
+      "category": "PRACTICE",
+      "categoryName": "Consonants പ (pa) / വ (va)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "പ", "iso15919": "pa" }, { "malayalam": "വ", "iso15919": "va" }] }
+    },
+    {
+      "id": 7,
+      "category": "PRACTICE",
+      "categoryName": "Consonants പ (pa) / വ (va)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "പ", "iso15919": "pa" }, { "malayalam": "വ", "iso15919": "va" }] }
+    },
+    {
+      "id": 8,
+      "category": "PRACTICE",
+      "categoryName": "Consonants പ (pa) / വ (va)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "പ", "iso15919": "pa" }, { "malayalam": "വ", "iso15919": "va" }] }
+    },
+    {
+      "id": 9,
+      "category": "INTRODUCTION",
+      "categoryName": "Syllables with പ (pa) / വ (va)",
+      "title": "Syllables: o and ō with പ and വ",
+      "type": "introduction",
+      "completed": false,
+      "section": 5,
+      "content": {
+        "steps": [
+          {
+            "heading": "പ + the o-vowels",
+            "characters": [
+              { "malayalam": "പൊ", "iso15919": "po", "description": "Bilabial p + short o. Sign wraps: left part + right part around the consonant." },
+              { "malayalam": "പോ", "iso15919": "pō", "description": "Bilabial p + long ō. Longer wrap sign." }
+            ]
+          },
+          {
+            "heading": "Now with വ",
+            "characters": [
+              { "malayalam": "വൊ", "iso15919": "vo", "description": "Labiodental v + short o." },
+              { "malayalam": "വോ", "iso15919": "vō", "description": "Labiodental v + long ō." }
+            ],
+            "embeddedTask": {
+              "label": "Quick check",
+              "prompt": "Which is 'vō' (v + long ō)?",
+              "options": ["വൊ", "വോ"],
+              "correct": 1
+            }
+          },
+          {
+            "heading": "Match independent vowels to their signs",
+            "matchingExercise": [
+              { "left": "ഒ",  "right": "പൊ", "desc": "Short 'o' sound" },
+              { "left": "ഓ",  "right": "പോ", "desc": "Long 'ō' sound" }
+            ]
+          }
+        ],
+        "insight": "The o/ō diacritics wrap around both sides of the consonant — a left part and a right part together. This is unique among the vowels you have learned."
+      }
+    },
+    {
+      "id": 10,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with പ (pa) / വ (va)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "പൊ", "iso15919": "po" }, { "malayalam": "പോ", "iso15919": "pō" }, { "malayalam": "വൊ", "iso15919": "vo" }, { "malayalam": "വോ", "iso15919": "vō" }] }
+    },
+    {
+      "id": 11,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with പ (pa) / വ (va)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "പൊ", "iso15919": "po" }, { "malayalam": "പോ", "iso15919": "pō" }, { "malayalam": "വൊ", "iso15919": "vo" }, { "malayalam": "വോ", "iso15919": "vō" }] }
+    },
+    {
+      "id": 12,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with പ (pa) / വ (va)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "പൊ", "iso15919": "po" }, { "malayalam": "പോ", "iso15919": "pō" }, { "malayalam": "വൊ", "iso15919": "vo" }, { "malayalam": "വോ", "iso15919": "vō" }] }
+    },
+    {
+      "id": 13,
+      "category": "OVERVIEW",
+      "categoryName": "Vowel System Overview",
+      "title": "Vowel System Overview",
+      "type": "introduction",
+      "completed": false,
+      "section": 7,
+      "content": {
+        "steps": [
+          {
+            "heading": "All Malayalam vowels at a glance",
+            "matchingExercise": [
+              { "left": "അ",  "right": "ക",  "desc": "a" },
+              { "left": "ആ",  "right": "കാ", "desc": "ā" },
+              { "left": "എ",  "right": "കെ", "desc": "e" },
+              { "left": "ഏ",  "right": "കേ", "desc": "ē" },
+              { "left": "ഒ",  "right": "കൊ", "desc": "o" },
+              { "left": "ഓ",  "right": "കോ", "desc": "ō" }
+            ],
+            "vowelSystemTable": true
+          }
+        ],
+        "insight": "You have learned all six basic vowels. Each has two forms: an independent letter (used word-initially) and a vowel sign (used on consonants). The signs attach in different directions: right (ā), left (e/ē), both sides (o/ō), and no visible sign (a)."
+      }
+    },
+    {
+      "id": 14,
+      "category": "PRACTICE",
+      "categoryName": "Chandrakkala Review",
+      "title": "Practice: Chandrakkala Review (Modules 1–4)",
+      "type": "practice",
+      "completed": false,
+      "section": 8,
+      "content": {
+        "scaffold": "Unguided",
+        "skipDiscrimination": true,
+        "chandrakkalaReview": true,
+        "chars": [
+          { "malayalam": "ക", "iso15919": "ka" }, { "malayalam": "ക്", "iso15919": "k" },
+          { "malayalam": "ത", "iso15919": "ta" }, { "malayalam": "ത്", "iso15919": "t" },
+          { "malayalam": "ട", "iso15919": "ṭa" }, { "malayalam": "ട്", "iso15919": "ṭ" },
+          { "malayalam": "ന", "iso15919": "na" }, { "malayalam": "ന്", "iso15919": "n" },
+          { "malayalam": "മ", "iso15919": "ma" }, { "malayalam": "മ്", "iso15919": "m" },
+          { "malayalam": "പ", "iso15919": "pa" }, { "malayalam": "പ്", "iso15919": "p" },
+          { "malayalam": "വ", "iso15919": "va" }, { "malayalam": "വ്", "iso15919": "v" },
+          { "malayalam": "ണ", "iso15919": "ṇa" }, { "malayalam": "ണ്", "iso15919": "ṇ" }
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "category": "PRACTICE",
+      "categoryName": "Reading Practice",
+      "title": "Reading Practice",
+      "type": "reading",
+      "completed": false,
+      "section": 8,
+      "content": {
+        "words": [
+          { "malayalam": "പൊൻ",  "iso": "pon",    "meaning": "gold",                  "unknown": null },
+          { "malayalam": "പോ",   "iso": "pō",     "meaning": "go! (command)",          "unknown": null },
+          { "malayalam": "കൊടം", "iso": "koṭam",  "meaning": "earthen pot · jar",     "unknown": "ം: nasal suffix (coming soon)" },
+          { "malayalam": "കൊതി", "iso": "koṭi",   "meaning": "craving · desire",      "unknown": "ി (i): Module 7" },
+          { "malayalam": "വനം",  "iso": "vanam",  "meaning": "forest",                "unknown": "ം: nasal suffix (coming soon)" },
+          { "malayalam": "ലോകം", "iso": "lōkam",  "meaning": "world",                 "unknown": "ം: nasal suffix (coming soon)" }
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "category": "REVIEW",
+      "categoryName": "Module Review",
+      "title": "Module 4 Review",
+      "type": "practice",
+      "completed": false,
+      "section": 9,
+      "content": {
+        "scaffold": "Review",
+        "chars": [
+          { "malayalam": "ഒ",  "iso15919": "o"   }, { "malayalam": "ഓ",  "iso15919": "ō"   },
+          { "malayalam": "പ",  "iso15919": "pa"  }, { "malayalam": "വ",  "iso15919": "va"  },
+          { "malayalam": "പൊ", "iso15919": "po"  }, { "malayalam": "പോ", "iso15919": "pō"  },
+          { "malayalam": "വൊ", "iso15919": "vo"  }, { "malayalam": "വോ", "iso15919": "vō"  }
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "category": "REVIEW",
+      "categoryName": "Cumulative Review",
+      "title": "Cumulative Review: Modules 1–4",
+      "type": "practice",
+      "completed": false,
+      "section": 9,
+      "content": {
+        "scaffold": "Cumulative",
+        "chars": [
+          { "malayalam": "അ",  "iso15919": "a"   }, { "malayalam": "ആ",  "iso15919": "ā"   },
+          { "malayalam": "ക",  "iso15919": "ka"  }, { "malayalam": "മ",  "iso15919": "ma"  },
+          { "malayalam": "കാ", "iso15919": "kā"  }, { "malayalam": "മാ", "iso15919": "mā"  },
+          { "malayalam": "എ",  "iso15919": "e"   }, { "malayalam": "ഏ",  "iso15919": "ē"   },
+          { "malayalam": "ത",  "iso15919": "ta"  }, { "malayalam": "ട",  "iso15919": "ṭa"  },
+          { "malayalam": "തെ", "iso15919": "te"  }, { "malayalam": "തേ", "iso15919": "tē"  },
+          { "malayalam": "ടെ", "iso15919": "ṭe"  }, { "malayalam": "ടേ", "iso15919": "ṭē"  },
+          { "malayalam": "കെ", "iso15919": "ke"  }, { "malayalam": "കേ", "iso15919": "kē"  },
+          { "malayalam": "മെ", "iso15919": "me"  }, { "malayalam": "മേ", "iso15919": "mē"  },
+          { "malayalam": "താ", "iso15919": "tā"  }, { "malayalam": "ടാ", "iso15919": "ṭā"  },
+          { "malayalam": "ന",  "iso15919": "na"  }, { "malayalam": "ണ",  "iso15919": "ṇa"  },
+          { "malayalam": "നാ", "iso15919": "nā"  }, { "malayalam": "ണാ", "iso15919": "ṇā"  },
+          { "malayalam": "നെ", "iso15919": "ne"  }, { "malayalam": "ണെ", "iso15919": "ṇe"  },
+          { "malayalam": "നേ", "iso15919": "nē"  }, { "malayalam": "ണേ", "iso15919": "ṇē"  },
+          { "malayalam": "ൻ",  "iso15919": "n"   }, { "malayalam": "ൺ",  "iso15919": "ṇ"   },
+          { "malayalam": "ഒ",  "iso15919": "o"   }, { "malayalam": "ഓ",  "iso15919": "ō"   },
+          { "malayalam": "പ",  "iso15919": "pa"  }, { "malayalam": "വ",  "iso15919": "va"  },
+          { "malayalam": "പൊ", "iso15919": "po"  }, { "malayalam": "പോ", "iso15919": "pō"  },
+          { "malayalam": "വൊ", "iso15919": "vo"  }, { "malayalam": "വോ", "iso15919": "vō"  },
+          { "malayalam": "കൊ", "iso15919": "ko"  }, { "malayalam": "കോ", "iso15919": "kō"  },
+          { "malayalam": "മൊ", "iso15919": "mo"  }, { "malayalam": "മോ", "iso15919": "mō"  },
+          { "malayalam": "തൊ", "iso15919": "to"  }, { "malayalam": "തോ", "iso15919": "tō"  },
+          { "malayalam": "ടൊ", "iso15919": "ṭo"  }, { "malayalam": "ടോ", "iso15919": "ṭō"  },
+          { "malayalam": "നൊ", "iso15919": "no"  }, { "malayalam": "നോ", "iso15919": "nō"  },
+          { "malayalam": "ണൊ", "iso15919": "ṇo"  }, { "malayalam": "ണോ", "iso15919": "ṇō"  }
+        ]
+      }
+    }
+  ]
+}

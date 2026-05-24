@@ -1,0 +1,233 @@
+{
+  "id": 9,
+  "number": 9,
+  "title": "Consonants ശ (śa) and ഷ (ṣa) — The Two 'Sh' Sounds & Double Consonant Ligatures",
+  "description": "Palatal vs retroflex fricative and double consonant ligatures",
+  "totalLessons": 13,
+  "lessons": [
+    {
+      "id": 1,
+      "category": "INTRODUCTION",
+      "categoryName": "Consonants ശ (śa) and ഷ (ṣa)",
+      "title": "Consonants ശ (śa) and ഷ (ṣa) — Two 'Sh' Sounds",
+      "type": "introduction",
+      "completed": false,
+      "section": 1,
+      "content": {
+        "characters": [
+          { "malayalam": "ശ", "iso15919": "śa", "description": "Palatal fricative. Like 'sh' in 'ship' — tongue near the palate, air passing through.", "isNew": true },
+          { "malayalam": "ഷ", "iso15919": "ṣa", "description": "Retroflex fricative. Like 'sh' but with tongue curled back further — a deeper, darker sound.", "isNew": true }
+        ],
+        "insight": "Both ശ and ഷ produce an 'sh' sound, but at different positions. ശ is at the palate (softer); ഷ is retroflex (tongue curls back). This is the same place distinction as ത/ട and ന/ണ.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which 'sh' sound has the tongue curled back?",
+          "options": ["ശ (śa)", "ഷ (ṣa)"],
+          "correct": 1
+        }
+      }
+    },
+    {
+      "id": 2,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ശ (śa) and ഷ (ṣa)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "ശ", "iso15919": "śa" }, { "malayalam": "ഷ", "iso15919": "ṣa" }] }
+    },
+    {
+      "id": 3,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ശ (śa) and ഷ (ṣa)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "ശ", "iso15919": "śa" }, { "malayalam": "ഷ", "iso15919": "ṣa" }] }
+    },
+    {
+      "id": 4,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ശ (śa) and ഷ (ṣa)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "ശ", "iso15919": "śa" }, { "malayalam": "ഷ", "iso15919": "ṣa" }] }
+    },
+    {
+      "id": 5,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ശ (śa) / ഷ (ṣa)",
+      "title": "Syllables Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Guided", "chars": [
+        { "malayalam": "ശ",  "iso15919": "śa"  }, { "malayalam": "ശാ", "iso15919": "śā"  }, { "malayalam": "ശി", "iso15919": "śi"  }, { "malayalam": "ശീ", "iso15919": "śī"  }, { "malayalam": "ശെ", "iso15919": "śe"  },
+        { "malayalam": "ശേ", "iso15919": "śē"  }, { "malayalam": "ശു", "iso15919": "śu"  }, { "malayalam": "ശൂ", "iso15919": "śū"  }, { "malayalam": "ശൊ", "iso15919": "śo"  }, { "malayalam": "ശോ", "iso15919": "śō"  },
+        { "malayalam": "ഷ",  "iso15919": "ṣa"  }, { "malayalam": "ഷാ", "iso15919": "ṣā"  }, { "malayalam": "ഷി", "iso15919": "ṣi"  }, { "malayalam": "ഷീ", "iso15919": "ṣī"  }, { "malayalam": "ഷെ", "iso15919": "ṣe"  },
+        { "malayalam": "ഷേ", "iso15919": "ṣē"  }, { "malayalam": "ഷു", "iso15919": "ṣu"  }, { "malayalam": "ഷൂ", "iso15919": "ṣū"  }, { "malayalam": "ഷൊ", "iso15919": "ṣo"  }, { "malayalam": "ഷോ", "iso15919": "ṣō"  }
+      ]}
+    },
+    {
+      "id": 6,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ശ (śa) / ഷ (ṣa)",
+      "title": "Syllables Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Reduced guidance", "chars": [
+        { "malayalam": "ശ",  "iso15919": "śa"  }, { "malayalam": "ശാ", "iso15919": "śā"  }, { "malayalam": "ശി", "iso15919": "śi"  }, { "malayalam": "ശീ", "iso15919": "śī"  }, { "malayalam": "ശെ", "iso15919": "śe"  },
+        { "malayalam": "ശേ", "iso15919": "śē"  }, { "malayalam": "ശു", "iso15919": "śu"  }, { "malayalam": "ശൂ", "iso15919": "śū"  }, { "malayalam": "ശൊ", "iso15919": "śo"  }, { "malayalam": "ശോ", "iso15919": "śō"  },
+        { "malayalam": "ഷ",  "iso15919": "ṣa"  }, { "malayalam": "ഷാ", "iso15919": "ṣā"  }, { "malayalam": "ഷി", "iso15919": "ṣi"  }, { "malayalam": "ഷീ", "iso15919": "ṣī"  }, { "malayalam": "ഷെ", "iso15919": "ṣe"  },
+        { "malayalam": "ഷേ", "iso15919": "ṣē"  }, { "malayalam": "ഷു", "iso15919": "ṣu"  }, { "malayalam": "ഷൂ", "iso15919": "ṣū"  }, { "malayalam": "ഷൊ", "iso15919": "ṣo"  }, { "malayalam": "ഷോ", "iso15919": "ṣō"  }
+      ]}
+    },
+    {
+      "id": 7,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ശ (śa) / ഷ (ṣa)",
+      "title": "Syllables Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Unguided", "chars": [
+        { "malayalam": "ശ",  "iso15919": "śa"  }, { "malayalam": "ശാ", "iso15919": "śā"  }, { "malayalam": "ശി", "iso15919": "śi"  }, { "malayalam": "ശീ", "iso15919": "śī"  }, { "malayalam": "ശെ", "iso15919": "śe"  },
+        { "malayalam": "ശേ", "iso15919": "śē"  }, { "malayalam": "ശു", "iso15919": "śu"  }, { "malayalam": "ശൂ", "iso15919": "śū"  }, { "malayalam": "ശൊ", "iso15919": "śo"  }, { "malayalam": "ശോ", "iso15919": "śō"  },
+        { "malayalam": "ഷ",  "iso15919": "ṣa"  }, { "malayalam": "ഷാ", "iso15919": "ṣā"  }, { "malayalam": "ഷി", "iso15919": "ṣi"  }, { "malayalam": "ഷീ", "iso15919": "ṣī"  }, { "malayalam": "ഷെ", "iso15919": "ṣe"  },
+        { "malayalam": "ഷേ", "iso15919": "ṣē"  }, { "malayalam": "ഷു", "iso15919": "ṣu"  }, { "malayalam": "ഷൂ", "iso15919": "ṣū"  }, { "malayalam": "ഷൊ", "iso15919": "ṣo"  }, { "malayalam": "ഷോ", "iso15919": "ṣō"  }
+      ]}
+    },
+    {
+      "id": 8,
+      "category": "INTRODUCTION",
+      "categoryName": "Double Consonant Ligatures ക്ക / ട്ട / ത്ത / ന്ന / മ്മ",
+      "title": "Double Consonant Ligatures: ക്ക, ട്ട, ത്ത, ന്ന, മ്മ",
+      "type": "introduction",
+      "completed": false,
+      "section": 4,
+      "content": {
+        "steps": [
+          {
+            "heading": "What is a double consonant ligature?",
+            "characters": [
+              { "malayalam": "ക്ക", "iso15919": "kka", "description": "ക + ് + ക — the same consonant twice. First loses its vowel via virama; second keeps the inherent 'a'." }
+            ]
+          },
+          {
+            "heading": "All five double forms",
+            "characters": [
+              { "malayalam": "ക്ക", "iso15919": "kka", "description": "k + k" },
+              { "malayalam": "ട്ട", "iso15919": "ṭṭa", "description": "ṭ + ṭ — retroflex t doubled" },
+              { "malayalam": "ത്ത", "iso15919": "tta", "description": "t + t — dental t doubled" },
+              { "malayalam": "ന്ന", "iso15919": "nna", "description": "n + n — alveolar n doubled" },
+              { "malayalam": "മ്മ", "iso15919": "mma", "description": "m + m" }
+            ],
+            "matchingExercise": [
+              { "left": "ക  (ka)", "right": "ക്ക  (kka)", "desc": "k + virama + k" },
+              { "left": "ട  (ṭa)", "right": "ട്ട  (ṭṭa)", "desc": "ṭ + virama + ṭ" },
+              { "left": "ത  (ta)", "right": "ത്ത  (tta)", "desc": "t + virama + t" },
+              { "left": "ന  (na)", "right": "ന്ന  (nna)", "desc": "n + virama + n" },
+              { "left": "മ  (ma)", "right": "മ്മ  (mma)", "desc": "m + virama + m" }
+            ]
+          }
+        ],
+        "insight": "When the same consonant appears twice in a row, Malayalam writes it as a joined ligature using virama. The shape changes, but the sound is a geminate — a doubled or held consonant."
+      }
+    },
+    {
+      "id": 9,
+      "category": "PRACTICE",
+      "categoryName": "Double Consonant Ligatures ക്ക / ട്ട / ത്ത / ന്ന / മ്മ",
+      "title": "Ligature Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Reduced guidance", "skipDiscrimination": true, "chars": [
+        { "malayalam": "ക്ക", "iso15919": "kka" }, { "malayalam": "ട്ട", "iso15919": "ṭṭa" }, { "malayalam": "ത്ത", "iso15919": "tta" },
+        { "malayalam": "ന്ന", "iso15919": "nna" }, { "malayalam": "മ്മ", "iso15919": "mma" }
+      ]}
+    },
+    {
+      "id": 10,
+      "category": "PRACTICE",
+      "categoryName": "Double Consonant Ligatures ക്ക / ട്ട / ത്ത / ന്ന / മ്മ",
+      "title": "Ligature Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Unguided", "skipDiscrimination": true, "chars": [
+        { "malayalam": "ക്ക", "iso15919": "kka" }, { "malayalam": "ട്ട", "iso15919": "ṭṭa" }, { "malayalam": "ത്ത", "iso15919": "tta" },
+        { "malayalam": "ന്ന", "iso15919": "nna" }, { "malayalam": "മ്മ", "iso15919": "mma" }
+      ]}
+    },
+    {
+      "id": 11,
+      "category": "PRACTICE",
+      "categoryName": "Reading Practice",
+      "title": "Reading Practice",
+      "type": "reading",
+      "completed": false,
+      "section": 5,
+      "content": {
+        "words": [
+          { "word": "ശരം",  "iso": "śaram",   "meaning": "arrow"     },
+          { "word": "ശേഷം", "iso": "śēṣam",  "meaning": "remainder" },
+          { "word": "ശകടം", "iso": "śakaṭam", "meaning": "cart"      },
+          { "word": "ഒന്ന്", "iso": "onnu",   "meaning": "one"       }
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "category": "REVIEW",
+      "categoryName": "Module Review",
+      "title": "Module 9 Review",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Review",
+        "chars": [
+          { "malayalam": "ശ",   "iso15919": "śa"  }, { "malayalam": "ശാ",  "iso15919": "śā"  },
+          { "malayalam": "ഷ",   "iso15919": "ṣa"  }, { "malayalam": "ഷാ",  "iso15919": "ṣā"  },
+          { "malayalam": "ക്ക", "iso15919": "kka" }, { "malayalam": "ട്ട", "iso15919": "ṭṭa" },
+          { "malayalam": "ത്ത", "iso15919": "tta" }, { "malayalam": "ന്ന", "iso15919": "nna" }, { "malayalam": "മ്മ", "iso15919": "mma" }
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "category": "REVIEW",
+      "categoryName": "Cumulative Review",
+      "title": "Cumulative Review: Modules 1–9",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Cumulative",
+        "chars": [
+          { "malayalam": "അ",   "iso15919": "a"   }, { "malayalam": "ആ",   "iso15919": "ā"   },
+          { "malayalam": "ക",   "iso15919": "ka"  }, { "malayalam": "മ",   "iso15919": "ma"  },
+          { "malayalam": "എ",   "iso15919": "e"   }, { "malayalam": "ഏ",   "iso15919": "ē"   },
+          { "malayalam": "ത",   "iso15919": "ta"  }, { "malayalam": "ട",   "iso15919": "ṭa"  },
+          { "malayalam": "ന",   "iso15919": "na"  }, { "malayalam": "ണ",   "iso15919": "ṇa"  },
+          { "malayalam": "ഒ",   "iso15919": "o"   }, { "malayalam": "ഓ",   "iso15919": "ō"   },
+          { "malayalam": "പ",   "iso15919": "pa"  }, { "malayalam": "വ",   "iso15919": "va"  },
+          { "malayalam": "ഉ",   "iso15919": "u"   }, { "malayalam": "ഊ",   "iso15919": "ū"   },
+          { "malayalam": "ല",   "iso15919": "la"  }, { "malayalam": "ള",   "iso15919": "ḷa"  },
+          { "malayalam": "ഇ",   "iso15919": "i"   }, { "malayalam": "ഈ",   "iso15919": "ī"   },
+          { "malayalam": "ര",   "iso15919": "ra"  }, { "malayalam": "റ",   "iso15919": "ṟa"  },
+          { "malayalam": "യ",   "iso15919": "ya"  }, { "malayalam": "ഴ",   "iso15919": "ḻa"  },
+          { "malayalam": "ങ",   "iso15919": "ṅa"  }, { "malayalam": "ഞ",   "iso15919": "ña"  },
+          { "malayalam": "ശ",   "iso15919": "śa"  }, { "malayalam": "ഷ",   "iso15919": "ṣa"  },
+          { "malayalam": "ക്ക", "iso15919": "kka" }, { "malayalam": "ത്ത", "iso15919": "tta" }
+        ]
+      }
+    }
+  ]
+}

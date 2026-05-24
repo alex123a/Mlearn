@@ -1,0 +1,226 @@
+{
+  "id": 12,
+  "number": 12,
+  "title": "Consonants സ (sa) and ഡ (ḍa) — and Double Consonant Ligatures",
+  "description": "Alveolar fricative and retroflex stop, plus four double consonant ligatures: യ്യ, ച്ച, ല്ല, and പ്പ",
+  "totalLessons": 14,
+  "lessons": [
+    {
+      "id": 1,
+      "category": "INTRODUCTION",
+      "categoryName": "Consonants സ (sa) and ഡ (ḍa)",
+      "title": "Consonants സ (sa) and ഡ (ḍa) — Alveolar Fricative and Retroflex Stop",
+      "type": "introduction",
+      "completed": false,
+      "section": 1,
+      "content": {
+        "characters": [
+          { "malayalam": "സ", "iso15919": "sa", "description": "Alveolar fricative. Like 's' in 'sun' — air flows continuously over the tongue tip. Very common in Sanskrit-origin Malayalam words.", "isNew": true },
+          { "malayalam": "ഡ", "iso15919": "ḍa", "description": "Voiced retroflex stop. Like 'd' with the tongue curled back to touch the roof of the mouth. Appears mainly in loanwords and a few native forms.", "isNew": true }
+        ],
+        "insight": "സ (sa) is the familiar alveolar s-sound, common in Sanskrit loanwords. ഡ (ḍa) is the voiced partner of ട — same retroflex position, but voiced. You already know ട (unvoiced); ഡ adds the voice.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which sound is the voiced version of ട (ṭa)?",
+          "options": ["സ (sa)", "ഡ (ḍa)"],
+          "correct": 1
+        }
+      }
+    },
+    {
+      "id": 2,
+      "category": "PRACTICE",
+      "categoryName": "Consonants സ (sa) and ഡ (ḍa)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "സ", "iso15919": "sa" }, { "malayalam": "ഡ", "iso15919": "ḍa" }] }
+    },
+    {
+      "id": 3,
+      "category": "PRACTICE",
+      "categoryName": "Consonants സ (sa) and ഡ (ḍa)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "സ", "iso15919": "sa" }, { "malayalam": "ഡ", "iso15919": "ḍa" }] }
+    },
+    {
+      "id": 4,
+      "category": "PRACTICE",
+      "categoryName": "Consonants സ (sa) and ഡ (ḍa)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "സ", "iso15919": "sa" }, { "malayalam": "ഡ", "iso15919": "ḍa" }] }
+    },
+    {
+      "id": 5,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with സ (sa) / ഡ (ḍa)",
+      "title": "Syllables Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Guided", "chars": [
+        { "malayalam": "സ",  "iso15919": "sa"  }, { "malayalam": "സാ", "iso15919": "sā"  }, { "malayalam": "സി", "iso15919": "si"  }, { "malayalam": "സീ", "iso15919": "sī"  }, { "malayalam": "സെ", "iso15919": "se"  },
+        { "malayalam": "സേ", "iso15919": "sē"  }, { "malayalam": "സു", "iso15919": "su"  }, { "malayalam": "സൂ", "iso15919": "sū"  }, { "malayalam": "സൊ", "iso15919": "so"  }, { "malayalam": "സോ", "iso15919": "sō"  },
+        { "malayalam": "ഡ",  "iso15919": "ḍa"  }, { "malayalam": "ഡാ", "iso15919": "ḍā"  }, { "malayalam": "ഡി", "iso15919": "ḍi"  }, { "malayalam": "ഡീ", "iso15919": "ḍī"  }, { "malayalam": "ഡെ", "iso15919": "ḍe"  },
+        { "malayalam": "ഡേ", "iso15919": "ḍē"  }, { "malayalam": "ഡു", "iso15919": "ḍu"  }, { "malayalam": "ഡൂ", "iso15919": "ḍū"  }, { "malayalam": "ഡൊ", "iso15919": "ḍo"  }, { "malayalam": "ഡോ", "iso15919": "ḍō"  }
+      ]}
+    },
+    {
+      "id": 6,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with സ (sa) / ഡ (ḍa)",
+      "title": "Syllables Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Reduced guidance", "chars": [
+        { "malayalam": "സ",  "iso15919": "sa"  }, { "malayalam": "സാ", "iso15919": "sā"  }, { "malayalam": "സി", "iso15919": "si"  }, { "malayalam": "സീ", "iso15919": "sī"  }, { "malayalam": "സെ", "iso15919": "se"  },
+        { "malayalam": "സേ", "iso15919": "sē"  }, { "malayalam": "സു", "iso15919": "su"  }, { "malayalam": "സൂ", "iso15919": "sū"  }, { "malayalam": "സൊ", "iso15919": "so"  }, { "malayalam": "സോ", "iso15919": "sō"  },
+        { "malayalam": "ഡ",  "iso15919": "ḍa"  }, { "malayalam": "ഡാ", "iso15919": "ḍā"  }, { "malayalam": "ഡി", "iso15919": "ḍi"  }, { "malayalam": "ഡീ", "iso15919": "ḍī"  }, { "malayalam": "ഡെ", "iso15919": "ḍe"  },
+        { "malayalam": "ഡേ", "iso15919": "ḍē"  }, { "malayalam": "ഡു", "iso15919": "ḍu"  }, { "malayalam": "ഡൂ", "iso15919": "ḍū"  }, { "malayalam": "ഡൊ", "iso15919": "ḍo"  }, { "malayalam": "ഡോ", "iso15919": "ḍō"  }
+      ]}
+    },
+    {
+      "id": 7,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with സ (sa) / ഡ (ḍa)",
+      "title": "Syllables Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Unguided", "chars": [
+        { "malayalam": "സ",  "iso15919": "sa"  }, { "malayalam": "സാ", "iso15919": "sā"  }, { "malayalam": "സി", "iso15919": "si"  }, { "malayalam": "സീ", "iso15919": "sī"  }, { "malayalam": "സെ", "iso15919": "se"  },
+        { "malayalam": "സേ", "iso15919": "sē"  }, { "malayalam": "സു", "iso15919": "su"  }, { "malayalam": "സൂ", "iso15919": "sū"  }, { "malayalam": "സൊ", "iso15919": "so"  }, { "malayalam": "സോ", "iso15919": "sō"  },
+        { "malayalam": "ഡ",  "iso15919": "ḍa"  }, { "malayalam": "ഡാ", "iso15919": "ḍā"  }, { "malayalam": "ഡി", "iso15919": "ḍi"  }, { "malayalam": "ഡീ", "iso15919": "ḍī"  }, { "malayalam": "ഡെ", "iso15919": "ḍe"  },
+        { "malayalam": "ഡേ", "iso15919": "ḍē"  }, { "malayalam": "ഡു", "iso15919": "ḍu"  }, { "malayalam": "ഡൂ", "iso15919": "ḍū"  }, { "malayalam": "ഡൊ", "iso15919": "ḍo"  }, { "malayalam": "ഡോ", "iso15919": "ḍō"  }
+      ]}
+    },
+    {
+      "id": 8,
+      "category": "INTRODUCTION",
+      "categoryName": "Double Consonant Ligatures യ്യ / ച്ച / ല്ല / പ്പ",
+      "title": "Double Consonant Ligatures: യ്യ, ച്ച, ല്ല, പ്പ",
+      "type": "introduction",
+      "completed": false,
+      "section": 4,
+      "content": {
+        "steps": [
+          {
+            "heading": "Four more double consonant forms",
+            "characters": [
+              { "malayalam": "യ്യ", "iso15919": "yya", "description": "യ + ് + യ — y doubled" },
+              { "malayalam": "ച്ച", "iso15919": "cca", "description": "ച + ് + ച — palatal affricate doubled" },
+              { "malayalam": "ല്ല", "iso15919": "lla", "description": "ല + ് + ല — alveolar l doubled" },
+              { "malayalam": "പ്പ", "iso15919": "ppa", "description": "പ + ് + പ — p doubled" }
+            ],
+            "matchingExercise": [
+              { "left": "യ  (ya)", "right": "യ്യ  (yya)", "desc": "y + virama + y" },
+              { "left": "ച  (ca)", "right": "ച്ച  (cca)", "desc": "c + virama + c" },
+              { "left": "ല  (la)", "right": "ല്ല  (lla)", "desc": "l + virama + l" },
+              { "left": "പ  (pa)", "right": "പ്പ  (ppa)", "desc": "p + virama + p" }
+            ]
+          }
+        ],
+        "insight": "You already know ക്ക, ട്ട, ത്ത, ന്ന, and മ്മ. These four follow the same pattern — same consonant doubled with virama. Listen for the held, geminate sound."
+      }
+    },
+    {
+      "id": 9,
+      "category": "PRACTICE",
+      "categoryName": "Double Consonant Ligatures യ്യ / ച്ച / ല്ല / പ്പ",
+      "title": "Ligature Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Reduced guidance", "skipDiscrimination": true, "chars": [
+        { "malayalam": "യ്യ", "iso15919": "yya" }, { "malayalam": "ച്ച", "iso15919": "cca" }, { "malayalam": "ല്ല", "iso15919": "lla" }, { "malayalam": "പ്പ", "iso15919": "ppa" }
+      ]}
+    },
+    {
+      "id": 10,
+      "category": "PRACTICE",
+      "categoryName": "Double Consonant Ligatures യ്യ / ച്ച / ല്ല / പ്പ",
+      "title": "Ligature Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Unguided", "skipDiscrimination": true, "chars": [
+        { "malayalam": "യ്യ", "iso15919": "yya" }, { "malayalam": "ച്ച", "iso15919": "cca" }, { "malayalam": "ല്ല", "iso15919": "lla" }, { "malayalam": "പ്പ", "iso15919": "ppa" }
+      ]}
+    },
+    {
+      "id": 11,
+      "category": "PRACTICE",
+      "categoryName": "Reading Practice",
+      "title": "Reading Practice",
+      "type": "reading",
+      "completed": false,
+      "section": 5,
+      "content": {
+        "words": [
+          { "word": "ജലം",  "iso": "jalam",  "meaning": "water"     },
+          { "word": "ജനം",  "iso": "janam",  "meaning": "people"    },
+          { "word": "ചക്ക", "iso": "cakka",  "meaning": "jackfruit" },
+          { "word": "ചേല",  "iso": "cēla",   "meaning": "cloth"     }
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "category": "REVIEW",
+      "categoryName": "Module Review",
+      "title": "Module 12 Review",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Review",
+        "chars": [
+          { "malayalam": "സ",   "iso15919": "sa"  }, { "malayalam": "സാ",  "iso15919": "sā"  },
+          { "malayalam": "ഡ",   "iso15919": "ḍa"  }, { "malayalam": "ഡാ",  "iso15919": "ḍā"  },
+          { "malayalam": "യ്യ", "iso15919": "yya" }, { "malayalam": "ച്ച", "iso15919": "cca" },
+          { "malayalam": "ല്ല", "iso15919": "lla" }, { "malayalam": "പ്പ", "iso15919": "ppa" }
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "category": "REVIEW",
+      "categoryName": "Cumulative Review",
+      "title": "Cumulative Review: Modules 1–12",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Cumulative",
+        "chars": [
+          { "malayalam": "അ",   "iso15919": "a"    }, { "malayalam": "ആ",   "iso15919": "ā"   },
+          { "malayalam": "ക",   "iso15919": "ka"   }, { "malayalam": "മ",   "iso15919": "ma"  },
+          { "malayalam": "എ",   "iso15919": "e"    }, { "malayalam": "ഏ",   "iso15919": "ē"   },
+          { "malayalam": "ത",   "iso15919": "ta"   }, { "malayalam": "ട",   "iso15919": "ṭa"  },
+          { "malayalam": "ന",   "iso15919": "na"   }, { "malayalam": "ണ",   "iso15919": "ṇa"  },
+          { "malayalam": "ഒ",   "iso15919": "o"    }, { "malayalam": "ഓ",   "iso15919": "ō"   },
+          { "malayalam": "പ",   "iso15919": "pa"   }, { "malayalam": "വ",   "iso15919": "va"  },
+          { "malayalam": "ഉ",   "iso15919": "u"    }, { "malayalam": "ഊ",   "iso15919": "ū"   },
+          { "malayalam": "ല",   "iso15919": "la"   }, { "malayalam": "ള",   "iso15919": "ḷa"  },
+          { "malayalam": "ഇ",   "iso15919": "i"    }, { "malayalam": "ഈ",   "iso15919": "ī"   },
+          { "malayalam": "ര",   "iso15919": "ra"   }, { "malayalam": "റ",   "iso15919": "ṟa"  },
+          { "malayalam": "യ",   "iso15919": "ya"   }, { "malayalam": "ഴ",   "iso15919": "ḻa"  },
+          { "malayalam": "ങ",   "iso15919": "ṅa"   }, { "malayalam": "ഞ",   "iso15919": "ña"  },
+          { "malayalam": "ശ",   "iso15919": "śa"   }, { "malayalam": "ഷ",   "iso15919": "ṣa"  },
+          { "malayalam": "ദ",   "iso15919": "da"   }, { "malayalam": "ഗ",   "iso15919": "ga"  },
+          { "malayalam": "ച",   "iso15919": "ca"   }, { "malayalam": "ജ",   "iso15919": "ja"  },
+          { "malayalam": "സ",   "iso15919": "sa"   }, { "malayalam": "ഡ",   "iso15919": "ḍa"  },
+          { "malayalam": "യ്യ", "iso15919": "yya"  }, { "malayalam": "ല്ല", "iso15919": "lla" }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "id": 11,
+  "number": 11,
+  "title": "Consonants ച (ca) and ജ (ja) — Palatal Affricates",
+  "description": "Unvoiced and voiced palatal affricates, plus double consonant ligatures",
+  "totalLessons": 14,
+  "lessons": [
+    {
+      "id": 1,
+      "category": "INTRODUCTION",
+      "categoryName": "Consonants ച (ca) and ജ (ja)",
+      "title": "Consonants ച (ca) and ജ (ja) — Palatal Affricates",
+      "type": "introduction",
+      "completed": false,
+      "section": 1,
+      "content": {
+        "characters": [
+          { "malayalam": "ച", "iso15919": "ca", "description": "Unvoiced palatal affricate. Like 'ch' in 'church' — tongue at the palate, air released as a burst.", "isNew": true },
+          { "malayalam": "ജ", "iso15919": "ja", "description": "Voiced palatal affricate. Like 'j' in 'jam' — same position as ച but with voice added.", "isNew": true }
+        ],
+        "insight": "ച and ജ are an unvoiced/voiced pair — exactly the same position and manner, but ജ adds vocal cord vibration. This is the same voicing distinction as ത/ദ and ക/ഗ.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "ച and ജ differ in which way?",
+          "options": ["Position in the mouth", "Voiced vs unvoiced"],
+          "correct": 1
+        }
+      }
+    },
+    {
+      "id": 2,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ച (ca) and ജ (ja)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "ച", "iso15919": "ca" }, { "malayalam": "ജ", "iso15919": "ja" }] }
+    },
+    {
+      "id": 3,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ച (ca) and ജ (ja)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "ച", "iso15919": "ca" }, { "malayalam": "ജ", "iso15919": "ja" }] }
+    },
+    {
+      "id": 4,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ച (ca) and ജ (ja)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "ച", "iso15919": "ca" }, { "malayalam": "ജ", "iso15919": "ja" }] }
+    },
+    {
+      "id": 5,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ച (ca) / ജ (ja)",
+      "title": "Syllables Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Guided", "chars": [
+        { "malayalam": "ച",  "iso15919": "ca"  }, { "malayalam": "ചാ", "iso15919": "cā"  }, { "malayalam": "ചി", "iso15919": "ci"  }, { "malayalam": "ചീ", "iso15919": "cī"  }, { "malayalam": "ചെ", "iso15919": "ce"  },
+        { "malayalam": "ചേ", "iso15919": "cē"  }, { "malayalam": "ചു", "iso15919": "cu"  }, { "malayalam": "ചൂ", "iso15919": "cū"  }, { "malayalam": "ചൊ", "iso15919": "co"  }, { "malayalam": "ചോ", "iso15919": "cō"  },
+        { "malayalam": "ജ",  "iso15919": "ja"  }, { "malayalam": "ജാ", "iso15919": "jā"  }, { "malayalam": "ജി", "iso15919": "ji"  }, { "malayalam": "ജീ", "iso15919": "jī"  }, { "malayalam": "ജെ", "iso15919": "je"  },
+        { "malayalam": "ജേ", "iso15919": "jē"  }, { "malayalam": "ജു", "iso15919": "ju"  }, { "malayalam": "ജൂ", "iso15919": "jū"  }, { "malayalam": "ജൊ", "iso15919": "jo"  }, { "malayalam": "ജോ", "iso15919": "jō"  }
+      ]}
+    },
+    {
+      "id": 6,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ച (ca) / ജ (ja)",
+      "title": "Syllables Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Reduced guidance", "chars": [
+        { "malayalam": "ച",  "iso15919": "ca"  }, { "malayalam": "ചാ", "iso15919": "cā"  }, { "malayalam": "ചി", "iso15919": "ci"  }, { "malayalam": "ചീ", "iso15919": "cī"  }, { "malayalam": "ചെ", "iso15919": "ce"  },
+        { "malayalam": "ചേ", "iso15919": "cē"  }, { "malayalam": "ചു", "iso15919": "cu"  }, { "malayalam": "ചൂ", "iso15919": "cū"  }, { "malayalam": "ചൊ", "iso15919": "co"  }, { "malayalam": "ചോ", "iso15919": "cō"  },
+        { "malayalam": "ജ",  "iso15919": "ja"  }, { "malayalam": "ജാ", "iso15919": "jā"  }, { "malayalam": "ജി", "iso15919": "ji"  }, { "malayalam": "ജീ", "iso15919": "jī"  }, { "malayalam": "ജെ", "iso15919": "je"  },
+        { "malayalam": "ജേ", "iso15919": "jē"  }, { "malayalam": "ജു", "iso15919": "ju"  }, { "malayalam": "ജൂ", "iso15919": "jū"  }, { "malayalam": "ജൊ", "iso15919": "jo"  }, { "malayalam": "ജോ", "iso15919": "jō"  }
+      ]}
+    },
+    {
+      "id": 7,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ച (ca) / ജ (ja)",
+      "title": "Syllables Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Unguided", "chars": [
+        { "malayalam": "ച",  "iso15919": "ca"  }, { "malayalam": "ചാ", "iso15919": "cā"  }, { "malayalam": "ചി", "iso15919": "ci"  }, { "malayalam": "ചീ", "iso15919": "cī"  }, { "malayalam": "ചെ", "iso15919": "ce"  },
+        { "malayalam": "ചേ", "iso15919": "cē"  }, { "malayalam": "ചു", "iso15919": "cu"  }, { "malayalam": "ചൂ", "iso15919": "cū"  }, { "malayalam": "ചൊ", "iso15919": "co"  }, { "malayalam": "ചോ", "iso15919": "cō"  },
+        { "malayalam": "ജ",  "iso15919": "ja"  }, { "malayalam": "ജാ", "iso15919": "jā"  }, { "malayalam": "ജി", "iso15919": "ji"  }, { "malayalam": "ജീ", "iso15919": "jī"  }, { "malayalam": "ജെ", "iso15919": "je"  },
+        { "malayalam": "ജേ", "iso15919": "jē"  }, { "malayalam": "ജു", "iso15919": "ju"  }, { "malayalam": "ജൂ", "iso15919": "jū"  }, { "malayalam": "ജൊ", "iso15919": "jo"  }, { "malayalam": "ജോ", "iso15919": "jō"  }
+      ]}
+    },
+    {
+      "id": 8,
+      "category": "INTRODUCTION",
+      "categoryName": "Consonant Clusters റ്റ / ന്റ",
+      "title": "Consonant Clusters: റ്റ and ന്റ",
+      "type": "introduction",
+      "completed": false,
+      "section": 4,
+      "content": {
+        "steps": [
+          {
+            "heading": "Two essential consonant clusters",
+            "characters": [
+              { "malayalam": "റ്റ", "iso15919": "ṟṟa", "description": "റ + ് + റ — the strong alveolar trill doubled. Pronounced as a geminate retroflex stop /ṭṭ/. Extremely common in everyday Malayalam." },
+              { "malayalam": "ന്റ", "iso15919": "nṟa", "description": "ന + ് + റ — alveolar nasal joined to the alveolar trill. Pronounced /nda/ or /nṟ/. One of the most frequent word-final clusters in Malayalam." }
+            ],
+            "matchingExercise": [
+              { "left": "റ + റ", "right": "റ്റ  (ṟṟa)", "desc": "trill + virama + trill" },
+              { "left": "ന + റ", "right": "ന്റ  (nṟa)", "desc": "nasal + virama + trill" }
+            ]
+          }
+        ],
+        "insight": "Both ligatures are built on Malayalam's strong alveolar trill റ (ṟa), which you learned in Module 6. The virama joins them to the preceding consonant — the same mechanism as all other ligatures you have learned. These two forms appear in hundreds of common Malayalam words."
+      }
+    },
+    {
+      "id": 9,
+      "category": "PRACTICE",
+      "categoryName": "Consonant Clusters റ്റ / ന്റ",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Reduced guidance", "skipDiscrimination": true, "chars": [
+        { "malayalam": "റ്റ", "iso15919": "ṟṟa" }, { "malayalam": "ന്റ", "iso15919": "nṟa" }
+      ]}
+    },
+    {
+      "id": 10,
+      "category": "PRACTICE",
+      "categoryName": "Consonant Clusters റ്റ / ന്റ",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Unguided", "skipDiscrimination": true, "chars": [
+        { "malayalam": "റ്റ", "iso15919": "ṟṟa" }, { "malayalam": "ന്റ", "iso15919": "nṟa" }
+      ]}
+    },
+    {
+      "id": 11,
+      "category": "PRACTICE",
+      "categoryName": "Reading Practice",
+      "title": "Reading Practice",
+      "type": "reading",
+      "completed": false,
+      "section": 5,
+      "content": {
+        "words": [
+          { "word": "ജലം",  "iso": "jalam",  "meaning": "water"     },
+          { "word": "ജനം",  "iso": "janam",  "meaning": "people"    },
+          { "word": "ചക്ക", "iso": "cakka",  "meaning": "jackfruit" },
+          { "word": "ചേല",  "iso": "cēla",   "meaning": "cloth"     }
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "category": "REVIEW",
+      "categoryName": "Module Review",
+      "title": "Module 11 Review",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Review",
+        "chars": [
+          { "malayalam": "ച",   "iso15919": "ca"  }, { "malayalam": "ചാ",  "iso15919": "cā"  },
+          { "malayalam": "ജ",   "iso15919": "ja"  }, { "malayalam": "ജാ",  "iso15919": "jā"  },
+          { "malayalam": "റ്റ", "iso15919": "ṟṟa" }, { "malayalam": "ന്റ", "iso15919": "nṟa" }
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "category": "REVIEW",
+      "categoryName": "Cumulative Review",
+      "title": "Cumulative Review: Modules 1–11",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Cumulative",
+        "chars": [
+          { "malayalam": "അ",   "iso15919": "a"    }, { "malayalam": "ആ",   "iso15919": "ā"   },
+          { "malayalam": "ക",   "iso15919": "ka"   }, { "malayalam": "മ",   "iso15919": "ma"  },
+          { "malayalam": "എ",   "iso15919": "e"    }, { "malayalam": "ഏ",   "iso15919": "ē"   },
+          { "malayalam": "ത",   "iso15919": "ta"   }, { "malayalam": "ട",   "iso15919": "ṭa"  },
+          { "malayalam": "ന",   "iso15919": "na"   }, { "malayalam": "ണ",   "iso15919": "ṇa"  },
+          { "malayalam": "ഒ",   "iso15919": "o"    }, { "malayalam": "ഓ",   "iso15919": "ō"   },
+          { "malayalam": "പ",   "iso15919": "pa"   }, { "malayalam": "വ",   "iso15919": "va"  },
+          { "malayalam": "ഉ",   "iso15919": "u"    }, { "malayalam": "ഊ",   "iso15919": "ū"   },
+          { "malayalam": "ല",   "iso15919": "la"   }, { "malayalam": "ള",   "iso15919": "ḷa"  },
+          { "malayalam": "ഇ",   "iso15919": "i"    }, { "malayalam": "ഈ",   "iso15919": "ī"   },
+          { "malayalam": "ര",   "iso15919": "ra"   }, { "malayalam": "റ",   "iso15919": "ṟa"  },
+          { "malayalam": "യ",   "iso15919": "ya"   }, { "malayalam": "ഴ",   "iso15919": "ḻa"  },
+          { "malayalam": "ങ",   "iso15919": "ṅa"   }, { "malayalam": "ഞ",   "iso15919": "ña"  },
+          { "malayalam": "ശ",   "iso15919": "śa"   }, { "malayalam": "ഷ",   "iso15919": "ṣa"  },
+          { "malayalam": "ദ",   "iso15919": "da"   }, { "malayalam": "ഗ",   "iso15919": "ga"  },
+          { "malayalam": "ച",   "iso15919": "ca"   }, { "malayalam": "ജ",   "iso15919": "ja"  },
+          { "malayalam": "ണ്ട", "iso15919": "ṇṭa"  }, { "malayalam": "റ്റ", "iso15919": "ṟṟa" }
+        ]
+      }
+    }
+  ]
+}

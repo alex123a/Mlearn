@@ -1,0 +1,211 @@
+{
+  "id": 8,
+  "number": 8,
+  "title": "Consonants ങ (ṅa) and ഞ (ña) — Nasal Sounds",
+  "description": "Two nasals: velar and palatal positions, plus chandrakkala and chillu reviews",
+  "totalLessons": 12,
+  "lessons": [
+    {
+      "id": 1,
+      "category": "INTRODUCTION",
+      "categoryName": "Consonants ങ (ṅa) and ഞ (ña)",
+      "title": "Consonants ങ (ṅa) and ഞ (ña) — Nasal Sounds",
+      "type": "introduction",
+      "completed": false,
+      "section": 1,
+      "content": {
+        "characters": [
+          { "malayalam": "ങ", "iso15919": "ṅa", "description": "Velar nasal. Nasal sound made at the back of the mouth. Similar to 'ng' in 'sing'.", "isNew": true },
+          { "malayalam": "ഞ", "iso15919": "ña", "description": "Palatal nasal. Nasal sound made at the palate. Similar to 'ny' in 'canyon'.", "isNew": true }
+        ],
+        "insight": "Both ങ and ഞ are nasal sounds (made through the nose), but at different positions. ങ is at the back (velar); ഞ is at the palate. Listen closely to hear the difference.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which nasal sound is at the back of the mouth?",
+          "options": ["ങ (ṅa)", "ഞ (ña)"],
+          "correct": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ങ (ṅa) and ഞ (ña)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "ങ", "iso15919": "ṅa" }, { "malayalam": "ഞ", "iso15919": "ña" }] }
+    },
+    {
+      "id": 3,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ങ (ṅa) and ഞ (ña)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "ങ", "iso15919": "ṅa" }, { "malayalam": "ഞ", "iso15919": "ña" }] }
+    },
+    {
+      "id": 4,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ങ (ṅa) and ഞ (ña)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "ങ", "iso15919": "ṅa" }, { "malayalam": "ഞ", "iso15919": "ña" }] }
+    },
+    {
+      "id": 5,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ങ (ṅa) / ഞ (ña)",
+      "title": "Syllables Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Guided", "chars": [
+        { "malayalam": "ങ",  "iso15919": "ṅa"  }, { "malayalam": "ങാ", "iso15919": "ṅā"  }, { "malayalam": "ങി", "iso15919": "ṅi"  }, { "malayalam": "ങീ", "iso15919": "ṅī"  }, { "malayalam": "ങെ", "iso15919": "ṅe"  },
+        { "malayalam": "ങേ", "iso15919": "ṅē"  }, { "malayalam": "ങു", "iso15919": "ṅu"  }, { "malayalam": "ങൂ", "iso15919": "ṅū"  }, { "malayalam": "ങൊ", "iso15919": "ṅo"  }, { "malayalam": "ങോ", "iso15919": "ṅō"  },
+        { "malayalam": "ഞ",  "iso15919": "ña"  }, { "malayalam": "ഞാ", "iso15919": "ñā"  }, { "malayalam": "ഞി", "iso15919": "ñi"  }, { "malayalam": "ഞീ", "iso15919": "ñī"  }, { "malayalam": "ഞെ", "iso15919": "ñe"  },
+        { "malayalam": "ഞേ", "iso15919": "ñē"  }, { "malayalam": "ഞു", "iso15919": "ñu"  }, { "malayalam": "ഞൂ", "iso15919": "ñū"  }, { "malayalam": "ഞൊ", "iso15919": "ño"  }, { "malayalam": "ഞോ", "iso15919": "ñō"  }
+      ]}
+    },
+    {
+      "id": 6,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ങ (ṅa) / ഞ (ña)",
+      "title": "Syllables Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Reduced guidance", "chars": [
+        { "malayalam": "ങ",  "iso15919": "ṅa"  }, { "malayalam": "ങാ", "iso15919": "ṅā"  }, { "malayalam": "ങി", "iso15919": "ṅi"  }, { "malayalam": "ങീ", "iso15919": "ṅī"  }, { "malayalam": "ങെ", "iso15919": "ṅe"  },
+        { "malayalam": "ങേ", "iso15919": "ṅē"  }, { "malayalam": "ങു", "iso15919": "ṅu"  }, { "malayalam": "ങൂ", "iso15919": "ṅū"  }, { "malayalam": "ങൊ", "iso15919": "ṅo"  }, { "malayalam": "ങോ", "iso15919": "ṅō"  },
+        { "malayalam": "ഞ",  "iso15919": "ña"  }, { "malayalam": "ഞാ", "iso15919": "ñā"  }, { "malayalam": "ഞി", "iso15919": "ñi"  }, { "malayalam": "ഞീ", "iso15919": "ñī"  }, { "malayalam": "ഞെ", "iso15919": "ñe"  },
+        { "malayalam": "ഞേ", "iso15919": "ñē"  }, { "malayalam": "ഞു", "iso15919": "ñu"  }, { "malayalam": "ഞൂ", "iso15919": "ñū"  }, { "malayalam": "ഞൊ", "iso15919": "ño"  }, { "malayalam": "ഞോ", "iso15919": "ñō"  }
+      ]}
+    },
+    {
+      "id": 7,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ങ (ṅa) / ഞ (ña)",
+      "title": "Syllables Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Unguided", "chars": [
+        { "malayalam": "ങ",  "iso15919": "ṅa"  }, { "malayalam": "ങാ", "iso15919": "ṅā"  }, { "malayalam": "ങി", "iso15919": "ṅi"  }, { "malayalam": "ങീ", "iso15919": "ṅī"  }, { "malayalam": "ങെ", "iso15919": "ṅe"  },
+        { "malayalam": "ങേ", "iso15919": "ṅē"  }, { "malayalam": "ങു", "iso15919": "ṅu"  }, { "malayalam": "ങൂ", "iso15919": "ṅū"  }, { "malayalam": "ങൊ", "iso15919": "ṅo"  }, { "malayalam": "ങോ", "iso15919": "ṅō"  },
+        { "malayalam": "ഞ",  "iso15919": "ña"  }, { "malayalam": "ഞാ", "iso15919": "ñā"  }, { "malayalam": "ഞി", "iso15919": "ñi"  }, { "malayalam": "ഞീ", "iso15919": "ñī"  }, { "malayalam": "ഞെ", "iso15919": "ñe"  },
+        { "malayalam": "ഞേ", "iso15919": "ñē"  }, { "malayalam": "ഞു", "iso15919": "ñu"  }, { "malayalam": "ഞൂ", "iso15919": "ñū"  }, { "malayalam": "ഞൊ", "iso15919": "ño"  }, { "malayalam": "ഞോ", "iso15919": "ñō"  }
+      ]}
+    },
+    {
+      "id": 8,
+      "category": "PRACTICE",
+      "categoryName": "Chandrakkala Review",
+      "title": "Chandrakkala Review: All Consonants with ്",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Mixed", "skipDiscrimination": true, "chandrakkalaReview": true, "chars": [
+        { "malayalam": "ക്", "iso15919": "k",  "scaffold": "Reduced guidance" }, { "malayalam": "ത്", "iso15919": "t",  "scaffold": "Reduced guidance" },
+        { "malayalam": "ങ്", "iso15919": "ṅ",  "scaffold": "Reduced guidance" }, { "malayalam": "ഞ്", "iso15919": "ñ",  "scaffold": "Reduced guidance" },
+        { "malayalam": "ന്", "iso15919": "n",  "scaffold": "Reduced guidance" }, { "malayalam": "ര്", "iso15919": "r",  "scaffold": "Reduced guidance" },
+        { "malayalam": "മ്", "iso15919": "m",  "scaffold": "Unguided" }, { "malayalam": "ട്", "iso15919": "ṭ",  "scaffold": "Unguided" },
+        { "malayalam": "ണ്", "iso15919": "ṇ",  "scaffold": "Unguided" }, { "malayalam": "ള്", "iso15919": "ḷ",  "scaffold": "Unguided" },
+        { "malayalam": "യ്", "iso15919": "y",  "scaffold": "Unguided" }, { "malayalam": "ഴ്", "iso15919": "ḻ",  "scaffold": "Unguided" }
+      ]}
+    },
+    {
+      "id": 9,
+      "category": "REVIEW",
+      "categoryName": "Chillu Review",
+      "title": "Chillu Review: All 5 Chillus",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": {
+        "scaffold": "Review",
+        "introCards": [
+          { "malayalam": "ൻ", "iso15919": "n",  "description": "Chillu from ന — final position nasal" },
+          { "malayalam": "ൺ", "iso15919": "ṇ",  "description": "Chillu from ണ — retroflex nasal" },
+          { "malayalam": "ർ", "iso15919": "r",  "description": "Chillu from ര — alveolar r" },
+          { "malayalam": "ൽ", "iso15919": "l",  "description": "Chillu from ല — alveolar l" },
+          { "malayalam": "ൾ", "iso15919": "ḷ",  "description": "Chillu from ള — retroflex l" }
+        ],
+        "chars": [
+          { "malayalam": "ൻ", "iso15919": "n"  },
+          { "malayalam": "ൺ", "iso15919": "ṇ"  },
+          { "malayalam": "ർ", "iso15919": "r"  },
+          { "malayalam": "ൽ", "iso15919": "l"  },
+          { "malayalam": "ൾ", "iso15919": "ḷ"  }
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "category": "PRACTICE",
+      "categoryName": "Reading Practice",
+      "title": "Reading Practice",
+      "type": "reading",
+      "completed": false,
+      "section": 5,
+      "content": {
+        "words": [],
+        "placeholder": true,
+        "placeholderNote": "Reading practice for Module 8 to be added with appropriate Malayalam words using ങ and ഞ."
+      }
+    },
+    {
+      "id": 11,
+      "category": "REVIEW",
+      "categoryName": "Module Review",
+      "title": "Module 8 Review",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Review",
+        "chars": [
+          { "malayalam": "ങ",  "iso15919": "ṅa"  }, { "malayalam": "ങാ", "iso15919": "ṅā"  },
+          { "malayalam": "ഞ",  "iso15919": "ña"  }, { "malayalam": "ഞാ", "iso15919": "ñā"  },
+          { "malayalam": "ൻ",  "iso15919": "n"   },
+          { "malayalam": "ൺ",  "iso15919": "ṇ"   },
+          { "malayalam": "ർ",  "iso15919": "r"   },
+          { "malayalam": "ൽ",  "iso15919": "l"   },
+          { "malayalam": "ൾ",  "iso15919": "ḷ"   }
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "category": "REVIEW",
+      "categoryName": "Cumulative Review",
+      "title": "Cumulative Review: Modules 1–8",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Cumulative",
+        "chars": [
+          { "malayalam": "അ",  "iso15919": "a"   }, { "malayalam": "ആ",  "iso15919": "ā"   },
+          { "malayalam": "ക",  "iso15919": "ka"  }, { "malayalam": "മ",  "iso15919": "ma"  },
+          { "malayalam": "എ",  "iso15919": "e"   }, { "malayalam": "ഏ",  "iso15919": "ē"   },
+          { "malayalam": "ത",  "iso15919": "ta"  }, { "malayalam": "ട",  "iso15919": "ṭa"  },
+          { "malayalam": "ന",  "iso15919": "na"  }, { "malayalam": "ണ",  "iso15919": "ṇa"  },
+          { "malayalam": "ഒ",  "iso15919": "o"   }, { "malayalam": "ഓ",  "iso15919": "ō"   },
+          { "malayalam": "പ",  "iso15919": "pa"  }, { "malayalam": "വ",  "iso15919": "va"  },
+          { "malayalam": "ഉ",  "iso15919": "u"   }, { "malayalam": "ഊ",  "iso15919": "ū"   },
+          { "malayalam": "ല",  "iso15919": "la"  }, { "malayalam": "ള",  "iso15919": "ḷa"  },
+          { "malayalam": "ഇ",  "iso15919": "i"   }, { "malayalam": "ഈ",  "iso15919": "ī"   },
+          { "malayalam": "ര",  "iso15919": "ra"  }, { "malayalam": "റ",  "iso15919": "ṟa"  },
+          { "malayalam": "യ",  "iso15919": "ya"  }, { "malayalam": "ഴ",  "iso15919": "ḻa"  },
+          { "malayalam": "ങ",  "iso15919": "ṅa"  }, { "malayalam": "ഞ",  "iso15919": "ña"  }
+        ]
+      }
+    }
+  ]
+}

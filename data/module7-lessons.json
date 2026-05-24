@@ -1,0 +1,327 @@
+{
+  "id": 7,
+  "number": 7,
+  "title": "Consonants യ (ya) and ഴ (ḻa) & Anusvara ം Introduction",
+  "description": "Two special consonants (ഴ unique to Malayalam), plus nasal word ending mark",
+  "totalLessons": 14,
+  "lessons": [
+    {
+      "id": 1,
+      "category": "INTRODUCTION",
+      "categoryName": "Consonants യ (ya) and ഴ (ḻa)",
+      "title": "Consonants യ (ya) and ഴ (ḻa) — Palatal and Retroflex Approximants",
+      "type": "introduction",
+      "completed": false,
+      "section": 1,
+      "content": {
+        "characters": [
+          { "malayalam": "യ", "iso15919": "ya", "description": "Palatal approximant. Like the 'y' in 'yes'. A soft, gliding sound with the tongue high and forward in the mouth.", "isNew": true },
+          { "malayalam": "ഴ", "iso15919": "ḻa", "description": "Retroflex approximant. Unique to Malayalam — no equivalent in English. Tongue curls back, making a soft, dark r-like sound. Extremely difficult for non-native speakers.", "isNew": true }
+        ],
+        "insight": "യ and ഴ are two approximants with very different articulations. യ is familiar (like English 'y'), but ഴ is unique to Malayalam and notoriously difficult. The difference: യ has the tongue forward (palatal), while ഴ has the tongue curled back (retroflex). Focus on audio and practice ഴ extensively.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which consonant is unique to Malayalam?",
+          "options": ["യ (ya)", "ഴ (ḻa)"],
+          "correct": 1
+        }
+      }
+    },
+    {
+      "id": 2,
+      "category": "PRACTICE",
+      "categoryName": "Consonants യ (ya) and ഴ (ḻa)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "യ", "iso15919": "ya" }, { "malayalam": "ഴ", "iso15919": "ḻa" }] }
+    },
+    {
+      "id": 3,
+      "category": "PRACTICE",
+      "categoryName": "Consonants യ (ya) and ഴ (ḻa)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "യ", "iso15919": "ya" }, { "malayalam": "ഴ", "iso15919": "ḻa" }] }
+    },
+    {
+      "id": 4,
+      "category": "PRACTICE",
+      "categoryName": "Consonants യ (ya) and ഴ (ḻa)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "യ", "iso15919": "ya" }, { "malayalam": "ഴ", "iso15919": "ḻa" }] }
+    },
+    {
+      "id": 5,
+      "category": "INTRODUCTION",
+      "categoryName": "Syllables with യ (ya) / ഴ (ḻa)",
+      "title": "Syllables: all vowels with യ and ഴ",
+      "type": "introduction",
+      "completed": false,
+      "section": 3,
+      "content": {
+        "steps": [
+          {
+            "heading": "യ with all ten vowels",
+            "characters": [
+              { "malayalam": "യ", "iso15919": "ya", "description": "യ + inherent a" },
+              { "malayalam": "യാ", "iso15919": "yā", "description": "യ + long ā" },
+              { "malayalam": "യി", "iso15919": "yi", "description": "യ + short i" },
+              { "malayalam": "യീ", "iso15919": "yī", "description": "യ + long ī" },
+              { "malayalam": "യെ", "iso15919": "ye", "description": "യ + short e" },
+              { "malayalam": "യേ", "iso15919": "yē", "description": "യ + long ē" },
+              { "malayalam": "യു", "iso15919": "yu", "description": "യ + short u" },
+              { "malayalam": "യൂ", "iso15919": "yū", "description": "യ + long ū" },
+              { "malayalam": "യൊ", "iso15919": "yo", "description": "യ + short o" },
+              { "malayalam": "യോ", "iso15919": "yō", "description": "യ + long ō" }
+            ]
+          },
+          {
+            "heading": "Now with ഴ (unique to Malayalam)",
+            "characters": [
+              { "malayalam": "ഴ", "iso15919": "ḻa", "description": "ഴ + inherent a" },
+              { "malayalam": "ഴാ", "iso15919": "ḻā", "description": "ഴ + long ā" },
+              { "malayalam": "ഴി", "iso15919": "ḻi", "description": "ഴ + short i" },
+              { "malayalam": "ഴീ", "iso15919": "ḻī", "description": "ഴ + long ī" }
+            ],
+            "embeddedTask": {
+              "label": "Quick check",
+              "prompt": "Which syllable is 'ḻī' (unique r-like sound + long ī)?",
+              "options": ["യീ", "ഴീ"],
+              "correct": 1
+            }
+          }
+        ],
+        "insight": "Syllables with യ (ya) / ഴ (ḻa) use all ten vowels. Remember: ഴ is unique to Malayalam and very difficult for learners. Take your time with its pronunciation."
+      }
+    },
+    {
+      "id": 6,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with യ (ya) / ഴ (ḻa)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Guided", "chars": [
+        { "malayalam": "യ", "iso15919": "ya" }, { "malayalam": "യാ", "iso15919": "yā" }, { "malayalam": "യി", "iso15919": "yi" }, { "malayalam": "യീ", "iso15919": "yī" },
+        { "malayalam": "യെ", "iso15919": "ye" }, { "malayalam": "യേ", "iso15919": "yē" }, { "malayalam": "യു", "iso15919": "yu" }, { "malayalam": "യൂ", "iso15919": "yū" },
+        { "malayalam": "യൊ", "iso15919": "yo" }, { "malayalam": "യോ", "iso15919": "yō" },
+        { "malayalam": "ഴ", "iso15919": "ḻa" }, { "malayalam": "ഴാ", "iso15919": "ḻā" }, { "malayalam": "ഴി", "iso15919": "ḻi" }, { "malayalam": "ഴീ", "iso15919": "ḻī" },
+        { "malayalam": "ഴെ", "iso15919": "ḻe" }, { "malayalam": "ഴേ", "iso15919": "ḻē" }, { "malayalam": "ഴു", "iso15919": "ḻu" }, { "malayalam": "ഴൂ", "iso15919": "ḻū" },
+        { "malayalam": "ഴൊ", "iso15919": "ḻo" }, { "malayalam": "ഴോ", "iso15919": "ḻō" }
+      ]}
+    },
+    {
+      "id": 7,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with യ (ya) / ഴ (ḻa)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Reduced guidance", "chars": [
+        { "malayalam": "യ", "iso15919": "ya" }, { "malayalam": "യാ", "iso15919": "yā" }, { "malayalam": "യി", "iso15919": "yi" }, { "malayalam": "യീ", "iso15919": "yī" },
+        { "malayalam": "യെ", "iso15919": "ye" }, { "malayalam": "യേ", "iso15919": "yē" }, { "malayalam": "യു", "iso15919": "yu" }, { "malayalam": "യൂ", "iso15919": "yū" },
+        { "malayalam": "യൊ", "iso15919": "yo" }, { "malayalam": "യോ", "iso15919": "yō" },
+        { "malayalam": "ഴ", "iso15919": "ḻa" }, { "malayalam": "ഴാ", "iso15919": "ḻā" }, { "malayalam": "ഴി", "iso15919": "ḻi" }, { "malayalam": "ഴീ", "iso15919": "ḻī" },
+        { "malayalam": "ഴെ", "iso15919": "ḻe" }, { "malayalam": "ഴേ", "iso15919": "ḻē" }, { "malayalam": "ഴു", "iso15919": "ḻu" }, { "malayalam": "ഴൂ", "iso15919": "ḻū" },
+        { "malayalam": "ഴൊ", "iso15919": "ḻo" }, { "malayalam": "ഴോ", "iso15919": "ḻō" }
+      ]}
+    },
+    {
+      "id": 8,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with യ (ya) / ഴ (ḻa)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Unguided", "chars": [
+        { "malayalam": "യ", "iso15919": "ya" }, { "malayalam": "യാ", "iso15919": "yā" }, { "malayalam": "യി", "iso15919": "yi" }, { "malayalam": "യീ", "iso15919": "yī" },
+        { "malayalam": "യെ", "iso15919": "ye" }, { "malayalam": "യേ", "iso15919": "yē" }, { "malayalam": "യു", "iso15919": "yu" }, { "malayalam": "യൂ", "iso15919": "yū" },
+        { "malayalam": "യൊ", "iso15919": "yo" }, { "malayalam": "യോ", "iso15919": "yō" },
+        { "malayalam": "ഴ", "iso15919": "ḻa" }, { "malayalam": "ഴാ", "iso15919": "ḻā" }, { "malayalam": "ഴി", "iso15919": "ḻi" }, { "malayalam": "ഴീ", "iso15919": "ḻī" },
+        { "malayalam": "ഴെ", "iso15919": "ḻe" }, { "malayalam": "ഴേ", "iso15919": "ḻē" }, { "malayalam": "ഴു", "iso15919": "ḻu" }, { "malayalam": "ഴൂ", "iso15919": "ḻū" },
+        { "malayalam": "ഴൊ", "iso15919": "ḻo" }, { "malayalam": "ഴോ", "iso15919": "ḻō" }
+      ]}
+    },
+    {
+      "id": 9,
+      "category": "INTRODUCTION",
+      "categoryName": "Anusvara ം (Nasal Ending)",
+      "title": "Anusvara: ം (Nasal Word Ending)",
+      "type": "introduction",
+      "completed": false,
+      "section": 5,
+      "content": {
+        "steps": [
+          {
+            "heading": "What is the anusvara?",
+            "characters": [
+              { "malayalam": "ം", "iso15919": "m", "description": "Anusvara: nasal mark that nasalises the preceding vowel and appears at word endings.", "isNew": true }
+            ],
+            "embeddedTask": {
+              "label": "Quick check",
+              "prompt": "Where does anusvara (ം) typically appear?",
+              "options": ["At the start of words", "At the end of words"],
+              "correct": 1
+            }
+          },
+          {
+            "heading": "Anusvara nasalises the vowel",
+            "matchingExercise": [
+              { "left": "നാ (nā)", "right": "നാം (nām)", "desc": "Adding anusvara nasalises the 'ā'" },
+              { "left": "കെ (ke)", "right": "കെം (kem)", "desc": "Adding anusvara nasalises the 'e'" },
+              { "left": "പു (pu)", "right": "പും (pum)", "desc": "Adding anusvara nasalises the 'u'" }
+            ]
+          }
+        ],
+        "insight": "Anusvara (ം) is the nasal ending mark. When added to a vowel, it nasalises that vowel and marks the word as ending with a nasal sound. It's common in words borrowed from Sanskrit or used for grammatical endings."
+      }
+    },
+    {
+      "id": 10,
+      "category": "PRACTICE",
+      "categoryName": "Anusvara ം with Vowels",
+      "title": "Practice 1: Vowels + Anusvara",
+      "type": "practice",
+      "completed": false,
+      "section": 5,
+      "content": {
+        "scaffold": "Mixed",
+        "skipDiscrimination": true,
+        "chars": [
+          { "malayalam": "അം", "iso15919": "am", "scaffold": "Guided" }, { "malayalam": "ആം", "iso15919": "ām", "scaffold": "Guided" }, { "malayalam": "ഇം", "iso15919": "im", "scaffold": "Guided" }, { "malayalam": "ഈം", "iso15919": "īm", "scaffold": "Guided" },
+          { "malayalam": "ഉം", "iso15919": "um", "scaffold": "Guided" }, { "malayalam": "ഊം", "iso15919": "ūm", "scaffold": "Guided" },
+          { "malayalam": "എം", "iso15919": "em", "scaffold": "Reduced guidance" }, { "malayalam": "ഏം", "iso15919": "ēm", "scaffold": "Reduced guidance" }, { "malayalam": "ഒം", "iso15919": "om", "scaffold": "Reduced guidance" }, { "malayalam": "ഓം", "iso15919": "ōm", "scaffold": "Reduced guidance" },
+          { "malayalam": "കം", "iso15919": "kam", "scaffold": "Reduced guidance" }, { "malayalam": "മം", "iso15919": "mam", "scaffold": "Reduced guidance" }
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "category": "PRACTICE",
+      "categoryName": "Anusvara ം with Syllables",
+      "title": "Practice 2: Syllables + Anusvara",
+      "type": "practice",
+      "completed": false,
+      "section": 5,
+      "content": {
+        "scaffold": "Mixed",
+        "skipDiscrimination": true,
+        "chars": [
+          { "malayalam": "കാം", "iso15919": "kām", "scaffold": "Reduced guidance" }, { "malayalam": "കെം", "iso15919": "kem", "scaffold": "Reduced guidance" }, { "malayalam": "കിം", "iso15919": "kim", "scaffold": "Reduced guidance" }, { "malayalam": "മോം", "iso15919": "mōm", "scaffold": "Reduced guidance" },
+          { "malayalam": "നും", "iso15919": "num", "scaffold": "Reduced guidance" }, { "malayalam": "താം", "iso15919": "tām", "scaffold": "Reduced guidance" },
+          { "malayalam": "പീം", "iso15919": "pīm", "scaffold": "Unguided" }, { "malayalam": "ടെം", "iso15919": "ṭem", "scaffold": "Unguided" }, { "malayalam": "നീം", "iso15919": "nīm", "scaffold": "Unguided" }, { "malayalam": "റോം", "iso15919": "ṟōm", "scaffold": "Unguided" },
+          { "malayalam": "ലെം", "iso15919": "lem", "scaffold": "Unguided" }, { "malayalam": "വിം", "iso15919": "vim", "scaffold": "Unguided" }
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "category": "PRACTICE",
+      "categoryName": "Reading Practice",
+      "title": "Reading Practice",
+      "type": "reading",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "words": [],
+        "placeholder": true,
+        "placeholderNote": "Reading practice for Module 7 to be added with appropriate Malayalam words."
+      }
+    },
+    {
+      "id": 13,
+      "category": "REVIEW",
+      "categoryName": "Module Review",
+      "title": "Module 7 Review",
+      "type": "practice",
+      "completed": false,
+      "section": 7,
+      "content": {
+        "scaffold": "Review",
+        "chars": [
+          { "malayalam": "യ",  "iso15919": "ya"  }, { "malayalam": "യാ", "iso15919": "yā"  },
+          { "malayalam": "ഴ",  "iso15919": "ḻa"  }, { "malayalam": "ഴാ", "iso15919": "ḻā"  },
+          { "malayalam": "ം",  "iso15919": "m"   }
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "category": "REVIEW",
+      "categoryName": "Cumulative Review",
+      "title": "Cumulative Review: Modules 1–7",
+      "type": "practice",
+      "completed": false,
+      "section": 7,
+      "content": {
+        "scaffold": "Cumulative",
+        "chars": [
+          { "malayalam": "അ",  "iso15919": "a"   }, { "malayalam": "ആ",  "iso15919": "ā"   },
+          { "malayalam": "ക",  "iso15919": "ka"  }, { "malayalam": "മ",  "iso15919": "ma"  },
+          { "malayalam": "കാ", "iso15919": "kā"  }, { "malayalam": "മാ", "iso15919": "mā"  },
+          { "malayalam": "എ",  "iso15919": "e"   }, { "malayalam": "ഏ",  "iso15919": "ē"   },
+          { "malayalam": "ത",  "iso15919": "ta"  }, { "malayalam": "ട",  "iso15919": "ṭa"  },
+          { "malayalam": "തെ", "iso15919": "te"  }, { "malayalam": "തേ", "iso15919": "tē"  },
+          { "malayalam": "ടെ", "iso15919": "ṭe"  }, { "malayalam": "ടേ", "iso15919": "ṭē"  },
+          { "malayalam": "കെ", "iso15919": "ke"  }, { "malayalam": "കേ", "iso15919": "kē"  },
+          { "malayalam": "മെ", "iso15919": "me"  }, { "malayalam": "മേ", "iso15919": "mē"  },
+          { "malayalam": "താ", "iso15919": "tā"  }, { "malayalam": "ടാ", "iso15919": "ṭā"  },
+          { "malayalam": "ന",  "iso15919": "na"  }, { "malayalam": "ണ",  "iso15919": "ṇa"  },
+          { "malayalam": "നാ", "iso15919": "nā"  }, { "malayalam": "ണാ", "iso15919": "ṇā"  },
+          { "malayalam": "നെ", "iso15919": "ne"  }, { "malayalam": "ണെ", "iso15919": "ṇe"  },
+          { "malayalam": "നേ", "iso15919": "nē"  }, { "malayalam": "ണേ", "iso15919": "ṇē"  },
+          { "malayalam": "ൻ",  "iso15919": "n"   }, { "malayalam": "ൺ",  "iso15919": "ṇ"   },
+          { "malayalam": "ഒ",  "iso15919": "o"   }, { "malayalam": "ഓ",  "iso15919": "ō"   },
+          { "malayalam": "പ",  "iso15919": "pa"  }, { "malayalam": "വ",  "iso15919": "va"  },
+          { "malayalam": "പൊ", "iso15919": "po"  }, { "malayalam": "പോ", "iso15919": "pō"  },
+          { "malayalam": "വൊ", "iso15919": "vo"  }, { "malayalam": "വോ", "iso15919": "vō"  },
+          { "malayalam": "കൊ", "iso15919": "ko"  }, { "malayalam": "കോ", "iso15919": "kō"  },
+          { "malayalam": "മൊ", "iso15919": "mo"  }, { "malayalam": "മോ", "iso15919": "mō"  },
+          { "malayalam": "തൊ", "iso15919": "to"  }, { "malayalam": "തോ", "iso15919": "tō"  },
+          { "malayalam": "ടൊ", "iso15919": "ṭo"  }, { "malayalam": "ടോ", "iso15919": "ṭō"  },
+          { "malayalam": "നൊ", "iso15919": "no"  }, { "malayalam": "നോ", "iso15919": "nō"  },
+          { "malayalam": "ണൊ", "iso15919": "ṇo"  }, { "malayalam": "ണോ", "iso15919": "ṇō"  },
+          { "malayalam": "ഉ",  "iso15919": "u"   }, { "malayalam": "ഊ",  "iso15919": "ū"   },
+          { "malayalam": "ല",  "iso15919": "la"  }, { "malayalam": "ള",  "iso15919": "ḷa"  },
+          { "malayalam": "ലു", "iso15919": "lu"  }, { "malayalam": "ലൂ", "iso15919": "lū"  },
+          { "malayalam": "ളു", "iso15919": "ḷu"  }, { "malayalam": "ളൂ", "iso15919": "ḷū"  },
+          { "malayalam": "ൽ",  "iso15919": "l"   }, { "malayalam": "ൾ",  "iso15919": "ḷ"   },
+          { "malayalam": "കു", "iso15919": "ku"  }, { "malayalam": "കൂ", "iso15919": "kū"  },
+          { "malayalam": "മു", "iso15919": "mu"  }, { "malayalam": "മൂ", "iso15919": "mū"  },
+          { "malayalam": "തു", "iso15919": "tu"  }, { "malayalam": "തൂ", "iso15919": "tū"  },
+          { "malayalam": "ടു", "iso15919": "ṭu"  }, { "malayalam": "ടൂ", "iso15919": "ṭū"  },
+          { "malayalam": "നു", "iso15919": "nu"  }, { "malayalam": "നൂ", "iso15919": "nū"  },
+          { "malayalam": "ണു", "iso15919": "ṇu"  }, { "malayalam": "ണൂ", "iso15919": "ṇū"  },
+          { "malayalam": "ഇ",  "iso15919": "i"   }, { "malayalam": "ഈ",  "iso15919": "ī"   },
+          { "malayalam": "ര",  "iso15919": "ra"  }, { "malayalam": "റ",  "iso15919": "ṟa"  },
+          { "malayalam": "രി", "iso15919": "ri"  }, { "malayalam": "രീ", "iso15919": "rī"  },
+          { "malayalam": "റി", "iso15919": "ṟi"  }, { "malayalam": "റീ", "iso15919": "ṟī"  },
+          { "malayalam": "ർ",  "iso15919": "r"   },
+          { "malayalam": "കി", "iso15919": "ki"  }, { "malayalam": "കീ", "iso15919": "kī"  },
+          { "malayalam": "മി", "iso15919": "mi"  }, { "malayalam": "മീ", "iso15919": "mī"  },
+          { "malayalam": "തി", "iso15919": "ti"  }, { "malayalam": "തീ", "iso15919": "tī"  },
+          { "malayalam": "ടി", "iso15919": "ṭi"  }, { "malayalam": "ടീ", "iso15919": "ṭī"  },
+          { "malayalam": "നി", "iso15919": "ni"  }, { "malayalam": "നീ", "iso15919": "nī"  },
+          { "malayalam": "ണി", "iso15919": "ṇi"  }, { "malayalam": "ണീ", "iso15919": "ṇī"  },
+          { "malayalam": "പി", "iso15919": "pi"  }, { "malayalam": "പീ", "iso15919": "pī"  },
+          { "malayalam": "വി", "iso15919": "vi"  }, { "malayalam": "വീ", "iso15919": "vī"  },
+          { "malayalam": "ലി", "iso15919": "li"  }, { "malayalam": "ലീ", "iso15919": "lī"  },
+          { "malayalam": "ളി", "iso15919": "ḷi"  }, { "malayalam": "ളീ", "iso15919": "ḷī"  },
+          { "malayalam": "യ",  "iso15919": "ya"  }, { "malayalam": "യാ", "iso15919": "yā"  },
+          { "malayalam": "ഴ",  "iso15919": "ḻa"  }, { "malayalam": "ഴാ", "iso15919": "ḻā"  },
+          { "malayalam": "ം",  "iso15919": "m"   }
+        ]
+      }
+    }
+  ]
+}

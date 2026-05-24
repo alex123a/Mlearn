@@ -1,0 +1,340 @@
+{
+  "id": 5,
+  "number": 5,
+  "title": "Vowels ഉ (u) and ഊ (ū) & Consonants ല (la) and ള (ḷa)",
+  "description": "Fourth vowel pair, lateral consonants, and chillu variants ൽ / ൾ",
+  "totalLessons": 18,
+  "lessons": [
+    {
+      "id": 1,
+      "category": "INTRODUCTION",
+      "categoryName": "Vowels ഉ (u) / ഊ (ū)",
+      "title": "Vowels ഉ (u) / ഊ (ū)",
+      "type": "introduction",
+      "completed": false,
+      "section": 1,
+      "content": {
+        "characters": [
+          { "malayalam": "ഉ", "iso15919": "u", "description": "Short 'u'. Like 'u' in 'put'.", "isNew": true },
+          { "malayalam": "ഊ", "iso15919": "ū", "description": "Long 'ū'. Same vowel, held twice as long.", "isNew": true }
+        ],
+        "insight": "You now know four vowel pairs: a/ā, e/ē, o/ō, u/ū. The u and ū diacritics (seen in ലു, ലൂ) attach below-right of the consonant, similar to ā but lower.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which one sounds longer?",
+          "options": ["ഉ  (u)", "ഊ  (ū)"],
+          "correct": 1
+        }
+      }
+    },
+    {
+      "id": 2,
+      "category": "PRACTICE",
+      "categoryName": "Vowels ഉ (u) / ഊ (ū)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "ഉ", "iso15919": "u" }, { "malayalam": "ഊ", "iso15919": "ū" }] }
+    },
+    {
+      "id": 3,
+      "category": "PRACTICE",
+      "categoryName": "Vowels ഉ (u) / ഊ (ū)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "ഉ", "iso15919": "u" }, { "malayalam": "ഊ", "iso15919": "ū" }] }
+    },
+    {
+      "id": 4,
+      "category": "PRACTICE",
+      "categoryName": "Vowels ഉ (u) / ഊ (ū)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "ഉ", "iso15919": "u" }, { "malayalam": "ഊ", "iso15919": "ū" }] }
+    },
+    {
+      "id": 5,
+      "category": "INTRODUCTION",
+      "categoryName": "Consonants ല (la) / ള (ḷa)",
+      "title": "Consonants ല (la) / ള (ḷa)",
+      "type": "introduction",
+      "completed": false,
+      "section": 3,
+      "content": {
+        "characters": [
+          { "malayalam": "ല", "iso15919": "la", "description": "Alveolar lateral. Tongue tip on the ridge behind upper teeth, like 'l' in 'leaf'.", "isNew": true },
+          { "malayalam": "ള", "iso15919": "ḷa", "description": "Retroflex lateral. Tongue curls back, then makes contact: a deeper, darker 'l'.", "isNew": true }
+        ],
+        "insight": "ല and ള are both 'l' sounds: one dental, one retroflex. They follow the same dental/retroflex contrast as ത/ട and ന/ണ.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which is the retroflex lateral (tongue curls back)?",
+          "options": ["ല  (la)", "ള  (ḷa)"],
+          "correct": 1
+        }
+      }
+    },
+    {
+      "id": 6,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ല (la) / ള (ḷa)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "ല", "iso15919": "la" }, { "malayalam": "ള", "iso15919": "ḷa" }] }
+    },
+    {
+      "id": 7,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ല (la) / ള (ḷa)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "ല", "iso15919": "la" }, { "malayalam": "ള", "iso15919": "ḷa" }] }
+    },
+    {
+      "id": 8,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ല (la) / ള (ḷa)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "ല", "iso15919": "la" }, { "malayalam": "ള", "iso15919": "ḷa" }] }
+    },
+    {
+      "id": 9,
+      "category": "INTRODUCTION",
+      "categoryName": "Syllables with ല (la) / ള (ḷa)",
+      "title": "Syllables: u and ū with ല and ള",
+      "type": "introduction",
+      "completed": false,
+      "section": 5,
+      "content": {
+        "steps": [
+          {
+            "heading": "ല + u-vowels",
+            "characters": [
+              { "malayalam": "ലു", "iso15919": "lu", "description": "Alveolar l + short u. The u-diacritic sits below-right." },
+              { "malayalam": "ലൂ", "iso15919": "lū", "description": "Alveolar l + long ū. Longer form of the same sign." }
+            ]
+          },
+          {
+            "heading": "Now with ള (retroflex)",
+            "characters": [
+              { "malayalam": "ളു", "iso15919": "ḷu", "description": "Retroflex ḷ + short u." },
+              { "malayalam": "ളൂ", "iso15919": "ḷū", "description": "Retroflex ḷ + long ū." }
+            ],
+            "embeddedTask": {
+              "label": "Quick check",
+              "prompt": "Which is 'ḷū' (retroflex lateral + long ū)?",
+              "options": ["ലൂ", "ളൂ"],
+              "correct": 1
+            }
+          },
+          {
+            "heading": "Match independent vowels to their signs",
+            "matchingExercise": [
+              { "left": "ഉ",  "right": "ലു", "desc": "Short 'u' sound" },
+              { "left": "ഊ",  "right": "ലൂ", "desc": "Long 'ū' sound" }
+            ]
+          }
+        ],
+        "insight": "The u and ū diacritics attach below-right of the consonant. You now know diacritics that go left (e/ē), right (ā), both sides (o/ō), and below-right (u/ū)."
+      }
+    },
+    {
+      "id": 10,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ല (la) / ള (ḷa)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "ലു", "iso15919": "lu" }, { "malayalam": "ലൂ", "iso15919": "lū" }, { "malayalam": "ളു", "iso15919": "ḷu" }, { "malayalam": "ളൂ", "iso15919": "ḷū" }] }
+    },
+    {
+      "id": 11,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ല (la) / ള (ḷa)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "ലു", "iso15919": "lu" }, { "malayalam": "ലൂ", "iso15919": "lū" }, { "malayalam": "ളു", "iso15919": "ḷu" }, { "malayalam": "ളൂ", "iso15919": "ḷū" }] }
+    },
+    {
+      "id": 12,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ല (la) / ള (ḷa)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "ലു", "iso15919": "lu" }, { "malayalam": "ലൂ", "iso15919": "lū" }, { "malayalam": "ളു", "iso15919": "ḷu" }, { "malayalam": "ളൂ", "iso15919": "ḷū" }] }
+    },
+    {
+      "id": 13,
+      "category": "INTRODUCTION",
+      "categoryName": "Chillus ൽ (l) / ൾ (ḷ)",
+      "title": "Chillus: ൽ and ൾ",
+      "type": "introduction",
+      "completed": false,
+      "section": 7,
+      "content": {
+        "steps": [
+          {
+            "heading": "What are chillus?",
+            "characters": [
+              { "malayalam": "ൽ", "iso15919": "l", "description": "Chillu L: alveolar lateral with no vowel. Used at the end of words.", "isNew": true },
+              { "malayalam": "ൾ", "iso15919": "ḷ", "description": "Chillu Ḷ: retroflex lateral with no vowel. Used at the end of words.", "isNew": true }
+            ],
+            "embeddedTask": {
+              "label": "Quick check",
+              "prompt": "Which chillu comes from the retroflex lateral ള?",
+              "options": ["ൽ  (l)", "ൾ  (ḷ)"],
+              "correct": 1
+            }
+          },
+          {
+            "heading": "Match syllables to their chillus",
+            "matchingExercise": [
+              { "left": "ല",  "right": "ൽ",  "desc": "Alveolar lateral" },
+              { "left": "ള",  "right": "ൾ",  "desc": "Retroflex lateral" }
+            ]
+          }
+        ],
+        "insight": "Like ൻ/ൺ from Module 3, these chillus are vowel-free forms of ല/ള. They appear only at the end of words, never at the start or middle."
+      }
+    },
+    {
+      "id": 14,
+      "category": "PRACTICE",
+      "categoryName": "Chillus ൽ (l) / ൾ (ḷ)",
+      "title": "Practice 1 - Reduced",
+      "type": "practice",
+      "completed": false,
+      "section": 7,
+      "content": {
+        "scaffold": "Reduced guidance",
+        "skipDiscrimination": true,
+        "chars": [
+          { "malayalam": "ല", "iso15919": "la" }, { "malayalam": "ൽ", "iso15919": "l" },
+          { "malayalam": "ള", "iso15919": "ḷa" }, { "malayalam": "ൾ", "iso15919": "ḷ" }
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "category": "PRACTICE",
+      "categoryName": "Chillus ൽ (l) / ൾ (ḷ)",
+      "title": "Practice 2 - Unguided",
+      "type": "practice",
+      "completed": false,
+      "section": 7,
+      "content": {
+        "scaffold": "Unguided",
+        "skipDiscrimination": true,
+        "chars": [
+          { "malayalam": "ല", "iso15919": "la" }, { "malayalam": "ൽ", "iso15919": "l" },
+          { "malayalam": "ള", "iso15919": "ḷa" }, { "malayalam": "ൾ", "iso15919": "ḷ" }
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "category": "PRACTICE",
+      "categoryName": "Reading Practice",
+      "title": "Reading Practice",
+      "type": "reading",
+      "completed": false,
+      "section": 8,
+      "content": {
+        "words": [
+          { "malayalam": "കല",   "iso": "kala",   "meaning": "art · vessel",           "unknown": null },
+          { "malayalam": "ഉള",   "iso": "uḷa",    "meaning": "inner · inside",          "unknown": null },
+          { "malayalam": "കളം",  "iso": "kaḷam",  "meaning": "field · courtyard",      "unknown": "ം: nasal suffix (coming soon)" },
+          { "malayalam": "ലോകം", "iso": "lōkam",  "meaning": "world",                   "unknown": "ം: nasal suffix (coming soon)" },
+          { "malayalam": "കുലം", "iso": "kulam",  "meaning": "clan · family lineage",   "unknown": "ം: nasal suffix (coming soon)" },
+          { "malayalam": "തളം",  "iso": "taḷam",  "meaning": "tray · flat vessel",      "unknown": "ം: nasal suffix (coming soon)" }
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "category": "REVIEW",
+      "categoryName": "Module Review",
+      "title": "Module 5 Review",
+      "type": "practice",
+      "completed": false,
+      "section": 9,
+      "content": {
+        "scaffold": "Review",
+        "chars": [
+          { "malayalam": "ഉ",  "iso15919": "u"   }, { "malayalam": "ഊ",  "iso15919": "ū"   },
+          { "malayalam": "ല",  "iso15919": "la"  }, { "malayalam": "ള",  "iso15919": "ḷa"  },
+          { "malayalam": "ലു", "iso15919": "lu"  }, { "malayalam": "ലൂ", "iso15919": "lū"  },
+          { "malayalam": "ളു", "iso15919": "ḷu"  }, { "malayalam": "ളൂ", "iso15919": "ḷū"  },
+          { "malayalam": "ൽ",  "iso15919": "l"   }, { "malayalam": "ൾ",  "iso15919": "ḷ"   }
+        ]
+      }
+    },
+    {
+      "id": 18,
+      "category": "REVIEW",
+      "categoryName": "Cumulative Review",
+      "title": "Cumulative Review: Modules 1–5",
+      "type": "practice",
+      "completed": false,
+      "section": 9,
+      "content": {
+        "scaffold": "Cumulative",
+        "chars": [
+          { "malayalam": "അ",  "iso15919": "a"   }, { "malayalam": "ആ",  "iso15919": "ā"   },
+          { "malayalam": "ക",  "iso15919": "ka"  }, { "malayalam": "മ",  "iso15919": "ma"  },
+          { "malayalam": "കാ", "iso15919": "kā"  }, { "malayalam": "മാ", "iso15919": "mā"  },
+          { "malayalam": "എ",  "iso15919": "e"   }, { "malayalam": "ഏ",  "iso15919": "ē"   },
+          { "malayalam": "ത",  "iso15919": "ta"  }, { "malayalam": "ട",  "iso15919": "ṭa"  },
+          { "malayalam": "തെ", "iso15919": "te"  }, { "malayalam": "തേ", "iso15919": "tē"  },
+          { "malayalam": "ടെ", "iso15919": "ṭe"  }, { "malayalam": "ടേ", "iso15919": "ṭē"  },
+          { "malayalam": "കെ", "iso15919": "ke"  }, { "malayalam": "കേ", "iso15919": "kē"  },
+          { "malayalam": "മെ", "iso15919": "me"  }, { "malayalam": "മേ", "iso15919": "mē"  },
+          { "malayalam": "താ", "iso15919": "tā"  }, { "malayalam": "ടാ", "iso15919": "ṭā"  },
+          { "malayalam": "ന",  "iso15919": "na"  }, { "malayalam": "ണ",  "iso15919": "ṇa"  },
+          { "malayalam": "നാ", "iso15919": "nā"  }, { "malayalam": "ണാ", "iso15919": "ṇā"  },
+          { "malayalam": "നെ", "iso15919": "ne"  }, { "malayalam": "ണെ", "iso15919": "ṇe"  },
+          { "malayalam": "നേ", "iso15919": "nē"  }, { "malayalam": "ണേ", "iso15919": "ṇē"  },
+          { "malayalam": "ൻ",  "iso15919": "n"   }, { "malayalam": "ൺ",  "iso15919": "ṇ"   },
+          { "malayalam": "ഒ",  "iso15919": "o"   }, { "malayalam": "ഓ",  "iso15919": "ō"   },
+          { "malayalam": "പ",  "iso15919": "pa"  }, { "malayalam": "വ",  "iso15919": "va"  },
+          { "malayalam": "പൊ", "iso15919": "po"  }, { "malayalam": "പോ", "iso15919": "pō"  },
+          { "malayalam": "വൊ", "iso15919": "vo"  }, { "malayalam": "വോ", "iso15919": "vō"  },
+          { "malayalam": "കൊ", "iso15919": "ko"  }, { "malayalam": "കോ", "iso15919": "kō"  },
+          { "malayalam": "മൊ", "iso15919": "mo"  }, { "malayalam": "മോ", "iso15919": "mō"  },
+          { "malayalam": "തൊ", "iso15919": "to"  }, { "malayalam": "തോ", "iso15919": "tō"  },
+          { "malayalam": "ടൊ", "iso15919": "ṭo"  }, { "malayalam": "ടോ", "iso15919": "ṭō"  },
+          { "malayalam": "നൊ", "iso15919": "no"  }, { "malayalam": "നോ", "iso15919": "nō"  },
+          { "malayalam": "ണൊ", "iso15919": "ṇo"  }, { "malayalam": "ണോ", "iso15919": "ṇō"  },
+          { "malayalam": "ഉ",  "iso15919": "u"   }, { "malayalam": "ഊ",  "iso15919": "ū"   },
+          { "malayalam": "ല",  "iso15919": "la"  }, { "malayalam": "ള",  "iso15919": "ḷa"  },
+          { "malayalam": "ലു", "iso15919": "lu"  }, { "malayalam": "ലൂ", "iso15919": "lū"  },
+          { "malayalam": "ളു", "iso15919": "ḷu"  }, { "malayalam": "ളൂ", "iso15919": "ḷū"  },
+          { "malayalam": "ൽ",  "iso15919": "l"   }, { "malayalam": "ൾ",  "iso15919": "ḷ"   },
+          { "malayalam": "കു", "iso15919": "ku"  }, { "malayalam": "കൂ", "iso15919": "kū"  },
+          { "malayalam": "മു", "iso15919": "mu"  }, { "malayalam": "മൂ", "iso15919": "mū"  },
+          { "malayalam": "തു", "iso15919": "tu"  }, { "malayalam": "തൂ", "iso15919": "tū"  },
+          { "malayalam": "ടു", "iso15919": "ṭu"  }, { "malayalam": "ടൂ", "iso15919": "ṭū"  },
+          { "malayalam": "നു", "iso15919": "nu"  }, { "malayalam": "നൂ", "iso15919": "nū"  },
+          { "malayalam": "ണു", "iso15919": "ṇu"  }, { "malayalam": "ണൂ", "iso15919": "ṇū"  }
+        ]
+      }
+    }
+  ]
+}

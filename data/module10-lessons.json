@@ -1,0 +1,221 @@
+{
+  "id": 10,
+  "number": 10,
+  "title": "Consonants ദ (da) and ഗ (ga) — and Consonant Clusters",
+  "description": "Voiced dental stop, voiced velar stop, and three key consonant clusters: ണ്ട, ങ്ങ, ക്ഷ",
+  "totalLessons": 13,
+  "lessons": [
+    {
+      "id": 1,
+      "category": "INTRODUCTION",
+      "categoryName": "Consonants ദ (da) and ഗ (ga)",
+      "title": "Consonants ദ (da) and ഗ (ga)",
+      "type": "introduction",
+      "completed": false,
+      "section": 1,
+      "content": {
+        "characters": [
+          { "malayalam": "ദ", "iso15919": "da", "description": "Voiced dental stop. Like 'd' in 'door' — tongue touches the upper teeth.", "isNew": true },
+          { "malayalam": "ഗ", "iso15919": "ga", "description": "Voiced velar stop. Like 'g' in 'go' — back of tongue meets the soft palate.", "isNew": true }
+        ],
+        "insight": "ദ is the voiced counterpart of ത — same dental position, but voice added. ഗ is the voiced counterpart of ക — same velar position, but voiced. Voicing pairs are a key pattern in the Malayalam consonant system.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which consonant is the voiced pair of ക?",
+          "options": ["ദ (da)", "ഗ (ga)"],
+          "correct": 1
+        }
+      }
+    },
+    {
+      "id": 2,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ദ (da) and ഗ (ga)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Guided", "chars": [{ "malayalam": "ദ", "iso15919": "da" }, { "malayalam": "ഗ", "iso15919": "ga" }] }
+    },
+    {
+      "id": 3,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ദ (da) and ഗ (ga)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Reduced guidance", "chars": [{ "malayalam": "ദ", "iso15919": "da" }, { "malayalam": "ഗ", "iso15919": "ga" }] }
+    },
+    {
+      "id": 4,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ദ (da) and ഗ (ga)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
+      "content": { "scaffold": "Unguided", "chars": [{ "malayalam": "ദ", "iso15919": "da" }, { "malayalam": "ഗ", "iso15919": "ga" }] }
+    },
+    {
+      "id": 5,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ദ (da) / ഗ (ga)",
+      "title": "Syllables Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Guided", "chars": [
+        { "malayalam": "ദ",  "iso15919": "da"  }, { "malayalam": "ദാ", "iso15919": "dā"  }, { "malayalam": "ദി", "iso15919": "di"  }, { "malayalam": "ദീ", "iso15919": "dī"  }, { "malayalam": "ദെ", "iso15919": "de"  },
+        { "malayalam": "ദേ", "iso15919": "dē"  }, { "malayalam": "ദു", "iso15919": "du"  }, { "malayalam": "ദൂ", "iso15919": "dū"  }, { "malayalam": "ദൊ", "iso15919": "do"  }, { "malayalam": "ദോ", "iso15919": "dō"  },
+        { "malayalam": "ഗ",  "iso15919": "ga"  }, { "malayalam": "ഗാ", "iso15919": "gā"  }, { "malayalam": "ഗി", "iso15919": "gi"  }, { "malayalam": "ഗീ", "iso15919": "gī"  }, { "malayalam": "ഗെ", "iso15919": "ge"  },
+        { "malayalam": "ഗേ", "iso15919": "gē"  }, { "malayalam": "ഗു", "iso15919": "gu"  }, { "malayalam": "ഗൂ", "iso15919": "gū"  }, { "malayalam": "ഗൊ", "iso15919": "go"  }, { "malayalam": "ഗോ", "iso15919": "gō"  }
+      ]}
+    },
+    {
+      "id": 6,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ദ (da) / ഗ (ga)",
+      "title": "Syllables Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Reduced guidance", "chars": [
+        { "malayalam": "ദ",  "iso15919": "da"  }, { "malayalam": "ദാ", "iso15919": "dā"  }, { "malayalam": "ദി", "iso15919": "di"  }, { "malayalam": "ദീ", "iso15919": "dī"  }, { "malayalam": "ദെ", "iso15919": "de"  },
+        { "malayalam": "ദേ", "iso15919": "dē"  }, { "malayalam": "ദു", "iso15919": "du"  }, { "malayalam": "ദൂ", "iso15919": "dū"  }, { "malayalam": "ദൊ", "iso15919": "do"  }, { "malayalam": "ദോ", "iso15919": "dō"  },
+        { "malayalam": "ഗ",  "iso15919": "ga"  }, { "malayalam": "ഗാ", "iso15919": "gā"  }, { "malayalam": "ഗി", "iso15919": "gi"  }, { "malayalam": "ഗീ", "iso15919": "gī"  }, { "malayalam": "ഗെ", "iso15919": "ge"  },
+        { "malayalam": "ഗേ", "iso15919": "gē"  }, { "malayalam": "ഗു", "iso15919": "gu"  }, { "malayalam": "ഗൂ", "iso15919": "gū"  }, { "malayalam": "ഗൊ", "iso15919": "go"  }, { "malayalam": "ഗോ", "iso15919": "gō"  }
+      ]}
+    },
+    {
+      "id": 7,
+      "category": "PRACTICE",
+      "categoryName": "Syllables with ദ (da) / ഗ (ga)",
+      "title": "Syllables Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 3,
+      "content": { "scaffold": "Unguided", "chars": [
+        { "malayalam": "ദ",  "iso15919": "da"  }, { "malayalam": "ദാ", "iso15919": "dā"  }, { "malayalam": "ദി", "iso15919": "di"  }, { "malayalam": "ദീ", "iso15919": "dī"  }, { "malayalam": "ദെ", "iso15919": "de"  },
+        { "malayalam": "ദേ", "iso15919": "dē"  }, { "malayalam": "ദു", "iso15919": "du"  }, { "malayalam": "ദൂ", "iso15919": "dū"  }, { "malayalam": "ദൊ", "iso15919": "do"  }, { "malayalam": "ദോ", "iso15919": "dō"  },
+        { "malayalam": "ഗ",  "iso15919": "ga"  }, { "malayalam": "ഗാ", "iso15919": "gā"  }, { "malayalam": "ഗി", "iso15919": "gi"  }, { "malayalam": "ഗീ", "iso15919": "gī"  }, { "malayalam": "ഗെ", "iso15919": "ge"  },
+        { "malayalam": "ഗേ", "iso15919": "gē"  }, { "malayalam": "ഗു", "iso15919": "gu"  }, { "malayalam": "ഗൂ", "iso15919": "gū"  }, { "malayalam": "ഗൊ", "iso15919": "go"  }, { "malayalam": "ഗോ", "iso15919": "gō"  }
+      ]}
+    },
+    {
+      "id": 8,
+      "category": "INTRODUCTION",
+      "categoryName": "Consonant Clusters ണ്ട / ങ്ങ / ക്ഷ",
+      "title": "Consonant Clusters: ണ്ട, ങ്ങ, ക്ഷ",
+      "type": "introduction",
+      "completed": false,
+      "section": 4,
+      "content": {
+        "steps": [
+          {
+            "heading": "How clusters form: virama joins two consonants",
+            "characters": [
+              { "malayalam": "ണ്ട", "iso15919": "ṇṭa", "description": "ണ + ് + ട — retroflex n joins retroflex t. Very common in Malayalam." },
+              { "malayalam": "ങ്ങ", "iso15919": "ṅṅa", "description": "ങ + ് + ങ — the velar nasal doubled. Common double nasal." },
+              { "malayalam": "ക്ഷ", "iso15919": "kṣa", "description": "ക + ് + ഷ — k joins retroflex sh. Common in Sanskrit loanwords." }
+            ],
+            "matchingExercise": [
+              { "left": "ണ + ട", "right": "ണ്ട  (ṇṭa)", "desc": "retroflex n + retroflex t" },
+              { "left": "ങ + ങ", "right": "ങ്ങ  (ṅṅa)", "desc": "velar nasal doubled" },
+              { "left": "ക + ഷ", "right": "ക്ഷ  (kṣa)", "desc": "k + retroflex sh" }
+            ]
+          }
+        ],
+        "insight": "Consonant clusters are formed when one consonant loses its vowel (via virama) and joins the next. The result is written as a single combined shape. ണ്ട and ക്ഷ are among the most common clusters in everyday Malayalam."
+      }
+    },
+    {
+      "id": 9,
+      "category": "PRACTICE",
+      "categoryName": "Consonant Clusters ണ്ട / ങ്ങ / ക്ഷ",
+      "title": "Cluster Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Reduced guidance", "skipDiscrimination": true, "chars": [
+        { "malayalam": "ണ്ട", "iso15919": "ṇṭa" }, { "malayalam": "ങ്ങ", "iso15919": "ṅṅa" }, { "malayalam": "ക്ഷ", "iso15919": "kṣa" }
+      ]}
+    },
+    {
+      "id": 10,
+      "category": "PRACTICE",
+      "categoryName": "Consonant Clusters ണ്ട / ങ്ങ / ക്ഷ",
+      "title": "Cluster Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
+      "content": { "scaffold": "Unguided", "skipDiscrimination": true, "chars": [
+        { "malayalam": "ണ്ട", "iso15919": "ṇṭa" }, { "malayalam": "ങ്ങ", "iso15919": "ṅṅa" }, { "malayalam": "ക്ഷ", "iso15919": "kṣa" }
+      ]}
+    },
+    {
+      "id": 11,
+      "category": "PRACTICE",
+      "categoryName": "Reading Practice",
+      "title": "Reading Practice",
+      "type": "reading",
+      "completed": false,
+      "section": 5,
+      "content": {
+        "words": [
+          { "word": "ദിനം",  "iso": "dinam",  "meaning": "day"      },
+          { "word": "ദൂരം",  "iso": "dūram",  "meaning": "distance" },
+          { "word": "ദേശം",  "iso": "dēśam",  "meaning": "land"     },
+          { "word": "ഗണം",   "iso": "gaṇam",  "meaning": "group"    }
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "category": "REVIEW",
+      "categoryName": "Module Review",
+      "title": "Module 10 Review",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Review",
+        "chars": [
+          { "malayalam": "ദ",   "iso15919": "da"   }, { "malayalam": "ദാ",  "iso15919": "dā"   },
+          { "malayalam": "ഗ",   "iso15919": "ga"   }, { "malayalam": "ഗാ",  "iso15919": "gā"   },
+          { "malayalam": "ണ്ട", "iso15919": "ṇṭa"  }, { "malayalam": "ങ്ങ", "iso15919": "ṅṅa"  }, { "malayalam": "ക്ഷ", "iso15919": "kṣa" }
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "category": "REVIEW",
+      "categoryName": "Cumulative Review",
+      "title": "Cumulative Review: Modules 1–10",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Cumulative",
+        "chars": [
+          { "malayalam": "അ",   "iso15919": "a"    }, { "malayalam": "ആ",   "iso15919": "ā"   },
+          { "malayalam": "ക",   "iso15919": "ka"   }, { "malayalam": "മ",   "iso15919": "ma"  },
+          { "malayalam": "എ",   "iso15919": "e"    }, { "malayalam": "ഏ",   "iso15919": "ē"   },
+          { "malayalam": "ത",   "iso15919": "ta"   }, { "malayalam": "ട",   "iso15919": "ṭa"  },
+          { "malayalam": "ന",   "iso15919": "na"   }, { "malayalam": "ണ",   "iso15919": "ṇa"  },
+          { "malayalam": "ഒ",   "iso15919": "o"    }, { "malayalam": "ഓ",   "iso15919": "ō"   },
+          { "malayalam": "പ",   "iso15919": "pa"   }, { "malayalam": "വ",   "iso15919": "va"  },
+          { "malayalam": "ഉ",   "iso15919": "u"    }, { "malayalam": "ഊ",   "iso15919": "ū"   },
+          { "malayalam": "ല",   "iso15919": "la"   }, { "malayalam": "ള",   "iso15919": "ḷa"  },
+          { "malayalam": "ഇ",   "iso15919": "i"    }, { "malayalam": "ഈ",   "iso15919": "ī"   },
+          { "malayalam": "ര",   "iso15919": "ra"   }, { "malayalam": "റ",   "iso15919": "ṟa"  },
+          { "malayalam": "യ",   "iso15919": "ya"   }, { "malayalam": "ഴ",   "iso15919": "ḻa"  },
+          { "malayalam": "ങ",   "iso15919": "ṅa"   }, { "malayalam": "ഞ",   "iso15919": "ña"  },
+          { "malayalam": "ശ",   "iso15919": "śa"   }, { "malayalam": "ഷ",   "iso15919": "ṣa"  },
+          { "malayalam": "ദ",   "iso15919": "da"   }, { "malayalam": "ഗ",   "iso15919": "ga"  },
+          { "malayalam": "ണ്ട", "iso15919": "ṇṭa"  }, { "malayalam": "ക്ഷ", "iso15919": "kṣa" }
+        ]
+      }
+    }
+  ]
+}

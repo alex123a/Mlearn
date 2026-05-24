@@ -1,534 +1,254 @@
 {
-  "module": 1,
-  "title": "Vowels a/ā and Consonants ka/ma",
-  "description": "Learn the first two vowels (short 'a' and long 'ā') and the first two consonants (k and m sounds). Discover how consonants carry a hidden 'a' sound.",
-  "vowelsMixedIn": ["a", "aa"],
-  "lessonSequence": [
+  "id": 1,
+  "number": 1,
+  "title": "Vowels അ (a) and ആ (ā) & Consonants ക (ka) and മ (ma)",
+  "description": "First vowels and consonants",
+  "totalLessons": 14,
+  "lessons": [
     {
-      "lessonId": "1.0-vowel-intro",
-      "title": "Vowels: Short 'a' and Long 'ā'",
+      "id": 1,
+      "category": "INTRODUCTION",
+      "categoryName": "Vowels അ (a) / ആ (ā)",
+      "title": "Vowels അ (a) / ആ (ā)",
       "type": "introduction",
+      "completed": false,
+      "section": 1,
       "content": {
-        "intro": "Every Malayalam word begins with a vowel. The first vowel sound is 'a'. Like the 'u' in English 'but'. But Malayalam has two versions: short and long.",
         "characters": [
-          {
-            "malayalam": "അ",
-            "iso15919": "a",
-            "audioPath": "/audio/vowels/a.mp3",
-            "description": "Short 'a' sound. Quick and brief.",
-            "isNew": true
-          },
-          {
-            "malayalam": "ആ",
-            "iso15919": "ā",
-            "audioPath": "/audio/vowels/aa.mp3",
-            "description": "Long 'ā' sound. Same vowel, but held longer. Like 'a' in 'father'.",
-            "isNew": true
-          }
+          { "malayalam": "അ", "iso15919": "a",  "description": "Short 'a'. Like 'u' in 'but'.", "isNew": true },
+          { "malayalam": "ആ", "iso15919": "ā",  "description": "Long 'ā'. Same vowel, held longer.", "isNew": true }
         ],
-        "insight": "Malayalam distinguishes between short and long vowels. 'a' is quick; 'ā' is held longer. This difference changes the meaning of words.",
-        "animation": "Show 'a' with short duration, then 'ā' with extended duration"
+        "insight": "Same vowel — different length. Length changes the meaning of words.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which one sounds longer?",
+          "options": ["അ  (a)", "ആ  (ā)"],
+          "correct": 1
+        }
       }
     },
     {
-      "lessonId": "1.1-vowel-discrimination",
-      "title": "Discrimination: Same or Different?",
-      "type": "lesson",
-      "taskType": "discrimination",
-      "taskCount": 6,
+      "id": 2,
+      "category": "PRACTICE",
+      "categoryName": "Vowels അ (a) / ആ (ā)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
       "content": {
-        "intro": "You will hear two vowel sounds. Are they the same or different?",
-        "tasks": [
-          {
-            "taskId": "disc-1",
-            "sound1": "/audio/vowels/a.mp3",
-            "sound2": "/audio/vowels/a.mp3",
-            "correctAnswer": "same"
-          },
-          {
-            "taskId": "disc-2",
-            "sound1": "/audio/vowels/a.mp3",
-            "sound2": "/audio/vowels/aa.mp3",
-            "correctAnswer": "different"
-          },
-          {
-            "taskId": "disc-3",
-            "sound1": "/audio/vowels/aa.mp3",
-            "sound2": "/audio/vowels/aa.mp3",
-            "correctAnswer": "same"
-          },
-          {
-            "taskId": "disc-4",
-            "sound1": "/audio/vowels/aa.mp3",
-            "sound2": "/audio/vowels/a.mp3",
-            "correctAnswer": "different"
-          },
-          {
-            "taskId": "disc-5",
-            "sound1": "/audio/vowels/a.mp3",
-            "sound2": "/audio/vowels/aa.mp3",
-            "correctAnswer": "different"
-          },
-          {
-            "taskId": "disc-6",
-            "sound1": "/audio/vowels/aa.mp3",
-            "sound2": "/audio/vowels/aa.mp3",
-            "correctAnswer": "same"
-          }
-        ]
+        "scaffold": "Guided",
+        "taskMix": ["Discrimination", "Identification", "Match: sound ↔ romanization", "Match: letter ↔ romanization", "Handwriting (full guide)"]
       }
     },
     {
-      "lessonId": "1.2-vowel-identification",
-      "title": "Identification: Which Letter?",
-      "type": "lesson",
-      "taskType": "identification",
-      "taskCount": 4,
+      "id": 3,
+      "category": "PRACTICE",
+      "categoryName": "Vowels അ (a) / ആ (ā)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
       "content": {
-        "intro": "You will hear a vowel sound. Choose which letter makes that sound.",
-        "tasks": [
-          {
-            "taskId": "ident-1",
-            "sound": "/audio/vowels/a.mp3",
-            "options": [
-              { "text": "അ", "iso": "a", "correct": true },
-              { "text": "ആ", "iso": "ā", "correct": false }
-            ]
-          },
-          {
-            "taskId": "ident-2",
-            "sound": "/audio/vowels/aa.mp3",
-            "options": [
-              { "text": "അ", "iso": "a", "correct": false },
-              { "text": "ആ", "iso": "ā", "correct": true }
-            ]
-          },
-          {
-            "taskId": "ident-3",
-            "sound": "/audio/vowels/a.mp3",
-            "options": [
-              { "text": "അ", "iso": "a", "correct": true },
-              { "text": "ആ", "iso": "ā", "correct": false }
-            ]
-          },
-          {
-            "taskId": "ident-4",
-            "sound": "/audio/vowels/aa.mp3",
-            "options": [
-              { "text": "അ", "iso": "a", "correct": false },
-              { "text": "ആ", "iso": "ā", "correct": true }
-            ]
-          }
-        ]
+        "scaffold": "Reduced guidance",
+        "taskMix": ["Discrimination", "Identification", "Match: letter ↔ romanization", "Handwriting (half guide)"]
       }
     },
     {
-      "lessonId": "1.3-vowel-handwriting",
-      "title": "Write the Vowels",
-      "type": "lesson",
-      "taskType": "handwriting",
-      "taskCount": 4,
-      "guidanceLevel": "full",
+      "id": 4,
+      "category": "PRACTICE",
+      "categoryName": "Vowels അ (a) / ആ (ā)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 2,
       "content": {
-        "intro": "Now write these vowels on the canvas. A faint outline will guide you.",
-        "tasks": [
-          {
-            "taskId": "write-a-full",
-            "character": "അ",
-            "iso15919": "a",
-            "guidanceLevel": 1,
-            "guidanceDescription": "Full ghost letter in background — trace it"
-          },
-          {
-            "taskId": "write-aa-full",
-            "character": "ആ",
-            "iso15919": "ā",
-            "guidanceLevel": 1,
-            "guidanceDescription": "Full ghost letter in background — trace it"
-          },
-          {
-            "taskId": "write-a-half",
-            "character": "അ",
-            "iso15919": "a",
-            "guidanceLevel": 2,
-            "guidanceDescription": "Left half of the letter is shown"
-          },
-          {
-            "taskId": "write-aa-half",
-            "character": "ആ",
-            "iso15919": "ā",
-            "guidanceLevel": 2,
-            "guidanceDescription": "Left half of the letter is shown"
-          }
-        ]
+        "scaffold": "Unguided",
+        "taskMix": ["Discrimination", "Identification", "Match: sound ↔ letter", "Handwriting (no guide)"]
       }
     },
     {
-      "lessonId": "1.4-consonant-intro",
-      "title": "Consonants: 'k' and 'm' Sounds",
+      "id": 5,
+      "category": "INTRODUCTION",
+      "categoryName": "Consonants ക (ka) / മ (ma)",
+      "title": "Consonants ക (ka) / മ (ma)",
       "type": "introduction",
+      "completed": false,
+      "section": 3,
       "content": {
-        "intro": "In Malayalam, every consonant comes with a hidden vowel. Meet the first two consonants: 'k' and 'm'.",
         "characters": [
-          {
-            "malayalam": "ക",
-            "iso15919": "ka",
-            "audioPath": "/audio/consonants/ka.mp3",
-            "description": "The 'k' sound. Back of your tongue touches the soft palate.",
-            "isNew": true
-          },
-          {
-            "malayalam": "മ",
-            "iso15919": "ma",
-            "audioPath": "/audio/consonants/ma.mp3",
-            "description": "The 'm' sound. Lips come together and air flows out the nose.",
-            "isNew": true
-          }
+          { "malayalam": "ക", "iso15919": "ka", "description": "Back of tongue, soft palate.", "isNew": true },
+          { "malayalam": "മ", "iso15919": "ma", "description": "Lips together, nasal air.", "isNew": true }
         ],
-        "insight": "Every consonant in Malayalam carries an 'a' sound inside. ക sounds like 'ka', not just 'k'. മ sounds like 'ma', not just 'm'. This 'a' is always there unless removed (you'll learn how later).",
-        "animation": "Show consonants with inherent 'a' highlighted"
+        "insight": "Every consonant carries a hidden 'a'. ക is not just 'k'; it is 'ka'.",
+        "embeddedTask": {
+          "label": "Quick check",
+          "prompt": "Which letter makes the 'm' sound?",
+          "options": ["ക  (ka)", "മ  (ma)"],
+          "correct": 1
+        }
       }
     },
     {
-      "lessonId": "1.5-consonant-discrimination",
-      "title": "Discrimination: Consonant Sounds",
-      "type": "lesson",
-      "taskType": "discrimination",
-      "taskCount": 6,
+      "id": 6,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ക (ka) / മ (ma)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
       "content": {
-        "intro": "You will hear two consonant sounds. Are they the same or different?",
-        "tasks": [
-          {
-            "taskId": "cons-disc-1",
-            "sound1": "/audio/consonants/ka.mp3",
-            "sound2": "/audio/consonants/ka.mp3",
-            "correctAnswer": "same"
-          },
-          {
-            "taskId": "cons-disc-2",
-            "sound1": "/audio/consonants/ka.mp3",
-            "sound2": "/audio/consonants/ma.mp3",
-            "correctAnswer": "different"
-          },
-          {
-            "taskId": "cons-disc-3",
-            "sound1": "/audio/consonants/ma.mp3",
-            "sound2": "/audio/consonants/ma.mp3",
-            "correctAnswer": "same"
-          },
-          {
-            "taskId": "cons-disc-4",
-            "sound1": "/audio/consonants/ma.mp3",
-            "sound2": "/audio/consonants/ka.mp3",
-            "correctAnswer": "different"
-          },
-          {
-            "taskId": "cons-disc-5",
-            "sound1": "/audio/consonants/ka.mp3",
-            "sound2": "/audio/consonants/ma.mp3",
-            "correctAnswer": "different"
-          },
-          {
-            "taskId": "cons-disc-6",
-            "sound1": "/audio/consonants/ma.mp3",
-            "sound2": "/audio/consonants/ka.mp3",
-            "correctAnswer": "different"
-          }
-        ]
+        "scaffold": "Guided",
+        "taskMix": ["Discrimination", "Identification", "Match: sound ↔ romanization", "Match: letter ↔ romanization", "Handwriting (full guide)"]
       }
     },
     {
-      "lessonId": "1.6-consonant-identification",
-      "title": "Identification: Consonant Letters",
-      "type": "lesson",
-      "taskType": "identification",
-      "taskCount": 4,
+      "id": 7,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ക (ka) / മ (ma)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
       "content": {
-        "intro": "You will hear a consonant sound. Which letter makes it?",
-        "tasks": [
-          {
-            "taskId": "cons-ident-1",
-            "sound": "/audio/consonants/ka.mp3",
-            "options": [
-              { "text": "ക", "iso": "ka", "correct": true },
-              { "text": "മ", "iso": "ma", "correct": false }
-            ]
-          },
-          {
-            "taskId": "cons-ident-2",
-            "sound": "/audio/consonants/ma.mp3",
-            "options": [
-              { "text": "ക", "iso": "ka", "correct": false },
-              { "text": "മ", "iso": "ma", "correct": true }
-            ]
-          },
-          {
-            "taskId": "cons-ident-3",
-            "sound": "/audio/consonants/ka.mp3",
-            "options": [
-              { "text": "ക", "iso": "ka", "correct": true },
-              { "text": "മ", "iso": "ma", "correct": false }
-            ]
-          },
-          {
-            "taskId": "cons-ident-4",
-            "sound": "/audio/consonants/ma.mp3",
-            "options": [
-              { "text": "ക", "iso": "ka", "correct": false },
-              { "text": "മ", "iso": "ma", "correct": true }
-            ]
-          }
-        ]
+        "scaffold": "Reduced guidance",
+        "taskMix": ["Discrimination", "Identification", "Match: letter ↔ romanization", "Handwriting (half guide)"]
       }
     },
     {
-      "lessonId": "1.7-consonant-handwriting",
-      "title": "Write the Consonants",
-      "type": "lesson",
-      "taskType": "handwriting",
-      "taskCount": 4,
-      "guidanceLevel": "full",
+      "id": 8,
+      "category": "PRACTICE",
+      "categoryName": "Consonants ക (ka) / മ (ma)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 4,
       "content": {
-        "intro": "Write the consonants. The outline guides you.",
-        "tasks": [
-          {
-            "taskId": "write-ka-full",
-            "character": "ക",
-            "iso15919": "ka",
-            "guidanceLevel": 1,
-            "guidanceDescription": "Full ghost letter in background — trace it"
-          },
-          {
-            "taskId": "write-ma-full",
-            "character": "മ",
-            "iso15919": "ma",
-            "guidanceLevel": 1,
-            "guidanceDescription": "Full ghost letter in background — trace it"
-          },
-          {
-            "taskId": "write-ka-half",
-            "character": "ക",
-            "iso15919": "ka",
-            "guidanceLevel": 2,
-            "guidanceDescription": "Left half of the letter is shown"
-          },
-          {
-            "taskId": "write-ma-half",
-            "character": "മ",
-            "iso15919": "ma",
-            "guidanceLevel": 2,
-            "guidanceDescription": "Left half of the letter is shown"
-          }
-        ]
+        "scaffold": "Unguided",
+        "taskMix": ["Discrimination", "Identification", "Match: sound ↔ letter", "Handwriting (no guide)"]
       }
     },
     {
-      "lessonId": "1.8-syllable-intro",
-      "title": "Syllables: Consonant + Vowel",
+      "id": 9,
+      "category": "INTRODUCTION",
+      "categoryName": "Syllables ക (ka) / കാ (kā) / മ (ma) / മാ (mā)",
+      "title": "Syllables ക (ka) / കാ (kā) / മ (ma) / മാ (mā)",
       "type": "introduction",
+      "completed": false,
+      "section": 5,
       "content": {
-        "intro": "Now combine consonants with vowels. When you add a vowel to a consonant, something changes: the hidden 'a' gets replaced.",
-        "examples": [
+        "steps": [
           {
-            "step1": "ക (ka — has hidden 'a')",
-            "step2": "+ ാ (the vowel 'ā')",
-            "step3": "= കാ (kā — the hidden 'a' is replaced by 'ā')",
-            "animation": "Show ക, then add ാ on top, show the transformation"
+            "heading": "Two forms of every vowel",
+            "characters": [
+              { "malayalam": "ആ", "iso15919": "ā", "description": "Independent vowel letter. Used only at the start of a word, like ആമ (āma, tortoise)." },
+              { "malayalam": "കാ", "iso15919": "kā", "description": "Vowel sign (ാ) written on a consonant. Used everywhere else inside a word." }
+            ]
           },
           {
-            "step1": "മ (ma — has hidden 'a')",
-            "step2": "+ ാ (the vowel 'ā')",
-            "step3": "= മാ (mā — the hidden 'a' is replaced by 'ā')",
-            "animation": "Show മ, then add ാ on top, show the transformation"
+            "heading": "ക + both vowels",
+            "characters": [
+              { "malayalam": "ക",  "iso15919": "ka", "description": "Inherent 'a', no sign needed." },
+              { "malayalam": "കാ", "iso15919": "kā", "description": "Add ā vowel sign (ാ) to the right." }
+            ]
+          },
+          {
+            "heading": "Now with മ",
+            "characters": [
+              { "malayalam": "മ",  "iso15919": "ma", "description": "Inherent 'a'." },
+              { "malayalam": "മാ", "iso15919": "mā", "description": "Add ā vowel sign to get 'mā'." }
+            ],
+            "embeddedTask": {
+              "label": "Quick check",
+              "prompt": "Which of these is 'mā'?",
+              "options": ["മ", "മാ"],
+              "correct": 1
+            }
+          },
+          {
+            "heading": "Match independent vowels to their signs",
+            "matchingExercise": [
+              { "left": "അ",  "right": "ക",  "desc": "Inherent 'a' sound" },
+              { "left": "ആ",  "right": "കാ", "desc": "Long 'ā' sound" }
+            ]
           }
         ],
-        "insight": "When a vowel diacritic is added to a consonant, it replaces the default 'a' sound. This pattern applies to all Malayalam words.",
-        "visualPattern": "Highlight that ാ is a mark added below or beside the consonant"
+        "insight": "Every vowel has two forms: an independent letter (word-initial) and a vowel sign (written on a consonant). You already know the independent vowels അ and ആ. The ā vowel sign (ാ) is the same sound written as a mark on the right side of a consonant."
       }
     },
     {
-      "lessonId": "1.9-syllable-discrimination",
-      "title": "Discrimination: Consonants vs. Syllables",
-      "type": "lesson",
-      "taskType": "discrimination",
-      "taskCount": 6,
+      "id": 10,
+      "category": "PRACTICE",
+      "categoryName": "Syllables ക (ka) / കാ (kā) / മ (ma) / മാ (mā)",
+      "title": "Practice 1",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
       "content": {
-        "intro": "Hear two sounds. Are they the same or different?",
-        "tasks": [
-          {
-            "taskId": "syll-disc-1",
-            "sound1": "/audio/consonants/ka.mp3",
-            "sound2": "/audio/consonants/ka.mp3",
-            "correctAnswer": "same"
-          },
-          {
-            "taskId": "syll-disc-2",
-            "sound1": "/audio/consonants/ka.mp3",
-            "sound2": "/audio/syllables/kaa.mp3",
-            "correctAnswer": "different",
-            "hint": "One is just 'ka', the other is 'kā' (longer)"
-          },
-          {
-            "taskId": "syll-disc-3",
-            "sound1": "/audio/syllables/kaa.mp3",
-            "sound2": "/audio/syllables/kaa.mp3",
-            "correctAnswer": "same"
-          },
-          {
-            "taskId": "syll-disc-4",
-            "sound1": "/audio/consonants/ma.mp3",
-            "sound2": "/audio/syllables/maa.mp3",
-            "correctAnswer": "different"
-          },
-          {
-            "taskId": "syll-disc-5",
-            "sound1": "/audio/syllables/kaa.mp3",
-            "sound2": "/audio/syllables/maa.mp3",
-            "correctAnswer": "different"
-          },
-          {
-            "taskId": "syll-disc-6",
-            "sound1": "/audio/syllables/maa.mp3",
-            "sound2": "/audio/syllables/maa.mp3",
-            "correctAnswer": "same"
-          }
+        "scaffold": "Guided",
+        "taskMix": ["Discrimination", "Identification", "Match: sound ↔ romanization", "Match: letter ↔ romanization", "Handwriting (full guide)"]
+      }
+    },
+    {
+      "id": 11,
+      "category": "PRACTICE",
+      "categoryName": "Syllables ക (ka) / കാ (kā) / മ (ma) / മാ (mā)",
+      "title": "Practice 2",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Reduced guidance",
+        "taskMix": ["Discrimination", "Identification", "Match: letter ↔ romanization", "Handwriting (half guide)"]
+      }
+    },
+    {
+      "id": 12,
+      "category": "PRACTICE",
+      "categoryName": "Syllables ക (ka) / കാ (kā) / മ (ma) / മാ (mā)",
+      "title": "Practice 3",
+      "type": "practice",
+      "completed": false,
+      "section": 6,
+      "content": {
+        "scaffold": "Unguided",
+        "taskMix": ["Discrimination", "Identification", "Match: sound ↔ letter", "Handwriting (no guide)"]
+      }
+    },
+    {
+      "id": 13,
+      "category": "PRACTICE",
+      "categoryName": "Reading Practice",
+      "title": "Reading Practice",
+      "type": "reading",
+      "completed": false,
+      "section": 7,
+      "content": {
+        "words": [
+          { "malayalam": "കാക",  "iso": "kāka",   "meaning": "crow",      "unknown": null },
+          { "malayalam": "അമ്മ", "iso": "amma",   "meaning": "mother",    "unknown": "്‌: chandrakkala joins double consonants (coming soon)" },
+          { "malayalam": "മകൻ",  "iso": "makan",  "meaning": "son",       "unknown": "ൻ: n-chillu (Module 3)" },
+          { "malayalam": "മകൾ",  "iso": "makaḷ",  "meaning": "daughter",  "unknown": "ൾ: ḷ-chillu (Module 5)" }
         ]
       }
     },
     {
-      "lessonId": "1.10-syllable-identification",
-      "title": "Identification: Syllables",
-      "type": "lesson",
-      "taskType": "identification",
-      "taskCount": 4,
+      "id": 14,
+      "category": "REVIEW",
+      "categoryName": "Module Review",
+      "title": "Module 1 Review",
+      "type": "practice",
+      "completed": false,
+      "section": 8,
       "content": {
-        "intro": "You will hear a syllable. Which letter shows it?",
-        "tasks": [
-          {
-            "taskId": "syll-ident-1",
-            "sound": "/audio/syllables/kaa.mp3",
-            "options": [
-              { "text": "കാ", "iso": "kā", "correct": true },
-              { "text": "മാ", "iso": "mā", "correct": false }
-            ]
-          },
-          {
-            "taskId": "syll-ident-2",
-            "sound": "/audio/syllables/maa.mp3",
-            "options": [
-              { "text": "കാ", "iso": "kā", "correct": false },
-              { "text": "മാ", "iso": "mā", "correct": true }
-            ]
-          },
-          {
-            "taskId": "syll-ident-3",
-            "sound": "/audio/syllables/kaa.mp3",
-            "options": [
-              { "text": "കാ", "iso": "kā", "correct": true },
-              { "text": "മാ", "iso": "mā", "correct": false }
-            ]
-          },
-          {
-            "taskId": "syll-ident-4",
-            "sound": "/audio/syllables/maa.mp3",
-            "options": [
-              { "text": "കാ", "iso": "kā", "correct": false },
-              { "text": "മാ", "iso": "mā", "correct": true }
-            ]
-          }
+        "scaffold": "Review",
+        "chars": [
+          { "malayalam": "അ",  "iso15919": "a"  },
+          { "malayalam": "ആ",  "iso15919": "ā"  },
+          { "malayalam": "ക",  "iso15919": "ka" },
+          { "malayalam": "മ",  "iso15919": "ma" },
+          { "malayalam": "കാ", "iso15919": "kā" },
+          { "malayalam": "മാ", "iso15919": "mā" }
         ]
-      }
-    },
-    {
-      "lessonId": "1.11-syllable-transliteration",
-      "title": "Transliteration: Malayalam to Roman",
-      "type": "lesson",
-      "taskType": "transliteration",
-      "taskCount": 4,
-      "content": {
-        "intro": "You will see a Malayalam syllable. Write its transliteration using buttons for vowels and consonants.",
-        "tasks": [
-          {
-            "taskId": "trans-1",
-            "character": "കാ",
-            "correctIso": "kā",
-            "inputMethod": "diacriticButtons"
-          },
-          {
-            "taskId": "trans-2",
-            "character": "മാ",
-            "correctIso": "mā",
-            "inputMethod": "diacriticButtons"
-          },
-          {
-            "taskId": "trans-3",
-            "character": "കാ",
-            "correctIso": "kā",
-            "inputMethod": "diacriticButtons"
-          },
-          {
-            "taskId": "trans-4",
-            "character": "മാ",
-            "correctIso": "mā",
-            "inputMethod": "diacriticButtons"
-          }
-        ]
-      }
-    },
-    {
-      "lessonId": "1.12-syllable-handwriting",
-      "title": "Write the Syllables",
-      "type": "lesson",
-      "taskType": "handwriting",
-      "taskCount": 4,
-      "guidanceLevel": "reduced",
-      "content": {
-        "intro": "Write these syllables. Less guidance now.",
-        "tasks": [
-          {
-            "taskId": "write-kaa-half",
-            "character": "കാ",
-            "iso15919": "kā",
-            "guidanceLevel": 2,
-            "guidanceDescription": "Left half shown"
-          },
-          {
-            "taskId": "write-maa-half",
-            "character": "മാ",
-            "iso15919": "mā",
-            "guidanceLevel": 2,
-            "guidanceDescription": "Left half shown"
-          },
-          {
-            "taskId": "write-kaa-dots",
-            "character": "കാ",
-            "iso15919": "kā",
-            "guidanceLevel": 3,
-            "guidanceDescription": "Dot guides only — key corners and curves"
-          },
-          {
-            "taskId": "write-maa-dots",
-            "character": "മാ",
-            "iso15919": "mā",
-            "guidanceLevel": 3,
-            "guidanceDescription": "Dot guides only — key corners and curves"
-          }
-        ]
-      }
-    },
-    {
-      "lessonId": "1.13-module-review",
-      "title": "Module 1 Review: Mixed Practice",
-      "type": "review",
-      "content": {
-        "intro": "You've learned 2 vowels and 2 consonants. Now mix them all together!",
-        "taskMix": [
-          { "taskType": "discrimination", "count": 3, "itemPool": ["a", "aa", "ka", "ma"] },
-          { "taskType": "identification", "count": 3, "itemPool": ["a", "aa", "ka", "ma"] },
-          { "taskType": "transliteration", "count": 2, "itemPool": ["കാ", "മാ"] },
-          { "taskType": "handwriting", "count": 2, "guidanceLevel": 3, "itemPool": ["കാ", "മാ"] }
-        ],
-        "totalTasks": 10
       }
     }
   ]
