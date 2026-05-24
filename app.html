@@ -2064,6 +2064,15 @@
             letter-spacing: 0.5px; margin-bottom: 8px;
         }
         .content-taskmix-area { font-family: 'Courier New', monospace; font-size: 12px; }
+        .content-flag-label {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: 12px; color: #2D2417; cursor: pointer;
+        }
+        .content-flag-label input[type="checkbox"] { width: 14px; height: 14px; cursor: pointer; }
+        .content-task-preview-row td { padding: 6px 10px; }
+        .content-task-type-chip {
+            font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 8px; white-space: nowrap;
+        }
     </style>
 </head>
 <body>
@@ -5165,19 +5174,31 @@
                 html += embeddedTaskBlockHTML(c.embeddedTask, modId, les.id, 'contentEditRootTask', -1);
             }
 
-            // Practice: scaffold dropdown
+            // Practice: scaffold dropdown + behaviour flags
             if (c.scaffold !== undefined) {
-                const opts = ['Guided','Reduced guidance','Unguided','Review'];
+                const opts = ['Guided','Reduced guidance','Unguided','Cumulative','Review'];
                 html += `<div class="content-field-label">Scaffold level</div>
                     <select class="content-field-input" style="width:auto"
                         onchange="contentEditContentField(${modId},${les.id},'scaffold',this.value)">
                         ${opts.map(s => `<option${s === c.scaffold ? ' selected' : ''}>${he(s)}</option>`).join('')}
-                    </select>`;
+                    </select>
+                    <div style="display:flex;gap:20px;margin-top:10px;flex-wrap:wrap">
+                        <label class="content-flag-label">
+                            <input type="checkbox" ${c.skipDiscrimination ? 'checked' : ''}
+                                onchange="contentEditContentField(${modId},${les.id},'skipDiscrimination',this.checked)" />
+                            Skip discrimination tasks
+                        </label>
+                        <label class="content-flag-label">
+                            <input type="checkbox" ${c.chandrakkalaReview ? 'checked' : ''}
+                                onchange="contentEditContentField(${modId},${les.id},'chandrakkalaReview',this.checked)" />
+                            Chandrakkala review mode
+                        </label>
+                    </div>`;
             }
 
-            // Practice: task mix
+            // Practice: task mix description (metadata only)
             if (c.taskMix) {
-                html += `<div class="content-field-label">Task mix <span style="font-weight:400;text-transform:none;letter-spacing:0">(one per line)</span></div>
+                html += `<div class="content-field-label">Task mix description <span style="font-weight:400;text-transform:none;letter-spacing:0">(human-readable — one per line)</span></div>
                     <textarea class="content-field-input content-taskmix-area"
                         onchange="contentEditTaskMix(${modId},${les.id},this.value)">${he((c.taskMix||[]).join('\n'))}</textarea>`;
             }
@@ -5194,6 +5215,14 @@
                     </tr>`;
                 });
                 html += '</tbody></table>';
+            }
+
+            // Practice: live generated-task preview
+            if (c.scaffold !== undefined || c.chars) {
+                html += `<div class="content-field-label" style="margin-top:16px">Generated tasks
+                    <span style="font-weight:400;text-transform:none;letter-spacing:0">(live sample — order randomised per session)</span>
+                </div>`;
+                html += renderTaskPreviewHTML(les);
             }
 
             // Reading: words table
@@ -5215,6 +5244,61 @@
             }
 
             if (!html) html = '<p style="color:#C8B89A;font-size:12px;margin:0">No editable content fields for this lesson.</p>';
+            return html;
+        }
+
+        // Live task preview for practice/review/reading lessons
+        function renderTaskPreviewHTML(les) {
+            let tasks;
+            try { tasks = generateTasks(les); } catch(e) {
+                return `<p style="color:#C0392B;font-size:12px;margin:4px 0">Could not generate tasks: ${he(e.message)}</p>`;
+            }
+            if (!tasks || !tasks.length) return '<p style="color:#C8B89A;font-size:12px;margin:4px 0">No tasks generated.</p>';
+
+            const COL = {
+                discrimination:'#E8720C', identification:'#0891b2',
+                matching:'#0F6E56', transliteration:'#7A4E8A',
+                handwriting:'#C8922A', overview:'#7A6A55'
+            };
+            const ML = "font-family:'Noto Sans Malayalam',sans-serif";
+
+            let html = `<table class="content-chars-table"><thead><tr>
+                <th style="width:28px">#</th><th>Type</th><th>Detail</th>
+            </tr></thead><tbody>`;
+
+            tasks.forEach((t, i) => {
+                let detail = '';
+                switch (t.type) {
+                    case 'discrimination':
+                        detail = `<span style="${ML}">${he(t.c1.malayalam)}</span> vs <span style="${ML}">${he(t.c2.malayalam)}</span> → <strong>${t.answer}</strong>`;
+                        break;
+                    case 'identification':
+                        detail = `${he(t.variant)} · target <span style="${ML}">${he(t.char.malayalam)}</span> (${he(t.char.iso15919)}) · ${(t.options||[]).length} options`;
+                        break;
+                    case 'matching':
+                        detail = `${he(t.variant)} · ${t.chars.length} pairs: <span style="${ML}">${t.chars.map(c=>he(c.malayalam)).join(' ')}</span>`;
+                        break;
+                    case 'transliteration':
+                        detail = `type ISO for <span style="${ML}">${he(t.char.malayalam)}</span> · keyboard: ${(t.keyboard||[]).join(' ')}`;
+                        break;
+                    case 'handwriting':
+                        detail = `${he(t.variant)}${t.side ? ' ('+he(t.side)+' side)' : ''} · <span style="${ML};font-size:20px">${he(t.char.malayalam)}</span> (${he(t.char.iso15919)})`;
+                        break;
+                    case 'overview':
+                        detail = `${(t.chars||[]).length} characters overview card`;
+                        break;
+                    default:
+                        detail = he(t.type);
+                }
+                const col = COL[t.type] || '#7A6A55';
+                html += `<tr class="content-task-preview-row">
+                    <td style="font-size:11px;color:#C8B89A">${i+1}</td>
+                    <td><span class="content-task-type-chip" style="color:${col};background:${col}18">${he(t.type)}</span></td>
+                    <td style="font-size:12px;color:#2D2417">${detail}</td>
+                </tr>`;
+            });
+
+            html += '</tbody></table>';
             return html;
         }
 
