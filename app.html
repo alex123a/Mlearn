@@ -2187,6 +2187,7 @@
         .task-mock-match-col { display: flex; flex-direction: column; gap: 6px; }
         .task-mock-match-card { background: #F5F0E8; border: 1.5px solid #E8D5A3; border-radius: 8px; padding: 8px 12px; text-align: center; min-width: 60px; font-size: 15px; }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 </head>
 <body>
     <!-- Stats Bar -->
@@ -2305,10 +2306,12 @@
               <div class="settings-subnav">
                 <button class="settings-subnav-btn active" data-stab="audio" onclick="switchSettingsTab('audio')">Audio</button>
                 <button class="settings-subnav-btn" data-stab="content" onclick="switchSettingsTab('content')">Content</button>
+                <button class="settings-subnav-btn" data-stab="admin" onclick="switchSettingsTab('admin')">Admin</button>
               </div>
 
               <div id="stab-audio" class="settings-panel active"></div>
               <div id="stab-content" class="settings-panel"></div>
+              <div id="stab-admin" class="settings-panel"></div>
             </div>
         </div>
 
@@ -2360,6 +2363,14 @@
         // validateNoTamil() is called from init() and will log errors if Tamil chars are found.
 
         let modulesData = [];
+
+        // ── Supabase client ───────────────────────────────────────────────────
+        const _SB = (() => {
+            try { return supabase.createClient(
+                'https://qzwkhxsqapkoytfcheju.supabase.co',
+                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF6d2toeHNxYXBrb3l0ZmNoZWp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2MzQyOTQsImV4cCI6MjA5NTIxMDI5NH0.l7XcqUOQTWJGjdt8pCFiot9jUfdGWiNVDLNzeLekEr0'
+            ); } catch(e) { return null; }
+        })();
 
         function buildPlaceholderLessons(moduleNum, count) {
             const cats = [
@@ -4927,7 +4938,11 @@
             modulesData = results;
             loadFixedTasksFromStorage();
         }
-        loadModules().then(() => init());
+        loadModules().then(async () => {
+            loadFixedTasksFromStorage();       // localStorage — offline fallback
+            await loadFixedTasksFromSupabase(); // Supabase — takes priority
+            init();
+        });
 
         // ── SETTINGS ─────────────────────────────────────────────────
 
@@ -4937,6 +4952,7 @@
             document.getElementById('stab-' + tab).classList.add('active');
             if (tab === 'audio')   renderAudioManager();
             if (tab === 'content') renderContentManager();
+            if (tab === 'admin')   renderAdminPanel();
         }
 
         // ── Audio manager character data ──────────────────────────────
@@ -6066,6 +6082,7 @@
 
         // ── localStorage persistence ──────────────────────────────────────────
         function saveFixedTasksToStorage(modId, lesId, tasks) {
+            // Always save to localStorage as offline fallback
             try {
                 if (tasks && tasks.length > 0) {
                     localStorage.setItem('ftasks_' + modId + '_' + lesId, JSON.stringify(tasks));
@@ -6073,6 +6090,8 @@
                     localStorage.removeItem('ftasks_' + modId + '_' + lesId);
                 }
             } catch(e) {}
+            // Save to Supabase if admin is logged in (fire-and-forget)
+            sbSaveOverride(modId, lesId, tasks);
         }
 
         function loadFixedTasksFromStorage() {
@@ -6096,6 +6115,155 @@
                     }
                 } catch(e) {}
             }
+        }
+
+        // ═══════════════════════════════════════════════════════════════════
+        // SUPABASE — load / save lesson overrides
+        // ═══════════════════════════════════════════════════════════════════
+
+        async function loadFixedTasksFromSupabase() {
+            if (!_SB) return;
+            try {
+                const { data, error } = await _SB
+                    .from('lesson_overrides')
+                    .select('module_id, lesson_id, tasks');
+                if (error || !data) return;
+                data.forEach(({ module_id, lesson_id, tasks }) => {
+                    if (!Array.isArray(tasks) || !tasks.length) return;
+                    const mod = modulesData.find(m => m.id === module_id);
+                    const les = mod && mod.lessons.find(l => l.id === lesson_id);
+                    if (les) {
+                        les.content = les.content || {};
+                        les.content.tasks = tasks;
+                        // Mirror to localStorage so offline still works
+                        try { localStorage.setItem('ftasks_' + module_id + '_' + lesson_id, JSON.stringify(tasks)); } catch(e) {}
+                    }
+                });
+            } catch(e) {}
+        }
+
+        async function sbSaveOverride(modId, lesId, tasks) {
+            if (!_SB) return;
+            const { data: { user } } = await _SB.auth.getUser();
+            if (!user) return; // Not logged in — localStorage only
+            try {
+                await _SB.from('lesson_overrides').upsert({
+                    module_id:  modId,
+                    lesson_id:  lesId,
+                    tasks:      tasks || [],
+                    updated_at: new Date().toISOString(),
+                    updated_by: user.id
+                }, { onConflict: 'module_id,lesson_id' });
+            } catch(e) {}
+        }
+
+        // ═══════════════════════════════════════════════════════════════════
+        // ADMIN PANEL — login / logout / status
+        // ═══════════════════════════════════════════════════════════════════
+
+        async function renderAdminPanel() {
+            const el = document.getElementById('stab-admin');
+            if (!el) return;
+            if (!_SB) {
+                el.innerHTML = '<p style="color:#C0392B;padding:16px">Supabase not available.</p>';
+                return;
+            }
+            const { data: { user } } = await _SB.auth.getUser();
+            if (user) {
+                renderAdminLoggedIn(el, user);
+            } else {
+                renderAdminLogin(el);
+            }
+        }
+
+        function renderAdminLogin(el) {
+            el.innerHTML = `
+                <div style="max-width:380px">
+                    <p style="font-size:13px;color:#7A6A55;margin-bottom:20px;line-height:1.5">
+                        Sign in to save task edits to the cloud so all learners see them.</p>
+                    <div class="content-field-label">Email</div>
+                    <input id="sbEmail" type="email" class="content-field-input" placeholder="admin@example.com"
+                        style="margin-bottom:10px" />
+                    <div class="content-field-label">Password</div>
+                    <input id="sbPassword" type="password" class="content-field-input" placeholder="••••••••"
+                        style="margin-bottom:16px"
+                        onkeydown="if(event.key==='Enter')adminSignIn()" />
+                    <button class="btn-primary" onclick="adminSignIn()" style="width:100%">Sign in</button>
+                    <p id="sbLoginError" style="color:#C0392B;font-size:12px;margin-top:8px;display:none"></p>
+                </div>`;
+        }
+
+        function renderAdminLoggedIn(el, user) {
+            el.innerHTML = `
+                <div style="max-width:380px">
+                    <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border:1.5px solid #E8D5A3;border-radius:12px;margin-bottom:20px">
+                        <div style="width:36px;height:36px;border-radius:50%;background:#E8720C;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px">${(user.email||'A')[0].toUpperCase()}</div>
+                        <div style="flex:1;min-width:0">
+                            <div style="font-size:13px;font-weight:600;color:#2D2417;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${user.email}</div>
+                            <div style="font-size:11px;color:#1A7A6E;margin-top:1px">● Signed in — edits sync to cloud</div>
+                        </div>
+                        <button class="btn-secondary" onclick="adminSignOut()" style="font-size:12px;padding:6px 12px">Sign out</button>
+                    </div>
+                    <button class="btn-primary" onclick="adminSyncAll(this)" style="width:100%;margin-bottom:10px">
+                        ↑ Push all local overrides to cloud
+                    </button>
+                    <button class="btn-secondary" onclick="adminPullAll(this)" style="width:100%">
+                        ↓ Pull latest overrides from cloud
+                    </button>
+                    <p id="sbSyncStatus" style="font-size:12px;color:#7A6A55;margin-top:10px;text-align:center"></p>
+                </div>`;
+        }
+
+        async function adminSignIn() {
+            const email = (document.getElementById('sbEmail')?.value || '').trim();
+            const password = document.getElementById('sbPassword')?.value || '';
+            const errEl = document.getElementById('sbLoginError');
+            if (!email || !password) { if (errEl) { errEl.textContent='Enter email and password.'; errEl.style.display='block'; } return; }
+            const { error } = await _SB.auth.signInWithPassword({ email, password });
+            if (error) {
+                if (errEl) { errEl.textContent = error.message; errEl.style.display = 'block'; }
+                return;
+            }
+            renderAdminPanel();
+            showToast('Signed in ✓');
+        }
+
+        async function adminSignOut() {
+            await _SB.auth.signOut();
+            renderAdminPanel();
+            showToast('Signed out');
+        }
+
+        async function adminSyncAll(btn) {
+            const orig = btn.textContent;
+            btn.textContent = 'Syncing…'; btn.disabled = true;
+            let count = 0;
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (!key || !key.startsWith('ftasks_')) continue;
+                const parts = key.split('_');
+                const modId = parseInt(parts[1]), lesId = parseInt(parts[2]);
+                if (isNaN(modId) || isNaN(lesId)) continue;
+                try {
+                    const tasks = JSON.parse(localStorage.getItem(key));
+                    if (Array.isArray(tasks) && tasks.length) {
+                        await sbSaveOverride(modId, lesId, tasks);
+                        count++;
+                    }
+                } catch(e) {}
+            }
+            btn.textContent = orig; btn.disabled = false;
+            const st = document.getElementById('sbSyncStatus');
+            if (st) st.textContent = count + ' lesson override' + (count !== 1 ? 's' : '') + ' pushed to cloud ✓';
+        }
+
+        async function adminPullAll(btn) {
+            const orig = btn.textContent;
+            btn.textContent = 'Pulling…'; btn.disabled = true;
+            await loadFixedTasksFromSupabase();
+            btn.textContent = orig; btn.disabled = false;
+            const st = document.getElementById('sbSyncStatus');
+            if (st) st.textContent = 'Pulled latest overrides from cloud ✓';
         }
     </script>
 
