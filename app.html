@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Malayalam:wght@400;500;600;700&family=Literata:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
     <title>Learn Malayalam Script</title>
     <style>
         /* ── Brand Tokens ── */
@@ -364,6 +366,14 @@
             background: #E8720C;
             border-radius: 3px;
             transition: width 0.3s ease;
+        }
+
+        /* Start / Resume / Review Module button inside card */
+        .module-card .btn-primary {
+            margin-top: 16px;
+            width: 100%;
+            display: block;
+            text-align: center;
         }
 
         /* Lessons Grid */
@@ -1660,8 +1670,13 @@
             background: #E8720C;
             border-radius: 0 0 4px 4px;
         }
-        .bottom-tab-icon { font-size: 20px; line-height: 1; }
+        .bottom-tab-icon { font-size: 22px; line-height: 1; display: flex; align-items: center; justify-content: center; }
         .bottom-tab-label { font-size: 10px; font-weight: 700; letter-spacing: 0.3px; }
+
+        /* Phosphor dual-weight icons: show regular by default, fill when active */
+        .tab-icon-fill { display: none; }
+        .bottom-tab.active .tab-icon-regular { display: none; }
+        .bottom-tab.active .tab-icon-fill { display: inline; }
 
         /* ── MOBILE MEDIA QUERY ───────────────────────────────── */
         body.nav-hidden .tab-nav,
@@ -4502,15 +4517,24 @@
     <div class="bottom-nav" id="bottomNav">
         <div class="bottom-nav-inner">
             <button class="bottom-tab active" data-tab="learn" onclick="switchTab('learn')">
-                <span class="bottom-tab-icon">🏠</span>
+                <span class="bottom-tab-icon">
+                    <i class="ph ph-book-open tab-icon-regular"></i>
+                    <i class="ph-fill ph-book-open-fill tab-icon-fill"></i>
+                </span>
                 <span class="bottom-tab-label">Learn</span>
             </button>
             <button class="bottom-tab" data-tab="revise" onclick="switchTab('revise')">
-                <span class="bottom-tab-icon">🔁</span>
+                <span class="bottom-tab-icon">
+                    <i class="ph ph-arrows-clockwise tab-icon-regular"></i>
+                    <i class="ph-fill ph-arrows-clockwise tab-icon-fill"></i>
+                </span>
                 <span class="bottom-tab-label">Revise</span>
             </button>
             <button class="bottom-tab" data-tab="progress" onclick="switchTab('progress')">
-                <span class="bottom-tab-icon">📊</span>
+                <span class="bottom-tab-icon">
+                    <i class="ph ph-chart-bar tab-icon-regular"></i>
+                    <i class="ph-fill ph-chart-bar-fill tab-icon-fill"></i>
+                </span>
                 <span class="bottom-tab-label">Progress</span>
             </button>
         </div>
