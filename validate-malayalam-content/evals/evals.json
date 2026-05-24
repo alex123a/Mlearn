@@ -3,21 +3,27 @@
   "evals": [
     {
       "id": 1,
-      "name": "validate-actual-lesson-file",
-      "prompt": "Check my data/module1-lessons.json to make sure all the Malayalam content is pure Malayalam script with no accidental Tamil, Arabic, or other scripts mixed in.",
-      "expected_output": "Report showing validation results - either confirming no issues or listing any non-Malayalam characters found with location and context"
+      "name": "validate-all-modules",
+      "prompt": "Check all my lesson files across every module to make sure all the Malayalam content is pure Malayalam script with no accidental Tamil, Arabic, or other scripts mixed in.",
+      "expected_output": "Report showing validation results for all 13 modules — either confirming no issues or listing any non-Malayalam characters found with file name, field, and context"
     },
     {
       "id": 2,
-      "name": "validate-specific-lesson",
-      "prompt": "I just edited lesson 1.0 about vowels. Can you verify that only Malayalam script is used in the character descriptions?",
-      "expected_output": "Focused validation on lesson 1.0, confirming Malayalam purity or reporting issues"
+      "name": "validate-specific-module",
+      "prompt": "I just edited module 7. Can you check data/module7-lessons.json and verify that only Malayalam script is used in the content fields?",
+      "expected_output": "Focused validation on module7-lessons.json, confirming Malayalam purity or reporting issues with field-level detail"
     },
     {
       "id": 3,
       "name": "check-character-fields",
-      "prompt": "Validate that the 'malayalam' character fields in my lessons only contain Malayalam Unicode, nothing else.",
-      "expected_output": "Targeted check of Malayalam character fields, confirming no non-Malayalam script"
+      "prompt": "Validate that the 'malayalam' character fields across all my lesson modules only contain Malayalam Unicode, nothing else.",
+      "expected_output": "Targeted check of malayalam fields across all 13 modules, confirming no non-Malayalam script is present"
+    },
+    {
+      "id": 4,
+      "name": "spot-check-script",
+      "prompt": "Is there any Tamil or Arabic accidentally mixed into my lesson files?",
+      "expected_output": "Full scan of all data/module*-lessons.json files reporting either clean results or specific Tamil/Arabic characters found with location and context"
     }
   ]
 }
