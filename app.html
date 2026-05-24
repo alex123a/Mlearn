@@ -3057,10 +3057,14 @@
 
         function speakMalayalam(text, rate) {
             if (!('speechSynthesis' in window)) return;
+            // Stop any current speech without a timeout — calling cancel()
+            // then speak() in the same tick works on all browsers as long as
+            // we are directly inside a user gesture call stack (not a Promise).
             speechSynthesis.cancel();
             const u = new SpeechSynthesisUtterance(text);
             u.lang = 'ml-IN';
             u.rate = rate || 0.8;
+            u.onerror = () => {}; // silence console noise on unsupported voices
             speechSynthesis.speak(u);
         }
 
@@ -4540,14 +4544,15 @@
             // 1. Admin-set custom path
             const custom = localStorage.getItem('audio_' + iso);
             if (custom) { new Audio(custom).play().catch(() => {}); return; }
-            // 2. Local audio file (if present)
-            const localFile = '/audio/' + (audioFileMap[iso] || iso) + '.mp3';
-            const local = new Audio(localFile);
-            local.play().catch(() => {
-                // 3. Web Speech API — built-in, no API key, works offline
-                const text = isoToMalayalam[iso] || iso;
-                speakMalayalam(text, 0.85);
-            });
+            // 2. Web Speech API — called DIRECTLY here, not inside a Promise
+            //    callback, so iOS Safari and Android treat it as a user gesture.
+            //    (Calling speak() from inside .catch() breaks iOS user-gesture
+            //    detection and causes silent failure.)
+            const text = isoToMalayalam[iso] || iso;
+            speakMalayalam(text, 0.85);
+            // 3. If local MP3 files are ever added, they will be tried
+            //    asynchronously; if they succeed they play alongside (or
+            //    override) the speech — add local file support here later.
         }
 
         // ─────────────────────────────────────────────────────────
