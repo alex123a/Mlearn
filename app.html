@@ -5166,9 +5166,25 @@
 
         // ── Content Manager render ────────────────────────────────────
 
-        function renderContentManager() {
+        async function renderContentManager() {
             const el = document.getElementById('stab-content');
-            el.innerHTML = ''; // always re-render (data may have changed)
+            el.innerHTML = '';
+
+            if (!_SB) {
+                el.innerHTML = '<p style="color:#C0392B;padding:24px;text-align:center">Supabase not available.</p>';
+                return;
+            }
+            const { data: { user } } = await _SB.auth.getUser();
+            if (!user) {
+                el.innerHTML = `
+                    <div style="padding:32px 0;text-align:center">
+                        <p style="font-size:14px;color:#7A6A55;margin-bottom:20px;line-height:1.5">
+                            Sign in as admin to view and edit lesson content.</p>
+                        <button class="btn-primary" onclick="switchSettingsTab('admin')" style="padding:10px 24px">
+                            Go to Admin sign-in</button>
+                    </div>`;
+                return;
+            }
 
             if (!modulesData || !modulesData.length) {
                 el.innerHTML = '<p style="color:#C8B89A;padding:24px;text-align:center">Modules not loaded yet.</p>';
@@ -6080,17 +6096,8 @@
             }).join('');
         }
 
-        // ── localStorage persistence ──────────────────────────────────────────
+        // ── Admin save — Supabase only (admin must be signed in) ─────────────
         function saveFixedTasksToStorage(modId, lesId, tasks) {
-            // Always save to localStorage as offline fallback
-            try {
-                if (tasks && tasks.length > 0) {
-                    localStorage.setItem('ftasks_' + modId + '_' + lesId, JSON.stringify(tasks));
-                } else {
-                    localStorage.removeItem('ftasks_' + modId + '_' + lesId);
-                }
-            } catch(e) {}
-            // Save to Supabase if admin is logged in (fire-and-forget)
             sbSaveOverride(modId, lesId, tasks);
         }
 
@@ -6196,7 +6203,7 @@
         function renderAdminLoggedIn(el, user) {
             el.innerHTML = `
                 <div style="max-width:380px">
-                    <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border:1.5px solid #E8D5A3;border-radius:12px;margin-bottom:20px">
+                    <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:white;border:1.5px solid #E8D5A3;border-radius:12px">
                         <div style="width:36px;height:36px;border-radius:50%;background:#E8720C;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:16px">${(user.email||'A')[0].toUpperCase()}</div>
                         <div style="flex:1;min-width:0">
                             <div style="font-size:13px;font-weight:600;color:#2D2417;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${user.email}</div>
@@ -6204,13 +6211,6 @@
                         </div>
                         <button class="btn-secondary" onclick="adminSignOut()" style="font-size:12px;padding:6px 12px">Sign out</button>
                     </div>
-                    <button class="btn-primary" onclick="adminSyncAll(this)" style="width:100%;margin-bottom:10px">
-                        ↑ Push all local overrides to cloud
-                    </button>
-                    <button class="btn-secondary" onclick="adminPullAll(this)" style="width:100%">
-                        ↓ Pull latest overrides from cloud
-                    </button>
-                    <p id="sbSyncStatus" style="font-size:12px;color:#7A6A55;margin-top:10px;text-align:center"></p>
                 </div>`;
         }
 
@@ -6225,45 +6225,15 @@
                 return;
             }
             renderAdminPanel();
+            renderContentManager();
             showToast('Signed in ✓');
         }
 
         async function adminSignOut() {
             await _SB.auth.signOut();
             renderAdminPanel();
+            renderContentManager();
             showToast('Signed out');
-        }
-
-        async function adminSyncAll(btn) {
-            const orig = btn.textContent;
-            btn.textContent = 'Syncing…'; btn.disabled = true;
-            let count = 0;
-            for (let i = 0; i < localStorage.length; i++) {
-                const key = localStorage.key(i);
-                if (!key || !key.startsWith('ftasks_')) continue;
-                const parts = key.split('_');
-                const modId = parseInt(parts[1]), lesId = parseInt(parts[2]);
-                if (isNaN(modId) || isNaN(lesId)) continue;
-                try {
-                    const tasks = JSON.parse(localStorage.getItem(key));
-                    if (Array.isArray(tasks) && tasks.length) {
-                        await sbSaveOverride(modId, lesId, tasks);
-                        count++;
-                    }
-                } catch(e) {}
-            }
-            btn.textContent = orig; btn.disabled = false;
-            const st = document.getElementById('sbSyncStatus');
-            if (st) st.textContent = count + ' lesson override' + (count !== 1 ? 's' : '') + ' pushed to cloud ✓';
-        }
-
-        async function adminPullAll(btn) {
-            const orig = btn.textContent;
-            btn.textContent = 'Pulling…'; btn.disabled = true;
-            await loadFixedTasksFromSupabase();
-            btn.textContent = orig; btn.disabled = false;
-            const st = document.getElementById('sbSyncStatus');
-            if (st) st.textContent = 'Pulled latest overrides from cloud ✓';
         }
     </script>
 
